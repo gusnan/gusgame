@@ -123,6 +123,8 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen)
 	if (!display) {
 		throw ExceptionLib::Exception("Couldn't init display!");
 	}
+	
+	al_set_window_position(display, 32, 32);
 }
 
 
