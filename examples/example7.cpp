@@ -140,6 +140,8 @@ int main(int argc,char **argv)
 		GraphicsHandler::clearScreen();
 		
 		Primitives::line(Vector2d(100,100), Vector2d(200,250), Color(1.0f,1.0f,0.0f), 3.0f);
+		
+		Primitives::rect(Rect(120,120,200,150), Color(1.0f,0.0f,0.0f),1.0f);
 					
 		// Update the screen
 		GraphicsHandler::updateScreen();

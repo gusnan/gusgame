@@ -21,6 +21,7 @@
 #include "Library.h"
 
 #include "Vector2d.h"
+#include "Rect.h"
 #include "Color.h"
 
 #include "Primitives.h"
@@ -64,6 +65,35 @@ void Primitives::line(const Vector2d &sourcePoint, const Vector2d &targetPoint, 
 {
 	al_draw_line(sourcePoint.x, sourcePoint.y, targetPoint.x, targetPoint.y, color.getAllegroColor(), thickness);
 }
+
+
+/**
+ *
+ */
+void Primitives::rect(const Rect &rect, const Color &color, float thickness)
+{
+	al_draw_rectangle(rect.position.x, 
+							rect.position.y, 
+							rect.position.x+rect.size.x, 
+							rect.position.y+rect.size.y, 
+							color.getAllegroColor(), 
+							thickness);
+}
+
+
+/**
+ *
+ */
+void Primitives::rectFill(const Rect &rect, const Color &color)
+{
+	al_draw_filled_rectangle(rect.position.x, 
+									 rect.position.y, 
+									 rect.position.x+rect.size.x, 
+									 rect.position.y+rect.size.y, 
+									 color.getAllegroColor());
+
+}
+
 
 // end of namespace
 // ----------------

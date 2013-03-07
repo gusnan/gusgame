@@ -41,6 +41,9 @@ namespace Primitives
 	void donePrimitives();
 	
 	void line(const Vector2d &sourcePoint, const Vector2d &targetPoint, const Color &color, float thickness=1.0f);
+	
+	void rect(const Rect &rect, const Color &color, float thickness=1.0f);
+	void rectFill(const Rect &rect, const Color &color);
 
 };
 
