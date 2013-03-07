@@ -3,12 +3,13 @@
 -- 
 hide_filter = {
 	"lib",
-	"build"
+	"build",
+	".git"
 }
 
 
 xpos=1280
-ypos=0
+ypos=256
 width=300
 height=1024
 
