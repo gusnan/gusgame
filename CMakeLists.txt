@@ -97,6 +97,7 @@ set(INCLUDE_FILES
 	${INC}/Bitmap.h
 	${INC}/Timer.h
 	${INC}/Mouse.h
+	${INC}/Primitives.h
 	
 	${INC}/EventHandler.h
 	${INC}/ActiveEvent.h
@@ -135,6 +136,7 @@ set(SOURCES
 	src/GraphicsLib/Timer.cpp
 	src/GraphicsLib/Bitmap.cpp
 	src/GraphicsLib/Mouse.cpp
+	src/GraphicsLib/Primitives.cpp
 	
 	src/System.cpp
 	
@@ -205,6 +207,9 @@ target_link_libraries(example5 ${ALL_LIBS} ${LIBRARY_NAME})
 
 add_executable(example6 WIN32 ${EX_DIR}/example6.cpp)
 target_link_libraries(example6 ${ALL_LIBS} ${LIBRARY_NAME})
+
+add_executable(example7 WIN32 ${EX_DIR}/example7.cpp)
+target_link_libraries(example7 ${ALL_LIBS} ${LIBRARY_NAME})
 
 install_targets(/lib ${LIBRARY_NAME})
 

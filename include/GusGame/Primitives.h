@@ -16,28 +16,40 @@
  *	along with GusGame.  
  *	If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef __HEADER_GRAPHICS_LIB_
-#define __HEADER_GRAPHICS_LIB_
+#ifndef __HEADER_PRIMITIVES_
+#define __HEADER_PRIMITIVES_
+
 
 /**
  *
  */
-#include "Vector2d.h"
-#include "Rect.h"
+namespace Gus
+{
 
-#include "Color.h"
+/**
+ *
+ */
+namespace GraphicsLib
+{
 
-#include "Bitmap.h"
+/**
+ *
+ */
+namespace Primitives
+{
+	void initPrimitives();
+	void donePrimitives();
+	
+	void line(const Vector2d &sourcePoint, const Vector2d &targetPoint, const Color &color, float thickness=1.0f);
 
-#include "GraphicsHandler.h"
+};
 
-#include "Font.h"
-#include "FontHandler.h"
+// end of namespace
+// ----------------
+};
 
-#include "Timer.h"
+// end of namespace
+// ----------------
+};
 
-#include "Mouse.h"
-
-#include "Primitives.h"
-
-#endif /*__HEADER_GRAPHICS_LIB_*/
+#endif /*__HEADER_PRIMITIVES_*/
