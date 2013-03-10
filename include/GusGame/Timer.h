@@ -38,6 +38,8 @@ namespace GraphicsLib
 namespace Timer
 {
 	void updateFrame();
+	double getDeltaTime();
+
 };
 
 // end of namespace

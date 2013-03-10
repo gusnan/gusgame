@@ -46,6 +46,14 @@ void Timer::updateFrame()
 {
 }
 
+
+/**
+ *
+ */
+double Timer::getDeltaTime()
+{
+	return 0.0f;
+}
 	
 // end of namespace
 // ----------------
