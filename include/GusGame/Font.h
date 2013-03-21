@@ -44,6 +44,8 @@ public:
 
 	void draw(const Vector2d &position, std::string text, const Color &color);
 
+	int getHeight();
+
 protected:
 };
 

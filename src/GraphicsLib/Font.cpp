@@ -72,6 +72,14 @@ void Font::draw(const Vector2d &position, std::string text, const Color &color)
 }
 
 
+/**
+ *
+ */
+int Font::getHeight()
+{
+	return 10;
+}
+
 // end of namespace
 // ----------------
 };
