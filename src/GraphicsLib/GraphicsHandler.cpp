@@ -51,6 +51,8 @@ namespace GraphicsLib
 ALLEGRO_DISPLAY *GraphicsHandler::display=NULL;
 
 ALLEGRO_MOUSE_CURSOR *GraphicsHandler::systemMouseCursor=NULL;
+	
+Vector2d GraphicsHandler::screenSize;
 
 /**
  *
@@ -120,6 +122,8 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen)
 	
 	display=al_create_display(size.x,size.y);
 	
+	screenSize=size;
+	
 	if (!display) {
 		throw ExceptionLib::Exception("Couldn't init display!");
 	}
@@ -172,6 +176,15 @@ void GraphicsHandler::setMouseBitmap(Bitmap *mouseBitmap)
 	}
 	
 	
+}
+
+
+/**
+ *
+ */
+Rect GraphicsHandler::getScreenRect()
+{
+		return Rect(Vector2d(0,0),screenSize);
 }
 
 // end of namespace

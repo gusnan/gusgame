@@ -48,6 +48,9 @@ namespace GraphicsHandler
 	void clearScreen();
 	void updateScreen();
 	
+	Rect getScreenRect();
+	
+	
 	std::string getOpenGLVersionString();
 	
 	void setMouseBitmap(Gus::GraphicsLib::Bitmap *mouseBitmap);
@@ -55,6 +58,8 @@ namespace GraphicsHandler
 	extern ALLEGRO_DISPLAY *display;
 	
 	extern ALLEGRO_MOUSE_CURSOR *systemMouseCursor;
+
+	extern Vector2d screenSize;
 };
 
 // end of namespace
