@@ -65,6 +65,7 @@ public:
 	void blitColor(const Vector2d &position, const Color &color, float opacity=1.0f);
 	void blitCenterColor(const Rect &sourceRect, const Color &color, float opacity=1.0f);
 
+	void drawPattern(const Rect &rect, float opacity=1.0f);
 
 protected:
 	

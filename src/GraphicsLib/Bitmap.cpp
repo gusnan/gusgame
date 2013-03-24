@@ -227,6 +227,14 @@ void Bitmap::blitCenter(const Rect &sourceRect, const Rect &targetRect, float op
 /**
  *
  */
+void Bitmap::drawPattern(const Rect &rect, float opacity)
+{
+	
+}
+
+/**
+ *
+ */
 
 
 // end of namespace
