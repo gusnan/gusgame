@@ -50,6 +50,9 @@ namespace GraphicsHandler
 	
 	Rect getScreenRect();
 	
+	void setClipRect(const Rect &rect);
+	void noClip();
+	
 	
 	std::string getOpenGLVersionString();
 	
@@ -71,4 +74,4 @@ namespace GraphicsHandler
 };
 
 
-#endif 
+#endif

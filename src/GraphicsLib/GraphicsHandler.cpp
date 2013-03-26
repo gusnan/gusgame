@@ -187,6 +187,24 @@ Rect GraphicsHandler::getScreenRect()
 		return Rect(Vector2d(0,0),screenSize);
 }
 
+
+/**
+ *
+ */
+void GraphicsHandler::setClipRect(const Rect &rect)
+{
+	al_set_clipping_rectangle(rect.position.x,rect.position.y, rect.size.x, rect.size.y);
+}
+
+
+/**
+ *
+ */
+void GraphicsHandler::noClip()
+{
+	setClipRect(getScreenRect());
+}
+
 // end of namespace
 // ----------------
 };
