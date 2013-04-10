@@ -30,5 +30,6 @@
 #include "LogLib.h"
 
 #include "EventLib.h"
+#include "EventSystem.h"
 
 #endif /*__HEADER_GUSGAME_INCLUDE_*/

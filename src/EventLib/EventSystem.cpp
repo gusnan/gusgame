@@ -163,6 +163,19 @@ void EventSystem::handleEvents()
 					eventHandler->handleMouseMotion(mouseMotionEvent);
 				}
 				break;
+			case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
+				{
+					MouseButtonEvent mouseButtonEvent(ev);
+
+					eventHandler->handleMouseButton(mouseButtonEvent);
+				}
+				break;
+			case ALLEGRO_EVENT_MOUSE_BUTTON_UP:
+				{
+					MouseButtonEvent mouseButtonEvent(ev);
+
+					eventHandler->handleMouseButton(mouseButtonEvent);
+				}
 			}
 		}
 	}

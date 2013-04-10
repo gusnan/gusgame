@@ -31,16 +31,30 @@ namespace Gus
 namespace EventLib
 {
 
+enum MouseButtonStatus {MouseButtonStatusPressed=1, MouseButtonStatusReleased=2};
+
 /**
  *
  */
 class MouseButtonEvent
 {
 public:
-	MouseButtonEvent();
+	MouseButtonEvent(ALLEGRO_EVENT event);
 	virtual ~MouseButtonEvent();
 
+	Gus::GraphicsLib::Vector2d getPosition() const;
+	int getButton() const;
+
+	MouseButtonStatus getStatus() const;
+
+	
+
 protected:
+	
+	Gus::GraphicsLib::Vector2d m_Position;
+	int m_Button;
+
+	MouseButtonStatus m_Status;
 };
 
 // end of namespace

@@ -105,7 +105,7 @@ void UserEvent::pushEvent()
 {
 	userEvent.user.type = SIMPLE_USER_EVENT_TYPE;
 	userEvent.user.data1 = m_UserEventValue;
-	
+
 	al_emit_user_event(EventSystem::getUserEventSource(), &userEvent, NULL);
 }
 

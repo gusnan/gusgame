@@ -16,6 +16,13 @@
  *	along with GusGame.  
  *	If not, see <http://www.gnu.org/licenses/>.
  */
+#include <string>
+#include <sstream>
+
+#include "Library.h"
+
+#include "GraphicsLib.h"
+
 #include "MouseButtonEvent.h"
 
 /**
@@ -34,8 +41,16 @@ namespace EventLib
 /**
  *
  */
-MouseButtonEvent::MouseButtonEvent()
+MouseButtonEvent::MouseButtonEvent(ALLEGRO_EVENT event) : 
+	m_Position(event.mouse.x, event.mouse.y),
+	m_Button(event.mouse.button),
+	m_Status(MouseButtonStatusPressed)
 {
+	// We default to "pressed", check if it really is a "released" event
+	if (event.type==ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
+		m_Status=MouseButtonStatusReleased;
+	}
+	
 }
 
 
@@ -44,6 +59,33 @@ MouseButtonEvent::MouseButtonEvent()
  */
 MouseButtonEvent::~MouseButtonEvent()
 {
+}
+
+
+/**
+ *
+ */
+Gus::GraphicsLib::Vector2d MouseButtonEvent::getPosition() const
+{
+	return m_Position;
+}
+
+
+/**
+ *
+ */
+int MouseButtonEvent::getButton() const
+{
+	return m_Button;
+}
+
+
+/**
+ *
+ */
+MouseButtonStatus MouseButtonEvent::getStatus() const
+{
+	return m_Status;
 }
 
 // end of namespace
