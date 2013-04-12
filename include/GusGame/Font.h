@@ -38,6 +38,9 @@ class Font
 {
 public:
 	Font();
+	Font(const Font &source);
+
+	Font &operator=(const Font &source);
 
 	Font(std::string filename, int size, bool useKerning);
 	virtual ~Font();
@@ -49,6 +52,9 @@ public:
 	int getHeight();
 
 protected:
+	
+	ALLEGRO_FONT *m_AllegroFont;
+	
 };
 
 // end of namespace

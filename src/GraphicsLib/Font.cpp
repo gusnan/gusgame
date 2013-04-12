@@ -19,6 +19,8 @@
 #include <string>
 #include <sstream>
 
+#include "Library.h"
+
 #include "Vector2d.h"
 
 #include "Color.h"
@@ -42,7 +44,7 @@ namespace GraphicsLib
 /**
  *
  */
-Font::Font()
+Font::Font() : m_AllegroFont()
 {
 }
 
@@ -50,7 +52,7 @@ Font::Font()
 /**
  *
  */
-Font::Font(std::string filename, int size, bool useKerning)
+Font::Font(const Font &source) : m_AllegroFont()
 {
 	
 }
@@ -59,8 +61,33 @@ Font::Font(std::string filename, int size, bool useKerning)
 /**
  *
  */
+Font::Font(std::string filename, int size, bool useKerning) : m_AllegroFont()
+{
+	
+}
+
+
+/**
+ *
+ */
+Font &Font::operator=(const Font &source)
+{
+	if (this != &source) {
+	}
+	
+	return *this;
+}
+
+
+
+/**
+ *
+ */
 Font::~Font()
 {
+	if (m_AllegroFont) {
+		al_destroy_font(m_AllegroFont);
+	}
 }
 
 
@@ -84,7 +111,14 @@ void Font::drawCenter(const Vector2d &position, std::string text, const Color &c
  */
 int Font::getHeight()
 {
-	return 10;
+	int result=-1;
+	
+	if (m_AllegroFont!=NULL) {
+		result=al_get_font_line_height(m_AllegroFont);
+	}
+	
+	
+	return result;
 }
 
 // end of namespace
