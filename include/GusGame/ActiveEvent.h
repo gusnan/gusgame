@@ -52,6 +52,7 @@ class ActiveEvent
 {
 public:
 	ActiveEvent();
+	ActiveEvent(ALLEGRO_EVENT alEvent);
 	ActiveEvent(ActiveWindowState windowState);
 
 	virtual ~ActiveEvent();

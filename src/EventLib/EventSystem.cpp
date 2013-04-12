@@ -171,6 +171,20 @@ void EventSystem::handleEvents()
 					eventHandler->handleMouseButton(mouseButtonEvent);
 				}
 				break;
+			case ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY:
+			case ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY:
+				{
+					ActiveEvent activeEvent(ev);
+					eventHandler->handleActiveEvent(activeEvent);
+				}
+				break;
+			case ALLEGRO_EVENT_DISPLAY_SWITCH_IN:
+			case ALLEGRO_EVENT_DISPLAY_SWITCH_OUT:
+				{
+					ActiveEvent activeEvent(ev);
+					eventHandler->handleActiveEvent(activeEvent);
+				}
+				break;
 			}
 		}
 	}
