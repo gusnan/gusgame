@@ -128,7 +128,7 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen)
 		throw ExceptionLib::Exception("Couldn't init display!");
 	}
 	
-	al_set_window_position(display, 32, 32);
+	//al_set_window_position(display, 32, 32);
 }
 
 
