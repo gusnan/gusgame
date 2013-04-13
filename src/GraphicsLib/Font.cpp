@@ -44,7 +44,7 @@ namespace GraphicsLib
 /**
  *
  */
-Font::Font() : m_AllegroFont()
+Font::Font() : m_AllegroFont(NULL)
 {
 }
 
@@ -52,7 +52,7 @@ Font::Font() : m_AllegroFont()
 /**
  *
  */
-Font::Font(const Font &source) : m_AllegroFont()
+Font::Font(const Font &source) : m_AllegroFont(NULL)
 {
 	
 }
@@ -61,7 +61,7 @@ Font::Font(const Font &source) : m_AllegroFont()
 /**
  *
  */
-Font::Font(std::string filename, int size, bool useKerning) : m_AllegroFont()
+Font::Font(std::string filename, int size, bool useKerning) : m_AllegroFont(NULL)
 {
 	
 }
