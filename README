@@ -4,3 +4,32 @@ README
 
 This is GusGame, a object oriented wrapper around the functionality in
 Allegro.
+
+
+EXAMPLES:
+
+* example1:
+
+Get versions and print them
+
+* example2:
+
+Some keyboard events, and printing using a font
+
+* example3
+
+Focus events
+
+* example4
+
+* example5
+
+User events
+
+* example6
+
+Mouse events
+
+* example7
+
+System events
