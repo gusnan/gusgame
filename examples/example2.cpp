@@ -96,7 +96,7 @@ int main(int argc,char **argv)
 		// 
 		// The second indata is a boolean to determine to print the log to std::cout
 		// or not in addition to to the file.
-		LogHandler::initLog("log.txt",false);
+		LogHandler::initLog("log.txt",true);
 				
 		// init system stuff
 		System::initSystem();

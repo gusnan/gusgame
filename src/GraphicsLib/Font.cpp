@@ -18,6 +18,7 @@
  */
 #include <string>
 #include <sstream>
+#include <list>
 
 #include "Library.h"
 
@@ -26,6 +27,12 @@
 #include "Color.h"
 
 #include "Font.h"
+
+#include "LogLib.h"
+
+#include "FileHelper.h"
+
+#include "ExceptionLib.h"
 
 /**
  *
@@ -63,7 +70,20 @@ Font::Font(const Font &source) : m_AllegroFont(NULL)
  */
 Font::Font(std::string filename, int size, bool useKerning) : m_AllegroFont(NULL)
 {
+	std::stringstream st;
+	std::string fixedFilename = FileHelper::getFilename(filename);
 	
+	int flags=0;
+	
+	m_AllegroFont=al_load_font((char*)(fixedFilename.c_str()), size, flags);
+	
+	if (!m_AllegroFont) {
+		std::stringstream st;
+		
+		st << "File not found: " << fixedFilename;
+		
+		throw ExceptionLib::FileNotFoundException(st.str());
+	}
 }
 
 
@@ -96,6 +116,8 @@ Font::~Font()
  */
 void Font::draw(const Vector2d &position, std::string text, const Color &color)
 {
+	al_draw_text(m_AllegroFont, color.getAllegroColor(), position.x, position.y, 
+						ALLEGRO_ALIGN_LEFT, (char*)text.c_str());
 }
 
 
@@ -104,6 +126,8 @@ void Font::draw(const Vector2d &position, std::string text, const Color &color)
  */
 void Font::drawCenter(const Vector2d &position, std::string text, const Color &color)
 {
+	al_draw_text(m_AllegroFont, color.getAllegroColor(), position.x, position.y, 
+						ALLEGRO_ALIGN_CENTER, (char*)text.c_str());
 }
 
 
