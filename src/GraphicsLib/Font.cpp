@@ -68,7 +68,7 @@ Font::Font(const Font &source) : m_AllegroFont(NULL)
 /**
  *
  */
-Font::Font(std::string filename, int size, bool useKerning=false) : m_AllegroFont(NULL)
+Font::Font(std::string filename, int size, bool useKerning) : m_AllegroFont(NULL)
 {
 	std::stringstream st;
 	std::string fixedFilename = FileHelper::getFilename(filename);

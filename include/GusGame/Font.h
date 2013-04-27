@@ -42,7 +42,7 @@ public:
 
 	Font &operator=(const Font &source);
 
-	Font(std::string filename, int size, bool useKerning);
+	Font(std::string filename, int size, bool useKerning=false);
 	virtual ~Font();
 
 	void draw(const Vector2d &position, std::string text, const Color &color);
