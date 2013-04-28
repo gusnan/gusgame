@@ -79,6 +79,8 @@ UserEvent::UserEvent(int value) : m_UserEventValue(value), userEvent()
 UserEvent::UserEvent(const UserEvent &source) : m_UserEventValue(),
 	userEvent()
 {
+	m_UserEventValue=source.m_UserEventValue;
+	userEvent=source.userEvent;
 }
 
 
@@ -87,6 +89,13 @@ UserEvent::UserEvent(const UserEvent &source) : m_UserEventValue(),
  */
 UserEvent &UserEvent::operator=(const UserEvent &source)
 {
+	if (this != &source) {
+		
+		m_UserEventValue=source.m_UserEventValue;
+		userEvent=source.userEvent;
+	}
+	
+	return *this;
 }
 
 
