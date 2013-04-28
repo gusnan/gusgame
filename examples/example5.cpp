@@ -88,7 +88,7 @@ public:
 	virtual int handleUserEvent(UserEvent &inEvent)
 	{
 		// Is it out custom User event that is triggered?
-		switch (inEvent.getNumber()) {
+		switch (inEvent.getUserEventValue()) {
 			case TEST_EVENT:
 				std::cout << "Something is happening..." << std::endl;
 				break;

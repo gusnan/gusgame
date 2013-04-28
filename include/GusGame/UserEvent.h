@@ -50,7 +50,7 @@ public:
 
 	void pushEvent();
 
-	int getNumber();
+	int getUserEventValue();
 
 protected:
 	int m_UserEventValue;

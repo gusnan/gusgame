@@ -122,7 +122,7 @@ void UserEvent::pushEvent()
 /**
  *
  */
-int UserEvent::getNumber()
+int UserEvent::getUserEventValue()
 {
 	return userEvent.user.data1; //m_UserEventValue;
 }
