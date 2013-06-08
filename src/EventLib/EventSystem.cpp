@@ -120,74 +120,79 @@ void EventSystem::setEventHandler(EventHandler *inEventHandler)
 void EventSystem::handleEvents()
 {
 	ALLEGRO_EVENT ev;
+	bool get_event = false;
 	
-	bool get_event = al_wait_for_event_until(eventQueue, &ev, &timeout);
-	
-	if (eventHandler) {
+	// Make sure to handle all events in the queue before drawing
+	do {
+		get_event = al_wait_for_event_until(eventQueue, &ev, &timeout);
+		
 		if (get_event) {
-			
-			switch (ev.type) {
-			case ALLEGRO_EVENT_DISPLAY_CLOSE:
-				{
-					eventHandler->handleQuitEvent();
-				}
-				break;
-				/*
-			case ALLEGRO_EVENT_KEY_DOWN:
-				{
-					printf("ALLEGRO_EVENT_KEY_DOWN\n");
-					KeyEvent keyboardEvent(ev);
-					eventHandler->handleKeyboard(keyboardEvent);
-				}
-				break;
-				*/
-			case ALLEGRO_EVENT_KEY_CHAR:
-				{
-					//printf("ALLEGRO_EVENT_KEY_CHAR\n");
-					KeyEvent keyboardEvent(ev);
-					
-					eventHandler->handleKeyboard(keyboardEvent);
-					
-				}
-				break;
-			case SIMPLE_USER_EVENT_TYPE:
-				{
-					UserEvent userEvent(ev);
-					eventHandler->handleUserEvent(userEvent);
-				}
-				break;
-			case ALLEGRO_EVENT_MOUSE_AXES:
-				{
-					MouseMotionEvent mouseMotionEvent(ev);
-					
-					eventHandler->handleMouseMotion(mouseMotionEvent);
-				}
-				break;
-			case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
-			case ALLEGRO_EVENT_MOUSE_BUTTON_UP:
-				{
-					MouseButtonEvent mouseButtonEvent(ev);
+			if (eventHandler) {
+				
+				switch (ev.type) {
+				case ALLEGRO_EVENT_DISPLAY_CLOSE:
+					{
+						eventHandler->handleQuitEvent();
+					}
+					break;
+					/*
+				case ALLEGRO_EVENT_KEY_DOWN:
+					{
+						printf("ALLEGRO_EVENT_KEY_DOWN\n");
+						KeyEvent keyboardEvent(ev);
+						eventHandler->handleKeyboard(keyboardEvent);
+					}
+					break;
+					*/
+				case ALLEGRO_EVENT_KEY_CHAR:
+					{
+						//printf("ALLEGRO_EVENT_KEY_CHAR\n");
+						KeyEvent keyboardEvent(ev);
+						
+						eventHandler->handleKeyboard(keyboardEvent);
+						
+					}
+					break;
+				case SIMPLE_USER_EVENT_TYPE:
+					{
+						UserEvent userEvent(ev);
+						eventHandler->handleUserEvent(userEvent);
+					}
+					break;
+				case ALLEGRO_EVENT_MOUSE_AXES:
+					{
+						MouseMotionEvent mouseMotionEvent(ev);
+						
+						eventHandler->handleMouseMotion(mouseMotionEvent);
+					}
+					break;
+				case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
+				case ALLEGRO_EVENT_MOUSE_BUTTON_UP:
+					{
+						MouseButtonEvent mouseButtonEvent(ev);
 
-					eventHandler->handleMouseButton(mouseButtonEvent);
+						eventHandler->handleMouseButton(mouseButtonEvent);
+					}
+					break;
+				case ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY:
+				case ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY:
+					{
+						ActiveEvent activeEvent(ev);
+						eventHandler->handleActiveEvent(activeEvent);
+					}
+					break;
+				case ALLEGRO_EVENT_DISPLAY_SWITCH_IN:
+				case ALLEGRO_EVENT_DISPLAY_SWITCH_OUT:
+					{
+						ActiveEvent activeEvent(ev);
+						eventHandler->handleActiveEvent(activeEvent);
+					}
+					break;
 				}
-				break;
-			case ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY:
-			case ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY:
-				{
-					ActiveEvent activeEvent(ev);
-					eventHandler->handleActiveEvent(activeEvent);
-				}
-				break;
-			case ALLEGRO_EVENT_DISPLAY_SWITCH_IN:
-			case ALLEGRO_EVENT_DISPLAY_SWITCH_OUT:
-				{
-					ActiveEvent activeEvent(ev);
-					eventHandler->handleActiveEvent(activeEvent);
-				}
-				break;
 			}
 		}
 	}
+	while(get_event);
 }
 
 
