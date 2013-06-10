@@ -205,6 +205,19 @@ void GraphicsHandler::noClip()
 	setClipRect(getScreenRect());
 }
 
+
+/**
+ *
+ */
+void GraphicsHandler::setIcon(Bitmap *icon)
+{
+	if (display) {
+		if (icon) {
+			al_set_display_icon(display,icon->getAllegroBitmap());
+		}
+	}
+}
+
 // end of namespace
 // ----------------
 };

@@ -58,6 +58,8 @@ namespace GraphicsHandler
 	
 	void setMouseBitmap(Gus::GraphicsLib::Bitmap *mouseBitmap);
 	
+	void setIcon(Gus::GraphicsLib::Bitmap *icon);
+
 	extern ALLEGRO_DISPLAY *display;
 	
 	extern ALLEGRO_MOUSE_CURSOR *systemMouseCursor;
