@@ -102,7 +102,7 @@ int main(int argc,char **argv)
 		
 		// set a window title
 		GraphicsHandler::setWindowTitle("GusGame Example 7");
-	
+		
 		// Create an EventHandler for our "custom" events from the class
 		// that is defined above
 		eventHandler=new ExampleEventHandler();
