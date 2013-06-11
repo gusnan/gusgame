@@ -101,7 +101,7 @@ int main(int argc,char **argv)
 		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
 		
 		// set a window title
-		GraphicsHandler::setWindowTitle("GusGame Example 7");	
+		GraphicsHandler::setWindowTitle("GusGame Example 7");
 	
 		// Create an EventHandler for our "custom" events from the class
 		// that is defined above
