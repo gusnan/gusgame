@@ -73,9 +73,9 @@ Font::Font(std::string filename, int size, bool useKerning) : m_AllegroFont(NULL
 	std::stringstream st;
 	std::string fixedFilename = FileHelper::getFilename(filename);
 	
-	int flags=0;
+	int flags = 0;
 	
-	m_AllegroFont=al_load_font((char*)(fixedFilename.c_str()), size, flags);
+	m_AllegroFont = al_load_font((char*)(fixedFilename.c_str()), size, flags);
 	
 	if (!m_AllegroFont) {
 		std::stringstream st;
