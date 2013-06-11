@@ -211,9 +211,6 @@ target_link_libraries(example6 ${ALL_LIBS} ${LIBRARY_NAME})
 add_executable(example7 WIN32 ${EX_DIR}/example7.cpp)
 target_link_libraries(example7 ${ALL_LIBS} ${LIBRARY_NAME})
 
-add_executable(example8 WIN32 ${EX_DIR}/example8.cpp)
-target_link_libraries(example8 ${ALL_LIBS} ${LIBRARY_NAME})
-
 install_targets(/lib ${LIBRARY_NAME})
 
 install(FILES ${INCLUDE_FILES} DESTINATION include/GusGame)
