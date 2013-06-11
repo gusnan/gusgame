@@ -124,9 +124,13 @@ void Font::draw(const Vector2d &position, std::string text, const Color &color)
 /**
  *
  */
-void Font::drawCenter(const Vector2d &position, std::string text, const Color &color)
+void Font::drawCenter(const Vector2d &position, std::string text, const Color &color, bool centerVertical)
 {
-	al_draw_text(m_AllegroFont, color.getAllegroColor(), position.x, position.y, 
+	int subVertical = 0;
+	if (centerVertical)
+		subVertical = getHeight() / 2;
+		
+	al_draw_text(m_AllegroFont, color.getAllegroColor(), position.x, position.y - subVertical, 
 						ALLEGRO_ALIGN_CENTER, (char*)text.c_str());
 }
 
@@ -136,7 +140,7 @@ void Font::drawCenter(const Vector2d &position, std::string text, const Color &c
  */
 int Font::getHeight()
 {
-	int result=-1;
+	int result = -1;
 	
 	if (m_AllegroFont!=NULL) {
 		result=al_get_font_line_height(m_AllegroFont);
