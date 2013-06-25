@@ -111,7 +111,7 @@ Color &Color::operator=(const Color &source)
 ALLEGRO_COLOR Color::getAllegroColor() const
 {
 	ALLEGRO_COLOR result;
-	result = al_map_rgb_f(m_Red, m_Green, m_Blue);
+	result = al_map_rgba_f(m_Red, m_Green, m_Blue, m_Alpha);
 	
 	return result;
 }
