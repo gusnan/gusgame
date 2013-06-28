@@ -17,9 +17,12 @@
  *	along with GusGame.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+#include <boost/shared_ptr.hpp>
+
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
+#include <list>
 
 #include "GusGame.h"
 
@@ -92,7 +95,7 @@ public:
  */
 int main(int argc,char **argv)
 {
-	EventHandler *eventHandler=NULL;
+	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
 	Bitmap *mouseBitmap=NULL;
 	Bitmap *testBitmap=NULL;
 	
@@ -117,12 +120,12 @@ int main(int argc,char **argv)
 	
 		// Create an EventHandler for our "custom" events from the class
 		// that is defined above
-		eventHandler=new ExampleEventHandler();
+		eventHandler=boost::shared_ptr<EventHandler>(new ExampleEventHandler());
 		
 		EventSystem::initEventSystem();
 		
 		// set the used EventHandler to the one we just created.
-		EventSystem::setEventHandler(eventHandler);
+		EventSystem::addEventHandler(eventHandler);
 		
 		mouseBitmap=new Bitmap("mouse.png");
 		
@@ -166,7 +169,7 @@ int main(int argc,char **argv)
 	delete testBitmap;
 	
 	// Remove our custom eventHandler
-	delete eventHandler;
+	//delete eventHandler;
 	
 	// done with system stuff
 	System::doneSystem();

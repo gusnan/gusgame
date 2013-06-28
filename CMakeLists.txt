@@ -31,6 +31,7 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 find_package(OpenGL REQUIRED)
 find_package(Allegro5 REQUIRED)
+find_package(Boost REQUIRED)
 
 if (DEBUG)
 	message(STATUS "Building Debug executable")
@@ -62,6 +63,8 @@ message(STATUS "Build shared: ${BUILD_SHARED}")
 
 message(STATUS "Allegro 5: ${ALLEGRO_LIBRARY}")
 
+message(STATUS "Boost include dir: ${Boost_INCLUDE_DIR}")	
+
 if (NOT ALLEGRO_FOUND)
 	message(FATAL_ERROR "Allegro not found!")
 endif (NOT ALLEGRO_FOUND)
@@ -71,6 +74,8 @@ include_directories(include ${CMAKE_SOURCE_DIR}/include)
 include_directories(include ${CMAKE_SOURCE_DIR}/include/GusGame)
 
 include_directories(include ${ALLEGRO_INCLUDE_DIR})
+
+include_directories(include ${Boost_INCLUDE_DIR})
 
 set(INC include/GusGame)
 
@@ -176,6 +181,7 @@ set(ALL_LIBS
 	${GL_LIBS}
 	${GLUT_LIBRARY}
 	${ALLEGRO_LIBRARIES}	
+	${Boost_LIBRARIES}
 )
 
 link_libraries(${ALL_LIBS})

@@ -30,6 +30,8 @@ namespace Gus
  */
 namespace EventLib
 {
+	
+typedef boost::shared_ptr<EventHandler> EventHandlerPtr;
 
 /**
  *
@@ -39,15 +41,19 @@ namespace EventSystem
 	void initEventSystem();
 	void doneEventSystem();
 	
-	void setEventHandler(EventHandler *eventHandler);
+	void addEventHandler(EventHandlerPtr eventHandler);
+	void removeEventHandler(EventHandlerPtr eventHandler);
 	
 	void handleEvents();
+	void doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler);
 	
 	extern ALLEGRO_EVENT_QUEUE *eventQueue;
 	
-	extern EventHandler *eventHandler;
+	//extern EventHandler *eventHandler;
 	
 	ALLEGRO_EVENT_SOURCE *getUserEventSource();
+	
+	extern std::list<EventHandlerPtr> *listOfEventHandlers;
 	
 	//extern ALLEGRO_EVENT_SOURCE userEventSource;
 

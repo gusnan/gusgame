@@ -16,7 +16,10 @@
  *	along with GusGame.  
  *	If not, see <http://www.gnu.org/licenses/>.
  */
+#include "boost/shared_ptr.hpp"
+
 #include <sstream>
+#include <list>
 
 #include "Library.h"
 
@@ -61,10 +64,12 @@ namespace EventLib
  *
  */
 ALLEGRO_EVENT_QUEUE *EventSystem::eventQueue=NULL;
-EventHandler *EventSystem::eventHandler=NULL;
+//EventHandler *EventSystem::eventHandler=NULL;
 ALLEGRO_TIMEOUT timeout;
 
 ALLEGRO_EVENT_SOURCE userEventSource;
+	
+std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers=NULL;
 
 /**
  *
@@ -79,6 +84,10 @@ void EventSystem::initEventSystem()
 	if (!eventQueue) {
 		throw ExceptionLib::Exception("Could crate event queue!");
 	}
+	
+	listOfEventHandlers = new std::list<EventHandlerPtr>;
+	
+	listOfEventHandlers->clear();
 	
 	al_register_event_source(eventQueue, al_get_display_event_source(GraphicsLib::GraphicsHandler::display));
 	
@@ -97,19 +106,132 @@ void EventSystem::initEventSystem()
  */
 void EventSystem::doneEventSystem()
 {
+	std::list<EventHandler*>::iterator iter;
+	
 	al_destroy_user_event_source(&userEventSource);
 	
 	al_destroy_event_queue(eventQueue);
+	
+	if (listOfEventHandlers) {
+		
+		// Don't delete the eventhandlers in the list here, you'll have to do
+		// it by hand
+		/*
+		for (iter = listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
+			delete (*iter);
+			++iter;
+		}
+		*/
+		
+		delete listOfEventHandlers;
+		listOfEventHandlers=0;
+	}
 }
 
 
 /**
  *
  */
-void EventSystem::setEventHandler(EventHandler *inEventHandler)
+void EventSystem::addEventHandler(EventHandlerPtr inEventHandler)
 {
 	if (inEventHandler) {
-		eventHandler=inEventHandler;
+		//eventHandler=inEventHandler;
+		if (listOfEventHandlers) {
+			listOfEventHandlers->push_back(inEventHandler);
+		}
+	}
+}
+
+
+/**
+ *
+ */
+void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
+{
+	std::list<EventHandlerPtr>::iterator iter;
+	EventHandlerPtr currentEventHandler = boost::shared_ptr<EventHandler>();
+	
+	if (listOfEventHandlers) {
+		
+		for (iter=listOfEventHandlers->begin();iter!=listOfEventHandlers->end();) {
+			currentEventHandler = (*iter);
+			
+			if (inEventHandler) {
+				
+			}
+			
+			++iter;
+		}
+	}
+	
+}
+
+
+/**
+ *
+ */
+void EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
+{
+	
+	switch (ev.type) {
+	case ALLEGRO_EVENT_DISPLAY_CLOSE:
+		{
+			eventHandler->handleQuitEvent();
+		}
+		break;
+		/*
+	case ALLEGRO_EVENT_KEY_DOWN:
+		{
+			printf("ALLEGRO_EVENT_KEY_DOWN\n");
+			KeyEvent keyboardEvent(ev);
+			eventHandler->handleKeyboard(keyboardEvent);
+		}
+		break;
+		*/
+	case ALLEGRO_EVENT_KEY_CHAR:
+		{
+			//printf("ALLEGRO_EVENT_KEY_CHAR\n");
+			KeyEvent keyboardEvent(ev);
+			
+			eventHandler.get()->handleKeyboard(keyboardEvent);
+			
+		}
+		break;
+	case SIMPLE_USER_EVENT_TYPE:
+		{
+			UserEvent userEvent(ev);
+			eventHandler->handleUserEvent(userEvent);
+		}
+		break;
+	case ALLEGRO_EVENT_MOUSE_AXES:
+		{
+			MouseMotionEvent mouseMotionEvent(ev);
+			
+			eventHandler->handleMouseMotion(mouseMotionEvent);
+		}
+		break;
+	case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
+	case ALLEGRO_EVENT_MOUSE_BUTTON_UP:
+		{
+			MouseButtonEvent mouseButtonEvent(ev);
+
+			eventHandler->handleMouseButton(mouseButtonEvent);
+		}
+		break;
+	case ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY:
+	case ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY:
+		{
+			ActiveEvent activeEvent(ev);
+			eventHandler->handleActiveEvent(activeEvent);
+		}
+		break;
+	case ALLEGRO_EVENT_DISPLAY_SWITCH_IN:
+	case ALLEGRO_EVENT_DISPLAY_SWITCH_OUT:
+		{
+			ActiveEvent activeEvent(ev);
+			eventHandler->handleActiveEvent(activeEvent);
+		}
+		break;
 	}
 }
 
@@ -127,69 +249,27 @@ void EventSystem::handleEvents()
 		get_event = al_wait_for_event_until(eventQueue, &ev, &timeout);
 		
 		if (get_event) {
-			if (eventHandler) {
+			EventHandlerPtr currentEventHandler = boost::shared_ptr<EventHandler>();
+			
+			std::list<EventHandlerPtr>::iterator iter;
+			
+			for (iter=listOfEventHandlers->begin();iter!=listOfEventHandlers->end();) {
 				
-				switch (ev.type) {
-				case ALLEGRO_EVENT_DISPLAY_CLOSE:
-					{
-						eventHandler->handleQuitEvent();
-					}
-					break;
-					/*
-				case ALLEGRO_EVENT_KEY_DOWN:
-					{
-						printf("ALLEGRO_EVENT_KEY_DOWN\n");
-						KeyEvent keyboardEvent(ev);
-						eventHandler->handleKeyboard(keyboardEvent);
-					}
-					break;
-					*/
-				case ALLEGRO_EVENT_KEY_CHAR:
-					{
-						//printf("ALLEGRO_EVENT_KEY_CHAR\n");
-						KeyEvent keyboardEvent(ev);
-						
-						eventHandler->handleKeyboard(keyboardEvent);
-						
-					}
-					break;
-				case SIMPLE_USER_EVENT_TYPE:
-					{
-						UserEvent userEvent(ev);
-						eventHandler->handleUserEvent(userEvent);
-					}
-					break;
-				case ALLEGRO_EVENT_MOUSE_AXES:
-					{
-						MouseMotionEvent mouseMotionEvent(ev);
-						
-						eventHandler->handleMouseMotion(mouseMotionEvent);
-					}
-					break;
-				case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
-				case ALLEGRO_EVENT_MOUSE_BUTTON_UP:
-					{
-						MouseButtonEvent mouseButtonEvent(ev);
-
-						eventHandler->handleMouseButton(mouseButtonEvent);
-					}
-					break;
-				case ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY:
-				case ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY:
-					{
-						ActiveEvent activeEvent(ev);
-						eventHandler->handleActiveEvent(activeEvent);
-					}
-					break;
-				case ALLEGRO_EVENT_DISPLAY_SWITCH_IN:
-				case ALLEGRO_EVENT_DISPLAY_SWITCH_OUT:
-					{
-						ActiveEvent activeEvent(ev);
-						eventHandler->handleActiveEvent(activeEvent);
-					}
-					break;
+				currentEventHandler=(*iter);
+				
+				if (currentEventHandler) {
+					doHandleEvents(ev,currentEventHandler);
 				}
+				
+				++iter;
 			}
+			
+			/*
+			if (eventHandler) {
+								
+				doHandleEvents(ev, eventHandler);
+			}
+			*/
 		}
 	}
 	while(get_event);
