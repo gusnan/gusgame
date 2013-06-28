@@ -110,7 +110,10 @@ void EventSystem::doneEventSystem()
 	
 	al_destroy_user_event_source(&userEventSource);
 	
-	al_destroy_event_queue(eventQueue);
+	if (eventQueue) {
+		al_destroy_event_queue(eventQueue);
+		eventQueue = NULL;
+	}
 	
 	if (listOfEventHandlers) {
 		
