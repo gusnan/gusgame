@@ -51,7 +51,7 @@ namespace EventLib
 /**
  *
  */
-EventHandler::EventHandler()
+EventHandler::EventHandler(std::string name) : m_Name(name)
 {
 }
 
@@ -121,6 +121,14 @@ void EventHandler::handleSystemQuitEvent()
 {
 }
 
+
+/**
+ *
+ */
+std::string EventHandler::getName()
+{
+	return m_Name;
+}
 
 // end of namespace
 // ----------------

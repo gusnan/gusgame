@@ -39,7 +39,7 @@ namespace EventLib
 class EventHandler
 {
 public:
-	GUSGAME_DLL EventHandler();
+	GUSGAME_DLL EventHandler(std::string inName="");
 	GUSGAME_DLL virtual ~EventHandler();
 
 	virtual GUSGAME_DLL void handleKeyboard(KeyEvent &keyEvent);
@@ -50,8 +50,10 @@ public:
 	virtual GUSGAME_DLL void handleQuitEvent();
 	virtual GUSGAME_DLL void handleSystemQuitEvent();
 
+	std::string getName();
 	
 protected:
+	std::string m_Name;
 };
 
 // end of namespace
