@@ -289,6 +289,9 @@ int KeyEvent::convertAllegroToKeyValue(int alValue)
 	case ALLEGRO_KEY_TAB:
 		result=Key::Tab;
 		break;
+	case ALLEGRO_KEY_SPACE:
+		result=Key::Space;
+		break;
 	};
 	
 	return result;

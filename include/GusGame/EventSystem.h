@@ -47,6 +47,8 @@ namespace EventSystem
 	void handleEvents();
 	void doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler);
 	
+	void printEventHandlers();
+	
 	extern ALLEGRO_EVENT_QUEUE *eventQueue;
 	
 	//extern EventHandler *eventHandler;

@@ -69,7 +69,7 @@ ALLEGRO_TIMEOUT timeout;
 
 ALLEGRO_EVENT_SOURCE userEventSource;
 	
-std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers=NULL;
+std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = NULL;
 
 /**
  *
@@ -106,7 +106,7 @@ void EventSystem::initEventSystem()
  */
 void EventSystem::doneEventSystem()
 {
-	std::list<EventHandler*>::iterator iter;
+	//std::list<EventHandler*>::iterator iter;
 	
 	al_destroy_user_event_source(&userEventSource);
 	
@@ -137,11 +137,27 @@ void EventSystem::doneEventSystem()
  */
 void EventSystem::addEventHandler(EventHandlerPtr inEventHandler)
 {
-	if (inEventHandler) {
+	
+	if (inEventHandler != boost::shared_ptr<EventHandler>()) {
 		//eventHandler=inEventHandler;
 		if (listOfEventHandlers) {
 			listOfEventHandlers->push_back(inEventHandler);
+			
+			/*
+			std::stringstream st;
+			
+			st << "Adding:" << inEventHandler.get()->getName();
+			STLOG(st);
+			*/
 		}
+	}
+	
+	if (listOfEventHandlers) {
+		std::stringstream st;
+		
+		st << "Antal:" << listOfEventHandlers->size();
+		
+		STLOG(st);
 	}
 }
 
@@ -154,17 +170,38 @@ void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
 	std::list<EventHandlerPtr>::iterator iter;
 	EventHandlerPtr currentEventHandler = boost::shared_ptr<EventHandler>();
 	
+	EventHandler *inEvent = inEventHandler.get();
+	
 	if (listOfEventHandlers) {
 		
-		for (iter=listOfEventHandlers->begin();iter!=listOfEventHandlers->end();) {
+		//listOfEventHandlers->remove_if(ptr_contains(inEventHandler.get()));
+		if (!listOfEventHandlers->empty()) {
+		
+		for (iter=listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
 			currentEventHandler = (*iter);
 			
-			if (inEventHandler) {
+			if (inEvent == currentEventHandler.get()) {
+				//LOG("Removed ONE!");
 				
+				iter = listOfEventHandlers->erase(iter);
+				
+			} else {
+			
+				++iter;
 			}
 			
-			++iter;
 		}
+		}
+		
+	}
+	
+	
+	if (listOfEventHandlers) {
+		std::stringstream st;
+		
+		st << "Antal:" << listOfEventHandlers->size();
+		
+		STLOG(st);
 	}
 	
 }
@@ -179,7 +216,7 @@ void EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 	switch (ev.type) {
 	case ALLEGRO_EVENT_DISPLAY_CLOSE:
 		{
-			eventHandler->handleQuitEvent();
+			eventHandler.get()->handleQuitEvent();
 		}
 		break;
 		/*
@@ -203,14 +240,14 @@ void EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 	case SIMPLE_USER_EVENT_TYPE:
 		{
 			UserEvent userEvent(ev);
-			eventHandler->handleUserEvent(userEvent);
+			eventHandler.get()->handleUserEvent(userEvent);
 		}
 		break;
 	case ALLEGRO_EVENT_MOUSE_AXES:
 		{
 			MouseMotionEvent mouseMotionEvent(ev);
 			
-			eventHandler->handleMouseMotion(mouseMotionEvent);
+			eventHandler.get()->handleMouseMotion(mouseMotionEvent);
 		}
 		break;
 	case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
@@ -218,21 +255,21 @@ void EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 		{
 			MouseButtonEvent mouseButtonEvent(ev);
 
-			eventHandler->handleMouseButton(mouseButtonEvent);
+			eventHandler.get()->handleMouseButton(mouseButtonEvent);
 		}
 		break;
 	case ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY:
 	case ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY:
 		{
 			ActiveEvent activeEvent(ev);
-			eventHandler->handleActiveEvent(activeEvent);
+			eventHandler.get()->handleActiveEvent(activeEvent);
 		}
 		break;
 	case ALLEGRO_EVENT_DISPLAY_SWITCH_IN:
 	case ALLEGRO_EVENT_DISPLAY_SWITCH_OUT:
 		{
 			ActiveEvent activeEvent(ev);
-			eventHandler->handleActiveEvent(activeEvent);
+			eventHandler.get()->handleActiveEvent(activeEvent);
 		}
 		break;
 	}
@@ -246,25 +283,33 @@ void EventSystem::handleEvents()
 {
 	ALLEGRO_EVENT ev;
 	bool get_event = false;
+	boost::shared_ptr<EventHandler> currentEventHandler = boost::shared_ptr<EventHandler>();
 	
 	// Make sure to handle all events in the queue before drawing
 	do {
 		get_event = al_wait_for_event_until(eventQueue, &ev, &timeout);
 		
 		if (get_event) {
-			EventHandlerPtr currentEventHandler = boost::shared_ptr<EventHandler>();
-			
-			std::list<EventHandlerPtr>::iterator iter;
-			
-			for (iter=listOfEventHandlers->begin();iter!=listOfEventHandlers->end();) {
+			if (listOfEventHandlers) {
 				
-				currentEventHandler=(*iter);
-				
-				if (currentEventHandler) {
-					doHandleEvents(ev,currentEventHandler);
+				if (!listOfEventHandlers->empty()) {
+						
+					std::list<boost::shared_ptr<EventHandler> >::iterator iter;
+					
+					for (iter=listOfEventHandlers->begin();iter!=listOfEventHandlers->end();) {
+						
+						currentEventHandler = (*iter);
+						
+						if (currentEventHandler != boost::shared_ptr<EventHandler>()) {
+							
+							//std::cout << currentEventHandler.get()->getName() << std::endl;
+							
+							doHandleEvents(ev,currentEventHandler);
+						}
+						
+						++iter;
+					}
 				}
-				
-				++iter;
 			}
 			
 			/*
@@ -285,6 +330,38 @@ void EventSystem::handleEvents()
 ALLEGRO_EVENT_SOURCE *EventSystem::getUserEventSource()
 {
 	return &userEventSource;
+}
+
+
+/**
+ *
+ */
+void EventSystem::printEventHandlers()
+{
+	// extern std::list<EventHandlerPtr> *listOfEventHandlers;
+	std::list<EventHandlerPtr>::iterator iter;
+	
+	
+	LOG("List of event handlers:");
+	LOG("-----------------------");
+	
+	if (listOfEventHandlers) {
+		
+		for (iter = listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
+			EventHandlerPtr handler = (*iter);
+			
+			std::stringstream st;
+			
+			st << handler.get()->getName();
+			
+			STLOG(st);
+			
+			++iter;
+		}
+	}
+	
+	
+	LOG("--------");
 }
 
 

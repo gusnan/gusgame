@@ -42,6 +42,9 @@ public:
 	GUSGAME_DLL EventHandler(std::string inName="");
 	GUSGAME_DLL virtual ~EventHandler();
 
+	GUSGAME_DLL EventHandler(const EventHandler &source);
+	GUSGAME_DLL EventHandler &operator=(const EventHandler &source);
+
 	virtual GUSGAME_DLL void handleKeyboard(KeyEvent &keyEvent);
 	virtual GUSGAME_DLL void handleActiveEvent(ActiveEvent &activeEvent);
 	virtual GUSGAME_DLL int handleUserEvent(UserEvent &event);
@@ -50,7 +53,8 @@ public:
 	virtual GUSGAME_DLL void handleQuitEvent();
 	virtual GUSGAME_DLL void handleSystemQuitEvent();
 
-	std::string getName();
+	virtual std::string getName();
+	virtual void setName(std::string inName);
 	
 protected:
 	std::string m_Name;

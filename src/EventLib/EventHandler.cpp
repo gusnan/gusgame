@@ -67,6 +67,34 @@ EventHandler::~EventHandler()
 /**
  *
  */
+EventHandler::EventHandler(const EventHandler &source) : m_Name(source.m_Name)
+{
+	if (this != &source)
+	{
+		m_Name = source.m_Name;
+	}
+	
+}
+
+
+/**
+ *
+ */
+EventHandler &EventHandler::operator=(const EventHandler &source)
+{
+	if (this!=&source)
+	{
+		m_Name = source.m_Name;
+	}
+	
+	return *this;
+}
+
+
+
+/**
+ *
+ */
 void EventHandler::handleKeyboard(KeyEvent &keyEvent)
 {
 	
@@ -128,6 +156,15 @@ void EventHandler::handleSystemQuitEvent()
 std::string EventHandler::getName()
 {
 	return m_Name;
+}
+
+
+/**
+ *
+ */
+void EventHandler::setName(std::string inName)
+{
+	m_Name = inName;
 }
 
 // end of namespace
