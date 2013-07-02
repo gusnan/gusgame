@@ -151,14 +151,6 @@ void EventSystem::addEventHandler(EventHandlerPtr inEventHandler)
 			*/
 		}
 	}
-	
-	if (listOfEventHandlers) {
-		std::stringstream st;
-		
-		st << "Antal:" << listOfEventHandlers->size();
-		
-		STLOG(st);
-	}
 }
 
 
@@ -177,33 +169,22 @@ void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
 		//listOfEventHandlers->remove_if(ptr_contains(inEventHandler.get()));
 		if (!listOfEventHandlers->empty()) {
 		
-		for (iter=listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
-			currentEventHandler = (*iter);
-			
-			if (inEvent == currentEventHandler.get()) {
-				//LOG("Removed ONE!");
+			for (iter=listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
+				currentEventHandler = (*iter);
 				
-				iter = listOfEventHandlers->erase(iter);
+				if (inEvent == currentEventHandler.get()) {
+					//LOG("Removed ONE!");
+					
+					iter = listOfEventHandlers->erase(iter);
+					
+				} else {
 				
-			} else {
-			
-				++iter;
+					++iter;
+				}
+				
 			}
-			
 		}
-		}
-		
 	}
-	
-	
-	if (listOfEventHandlers) {
-		std::stringstream st;
-		
-		st << "Antal:" << listOfEventHandlers->size();
-		
-		STLOG(st);
-	}
-	
 }
 
 
@@ -352,7 +333,7 @@ void EventSystem::printEventHandlers()
 			
 			std::stringstream st;
 			
-			st << handler.get()->getName();
+			st << "  " << handler.get()->getName();
 			
 			STLOG(st);
 			
