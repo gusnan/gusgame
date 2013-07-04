@@ -35,17 +35,15 @@ namespace GraphicsLib
 /**
  *
  */
-class Mouse
+namespace Mouse
 {
-public:
-	Mouse();
-	virtual ~Mouse();
+	void initMouse();
+	void doneMouse();
 
-	void draw();
+	void setMouseBitmap(Bitmap *mouseBitmap);
+	
+	extern ALLEGRO_MOUSE_CURSOR *systemMouseCursor;
 
-	void setMouseBitmap(Bitmap *bitmap);
-
-protected:
 };
 
 // end of namespace

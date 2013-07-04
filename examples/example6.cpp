@@ -131,7 +131,7 @@ int main(int argc,char **argv)
 		
 		testBitmap=mouseBitmap->makeCopy();
 		
-		GraphicsHandler::setMouseBitmap(mouseBitmap);
+		Mouse::setMouseBitmap(mouseBitmap);
 		
 		
 	}
@@ -170,6 +170,9 @@ int main(int argc,char **argv)
 	
 	// Remove our custom eventHandler
 	//delete eventHandler;
+	
+	// Remove mouse stuff
+	Mouse::doneMouse();
 	
 	// done with system stuff
 	System::doneSystem();

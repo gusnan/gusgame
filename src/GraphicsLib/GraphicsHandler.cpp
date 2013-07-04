@@ -50,8 +50,6 @@ namespace GraphicsLib
  */
 ALLEGRO_DISPLAY *GraphicsHandler::display=NULL;
 
-ALLEGRO_MOUSE_CURSOR *GraphicsHandler::systemMouseCursor=NULL;
-	
 Vector2d GraphicsHandler::screenSize;
 
 /**
@@ -69,10 +67,6 @@ void GraphicsHandler::doneGraphicsHandler()
 {
 	if (display) {
 		al_destroy_display(display);
-	}
-	
-	if (systemMouseCursor) {
-		al_destroy_mouse_cursor(systemMouseCursor);
 	}
 }
 
@@ -157,25 +151,6 @@ void GraphicsHandler::clearScreen()
 void GraphicsHandler::updateScreen()
 {
 	al_flip_display();
-}
-
-
-/**
- *
- */
-void GraphicsHandler::setMouseBitmap(Bitmap *mouseBitmap)
-{
-	if (mouseBitmap) {
-		systemMouseCursor = al_create_mouse_cursor(mouseBitmap->getAllegroBitmap(), 0,0);
-	}
-	
-	if (systemMouseCursor) {
-		if (display) {
-			al_set_mouse_cursor(display, systemMouseCursor);
-		}
-	}
-	
-	
 }
 
 

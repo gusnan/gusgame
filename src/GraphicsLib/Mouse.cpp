@@ -30,6 +30,8 @@
 
 #include "Mouse.h"
 
+#include "GraphicsHandler.h"
+
 /**
  *
  */
@@ -43,35 +45,49 @@ namespace Gus
 namespace GraphicsLib
 {
 
+
+ALLEGRO_MOUSE_CURSOR *Mouse::systemMouseCursor=NULL;
+	
 /**
  *
  */
-Mouse::Mouse()
+void Mouse::initMouse()
 {
 }
 
 /**
  *
  */
-Mouse::~Mouse()
+void Mouse::doneMouse()
 {
+	
+	if (systemMouseCursor) {
+		al_destroy_mouse_cursor(systemMouseCursor);
+	}
+
 }
+
 
 
 /**
  *
  */
-void Mouse::draw()
+void Mouse::setMouseBitmap(Bitmap *mouseBitmap)
 {
+	if (mouseBitmap) {
+		systemMouseCursor = al_create_mouse_cursor(mouseBitmap->getAllegroBitmap(), 0,0);
+	}
+	
+	if (systemMouseCursor) {
+		if (GraphicsHandler::display) {
+			al_set_mouse_cursor(GraphicsHandler::display, systemMouseCursor);
+		}
+	}
+	
+	
 }
 
 
-/**
- *
- */
-void Mouse::setMouseBitmap(Bitmap *bitmap)
-{
-}
 
 
 // end of namespace

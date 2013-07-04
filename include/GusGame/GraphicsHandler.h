@@ -61,8 +61,6 @@ namespace GraphicsHandler
 	void setIcon(Gus::GraphicsLib::Bitmap *icon);
 
 	extern ALLEGRO_DISPLAY *display;
-	
-	extern ALLEGRO_MOUSE_CURSOR *systemMouseCursor;
 
 	extern Vector2d screenSize;
 };

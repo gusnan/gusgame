@@ -100,7 +100,7 @@ int main(int argc,char **argv)
 		
 		mouseBitmap=new Bitmap("mouse.png");
 		
-		GraphicsHandler::setMouseBitmap(mouseBitmap);
+		Mouse::setMouseBitmap(mouseBitmap);
 	}
 	catch (Exception &e)
 	{
@@ -134,7 +134,10 @@ int main(int argc,char **argv)
 	
 	// Remove our custom eventHandler
 	//delete eventHandler;
-	
+		
+	// Remove mouse stuff
+	Mouse::doneMouse();
+
 	// done with system stuff
 	System::doneSystem();
 	

@@ -145,7 +145,7 @@ int main(int argc,char **argv)
 		
 		mouseBitmap=new Bitmap("mouse.png");
 		
-		GraphicsHandler::setMouseBitmap(mouseBitmap);
+		Mouse::setMouseBitmap(mouseBitmap);
 		
 		// Create the test events
 		testEvent=new UserEvent(TEST_EVENT);
@@ -185,6 +185,9 @@ int main(int argc,char **argv)
 	delete testEvent2;
 	
 	delete mouseBitmap;
+	
+	// Remove mouse stuff
+	Mouse::doneMouse();
 	
 	// done with system stuff
 	System::doneSystem();
