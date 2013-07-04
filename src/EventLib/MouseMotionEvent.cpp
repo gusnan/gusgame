@@ -22,11 +22,18 @@
 #include "Library.h"
 
 #include "Vector2d.h"
+#include "Rect.h"
+
+#include "Color.h"
+
+#include "Bitmap.h"
 
 using namespace Gus;
 using namespace GraphicsLib;
 
 #include "MouseMotionEvent.h"
+
+#include "Mouse.h"
 
 /**
  *
@@ -50,6 +57,8 @@ MouseMotionEvent::MouseMotionEvent(ALLEGRO_EVENT ev) : m_Position()
 	
 	m_Position.x = ev.mouse.x;
 	m_Position.y = ev.mouse.y;
+	
+	Mouse::mousePosition = m_Position;
 }
 
 

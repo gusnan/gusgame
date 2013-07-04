@@ -44,6 +44,7 @@ namespace Mouse
 	
 	extern ALLEGRO_MOUSE_CURSOR *systemMouseCursor;
 
+	extern Vector2d mousePosition;
 };
 
 // end of namespace

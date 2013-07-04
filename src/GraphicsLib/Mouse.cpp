@@ -48,6 +48,8 @@ namespace GraphicsLib
 
 ALLEGRO_MOUSE_CURSOR *Mouse::systemMouseCursor=NULL;
 	
+Vector2d Mouse::mousePosition = Vector2d(0,0);
+	
 /**
  *
  */
