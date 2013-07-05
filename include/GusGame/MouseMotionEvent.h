@@ -37,6 +37,7 @@ namespace EventLib
 class MouseMotionEvent
 {
 public:
+	MouseMotionEvent();
 	MouseMotionEvent(ALLEGRO_EVENT ev);
 
 	MouseMotionEvent(const GraphicsLib::Vector2d &position);
