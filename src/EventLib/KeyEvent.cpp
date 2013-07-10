@@ -88,6 +88,10 @@ KeyEvent::KeyEvent(const KeyEvent &source) : m_KeyEventType(KeyEventPressed), m_
  */
 KeyEvent &KeyEvent::operator=(const KeyEvent &source)
 {
+	if (this != &source) {
+	}
+
+	return *this;
 }
 
 
