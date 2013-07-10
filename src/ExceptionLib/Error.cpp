@@ -22,8 +22,6 @@
 #include <fstream>
 #include <iostream>
 
-#include "SDL/SDL.h"
-
 #ifdef _WIN32
 #include <windows.h>
 #endif
