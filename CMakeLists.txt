@@ -61,7 +61,7 @@ endif (DEBUG)
 
 message(STATUS "Build shared: ${BUILD_SHARED}")
 
-message(STATUS "Allegro 5: ${ALLEGRO_LIBRARY}")
+message(STATUS "Allegro 5: ${ALLEGRO_LIBRARIES}")
 
 message(STATUS "Boost include dir: ${Boost_INCLUDE_DIR}")	
 
