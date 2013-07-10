@@ -63,7 +63,7 @@ namespace EventLib
 /**
  *
  */
-ALLEGRO_EVENT_QUEUE *EventSystem::eventQueue=NULL;
+ALLEGRO_EVENT_QUEUE *EventSystem::eventQueue = NULL;
 //EventHandler *EventSystem::eventHandler=NULL;
 ALLEGRO_TIMEOUT timeout;
 
@@ -77,27 +77,33 @@ std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = NULL;
 void EventSystem::initEventSystem()
 {
 	LOG("initEventSystem");
-	
-	al_init_user_event_source(&userEventSource);
 
 	eventQueue = al_create_event_queue();
 	if (!eventQueue) {
 		throw ExceptionLib::Exception("Could crate event queue!");
 	}
 	
+	al_init_user_event_source(&userEventSource);
+
 	listOfEventHandlers = new std::list<EventHandlerPtr>;
-	
+
 	listOfEventHandlers->clear();
 	
-	al_register_event_source(eventQueue, al_get_display_event_source(GraphicsLib::GraphicsHandler::display));
+	ALLEGRO_EVENT_SOURCE *display_event_source = al_get_display_event_source(GraphicsLib::GraphicsHandler::display);
+	if (display_event_source) {
+		al_register_event_source(eventQueue, display_event_source);
+	}
 	
-	al_register_event_source(eventQueue, al_get_keyboard_event_source());
+	ALLEGRO_EVENT_SOURCE *keyboard_event_source = al_get_keyboard_event_source();
+	if (keyboard_event_source) {
+		al_register_event_source(eventQueue, keyboard_event_source);
+	}
 	
 	al_register_event_source(eventQueue, al_get_mouse_event_source());
 	
 	al_register_event_source(eventQueue, &userEventSource);
 	
-	al_init_timeout(&timeout, 0.06);
+	al_init_timeout(&timeout, 0.1);
 }
 
 
@@ -268,37 +274,42 @@ void EventSystem::handleEvents()
 	
 	// Make sure to handle all events in the queue before drawing
 	do {
-		get_event = al_wait_for_event_until(eventQueue, &ev, &timeout);
+		if (!al_is_event_queue_empty(eventQueue)) {
 		
-		if (get_event) {
-			if (listOfEventHandlers) {
+			get_event = al_wait_for_event_until(eventQueue, &ev, &timeout);
+		
+			if (get_event) {
+				if (listOfEventHandlers) {
 				
-				if (!listOfEventHandlers->empty()) {
+					if (!listOfEventHandlers->empty()) {
 						
-					std::list<boost::shared_ptr<EventHandler> >::iterator iter;
+						std::list<boost::shared_ptr<EventHandler> >::iterator iter;
 					
-					for (iter=listOfEventHandlers->begin();iter!=listOfEventHandlers->end();) {
+						for (iter=listOfEventHandlers->begin();iter!=listOfEventHandlers->end();) {
 						
-						currentEventHandler = (*iter);
+							currentEventHandler = (*iter);
 						
-						if (currentEventHandler != boost::shared_ptr<EventHandler>()) {
+							if (currentEventHandler != boost::shared_ptr<EventHandler>()) {
 							
-							//std::cout << currentEventHandler.get()->getName() << std::endl;
+								//std::cout << currentEventHandler.get()->getName() << std::endl;
 							
-							doHandleEvents(ev,currentEventHandler);
+								doHandleEvents(ev,currentEventHandler);
+							}
+						
+							++iter;
 						}
-						
-						++iter;
 					}
 				}
-			}
 			
-			/*
-			if (eventHandler) {
+				/*
+				if (eventHandler) {
 								
-				doHandleEvents(ev, eventHandler);
+					doHandleEvents(ev, eventHandler);
+				}
+				*/
 			}
-			*/
+		} else{
+			get_event = false;
 		}
 	}
 	while(get_event);
