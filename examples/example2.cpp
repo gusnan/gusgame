@@ -111,7 +111,7 @@ int main(int argc,char **argv)
 		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
 		
 		// set a window title
-		GraphicsHandler::setWindowTitle("GusGame Example 2");	
+		GraphicsHandler::setWindowTitle("GusGame Example 2");
 		
 		// Init the font handler
 		FontHandler::initFontHandler();
