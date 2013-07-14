@@ -57,7 +57,7 @@ public:
 				quit=true;
 			}
 			
-			if (keyEvent.getValue()==Key::KeyZ) {
+			if (keyEvent.getValue()==Key::Z) {
 				if (keyEvent.getCtrlPressed() && keyEvent.getAltPressed()) {
 					quit=true;
 				}

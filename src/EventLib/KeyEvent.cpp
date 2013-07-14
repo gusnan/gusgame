@@ -138,82 +138,82 @@ int KeyEvent::convertAllegroToKeyValue(int alValue)
 	switch (alValue)
 	{
 	case ALLEGRO_KEY_A:
-		result=Key::KeyA;
+		result=Key::A;
 		break;
 	case ALLEGRO_KEY_B:
-		result=Key::KeyB;
+		result=Key::B;
 		break;
 	case ALLEGRO_KEY_C:
-		result=Key::KeyC;
+		result=Key::C;
 		break;
 	case ALLEGRO_KEY_D:
-		result=Key::KeyD;
+		result=Key::D;
 		break;
 	case ALLEGRO_KEY_E:
-		result=Key::KeyE;
+		result=Key::E;
 		break;
 	case ALLEGRO_KEY_F:
-		result=Key::KeyF;
+		result=Key::F;
 		break;
 	case ALLEGRO_KEY_G:
-		result=Key::KeyG;
+		result=Key::G;
 		break;
 	case ALLEGRO_KEY_H:
-		result=Key::KeyH;
+		result=Key::H;
 		break;
 	case ALLEGRO_KEY_I:
-		result=Key::KeyI;
+		result=Key::I;
 		break;
 	case ALLEGRO_KEY_J:
-		result=Key::KeyJ;
+		result=Key::J;
 		break;
 	case ALLEGRO_KEY_K:
-		result=Key::KeyK;
+		result=Key::K;
 		break;
 	case ALLEGRO_KEY_L:
-		result=Key::KeyL;
+		result=Key::L;
 		break;
 	case ALLEGRO_KEY_M:
-		result=Key::KeyM;
+		result=Key::M;
 		break;
 	case ALLEGRO_KEY_N:
-		result=Key::KeyN;
+		result=Key::N;
 		break;
 	case ALLEGRO_KEY_O:
-		result=Key::KeyO;
+		result=Key::O;
 		break;
 	case ALLEGRO_KEY_P:
-		result=Key::KeyP;
+		result=Key::P;
 		break;
 	case ALLEGRO_KEY_Q:
-		result=Key::KeyQ;
+		result=Key::Q;
 		break;
 	case ALLEGRO_KEY_R:
-		result=Key::KeyR;
+		result=Key::R;
 		break;
 	case ALLEGRO_KEY_S:
-		result=Key::KeyS;
+		result=Key::S;
 		break;
 	case ALLEGRO_KEY_T:
-		result=Key::KeyT;
+		result=Key::T;
 		break;
 	case ALLEGRO_KEY_U:
-		result=Key::KeyU;
+		result=Key::U;
 		break;
 	case ALLEGRO_KEY_V:
-		result=Key::KeyV;
+		result=Key::V;
 		break;
 	case ALLEGRO_KEY_W:
-		result=Key::KeyW;
+		result=Key::W;
 		break;
 	case ALLEGRO_KEY_X:
-		result=Key::KeyX;
+		result=Key::X;
 		break;
 	case ALLEGRO_KEY_Y:
-		result=Key::KeyY;
+		result=Key::Y;
 		break;
 	case ALLEGRO_KEY_Z:
-		result=Key::KeyZ;
+		result=Key::Z;
 		break;
 	// ----------------------------- Numbers
 	case ALLEGRO_KEY_0:
