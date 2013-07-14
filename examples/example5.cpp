@@ -53,17 +53,20 @@ public:
 	/**
 	 * Handle keyboard presses and releases
 	 */
-	virtual void handleKeyboard(KeyEvent &keyEvent) {
+	virtual bool handleKeyboard(KeyEvent &keyEvent) {
 		
 		// Is it the Escape Button that is pressed? - then quit
 		if (keyEvent.getType()==KeyEventPressed) {
 			if (keyEvent.getValue()==Key::Escape) {
 				quit=true;
+				return true;
 			}
 			else {
 				testEvent2->pushEvent();
+				return true;
 			}
-		} 
+		}
+		return false;
 	}
 	
 	/**

@@ -195,10 +195,12 @@ void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
 
 
 /**
- *
+ * returns true if the event is handled
  */
-void EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
+bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 {
+	
+	bool result=false;
 	
 	switch (ev.type) {
 	case ALLEGRO_EVENT_DISPLAY_CLOSE:
@@ -220,7 +222,7 @@ void EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 			//printf("ALLEGRO_EVENT_KEY_CHAR\n");
 			KeyEvent keyboardEvent(ev);
 			
-			eventHandler.get()->handleKeyboard(keyboardEvent);
+			result = eventHandler.get()->handleKeyboard(keyboardEvent);
 			
 		}
 		break;
@@ -260,6 +262,8 @@ void EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 		}
 		break;
 	}
+	
+	return result;
 }
 
 
@@ -271,6 +275,8 @@ void EventSystem::handleEvents()
 	ALLEGRO_EVENT ev;
 	bool get_event = false;
 	boost::shared_ptr<EventHandler> currentEventHandler = boost::shared_ptr<EventHandler>();
+	
+	bool eventHandled = false;
 	
 	// Make sure to handle all events in the queue before drawing
 	do {
@@ -292,8 +298,11 @@ void EventSystem::handleEvents()
 							if (currentEventHandler != boost::shared_ptr<EventHandler>()) {
 							
 								//std::cout << currentEventHandler.get()->getName() << std::endl;
+								
+								if (!eventHandled) {
 							
-								doHandleEvents(ev,currentEventHandler);
+									eventHandled = doHandleEvents(ev,currentEventHandler);
+								}
 							}
 						
 							++iter;

@@ -95,7 +95,7 @@ EventHandler &EventHandler::operator=(const EventHandler &source)
 /**
  *
  */
-void EventHandler::handleKeyboard(KeyEvent &keyEvent)
+bool EventHandler::handleKeyboard(KeyEvent &keyEvent)
 {
 	
 }
