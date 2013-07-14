@@ -45,7 +45,7 @@ public:
 	GUSGAME_DLL EventHandler(const EventHandler &source);
 	GUSGAME_DLL EventHandler &operator=(const EventHandler &source);
 
-	virtual GUSGAME_DLL void handleKeyboard(KeyEvent &keyEvent);
+	virtual GUSGAME_DLL bool handleKeyboard(KeyEvent &keyEvent);
 	virtual GUSGAME_DLL void handleActiveEvent(ActiveEvent &activeEvent);
 	virtual GUSGAME_DLL int handleUserEvent(UserEvent &event);
 	virtual GUSGAME_DLL void handleMouseButton(MouseButtonEvent &mouseButtonEvent);

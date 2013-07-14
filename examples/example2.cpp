@@ -48,21 +48,25 @@ public:
 	/**
 	 * Handle keyboard presses and releases
 	 */
-	virtual void handleKeyboard(KeyEvent &keyEvent) {
+	virtual bool handleKeyboard(KeyEvent &keyEvent) {
+		bool result = false;
 		
 		// Is it the Escape Button that is pressed? - then quit
 		if (keyEvent.getType()==KeyEventPressed) {
 			if (keyEvent.getValue()==Key::Escape) {
 				printf("Test...\n");
-				quit=true;
+				quit = true;
+				result = true;
 			}
 			
 			if (keyEvent.getValue()==Key::Z) {
 				if (keyEvent.getCtrlPressed() && keyEvent.getAltPressed()) {
-					quit=true;
+					quit = true;
+					result = true;
 				}
 			}
 		}
+		return result;
 	}
 	
 	/**

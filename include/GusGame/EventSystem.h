@@ -45,7 +45,7 @@ namespace EventSystem
 	void removeEventHandler(EventHandlerPtr eventHandler);
 	
 	void handleEvents();
-	void doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler);
+	bool doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler);
 	
 	void printEventHandlers();
 	
