@@ -41,8 +41,8 @@ namespace Key
 {
 enum KeyNames
 {
-	Space=		' ',
-	Tab=			'\t',
+	Space=	' ',
+	Tab=		'\t',
 	Enter=		'\n',
 	LeftAlt=		1000,
 	RightAlt,
@@ -69,8 +69,7 @@ enum KeyNames
 	NumLock,
 	AltGr,
 	Left,Right,Up,Down,
-	KeyA,KeyB,KeyC,KeyD,KeyE,KeyF,KeyG,KeyH,KeyI,KeyJ,KeyK,KeyL,KeyM,
-	KeyN,KeyO,KeyP,KeyQ,KeyR,KeyS,KeyT,KeyU,KeyV,KeyW,KeyX,KeyY,KeyZ,
+	A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
 	KeyPad0,KeyPad1,KeyPad2,KeyPad3,KeyPad4,
 	KeyPad5,KeyPad6,KeyPad7,KeyPad8,KeyPad9,
 	Key1,Key2,Key3,Key4,Key5,Key6,Key7,Key8,Key9,Key0,
