@@ -192,7 +192,7 @@ else (${BUILD_SHARED})
 	set(BUILD_TYPE STATIC)
 endif (${BUILD_SHARED})
 
-add_library(${LIBRARY_NAME} ${BUILD_TYPE} ${SOURCES})
+add_library(${LIBRARY_NAME} ${BUILD_TYPE} ${SOURCES} ${INCLUDE_FILES})
 
 set(EX_DIR examples)
 
