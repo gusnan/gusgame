@@ -63,7 +63,8 @@ void Primitives::donePrimitives()
  */
 void Primitives::line(const Vector2d &sourcePoint, const Vector2d &targetPoint, const Color &color, float thickness)
 {
-	al_draw_line(sourcePoint.x, sourcePoint.y, targetPoint.x, targetPoint.y, color.getAllegroColor(), thickness);
+	al_draw_line((float)((float)sourcePoint.x + 0.5f), (float)((float)sourcePoint.y + 0.5f), 
+					 (float)((float)targetPoint.x + 0.5f), (float)((float)targetPoint.y + 0.5f), color.getAllegroColor(), thickness);
 }
 
 
