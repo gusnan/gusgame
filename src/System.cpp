@@ -69,6 +69,7 @@ void System::initSystem()
 	
 	FileHelper::addDataFolder("data/");
 	FileHelper::addDataFolder("../data/");
+	FileHelper::addDataFolder("../../data/");
 	
 }
 
