@@ -89,6 +89,8 @@ set(INCLUDE_FILES
 	${INC}/LogHandler.h
 	${INC}/Log.h
 	${INC}/LogLib.h
+	
+	${INC}/DynamicLink.h
 
 	${INC}/Error.h
 	${INC}/Exception.h
