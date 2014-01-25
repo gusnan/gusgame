@@ -95,6 +95,7 @@ set(INCLUDE_FILES
 	${INC}/FileNotFoundException.h
 	${INC}/RuntimeError.h
 	${INC}/StringToIntException.h
+	${INC}/ExceptionLib.h
 	
 	${INC}/GraphicsLib.h
 	${INC}/GraphicsHandler.h
@@ -111,6 +112,10 @@ set(INCLUDE_FILES
 	${INC}/KeyEvent.h
 	${INC}/MouseMotionEvent.h
 	${INC}/MouseButtonEvent.h
+	${INC}/EventLib.h
+	
+	${INC}/Rect.h
+	${INC}/Vector2d.h
 	
 	${INC}/SystemQuitEvent.h
 	${INC}/QuitEvent.h
