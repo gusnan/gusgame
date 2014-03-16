@@ -39,18 +39,18 @@ Vector2d testPosition;
 
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
- *	events, and the Quit events. (This event is pushed when you press the close 
+ *	events, and the Quit events. (This event is pushed when you press the close
  * window button for example)
  */
 class ExampleEventHandler : public EventHandler
 {
 public:
-	
+
 	/**
 	 * Handle keyboard presses and releases
 	 */
 	virtual bool handleKeyboard(KeyEvent &keyEvent) {
-		
+
 		// Is it the Escape Button that is pressed? - then quit
 		if (keyEvent.getType()==KeyEventPressed) {
 			if (keyEvent.getValue()==Key::Escape) {
@@ -60,15 +60,15 @@ public:
 		}
 		return false;
 	}
-	
+
 	/**
-	 * handle the quit event 
+	 * handle the quit event
 	 */
 	virtual void handleQuitEvent()
 	{
 		quit=true;
 	}
-	
+
 	/**
 	 * Handle the system quit event. (This is called when the window close
 	 * button is pressed.) The System Quit event is separated from the standard
@@ -79,7 +79,7 @@ public:
 	{
 		quit=true;
 	}
-	
+
 	/**
 	 *
 	 */
@@ -100,87 +100,87 @@ int main(int argc,char **argv)
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
 	Bitmap *mouseBitmap=NULL;
 	Bitmap *testBitmap=NULL;
-	
+
 	try {
-		// init the log - this function takes a string (the log file filename) 
-		// as indata, if none is inserted, "log.txt" is assumed. If you give the 
+		// init the log - this function takes a string (the log file filename)
+		// as indata, if none is inserted, "log.txt" is assumed. If you give the
 		// empty string "" as filename for the log, no log will be used.
-		// 
-		// The second indata is a boolean to determine to print the log to 
+		//
+		// The second indata is a boolean to determine to print the log to
 		// std::cout or not in addition to to the file.
 		LogHandler::initLog("log.txt",true);
-				 
+
 		// init system stuff
 		System::initSystem();
-		
+
 		// set up a screen with resolution of 640x480, and not fullscreen
 		GraphicsHandler::initGraphicsHandler();
 		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
-		
+
 		// set a window title
-		GraphicsHandler::setWindowTitle("GusGame Example 6");	
-	
+		GraphicsHandler::setWindowTitle("GusGame Example 6");
+
 		// Create an EventHandler for our "custom" events from the class
 		// that is defined above
 		eventHandler=boost::shared_ptr<EventHandler>(new ExampleEventHandler());
-		
+
 		EventSystem::initEventSystem();
-		
+
 		// set the used EventHandler to the one we just created.
 		EventSystem::addEventHandler(eventHandler);
-		
+
 		mouseBitmap=new Bitmap("mouse.png");
-		
+
 		testBitmap=mouseBitmap->makeCopy();
-		
+
 		Mouse::setMouseBitmap(mouseBitmap);
-		
-		
+
+
 	}
 	catch (Exception &e)
 	{
 		// If we get any problems with the code in the throw block, it will be
 		// caught here
 		std::cerr << "Exception: " << e.getString() << std::endl;
-		
+
 		return EXIT_FAILURE;
 	}
-	
+
 	LOG("Enter main loop.");
-	
+
 	// the main loop
 	do {
 		// Update the timer
 		Timer::updateFrame();
-		
+
 		// Handle events (see the class just above this main
 		EventSystem::handleEvents();
-		
+
 		// Clear the screen every sync
 		GraphicsHandler::clearScreen();
-		
+
 		//System::getMouse()->draw();
 		testBitmap->blit(testPosition);
-					
+
 		// Update the screen
 		GraphicsHandler::updateScreen();
 	} while(!quit);
-	
+
 	delete mouseBitmap;
-	
+
 	delete testBitmap;
-	
+
 	// Remove our custom eventHandler
 	//delete eventHandler;
-	
+
 	// Remove mouse stuff
 	Mouse::doneMouse();
-	
+
 	// done with system stuff
 	System::doneSystem();
-	
+
 	// done with the Log
 	LogHandler::doneLog();
-	
+
 	return EXIT_SUCCESS;
 }
