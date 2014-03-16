@@ -100,7 +100,7 @@ std::string GraphicsHandler::getOpenGLVersionString()
 /**
  *
  */
-void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen)
+	void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable)
 {
 	int flags=0;
 
@@ -111,6 +111,8 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen)
 	}
 
 	flags |= ALLEGRO_OPENGL;
+
+	if (resizable) flags |= ALLEGRO_RESIZABLE;
 
 	al_set_new_display_flags(flags);
 

@@ -41,7 +41,7 @@ namespace GraphicsHandler
 	void initGraphicsHandler();
 	void doneGraphicsHandler();
 	
-	void setGraphicsMode(const Vector2d &size, bool fullscreen);
+	void setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable = false);
 	
 	void setWindowTitle(std::string title);
 	
