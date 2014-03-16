@@ -2,8 +2,8 @@
  *	This file is part of GusGame
  *	Copyright (C) 2013 Andreas Rönnquist
  *
- *	GusGame is free software: you can redistribute it and/or 
- *	modify it under the terms of the GNU General Public License as published 
+ *	GusGame is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published
  *	by the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
@@ -13,7 +13,7 @@
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with GusGame.  
+ *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
 #include <stdint.h>
@@ -77,20 +77,20 @@ void GraphicsHandler::doneGraphicsHandler()
 std::string GraphicsHandler::getOpenGLVersionString()
 {
 	uint32_t openGLversion = al_get_opengl_version();
-	
+
 	/*
 	std::cout << ((openGLversion >> 24) % 0x100) << std::endl;
 	std::cout << ((openGLversion >> 16) % 0x100) << std::endl;
 	std::cout << ((openGLversion >> 8) % 0x100) << std::endl;
 	std::cout << (openGLversion % 0x100) << std::endl;
 	*/
-	
+
 	std::stringstream result;
-	
+
 	//result << openGLversion;
 
-	result << ((openGLversion >> 24) % 0x100) << "." << 
-				 ((openGLversion >> 16) % 0x100) << "." << 
+	result << ((openGLversion >> 24) % 0x100) << "." <<
+				 ((openGLversion >> 16) % 0x100) << "." <<
 				 ((openGLversion >> 8) % 0x100) << "."<< (openGLversion % 0x100);
 
 	return (std::string)(result.str());
@@ -103,25 +103,25 @@ std::string GraphicsHandler::getOpenGLVersionString()
 void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen)
 {
 	int flags=0;
-	
+
 	if (fullscreen) {
 		flags |= ALLEGRO_FULLSCREEN;
 	} else {
 		flags |= ALLEGRO_WINDOWED;
 	}
-	
+
 	flags |= ALLEGRO_OPENGL;
-	
+
 	al_set_new_display_flags(flags);
-	
+
 	display=al_create_display(size.x,size.y);
-	
+
 	screenSize=size;
-	
+
 	if (!display) {
 		throw ExceptionLib::Exception("Couldn't init display!");
 	}
-	
+
 	//al_set_window_position(display, 32, 32);
 }
 
@@ -132,7 +132,7 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen)
 void GraphicsHandler::setWindowTitle(std::string windowTitle)
 {
 	if (display)
-		al_set_window_title(display, (const char*)(windowTitle.c_str()));	
+		al_set_window_title(display, (const char*)(windowTitle.c_str()));
 }
 
 
