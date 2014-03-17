@@ -30,7 +30,7 @@ namespace Gus
  */
 namespace EventLib
 {
-	
+
 #define SIMPLE_USER_EVENT_TYPE	ALLEGRO_GET_EVENT_TYPE('t', 'e', 's', 't')
 
 /**
