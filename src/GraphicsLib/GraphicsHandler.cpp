@@ -100,7 +100,7 @@ std::string GraphicsHandler::getOpenGLVersionString()
 /**
  *
  */
-	void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable)
+void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable)
 {
 	int flags=0;
 

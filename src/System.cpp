@@ -2,8 +2,8 @@
  *	This file is part of freedungeon
  *	Copyright (C) 2013 Andreas Rönnquist
  *
- *	freedungeon is free software: you can redistribute it and/or 
- *	modify it under the terms of the GNU General Public License as published 
+ *	freedungeon is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published
  *	by the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
@@ -13,7 +13,7 @@
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with freedungeon.  
+ *	along with freedungeon.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
 
@@ -54,23 +54,23 @@ void System::initSystem()
 	if (!al_init()) {
 		throw Exception("Couldn't init allegro!");
 	}
-	
+
 	if (!al_init_image_addon()) {
 		throw Exception("Couldn't init image addon!");
 	}
-	
+
 	if (!al_install_keyboard()) {
 		throw Exception("Couldn't install keyboard!");
 	}
-	
+
 	if (!al_install_mouse()) {
 		throw Exception("Couldn't init mouse!");
 	}
-	
+
 	FileHelper::addDataFolder("data/");
 	FileHelper::addDataFolder("../data/");
 	FileHelper::addDataFolder("../../data/");
-	
+
 }
 
 
@@ -80,7 +80,7 @@ void System::initSystem()
 void System::doneSystem()
 {
 	al_uninstall_mouse();
-	
+
 	al_uninstall_system();
 }
 
@@ -94,7 +94,7 @@ std::string System::getGusGameVersion()
 	std::stringstream st;
 
 	st << "0.01";
-	
+
 	return (std::string)st.str();
 }
 
