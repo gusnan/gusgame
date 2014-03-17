@@ -2,8 +2,8 @@
  *	This file is part of GusGame
  *	Copyright (C) 2013 Andreas Rönnquist
  *
- *	GusGame is free software: you can redistribute it and/or 
- *	modify it under the terms of the GNU General Public License as published 
+ *	GusGame is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published
  *	by the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
@@ -13,7 +13,7 @@
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with GusGame.  
+ *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
 #ifndef __HEADER_MOUSE_BUTTON_EVENT_
@@ -47,10 +47,10 @@ public:
 
 	MouseButtonStatus getStatus() const;
 
-	
+
 
 protected:
-	
+
 	Gus::GraphicsLib::Vector2d m_Position;
 	int m_Button;
 
