@@ -249,7 +249,7 @@ public:
 
 		return result;
 	}
-	
+
 	/**
 	 *
 	 */

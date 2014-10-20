@@ -32,7 +32,7 @@
  */
 namespace Gus
 {
-	
+
 /**
  *
  */
@@ -40,24 +40,24 @@ namespace FileHelper
 {
 
 	bool isSlash(char ch);
-	
+
 	bool isDir(std::string in_string);
-	
+
 	bool fileExists(std::string strFilename);
 	std::string fixBeginSlashFilename(std::string inFilename);
-	
+
 	std::string fixEndSlash(const std::string &text);
-	
+
 	void addDataFolder(std::string);
 	std::string getFilename(std::string);
 
 	std::string fixSlashes(const std::string &text);
-	
+
 	extern std::list<std::string> m_DataFolders;
-	
+
 };
 
-	
+
 // end of namespace
 // ----------------
 };

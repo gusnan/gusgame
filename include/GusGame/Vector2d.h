@@ -43,7 +43,7 @@ class Vector2d
 {
 public:
 	/**
-	 *	
+	 *
 	 */
 	Vector2d() : x(-1),y(-1)
 	{
@@ -51,7 +51,7 @@ public:
 	}
 
 	/**
-	 *	
+	 *
 	 */
 	Vector2d(int xpos,int ypos) : x(xpos),y(ypos)
 	{
@@ -61,7 +61,7 @@ public:
 	}
 
 	/**
-	 *	
+	 *
 	 */
 	Vector2d(const Vector2d &source) : x(0),y(0)
 	{
@@ -72,7 +72,7 @@ public:
 	}
 
 	/**
-	 *	
+	 *
 	 */
 	Vector2d& operator=(const Vector2d& source)
 	{
@@ -82,9 +82,9 @@ public:
 		return *this;
 	}
 
-	
+
 	/**
-	 *	
+	 *
 	 */
 	Vector2d operator*(const Vector2d& source) const
 	{
@@ -93,11 +93,11 @@ public:
 		res.x=x*source.x;
 		res.y=y*source.y;
 
-		return res;		
+		return res;
 	}
-	
+
 	/**
-	 *	
+	 *
 	 */
 	Vector2d operator*(const int a) const
 	{
@@ -106,14 +106,14 @@ public:
 		res.x=x*a;
 		res.y=y*a;
 
-		return res;		
+		return res;
 	}
 
 
-	
+
 
 	/**
-	 *	
+	 *
 	 */
 	Vector2d operator-(const Vector2d& source) const
 	{
@@ -127,7 +127,7 @@ public:
 
 
 	/**
-	 *	
+	 *
 	 */
 	void operator*=(const Vector2d& source)
 	{
@@ -141,7 +141,7 @@ public:
 	}
 
 	/**
-	 *	
+	 *
 	 */
 	Vector2d operator+=(const Vector2d& source)
 	{
@@ -153,9 +153,9 @@ public:
 
 		return *this;
 	}
-	
+
 	/**
-	 *	
+	 *
 	 */
 	Vector2d operator+(const Vector2d& source) const
 	{
@@ -167,21 +167,21 @@ public:
 
 		return res;
 	}
-	
+
 	/*
 	Vector2d operator+(Vector2d a,Vector2d b)
 	{
 		Vector2d r=a;
 		return r+=b;
-		
+
 	}
 	*/
 
 
 	/**
-	 *	
+	 *
 	 */
-	void operator-=(const Vector2d& source) 
+	void operator-=(const Vector2d& source)
 	{
 		//Vector2d res(*this);
 
@@ -193,7 +193,7 @@ public:
 
 
 	/**
-	 *	
+	 *
 	 */
 	bool operator==(const Vector2d& source) const
 	{
@@ -208,7 +208,7 @@ public:
 
 
 	/**
-	 *	
+	 *
 	 */
 	bool operator!=(const Vector2d& source) const
 	{
@@ -225,7 +225,7 @@ public:
 
 
 	/**
-	 *	
+	 *
 	 */
 	Vector2d *makeCopy()
 	{
@@ -233,7 +233,7 @@ public:
 	}
 
 	/**
-	 *	
+	 *
 	 */
 	virtual ~Vector2d()
 	{
@@ -241,7 +241,7 @@ public:
 	}
 
 	/**
-	 *	
+	 *
 	 */
 	void setPosition(int xpos,int ypos)
 	{
@@ -250,7 +250,7 @@ public:
 	}
 
 	/**
-	 *	
+	 *
 	 */
 	std::string getString()
 	{
@@ -261,9 +261,9 @@ public:
 
 		return stringStream.str();
 	}
-	
+
 	/**
-	 *	
+	 *
 	 */
 	std::string getShortString()
 	{
@@ -271,13 +271,13 @@ public:
 
 		stringStream << x << "," << y;
 
-		return stringStream.str();		
+		return stringStream.str();
 	}
 
-	
-	
+
+
 	/**
-	 *	
+	 *
 	 */
 	bool inRange(Vector2d pos) const
 	{
@@ -324,10 +324,10 @@ public:
 	{
 		return Vector2d(x,y+1);
 	}
-	
+
 	friend std::ostream &operator<<(std::ostream &stream, Vector2d vec) {
 		stream << vec.x << "," << vec.y;
-		
+
 		return stream;
 	}
 

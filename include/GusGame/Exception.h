@@ -47,13 +47,13 @@ public:
 	virtual ~Exception();
 
 	void addMessage(std::string mes);
-	
+
 	virtual std::string getString();
 
 protected:
 	std::string m_Message;
 	//std::vector<std::string> m_MessageList;
-	
+
 };
 
 // end of namespace
