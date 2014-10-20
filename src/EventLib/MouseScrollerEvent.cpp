@@ -16,22 +16,83 @@
  *	along with GusGame.  
  *	If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef __HEADER_EVENT_LIB_
-#define __HEADER_EVENT_LIB_
+#include <string>
+#include <sstream>
 
-#include "UserEvent.h"
-#include "KeyEvent.h"
+#include "Library.h"
 
-#include "ActiveEvent.h"
+#include "Vector2d.h"
+#include "Rect.h"
 
-#include "MouseButtonEvent.h"
-#include "MouseMotionEvent.h"
+#include "Color.h"
+
+#include "Bitmap.h"
+
+using namespace Gus;
+using namespace GraphicsLib;
+
 #include "MouseScrollerEvent.h"
 
-#include "SystemQuitEvent.h"
-#include "QuitEvent.h"
 
-#include "EventHandler.h"
-#include "EventSystem.h"
+/**
+ *
+ */
+namespace Gus
+{
 
-#endif /*__HEADER_EVENT_LIB_*/
+
+/**
+ *
+ */
+namespace EventLib
+{
+
+
+/**
+ *
+ */
+MouseScrollerEvent::MouseScrollerEvent() : m_Scroller(0)
+{
+}
+
+
+/**
+ *
+ */
+MouseScrollerEvent::MouseScrollerEvent(ALLEGRO_EVENT ev) : m_Scroller()
+{
+	m_Scroller = ev.mouse.z;
+}
+
+/**
+ *
+ */
+MouseScrollerEvent::MouseScrollerEvent(const MouseScrollerEvent &source)
+{
+	m_Scroller = source.m_Scroller;
+}
+
+
+/**
+ *
+ */
+MouseScrollerEvent::~MouseScrollerEvent()
+{
+}
+
+
+/**
+ *
+ */
+int MouseScrollerEvent::getScroller() const
+{
+	return m_Scroller;
+}
+
+/**
+ *
+ */
+};
+
+// 
+};

@@ -50,6 +50,7 @@ public:
 	virtual GUSGAME_DLL int handleUserEvent(UserEvent &event);
 	virtual GUSGAME_DLL void handleMouseButton(MouseButtonEvent &mouseButtonEvent);
 	virtual GUSGAME_DLL void handleMouseMotion(MouseMotionEvent &mouseMotionEvent);
+	virtual GUSGAME_DLL void handleMouseScroller(MouseScrollerEvent &mouseScrollerEvent);
 	virtual GUSGAME_DLL void handleQuitEvent();
 	virtual GUSGAME_DLL void handleSystemQuitEvent();
 

@@ -114,6 +114,7 @@ set(INCLUDE_FILES
 	${INC}/KeyEvent.h
 	${INC}/MouseMotionEvent.h
 	${INC}/MouseButtonEvent.h
+	${INC}/MouseScrollerEvent.h
 	${INC}/EventLib.h
 	
 	${INC}/Rect.h
@@ -159,6 +160,7 @@ set(SOURCES
 	src/EventLib/EventSystem.cpp
 	src/EventLib/MouseMotionEvent.cpp
 	src/EventLib/MouseButtonEvent.cpp
+	src/EventLib/MouseScrollerEvent.cpp
 	src/EventLib/SystemQuitEvent.cpp
 	src/EventLib/QuitEvent.cpp
 )

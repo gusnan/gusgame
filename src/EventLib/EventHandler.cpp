@@ -29,6 +29,7 @@ using namespace GraphicsLib;
 #include "KeyEvent.h"
 #include "MouseButtonEvent.h"
 #include "MouseMotionEvent.h"
+#include "MouseScrollerEvent.h"
 #include "UserEvent.h"
 #include "ActiveEvent.h"
 
@@ -130,6 +131,14 @@ void EventHandler::handleMouseButton(MouseButtonEvent &mouseButtonEvent)
  *
  */
 void EventHandler::handleMouseMotion(MouseMotionEvent &mouseMotionEvent)
+{
+}
+
+
+/**
+ *
+ */
+void EventHandler::handleMouseScroller(MouseScrollerEvent &mouseScrollerEvent)
 {
 }
 

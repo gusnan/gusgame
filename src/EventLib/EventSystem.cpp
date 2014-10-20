@@ -36,6 +36,7 @@
 #include "UserEvent.h"
 #include "MouseButtonEvent.h"
 #include "MouseMotionEvent.h"
+#include "MouseScrollerEvent.h"
 
 #include "EventHandler.h"
 
@@ -234,9 +235,18 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 		break;
 	case ALLEGRO_EVENT_MOUSE_AXES:
 		{
-			MouseMotionEvent mouseMotionEvent(ev);
+			if ((ev.mouse.dx!=0) || (ev.mouse.dy!=0)) {
+				MouseMotionEvent mouseMotionEvent(ev);
 			
-			eventHandler.get()->handleMouseMotion(mouseMotionEvent);
+				eventHandler.get()->handleMouseMotion(mouseMotionEvent);
+			}
+
+			if (ev.mouse.dz!=0) {
+
+				MouseScrollerEvent mouseScrollerEvent(ev);
+
+				eventHandler.get()->handleMouseScroller(mouseScrollerEvent);
+			}
 		}
 		break;
 	case ALLEGRO_EVENT_MOUSE_BUTTON_DOWN:
