@@ -35,8 +35,8 @@
 #define __INIT(a,b) a;LogHandler::addInit(b);
 #define __DONE(a,b) a;LogHandler::doneInit(b);
 #else
-#define __INIT(a,b) 
-#define __DONE(a,b) 
+#define __INIT(a,b)
+#define __DONE(a,b)
 #endif
 
 #define LOGOFF() LogLib::LogHandler::logOff();
@@ -108,11 +108,11 @@ namespace LogHandler
 
 	void GUSGAME_DLL logOff();
 	void GUSGAME_DLL logOn();
-	
+
 	extern bool fileLogActive;
-	
+
 	extern bool logTime;
-	
+
 	extern bool logActive;
 
 };

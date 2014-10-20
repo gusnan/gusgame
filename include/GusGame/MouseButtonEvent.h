@@ -48,7 +48,6 @@ public:
 	MouseButtonStatus getStatus() const;
 
 
-
 protected:
 
 	Gus::GraphicsLib::Vector2d m_Position;
