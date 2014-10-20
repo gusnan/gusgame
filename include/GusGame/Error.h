@@ -48,7 +48,7 @@ public:
 
 protected:
 	std::string m_String;
-	
+
 };
 
 /**
@@ -57,13 +57,13 @@ protected:
 namespace ErrorHandler
 {
 	void initErrorHandler();
-	
+
 	void setError(Error *err);
-	
+
 	void reportError(Exception& e);
-	
+
 	Error *getError();
-	
+
 	extern Error *error;
 };
 
