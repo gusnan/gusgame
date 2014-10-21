@@ -2,8 +2,8 @@
  *	This file is part of GusGame
  *	Copyright (C) 2013-2014 Andreas Rönnquist
  *
- *	GusGame is free software: you can redistribute it and/or 
- *	modify it under the terms of the GNU General Public License as published 
+ *	GusGame is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published
  *	by the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
@@ -13,7 +13,7 @@
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with GusGame.  
+ *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
 #include "boost/shared_ptr.hpp"
@@ -69,7 +69,7 @@ ALLEGRO_EVENT_QUEUE *EventSystem::eventQueue = NULL;
 ALLEGRO_TIMEOUT timeout;
 
 ALLEGRO_EVENT_SOURCE userEventSource;
-	
+
 std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = NULL;
 
 /**
@@ -83,27 +83,27 @@ void EventSystem::initEventSystem()
 	if (!eventQueue) {
 		throw ExceptionLib::Exception("Could crate event queue!");
 	}
-	
+
 	al_init_user_event_source(&userEventSource);
 
 	listOfEventHandlers = new std::list<EventHandlerPtr>;
 
 	listOfEventHandlers->clear();
-	
+
 	ALLEGRO_EVENT_SOURCE *display_event_source = al_get_display_event_source(GraphicsLib::GraphicsHandler::display);
 	if (display_event_source) {
 		al_register_event_source(eventQueue, display_event_source);
 	}
-	
+
 	ALLEGRO_EVENT_SOURCE *keyboard_event_source = al_get_keyboard_event_source();
 	if (keyboard_event_source) {
 		al_register_event_source(eventQueue, keyboard_event_source);
 	}
-	
+
 	al_register_event_source(eventQueue, al_get_mouse_event_source());
-	
+
 	al_register_event_source(eventQueue, &userEventSource);
-	
+
 	al_init_timeout(&timeout, 0.1);
 }
 
@@ -114,16 +114,16 @@ void EventSystem::initEventSystem()
 void EventSystem::doneEventSystem()
 {
 	//std::list<EventHandler*>::iterator iter;
-	
+
 	al_destroy_user_event_source(&userEventSource);
-	
+
 	if (eventQueue) {
 		al_destroy_event_queue(eventQueue);
 		eventQueue = NULL;
 	}
-	
+
 	if (listOfEventHandlers) {
-		
+
 		// Don't delete the eventhandlers in the list here, you'll have to do
 		// it by hand
 		/*
@@ -132,7 +132,7 @@ void EventSystem::doneEventSystem()
 			++iter;
 		}
 		*/
-		
+
 		delete listOfEventHandlers;
 		listOfEventHandlers=0;
 	}
@@ -144,15 +144,15 @@ void EventSystem::doneEventSystem()
  */
 void EventSystem::addEventHandler(EventHandlerPtr inEventHandler)
 {
-	
+
 	if (inEventHandler != boost::shared_ptr<EventHandler>()) {
 		//eventHandler=inEventHandler;
 		if (listOfEventHandlers) {
 			listOfEventHandlers->push_back(inEventHandler);
-			
+
 			/*
 			std::stringstream st;
-			
+
 			st << "Adding:" << inEventHandler.get()->getName();
 			STLOG(st);
 			*/
@@ -168,27 +168,27 @@ void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
 {
 	std::list<EventHandlerPtr>::iterator iter;
 	EventHandlerPtr currentEventHandler = boost::shared_ptr<EventHandler>();
-	
+
 	EventHandler *inEvent = inEventHandler.get();
-	
+
 	if (listOfEventHandlers) {
-		
+
 		//listOfEventHandlers->remove_if(ptr_contains(inEventHandler.get()));
 		if (!listOfEventHandlers->empty()) {
-		
+
 			for (iter=listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
 				currentEventHandler = (*iter);
-				
+
 				if (inEvent == currentEventHandler.get()) {
 					//LOG("Removed ONE!");
-					
+
 					iter = listOfEventHandlers->erase(iter);
-					
+
 				} else {
-				
+
 					++iter;
 				}
-				
+
 			}
 		}
 	}
@@ -200,9 +200,9 @@ void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
  */
 bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 {
-	
+
 	bool result=false;
-	
+
 	switch (ev.type) {
 	case ALLEGRO_EVENT_DISPLAY_CLOSE:
 		{
@@ -222,9 +222,9 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 		{
 			//printf("ALLEGRO_EVENT_KEY_CHAR\n");
 			KeyEvent keyboardEvent(ev);
-			
+
 			result = eventHandler.get()->handleKeyboard(keyboardEvent);
-			
+
 		}
 		break;
 	case SIMPLE_USER_EVENT_TYPE:
@@ -237,7 +237,7 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 		{
 			if ((ev.mouse.dx!=0) || (ev.mouse.dy!=0)) {
 				MouseMotionEvent mouseMotionEvent(ev);
-			
+
 				eventHandler.get()->handleMouseMotion(mouseMotionEvent);
 			}
 
@@ -272,7 +272,7 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 		}
 		break;
 	}
-	
+
 	return result;
 }
 
@@ -285,44 +285,44 @@ void EventSystem::handleEvents()
 	ALLEGRO_EVENT ev;
 	bool get_event = false;
 	boost::shared_ptr<EventHandler> currentEventHandler = boost::shared_ptr<EventHandler>();
-	
+
 	bool eventHandled = false;
-	
+
 	// Make sure to handle all events in the queue before drawing
 	do {
 		if (!al_is_event_queue_empty(eventQueue)) {
-		
+
 			get_event = al_wait_for_event_until(eventQueue, &ev, &timeout);
-		
+
 			if (get_event) {
 				if (listOfEventHandlers) {
-				
+
 					if (!listOfEventHandlers->empty()) {
-						
+
 						std::list<boost::shared_ptr<EventHandler> >::iterator iter;
-					
+
 						for (iter=listOfEventHandlers->begin();iter!=listOfEventHandlers->end();) {
-						
+
 							currentEventHandler = (*iter);
-						
+
 							if (currentEventHandler != boost::shared_ptr<EventHandler>()) {
-							
+
 								//std::cout << currentEventHandler.get()->getName() << std::endl;
-								
+
 								if (!eventHandled) {
-							
+
 									eventHandled = doHandleEvents(ev,currentEventHandler);
 								}
 							}
-						
+
 							++iter;
 						}
 					}
 				}
-			
+
 				/*
 				if (eventHandler) {
-								
+
 					doHandleEvents(ev, eventHandler);
 				}
 				*/
@@ -351,27 +351,27 @@ void EventSystem::printEventHandlers()
 {
 	// extern std::list<EventHandlerPtr> *listOfEventHandlers;
 	std::list<EventHandlerPtr>::iterator iter;
-	
-	
+
+
 	LOG("List of event handlers:");
 	LOG("-----------------------");
-	
+
 	if (listOfEventHandlers) {
-		
+
 		for (iter = listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
 			EventHandlerPtr handler = (*iter);
-			
+
 			std::stringstream st;
-			
+
 			st << "  " << handler.get()->getName();
-			
+
 			STLOG(st);
-			
+
 			++iter;
 		}
 	}
-	
-	
+
+
 	LOG("--------");
 }
 
