@@ -53,11 +53,11 @@ namespace EventSystem
 
 	//extern EventHandler *eventHandler;
 
-	ALLEGRO_EVENT_SOURCE *getUserEventSource();
+	//ALLEGRO_EVENT_SOURCE *getUserEventSource();
 
 	extern std::list<EventHandlerPtr> *listOfEventHandlers;
 
-	//extern ALLEGRO_EVENT_SOURCE userEventSource;
+	extern ALLEGRO_EVENT_SOURCE userEventSource;
 
 };
 

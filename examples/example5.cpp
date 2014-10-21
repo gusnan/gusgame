@@ -38,8 +38,8 @@ bool quit=false;
 UserEvent *testEvent = NULL;
 UserEvent *testEvent2 = NULL;
 
-const int TEST_EVENT =	43;
-const int TEST_EVENT2 =	44;
+const int TEST_EVENT =	1;
+const int TEST_EVENT2 =	2;
 
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
@@ -49,7 +49,6 @@ const int TEST_EVENT2 =	44;
 class ExampleEventHandler : public EventHandler
 {
 public:
-
 	/**
 	 * Handle keyboard presses and releases
 	 */
@@ -62,8 +61,11 @@ public:
 				return true;
 			}
 			else {
+				std::cout << "Any key pressed" << std::endl;
 				testEvent2->pushEvent();
-				return true;
+				// We return false here, since we want the testEvent2 to be
+				// handled later in the handler.
+				return false;
 			}
 		}
 		return false;
@@ -96,10 +98,16 @@ public:
 		// Is it out custom User event that is triggered?
 		switch (inEvent.getUserEventValue()) {
 			case TEST_EVENT:
-				std::cout << "Something is happening..." << std::endl;
+				{
+					std::cout << "Something is happening..." << std::endl;
+					return 1;
+				}
 				break;
 			case TEST_EVENT2:
-				std::cout << "Event 2..." << std::endl;
+				{
+					std::cout << "Event 2..." << std::endl;
+					return 1;
+				}
 				break;
 			default:
 				break;
@@ -115,7 +123,8 @@ public:
  */
 int main(int argc,char **argv)
 {
-	EventHandlerPtr eventHandler = boost::shared_ptr<EventHandler>();
+	EventHandlerPtr eventHandler; // = boost::shared_ptr<EventHandler>();
+
 	Bitmap *mouseBitmap=NULL;
 
 	try {
@@ -139,21 +148,21 @@ int main(int argc,char **argv)
 
 		// Create an EventHandler for our "custom" events from the class
 		// that is defined above
+		EventSystem::initEventSystem();
+
 		eventHandler = boost::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
 
-		EventSystem::initEventSystem();
 
 		// set the used EventHandler to the one we just created.
 		EventSystem::addEventHandler(eventHandler);
-
-		mouseBitmap=new Bitmap("mouse.png");
-
-		Mouse::setMouseBitmap(mouseBitmap);
 
 		// Create the test events
 		testEvent=new UserEvent(TEST_EVENT);
 		testEvent2=new UserEvent(TEST_EVENT2);
 
+		mouseBitmap=new Bitmap("mouse.png");
+
+		Mouse::setMouseBitmap(mouseBitmap);
 
 	}
 	catch (Exception &e)

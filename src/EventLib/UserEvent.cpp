@@ -66,7 +66,7 @@ UserEvent::UserEvent() : m_UserEventValue(0), userEvent()
 UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventValue(), userEvent()
 {
 	m_UserEventValue=ev.user.data1;
-	userEvent=ev;
+	//userEvent=ev;
 }
 
 
@@ -80,8 +80,7 @@ UserEvent::UserEvent(int value) : m_UserEventValue(value), userEvent()
 /**
  *
  */
-UserEvent::UserEvent(const UserEvent &source) : m_UserEventValue(),
-	userEvent()
+UserEvent::UserEvent(const UserEvent &source) : m_UserEventValue(), userEvent()
 {
 	m_UserEventValue=source.m_UserEventValue;
 	userEvent=source.userEvent;
@@ -119,7 +118,9 @@ void UserEvent::pushEvent()
 	userEvent.user.type = SIMPLE_USER_EVENT_TYPE;
 	userEvent.user.data1 = m_UserEventValue;
 
-	al_emit_user_event(EventSystem::getUserEventSource(), &userEvent, NULL);
+	if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, NULL)) {
+		std::cout << "al_emit_user_event FAILED!" << std::endl;
+	}
 }
 
 
@@ -128,7 +129,7 @@ void UserEvent::pushEvent()
  */
 int UserEvent::getUserEventValue()
 {
-	return userEvent.user.data1; //m_UserEventValue;
+	return m_UserEventValue;
 }
 
 

@@ -68,7 +68,7 @@ ALLEGRO_EVENT_QUEUE *EventSystem::eventQueue = NULL;
 //EventHandler *EventSystem::eventHandler=NULL;
 ALLEGRO_TIMEOUT timeout;
 
-ALLEGRO_EVENT_SOURCE userEventSource;
+ALLEGRO_EVENT_SOURCE EventSystem::userEventSource;
 
 std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = NULL;
 
@@ -90,6 +90,8 @@ void EventSystem::initEventSystem()
 
 	listOfEventHandlers->clear();
 
+	al_register_event_source(eventQueue, &userEventSource);
+
 	ALLEGRO_EVENT_SOURCE *display_event_source = al_get_display_event_source(GraphicsLib::GraphicsHandler::display);
 	if (display_event_source) {
 		al_register_event_source(eventQueue, display_event_source);
@@ -101,8 +103,6 @@ void EventSystem::initEventSystem()
 	}
 
 	al_register_event_source(eventQueue, al_get_mouse_event_source());
-
-	al_register_event_source(eventQueue, &userEventSource);
 
 	al_init_timeout(&timeout, 0.1);
 }
@@ -200,7 +200,6 @@ void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
  */
 bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 {
-
 	bool result=false;
 
 	switch (ev.type) {
@@ -338,10 +337,12 @@ void EventSystem::handleEvents()
 /**
  *
  */
+/*
 ALLEGRO_EVENT_SOURCE *EventSystem::getUserEventSource()
 {
 	return &userEventSource;
 }
+*/
 
 
 /**
