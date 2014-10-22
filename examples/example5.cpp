@@ -98,27 +98,27 @@ public:
 	/**
 	 *
 	 */
-	virtual int handleUserEvent(UserEvent &inEvent)
+	virtual bool handleUserEvent(UserEvent &inEvent)
 	{
 		// Is it out custom User event that is triggered?
 		switch (inEvent.getUserEventValue()) {
 			case TEST_EVENT:
 				{
 					std::cout << "Something is happening..." << std::endl;
-					return 1;
+					return true;
 				}
 				break;
 			case TEST_EVENT2:
 				{
 					std::cout << "Event 2..." << std::endl;
-					return 1;
+					return true;
 				}
 				break;
 			default:
 				break;
 		}
 
-		return 0;
+		return false;
 	}
 };
 

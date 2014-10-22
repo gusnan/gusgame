@@ -113,9 +113,9 @@ void EventHandler::handleActiveEvent(ActiveEvent &activeEvent)
 /**
  *
  */
-int EventHandler::handleUserEvent(UserEvent &event)
+bool EventHandler::handleUserEvent(UserEvent &event)
 {
-	return 0;
+	return false;
 }
 
 

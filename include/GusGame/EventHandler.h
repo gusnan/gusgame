@@ -47,7 +47,7 @@ public:
 
 	virtual GUSGAME_DLL bool handleKeyboard(KeyEvent &keyEvent);
 	virtual GUSGAME_DLL void handleActiveEvent(ActiveEvent &activeEvent);
-	virtual GUSGAME_DLL int handleUserEvent(UserEvent &event);
+	virtual GUSGAME_DLL bool handleUserEvent(UserEvent &event);
 	virtual GUSGAME_DLL void handleMouseButton(MouseButtonEvent &mouseButtonEvent);
 	virtual GUSGAME_DLL void handleMouseMotion(MouseMotionEvent &mouseMotionEvent);
 	virtual GUSGAME_DLL void handleMouseScroller(MouseScrollerEvent &mouseScrollerEvent);

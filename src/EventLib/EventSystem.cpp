@@ -231,7 +231,7 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 	case SIMPLE_USER_EVENT_TYPE:
 		{
 			UserEvent userEvent(ev);
-			eventHandler.get()->handleUserEvent(userEvent);
+			result = eventHandler.get()->handleUserEvent(userEvent);
 		}
 		break;
 	case ALLEGRO_EVENT_MOUSE_AXES:
