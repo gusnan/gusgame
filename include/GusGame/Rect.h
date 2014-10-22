@@ -245,7 +245,7 @@ public:
 		int xs=size.x;
 		int ys=size.y;
 
-		Vector2d result(x+xs/2,y+ys/2);
+		Vector2d result(x+xs/2, y+ys/2);
 
 		return result;
 	}
@@ -266,7 +266,7 @@ public:
 		int xs=size.x;
 		int ys=size.y;
 
-		Vector2d newPosition=Vector2d(pos.x-(xs/2),pos.y-(ys/2));
+		Vector2d newPosition = Vector2d(pos.x - (xs/2), pos.y - (ys/2));
 
 		//SetPosition(newPosition);
 		position=newPosition;

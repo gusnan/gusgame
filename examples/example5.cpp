@@ -17,6 +17,10 @@
  *	along with GusGame.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+/*
+
+
+ */
 #include <boost/shared_ptr.hpp>
 
 #include <cstdlib>
@@ -38,8 +42,8 @@ bool quit=false;
 UserEvent *testEvent = NULL;
 UserEvent *testEvent2 = NULL;
 
-const int TEST_EVENT =	1;
-const int TEST_EVENT2 =	2;
+const int TEST_EVENT =	43;
+const int TEST_EVENT2 =	44;
 
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
