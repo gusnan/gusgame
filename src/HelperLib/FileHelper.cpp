@@ -43,9 +43,9 @@
  */
 namespace Gus
 {
-	
+
 std::list<std::string> FileHelper::m_DataFolders;
-	
+
 
 /**
  *
@@ -72,16 +72,16 @@ bool FileHelper::isDir(std::string in_string)
 /**
  *
  */
-bool FileHelper::fileExists(std::string strFilename) 
+bool FileHelper::fileExists(std::string strFilename)
 {
 	FILE* fp = NULL;
-	
+
 	/*
 	std::stringstream st;
 	st << "fileExists(" << strFilename << ")";
 	STLOG(st);
 	*/
-	
+
 	bool result=false;
 #ifdef _MSC_VER
 	fopen_s(&fp, (char*)(strFilename.c_str()), "r" );
@@ -91,10 +91,10 @@ bool FileHelper::fileExists(std::string strFilename)
 	if( fp != NULL )
 	{
 		fclose( fp );
-		 
+
 		result=true;
 		if (isDir(strFilename)) result=false;
-        
+
 	}
 
 	return result;
@@ -109,36 +109,36 @@ bool FileHelper::fileExists(std::string strFilename)
 std::string FileHelper::fixBeginSlashFilename(std::string inFilename)
 {
 	std::string result=inFilename;
-	
-	// Fix so that the string doesn't start with a 
+
+	// Fix so that the string doesn't start with a
 	if (result[0]=='/') {
 		result=inFilename.substr(1);
 	}
-	
+
 	return result;
 }
 
 /**
- *	returns a complete filename, with a filename in the style of 
+ *	returns a complete filename, with a filename in the style of
  * mouse.png as indata. This it does by trying by using the folders
  * in the m_DataFolders list of folders.
  */
 std::string FileHelper::getFilename(std::string inFilename)
 {
 	std::string result="";
-	
+
 #ifdef _WIN32
-	if ((inFilename[1]==':') && 
+	if ((inFilename[1]==':') &&
 		((inFilename[2]=='/') || (inFilename[2]=='\\'))) {
 #else
 	if (inFilename[0]=='/') {
 #endif
 		return inFilename;
-	}		
+	}
 
 	std::list<std::string>::iterator iter;
 	for (iter=m_DataFolders.begin();iter!=m_DataFolders.end();) {
-		
+
 		std::string temp=*iter;
 		std::string testResult=temp; //fixFilename(temp);
 		int len=testResult.length();
@@ -152,22 +152,22 @@ std::string FileHelper::getFilename(std::string inFilename)
 		}
 
 		testResult+=fixBeginSlashFilename(inFilename);
-	
+
 		//testResult=fixFilename(testResult);
-		
-		
+
+
 		std::stringstream logst;
 		logst << "Testing:" << testResult;
 		STLOG(logst);
-		
-		
+
+
 		if (FileHelper::fileExists(testResult)) {
 			//LOG("File Exists TRUE");
 			if (result=="") result=testResult;
 		} else {
 			//LOG("File Exists FALSE");
 		}
-		
+
 		if (result!="") {
 			/*
 			std::stringstream logst;
@@ -179,7 +179,7 @@ std::string FileHelper::getFilename(std::string inFilename)
 			break;
 			//++iter;
 		} else {
-		
+
 			++iter;
 		}
 	}
@@ -196,7 +196,7 @@ bool FileHelper::isSlash(char ch)
 	if ((ch=='/') || (ch=='\\')) {
 		return true;
 	}
-	
+
 	return false;
 }
 
@@ -212,11 +212,11 @@ std::string FileHelper::fixEndSlash(const std::string &text)
 		result+=SLASH;
 		return result;
 	}
-	
+
 	if (!isSlash(text[text.length()-1])) {
 		result+=SLASH;
 	}
-	
+
 	return result;
 }
 
