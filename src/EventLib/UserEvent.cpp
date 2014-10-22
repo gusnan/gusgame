@@ -121,6 +121,8 @@ void UserEvent::pushEvent()
 	if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, NULL)) {
 		std::cout << "al_emit_user_event FAILED!" << std::endl;
 	}
+
+	EventSystem::setGlobalEventHandled(false);
 }
 
 

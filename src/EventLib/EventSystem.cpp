@@ -72,6 +72,8 @@ ALLEGRO_EVENT_SOURCE EventSystem::userEventSource;
 
 std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = NULL;
 
+bool EventSystem::globalEventHandled = true;
+
 /**
  *
  */
@@ -279,6 +281,15 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 /**
  *
  */
+void EventSystem::setGlobalEventHandled(bool handled)
+{
+	globalEventHandled = handled;
+}
+
+
+/**
+ *
+ */
 void EventSystem::handleEvents()
 {
 	ALLEGRO_EVENT ev;
@@ -311,6 +322,11 @@ void EventSystem::handleEvents()
 								if (!eventHandled) {
 
 									eventHandled = doHandleEvents(ev,currentEventHandler);
+
+									if (!globalEventHandled) {
+										eventHandled = false;
+										globalEventHandled = true;
+									}
 								}
 							}
 
@@ -318,6 +334,8 @@ void EventSystem::handleEvents()
 						}
 					}
 				}
+
+
 
 				/*
 				if (eventHandler) {

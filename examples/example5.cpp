@@ -62,14 +62,15 @@ public:
 		if (keyEvent.getType()==KeyEventPressed) {
 			if (keyEvent.getValue()==Key::Escape) {
 				quit=true;
+
+				// event is handled
 				return true;
 			}
 			else {
 				std::cout << "Any key pressed" << std::endl;
 				testEvent2->pushEvent();
-				// We return false here, since we want the testEvent2 to be
-				// handled later in the handler.
-				return false;
+				// event is handled - return true
+				return true;
 			}
 		}
 		return false;

@@ -59,6 +59,10 @@ namespace EventSystem
 
 	extern ALLEGRO_EVENT_SOURCE userEventSource;
 
+	extern bool globalEventHandled;
+
+	void setGlobalEventHandled(bool handled);
+
 };
 
 // end of namespace
