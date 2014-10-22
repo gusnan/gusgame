@@ -72,8 +72,6 @@ ALLEGRO_EVENT_SOURCE EventSystem::userEventSource;
 
 std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = NULL;
 
-int EventSystem::numberOfEventsOnStack = 0;
-
 std::list<UserEvent*> *EventSystem::listDelayedEvents = NULL;
 
 /**
@@ -286,15 +284,6 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 /**
  *
  */
-void EventSystem::increaseNumberOfEvents()
-{
-	numberOfEventsOnStack++;
-}
-
-
-/**
- *
- */
 void EventSystem::handleEvents()
 {
 	ALLEGRO_EVENT ev;
@@ -325,29 +314,12 @@ void EventSystem::handleEvents()
 								if (!eventHandled) {
 									eventHandled = doHandleEvents(ev,currentEventHandler);
 								}
-
-								/*
-								if (numberOfEventsOnStack>0) {
-									eventHandled = false;
-									numberOfEventsOnStack--;
-								}
-								*/
-	//							}
 							}
-
 							++iter;
 						}
 					}
 				}
 
-
-
-				/*
-				if (eventHandler) {
-
-					doHandleEvents(ev, eventHandler);
-				}
-				*/
 				eventHandled = false;
 			}
 		} else{
@@ -377,17 +349,6 @@ void EventSystem::handleEvents()
 	listDelayedEvents->clear();
 
 }
-
-
-/**
- *
- */
-/*
-ALLEGRO_EVENT_SOURCE *EventSystem::getUserEventSource()
-{
-	return &userEventSource;
-}
-*/
 
 
 /**
