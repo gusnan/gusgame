@@ -332,7 +332,7 @@ void EventSystem::handleEvents()
 
 	std::list<UserEvent*>::iterator iter;
 
-	for (iter = listDelayedEvents->begin(); iter != listDelayedEvents->end(); iter++) {
+	for (iter = listDelayedEvents->begin(); iter != listDelayedEvents->end(); ++iter) {
 
 		UserEvent *current_event = (*iter);
 
