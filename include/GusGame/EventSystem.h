@@ -59,9 +59,11 @@ namespace EventSystem
 
 	extern ALLEGRO_EVENT_SOURCE userEventSource;
 
-	extern bool globalEventHandled;
+	extern int numberOfEventsOnStack;
 
-	void setGlobalEventHandled(bool handled);
+	void increaseNumberOfEvents();
+
+	extern std::list<UserEvent*> *listDelayedEvents;
 
 };
 

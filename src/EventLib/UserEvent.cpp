@@ -115,14 +115,7 @@ UserEvent::~UserEvent()
  */
 void UserEvent::pushEvent()
 {
-	userEvent.user.type = SIMPLE_USER_EVENT_TYPE;
-	userEvent.user.data1 = m_UserEventValue;
-
-	if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, NULL)) {
-		std::cout << "al_emit_user_event FAILED!" << std::endl;
-	}
-
-	EventSystem::setGlobalEventHandled(false);
+	EventSystem::listDelayedEvents->push_back(this);
 }
 
 

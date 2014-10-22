@@ -69,6 +69,7 @@ public:
 			else {
 				std::cout << "Any key pressed" << std::endl;
 				testEvent2->pushEvent();
+				testEvent->pushEvent();
 				// event is handled - return true
 				return true;
 			}

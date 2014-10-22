@@ -72,7 +72,9 @@ ALLEGRO_EVENT_SOURCE EventSystem::userEventSource;
 
 std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = NULL;
 
-bool EventSystem::globalEventHandled = true;
+int EventSystem::numberOfEventsOnStack = 0;
+
+std::list<UserEvent*> *EventSystem::listDelayedEvents = NULL;
 
 /**
  *
@@ -107,6 +109,9 @@ void EventSystem::initEventSystem()
 	al_register_event_source(eventQueue, al_get_mouse_event_source());
 
 	al_init_timeout(&timeout, 0.1);
+
+	listDelayedEvents = new std::list<UserEvent*>();
+	listDelayedEvents->clear();
 }
 
 
@@ -281,9 +286,9 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 /**
  *
  */
-void EventSystem::setGlobalEventHandled(bool handled)
+void EventSystem::increaseNumberOfEvents()
 {
-	globalEventHandled = handled;
+	numberOfEventsOnStack++;
 }
 
 
@@ -317,17 +322,17 @@ void EventSystem::handleEvents()
 
 							if (currentEventHandler != boost::shared_ptr<EventHandler>()) {
 
-								//std::cout << currentEventHandler.get()->getName() << std::endl;
-
 								if (!eventHandled) {
-
 									eventHandled = doHandleEvents(ev,currentEventHandler);
-
-									if (!globalEventHandled) {
-										eventHandled = false;
-										globalEventHandled = true;
-									}
 								}
+
+								/*
+								if (numberOfEventsOnStack>0) {
+									eventHandled = false;
+									numberOfEventsOnStack--;
+								}
+								*/
+	//							}
 							}
 
 							++iter;
@@ -343,12 +348,34 @@ void EventSystem::handleEvents()
 					doHandleEvents(ev, eventHandler);
 				}
 				*/
+				eventHandled = false;
 			}
 		} else{
 			get_event = false;
 		}
 	}
 	while(get_event);
+
+	// Push the delayed events
+
+	std::list<UserEvent*>::iterator iter;
+
+	for (iter = listDelayedEvents->begin(); iter != listDelayedEvents->end(); iter++) {
+
+		UserEvent *current_event = (*iter);
+
+		ALLEGRO_EVENT userEvent;
+
+		userEvent.user.type = SIMPLE_USER_EVENT_TYPE;
+		userEvent.user.data1 = current_event->getUserEventValue();
+
+		if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, NULL)) {
+			std::cout << "al_emit_user_event FAILED!" << std::endl;
+		}
+	}
+
+	listDelayedEvents->clear();
+
 }
 
 
