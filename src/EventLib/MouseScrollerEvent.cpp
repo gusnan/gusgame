@@ -67,7 +67,7 @@ MouseScrollerEvent::MouseScrollerEvent(ALLEGRO_EVENT ev) : m_Scroller()
 /**
  *
  */
-MouseScrollerEvent::MouseScrollerEvent(const MouseScrollerEvent &source)
+MouseScrollerEvent::MouseScrollerEvent(const MouseScrollerEvent &source) : m_Scroller()
 {
 	m_Scroller = source.m_Scroller;
 }
