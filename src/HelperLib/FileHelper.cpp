@@ -150,9 +150,7 @@ std::string FileHelper::getFilename(std::string inFilename)
 				testResult+="/";
 			}
 		}
-		
-		std::stringstream stlog;
-		
+
 		testResult+=fixBeginSlashFilename(inFilename);
 	
 		//testResult=fixFilename(testResult);
