@@ -1,9 +1,10 @@
 /**
+ *
  *	This file is part of GusGame
  *	Copyright (C) 2013 Andreas Rönnquist
  *
- *	GusGame is free software: you can redistribute it and/or 
- *	modify it under the terms of the GNU General Public License as published 
+ *	GusGame is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published
  *	by the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
@@ -13,7 +14,7 @@
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with GusGame.  
+ *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
 #include <sstream>
@@ -63,7 +64,7 @@ void Primitives::donePrimitives()
  */
 void Primitives::line(const Vector2d &sourcePoint, const Vector2d &targetPoint, const Color &color, float thickness)
 {
-	al_draw_line((float)((float)sourcePoint.x + 0.5f), (float)((float)sourcePoint.y + 0.5f), 
+	al_draw_line((float)((float)sourcePoint.x + 0.5f), (float)((float)sourcePoint.y + 0.5f),
 					 (float)((float)targetPoint.x + 0.5f), (float)((float)targetPoint.y + 0.5f), color.getAllegroColor(), thickness);
 }
 
@@ -73,11 +74,11 @@ void Primitives::line(const Vector2d &sourcePoint, const Vector2d &targetPoint, 
  */
 void Primitives::rect(const Rect &rect, const Color &color, float thickness)
 {
-	al_draw_rectangle(rect.position.x, 
-							rect.position.y, 
-							rect.position.x+rect.size.x, 
-							rect.position.y+rect.size.y, 
-							color.getAllegroColor(), 
+	al_draw_rectangle(rect.position.x,
+							rect.position.y,
+							rect.position.x+rect.size.x,
+							rect.position.y+rect.size.y,
+							color.getAllegroColor(),
 							thickness);
 }
 
@@ -87,10 +88,10 @@ void Primitives::rect(const Rect &rect, const Color &color, float thickness)
  */
 void Primitives::rectFill(const Rect &rect, const Color &color)
 {
-	al_draw_filled_rectangle(rect.position.x, 
-									 rect.position.y, 
-									 rect.position.x+rect.size.x, 
-									 rect.position.y+rect.size.y, 
+	al_draw_filled_rectangle(rect.position.x,
+									 rect.position.y,
+									 rect.position.x+rect.size.x,
+									 rect.position.y+rect.size.y,
 									 color.getAllegroColor());
 
 }

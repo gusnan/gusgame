@@ -1,9 +1,10 @@
 /**
+ *
  *	This file is part of GusGame
  *	Copyright (C) 2013 Andreas Rönnquist
  *
- *	GusGame is free software: you can redistribute it and/or 
- *	modify it under the terms of the GNU General Public License as published 
+ *	GusGame is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published
  *	by the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
@@ -13,7 +14,7 @@
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with GusGame.  
+ *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
 #include <string>
@@ -62,10 +63,10 @@ MouseMotionEvent::MouseMotionEvent() : m_Position(Mouse::mousePosition)
  */
 MouseMotionEvent::MouseMotionEvent(ALLEGRO_EVENT ev) : m_Position()
 {
-	
+
 	m_Position.x = ev.mouse.x;
 	m_Position.y = ev.mouse.y;
-	
+
 	Mouse::mousePosition = m_Position;
 }
 

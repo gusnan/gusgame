@@ -1,9 +1,10 @@
 /**
+ *
  *	This file is part of GusGame
  *	Copyright (C) 2013 Andreas Rönnquist
  *
- *	GusGame is free software: you can redistribute it and/or 
- *	modify it under the terms of the GNU General Public License as published 
+ *	GusGame is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published
  *	by the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
@@ -13,7 +14,7 @@
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with GusGame.  
+ *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
 #include <string>
@@ -63,20 +64,20 @@ Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1,-1)
 Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1,-1)
 {
 	std::string fixedFilename = FileHelper::getFilename(filename);
-	
+
 	m_AllegroBitmap = al_load_bitmap((char*)(fixedFilename.c_str()));
-	
+
 	if (!m_AllegroBitmap) {
 		std::stringstream st;
-		
+
 		st << "Couldn't load image: " << filename;
-		
+
 		throw ExceptionLib::Exception(st.str());
 	}
-	
+
 	m_Size.x=al_get_bitmap_width(m_AllegroBitmap);
 	m_Size.y=al_get_bitmap_height(m_AllegroBitmap);
-	
+
 	setTarget(NULL);
 }
 
@@ -87,13 +88,13 @@ Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1,-1)
 Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1,-1)
 {
 	LOG("Copyconstructor...");
-	
+
 	if (source.m_AllegroBitmap)
 		m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
-		
+
 	m_Size.x=source.m_Size.x;
 	m_Size.y=source.m_Size.y;
-	
+
 	setTarget(NULL);
 }
 
@@ -108,16 +109,16 @@ Bitmap &Bitmap::operator=(const Bitmap &source)
 			al_destroy_bitmap(m_AllegroBitmap);
 		}
 		m_AllegroBitmap=NULL;
-		
-		if (source.m_AllegroBitmap) 
+
+		if (source.m_AllegroBitmap)
 			m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
-		
+
 		m_Size.x=source.m_Size.x;
 		m_Size.y=source.m_Size.y;
-		
+
 		setTarget(NULL);
 	}
-	
+
 	return *this;
 }
 
@@ -205,7 +206,7 @@ void Bitmap::blitColor(const Vector2d &position, const Color &color, float opaci
  */
 void Bitmap::blitCenterColor(const Rect &sourceRect, const Color &color, float opacity)
 {
-	
+
 }
 
 /**
@@ -229,7 +230,7 @@ void Bitmap::blitCenter(const Rect &sourceRect, const Rect &targetRect, float op
  */
 void Bitmap::drawPattern(const Rect &rect, float opacity)
 {
-	
+
 }
 
 /**

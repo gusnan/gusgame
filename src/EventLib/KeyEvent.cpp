@@ -1,9 +1,10 @@
 /**
+ *
  *	This file is part of GusGame
  *	Copyright (C) 2013 Andreas Rönnquist
  *
- *	GusGame is free software: you can redistribute it and/or 
- *	modify it under the terms of the GNU General Public License as published 
+ *	GusGame is free software: you can redistribute it and/or
+ *	modify it under the terms of the GNU General Public License as published
  *	by the Free Software Foundation, either version 3 of the License, or
  *	(at your option) any later version.
  *
@@ -13,7 +14,7 @@
  *	GNU General Public License for more details.
  *
  *	You should have received a copy of the GNU General Public License
- *	along with GusGame.  
+ *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
 #include "Library.h"
@@ -35,8 +36,8 @@ namespace EventLib
 /**
  *
  */
-KeyEvent::KeyEvent() : m_KeyEventType(KeyEventPressed), m_Value(0), 
-	m_AltPressed(false), m_CtrlPressed(false), m_ShiftPressed(false), 
+KeyEvent::KeyEvent() : m_KeyEventType(KeyEventPressed), m_Value(0),
+	m_AltPressed(false), m_CtrlPressed(false), m_ShiftPressed(false),
 	m_MetaPressed(false)
 {
 }
@@ -45,31 +46,31 @@ KeyEvent::KeyEvent() : m_KeyEventType(KeyEventPressed), m_Value(0),
 /**
  *
  */
-KeyEvent::KeyEvent(ALLEGRO_EVENT event) : m_KeyEventType(KeyEventPressed), 
-	m_Value(0), m_AltPressed(false), m_CtrlPressed(false), 
+KeyEvent::KeyEvent(ALLEGRO_EVENT event) : m_KeyEventType(KeyEventPressed),
+	m_Value(0), m_AltPressed(false), m_CtrlPressed(false),
 	m_ShiftPressed(false), m_MetaPressed(false)
 {
 	//ALLEGRO_EVENT_KEY_CHAR keyEvent=event.keyboard;
 	// int keycode=event.keyboard.keycode;
 	setValue(convertAllegroToKeyValue(event.keyboard.keycode));
-	
+
 	unsigned alModifiers=event.keyboard.modifiers;
-	
+
 	setShiftPressed(false);
 	if (alModifiers & ALLEGRO_KEYMOD_SHIFT) {
 		setShiftPressed(true);
 	}
-	
+
 	setCtrlPressed(false);
 	if (alModifiers & ALLEGRO_KEYMOD_CTRL) {
 		setCtrlPressed(true);
 	}
-	
+
 	setAltPressed(false);
 	if (alModifiers & ALLEGRO_KEYMOD_ALT) {
 		setAltPressed(true);
 	}
-	
+
 	m_KeyEventType=KeyEventPressed;
 }
 
@@ -77,7 +78,7 @@ KeyEvent::KeyEvent(ALLEGRO_EVENT event) : m_KeyEventType(KeyEventPressed),
 /**
  *
  */
-KeyEvent::KeyEvent(const KeyEvent &source) : m_KeyEventType(KeyEventPressed), m_Value(0), m_AltPressed(false), 
+KeyEvent::KeyEvent(const KeyEvent &source) : m_KeyEventType(KeyEventPressed), m_Value(0), m_AltPressed(false),
 	m_CtrlPressed(false), m_ShiftPressed(false), m_MetaPressed(false)
 {
 }
@@ -297,7 +298,7 @@ int KeyEvent::convertAllegroToKeyValue(int alValue)
 		result=Key::Space;
 		break;
 	};
-	
+
 	return result;
 }
 
@@ -372,7 +373,7 @@ void KeyEvent::setMetaPressed(bool pressed)
 {
 	m_MetaPressed=pressed;
 }
-	
+
 
 
 // end of namespace
