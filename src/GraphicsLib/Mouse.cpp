@@ -86,11 +86,7 @@ void Mouse::setMouseBitmap(Bitmap *mouseBitmap)
 			al_set_mouse_cursor(GraphicsHandler::display, systemMouseCursor);
 		}
 	}
-
-
 }
-
-
 
 
 // end of namespace
