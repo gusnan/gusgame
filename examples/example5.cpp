@@ -42,7 +42,7 @@ bool quit=false;
 UserEvent *testEvent = NULL;
 UserEvent *testEvent2 = NULL;
 
-const int TEST_EVENT =	43;
+const int TEST_EVENT = 43;
 const int TEST_EVENT2 =	44;
 
 /**
@@ -59,9 +59,9 @@ public:
 	virtual bool handleKeyboard(KeyEvent &keyEvent) {
 
 		// Is it the Escape Button that is pressed? - then quit
-		if (keyEvent.getType()==KeyEventPressed) {
-			if (keyEvent.getValue()==Key::Escape) {
-				quit=true;
+		if (keyEvent.getType() == KeyEventPressed) {
+			if (keyEvent.getValue() == Key::Escape) {
+				quit = true;
 
 				// event is handled
 				return true;
@@ -131,7 +131,7 @@ int main(int argc,char **argv)
 {
 	EventHandlerPtr eventHandler; // = boost::shared_ptr<EventHandler>();
 
-	Bitmap *mouseBitmap=NULL;
+	Bitmap *mouseBitmap = NULL;
 
 	try {
 		// init the log - this function takes a string (the log file filename)
@@ -140,14 +140,14 @@ int main(int argc,char **argv)
 		//
 		// The second indata is a boolean to determine to print the log to
 		// std::cout or not in addition to to the file.
-		LogHandler::initLog("log.txt",true);
+		LogHandler::initLog("log.txt", true);
 
 		// init system stuff
 		System::initSystem();
 
 		// set up a screen with resolution of 640x480, and not fullscreen
 		GraphicsHandler::initGraphicsHandler();
-		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
+		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
 
 		// set a window title
 		GraphicsHandler::setWindowTitle("GusGame Example 5");
@@ -166,7 +166,7 @@ int main(int argc,char **argv)
 		testEvent=new UserEvent(TEST_EVENT);
 		testEvent2=new UserEvent(TEST_EVENT2);
 
-		mouseBitmap=new Bitmap("mouse.png");
+		mouseBitmap = new Bitmap("mouse.png");
 
 		Mouse::setMouseBitmap(mouseBitmap);
 

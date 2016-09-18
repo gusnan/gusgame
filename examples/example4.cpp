@@ -33,7 +33,7 @@ using namespace ExceptionLib;
 using namespace GraphicsLib;
 using namespace EventLib;
 
-bool quit=false;
+bool quit = false;
 
 
 /**
@@ -51,9 +51,9 @@ public:
 	virtual bool handleKeyboard(KeyEvent &keyEvent) {
 
 		// Is it the Escape Button that is pressed? - then quit
-		if (keyEvent.getType()==KeyEventPressed) {
-			if (keyEvent.getValue()==Key::Escape) {
-				quit=true;
+		if (keyEvent.getType() == KeyEventPressed) {
+			if (keyEvent.getValue() == Key::Escape) {
+				quit = true;
 				return true;
 			}
 		}
@@ -69,7 +69,7 @@ public:
 int main(int argc,char **argv)
 {
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
-	Bitmap *mouseBitmap=NULL;
+	Bitmap *mouseBitmap = NULL;
 
 	try {
 		// init the log - this function takes a string (the log file filename) as
@@ -78,7 +78,7 @@ int main(int argc,char **argv)
 		//
 		// The second indata is a boolean to determine to print the log to
 		// std::cout or not in addition to to the file.
-		LogHandler::initLog("log.txt",false);
+		LogHandler::initLog("log.txt", false);
 
 		// init system stuff
 		System::initSystem();
@@ -87,7 +87,7 @@ int main(int argc,char **argv)
 		GraphicsHandler::initGraphicsHandler();
 
 		// set up a screen with resolution of 640x480, and not fullscreen
-		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
+		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
 
 		// set a window title
 		GraphicsHandler::setWindowTitle("GusGame Example 4");
@@ -100,7 +100,7 @@ int main(int argc,char **argv)
 		// set the used EventHandler to the one we just created.
 		EventSystem::addEventHandler(eventHandler);
 
-		mouseBitmap=new Bitmap("mouse.png");
+		mouseBitmap = new Bitmap("mouse.png");
 
 		Mouse::setMouseBitmap(mouseBitmap);
 	}

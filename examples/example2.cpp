@@ -34,7 +34,7 @@ using namespace GraphicsLib;
 using namespace EventLib;
 
 bool quit=false;
-std::string posString="";
+std::string posString = "";
 
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
@@ -52,14 +52,14 @@ public:
 		bool result = false;
 
 		// Is it the Escape Button that is pressed? - then quit
-		if (keyEvent.getType()==KeyEventPressed) {
-			if (keyEvent.getValue()==Key::Escape) {
+		if (keyEvent.getType() == KeyEventPressed) {
+			if (keyEvent.getValue() == Key::Escape) {
 				printf("Test...\n");
 				quit = true;
 				result = true;
 			}
 
-			if (keyEvent.getValue()==Key::Z) {
+			if (keyEvent.getValue() == Key::Z) {
 				if (keyEvent.getCtrlPressed() && keyEvent.getAltPressed()) {
 					quit = true;
 					result = true;
@@ -74,7 +74,7 @@ public:
 	 */
 	virtual void handleQuitEvent()
 	{
-		quit=true;
+		quit = true;
 	}
 
 	/**
@@ -82,10 +82,10 @@ public:
 	 */
 	virtual void handleMouseMotion(MouseMotionEvent &event)
 	{
-		Vector2d pos=event.getPosition();
+		Vector2d pos = event.getPosition();
 		std::stringstream st;
 		st << "Pos:" << pos;
-		posString=st.str();
+		posString = st.str();
 	}
 };
 
@@ -93,9 +93,9 @@ public:
 /**
  * main - the standard c++ program main entry point
  */
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
-	Gus::GraphicsLib::Font *exampleFont=NULL;
+	Gus::GraphicsLib::Font *exampleFont = NULL;
 
 	try {
 		// init the log - this function takes a string (the log file filename) as indata,
@@ -104,7 +104,7 @@ int main(int argc,char **argv)
 		//
 		// The second indata is a boolean to determine to print the log to std::cout
 		// or not in addition to to the file.
-		LogHandler::initLog("log.txt",true);
+		LogHandler::initLog("log.txt", true);
 
 		// init system stuff
 		System::initSystem();
@@ -112,7 +112,7 @@ int main(int argc,char **argv)
 		GraphicsHandler::initGraphicsHandler();
 
 		// set up a screen with resolution of 640x480, and not fullscreen
-		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
+		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
 
 		// set a window title
 		GraphicsHandler::setWindowTitle("GusGame Example 2");
@@ -121,7 +121,7 @@ int main(int argc,char **argv)
 		FontHandler::initFontHandler();
 
 		// Load a font
-		exampleFont=new GraphicsLib::Font("FreeSans.ttf", 25, false);
+		exampleFont = new GraphicsLib::Font("FreeSans.ttf", 25, false);
 
 		EventSystem::initEventSystem();
 
@@ -158,7 +158,7 @@ int main(int argc,char **argv)
 		GraphicsHandler::clearScreen();
 
 		// Draw something
-		exampleFont->draw(Vector2d(0,0),posString,colorWhite);
+		exampleFont->draw(Vector2d(0, 0), posString, colorWhite);
 
 		// Update the screen
 		GraphicsHandler::updateScreen();

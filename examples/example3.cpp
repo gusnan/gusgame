@@ -33,7 +33,7 @@ using namespace ExceptionLib;
 using namespace GraphicsLib;
 using namespace EventLib;
 
-bool quit=false;
+bool quit = false;
 
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
@@ -50,9 +50,9 @@ public:
 	virtual bool handleKeyboard(KeyEvent &keyEvent) {
 
 		// Is it the Escape Button that is pressed? - then quit
-		if (keyEvent.getType()==KeyEventPressed) {
-			if (keyEvent.getValue()==Key::Escape) {
-				quit=true;
+		if (keyEvent.getType() == KeyEventPressed) {
+			if (keyEvent.getValue() == Key::Escape) {
+				quit = true;
 				return true;
 			}
 		}
@@ -66,7 +66,7 @@ public:
 	 */
 	virtual void handleQuitEvent()
 	{
-		quit=true;
+		quit = true;
 	}
 
 	/**
@@ -74,25 +74,25 @@ public:
 	 */
 	virtual void handleActiveEvent(ActiveEvent &event)
 	{
-		std::string tempString="";
+		std::string tempString = "";
 		switch (event.getWindowState()) {
 		case WindowStateMouseFocusGain:
-			tempString="Mouse Focus Gain";
+			tempString = "Mouse Focus Gain";
 			break;
 		case WindowStateMouseFocusLost:
-			tempString="Mouse Focus Lost";
+			tempString = "Mouse Focus Lost";
 			break;
 		case WindowStateInputFocusGain:
-			tempString="Input Focus Gain";
+			tempString = "Input Focus Gain";
 			break;
 		case WindowStateInputFocusLost:
-			tempString="Input Focus Lost";
+			tempString = "Input Focus Lost";
 			break;
 		case WindowStateAppFocusGain:
-			tempString="App Focus Gain";
+			tempString = "App Focus Gain";
 			break;
 		case WindowStateAppFocusLost:
-			tempString="App Focus Lost";
+			tempString = "App Focus Lost";
 			break;
 		}
 		std::cout << "Active:" << tempString << std::endl;
@@ -113,7 +113,7 @@ int main(int argc,char **argv)
 		//
 		// The second indata is a boolean to determine to print the log to
 		// std::cout or not in addition to to the file.
-		LogHandler::initLog("log.txt",false);
+		LogHandler::initLog("log.txt", false);
 
 		// init system stuff
 		System::initSystem();
@@ -121,7 +121,7 @@ int main(int argc,char **argv)
 		GraphicsHandler::initGraphicsHandler();
 
 		// set up a screen with resolution of 640x480, and not fullscreen
-		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
+		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
 
 		// set a window title
 		GraphicsHandler::setWindowTitle("GusGame Example 3");

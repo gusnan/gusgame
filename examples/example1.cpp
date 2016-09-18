@@ -35,7 +35,7 @@ using namespace GraphicsLib;
 /**
  * main - the standard c++ program main entry point
  */
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
 	try {
 		// init the log - this function takes a string (the log file filename) as indata,
@@ -44,7 +44,7 @@ int main(int argc,char **argv)
 		//
 		// The second indata is a boolean to determine to print the log to std::cout
 		// or not.
-		LogHandler::initLog("log.txt",true);
+		LogHandler::initLog("log.txt", true);
 
 		// init system stuff
 		System::initSystem();
@@ -80,7 +80,7 @@ int main(int argc,char **argv)
 		GraphicsHandler::initGraphicsHandler();
 
 				// we need to init a graphics screen to get the OpenGL information
-		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
+		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
 
 		// print the openGL version
 		st << "OpenGL version: " << GraphicsHandler::getOpenGLVersionString();

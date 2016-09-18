@@ -33,7 +33,7 @@ using namespace ExceptionLib;
 using namespace GraphicsLib;
 using namespace EventLib;
 
-bool quit=false;
+bool quit = false;
 Vector2d testPosition;
 
 
@@ -52,9 +52,9 @@ public:
 	virtual bool handleKeyboard(KeyEvent &keyEvent) {
 
 		// Is it the Escape Button that is pressed? - then quit
-		if (keyEvent.getType()==KeyEventPressed) {
-			if (keyEvent.getValue()==Key::Escape) {
-				quit=true;
+		if (keyEvent.getType() == KeyEventPressed) {
+			if (keyEvent.getValue() == Key::Escape) {
+				quit = true;
 				return true;
 			}
 		}
@@ -77,7 +77,7 @@ public:
 	 */
 	virtual void handleSystemQuitEvent()
 	{
-		quit=true;
+		quit = true;
 	}
 
 	/**
@@ -85,7 +85,7 @@ public:
 	 */
 	virtual void handleMouseMotion(MouseMotionEvent &event)
 	{
-		testPosition=event.getPosition()+Vector2d(50,50);
+		testPosition = event.getPosition()+Vector2d(50,50);
 	}
 
 
@@ -98,8 +98,8 @@ public:
 int main(int argc,char **argv)
 {
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
-	Bitmap *mouseBitmap=NULL;
-	Bitmap *testBitmap=NULL;
+	Bitmap *mouseBitmap = NULL;
+	Bitmap *testBitmap = NULL;
 
 	try {
 		// init the log - this function takes a string (the log file filename)
@@ -108,14 +108,14 @@ int main(int argc,char **argv)
 		//
 		// The second indata is a boolean to determine to print the log to
 		// std::cout or not in addition to to the file.
-		LogHandler::initLog("log.txt",true);
+		LogHandler::initLog("log.txt", true);
 
 		// init system stuff
 		System::initSystem();
 
 		// set up a screen with resolution of 640x480, and not fullscreen
 		GraphicsHandler::initGraphicsHandler();
-		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
+		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
 
 		// set a window title
 		GraphicsHandler::setWindowTitle("GusGame Example 6");

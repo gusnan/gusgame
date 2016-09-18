@@ -33,7 +33,7 @@ using namespace ExceptionLib;
 using namespace GraphicsLib;
 using namespace EventLib;
 
-bool quit=false;
+bool quit = false;
 
 
 /**
@@ -51,9 +51,9 @@ public:
 	virtual bool handleKeyboard(KeyEvent &keyEvent) {
 
 		// Is it the Escape Button that is pressed? - then quit
-		if (keyEvent.getType()==KeyEventPressed) {
-			if (keyEvent.getValue()==Key::Escape) {
-				quit=true;
+		if (keyEvent.getType() == KeyEventPressed) {
+			if (keyEvent.getValue() == Key::Escape) {
+				quit = true;
 				return true;
 			}
 		}
@@ -65,7 +65,7 @@ public:
 	 */
 	virtual void handleQuitEvent()
 	{
-		quit=true;
+		quit = true;
 	}
 
 	/**
@@ -76,7 +76,7 @@ public:
 	 */
 	virtual void handleSystemQuitEvent()
 	{
-		quit=true;
+		quit = true;
 	}
 
 };
@@ -85,7 +85,7 @@ public:
 /**
  * main - the standard c++ program main entry point
  */
-int main(int argc,char **argv)
+int main(int argc, char **argv)
 {
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
 
@@ -96,14 +96,14 @@ int main(int argc,char **argv)
 		//
 		// The second indata is a boolean to determine to print the log to
 		// std::cout or not in addition to to the file.
-		LogHandler::initLog("log.txt",true);
+		LogHandler::initLog("log.txt", true);
 
 		// init system stuff
 		System::initSystem();
 
 		// set up a screen with resolution of 640x480, and not fullscreen
 		GraphicsHandler::initGraphicsHandler();
-		GraphicsHandler::setGraphicsMode(Vector2d(640,480),false);
+		GraphicsHandler::setGraphicsMode(Vector2d(640, 480),false);
 
 		// set a window title
 		GraphicsHandler::setWindowTitle("GusGame Example 7");
@@ -145,9 +145,9 @@ int main(int argc,char **argv)
 		// Clear the screen every sync
 		GraphicsHandler::clearScreen();
 
-		Primitives::line(Vector2d(100,100), Vector2d(200,250), Color(1.0f,1.0f,0.0f), 3.0f);
+		Primitives::line(Vector2d(100, 100), Vector2d(200, 250), Color(1.0f, 1.0f, 0.0f), 3.0f);
 
-		Primitives::rect(Rect(120,120,200,150), Color(1.0f,0.0f,0.0f),1.0f);
+		Primitives::rect(Rect(120, 120, 200, 150), Color(1.0f, 0.0f, 0.0f), 1.0f);
 
 		// Update the screen
 		GraphicsHandler::updateScreen();
