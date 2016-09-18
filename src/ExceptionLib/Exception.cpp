@@ -56,7 +56,7 @@ Exception::~Exception()
 void Exception::addMessage(std::string mes)
 {
 	//m_MessageList.push_back(mes);
-	m_Message=mes;
+	m_Message = mes;
 }
 
 /**

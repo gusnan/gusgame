@@ -66,7 +66,7 @@ UserEvent::UserEvent() : m_UserEventValue(0), userEvent()
  */
 UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventValue(), userEvent()
 {
-	m_UserEventValue=ev.user.data1;
+	m_UserEventValue = ev.user.data1;
 	//userEvent=ev;
 }
 
@@ -83,8 +83,8 @@ UserEvent::UserEvent(int value) : m_UserEventValue(value), userEvent()
  */
 UserEvent::UserEvent(const UserEvent &source) : m_UserEventValue(), userEvent()
 {
-	m_UserEventValue=source.m_UserEventValue;
-	userEvent=source.userEvent;
+	m_UserEventValue = source.m_UserEventValue;
+	userEvent = source.userEvent;
 }
 
 
@@ -95,8 +95,8 @@ UserEvent &UserEvent::operator=(const UserEvent &source)
 {
 	if (this != &source) {
 
-		m_UserEventValue=source.m_UserEventValue;
-		userEvent=source.userEvent;
+		m_UserEventValue = source.m_UserEventValue;
+		userEvent = source.userEvent;
 	}
 
 	return *this;

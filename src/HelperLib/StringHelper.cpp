@@ -46,9 +46,9 @@ std::string StringHelper::upcase(std::string str)
 */
 	std::string res=str;
 
-	for (int co=0;co<(int)str.length();co++) {
-		char ch=str[co];
-		res[co]=toupper(ch);
+	for (int co=0; co < (int)str.length(); co++) {
+		char ch = str[co];
+		res[co] = toupper(ch);
 	}
 
 	return res;
@@ -66,11 +66,11 @@ std::string StringHelper::lowercase(std::string str)
 				(int(*)(int)) std::tolower);
 	*/
 
-	std::string res=str;
+	std::string res = str;
 
-	for (int co=0;co<(int)str.length();co++) {
-		char ch=str[co];
-		res[co]=tolower(ch);
+	for (int co = 0 ;co < (int)str.length(); co++) {
+		char ch = str[co];
+		res[co] = tolower(ch);
 	}
 
 	return res;
@@ -80,21 +80,21 @@ std::string StringHelper::lowercase(std::string str)
 /**
  *
  */
-void StringHelper::splitString(std::string instring,std::string& text,std::string& shortcut)
+void StringHelper::splitString(std::string instring, std::string& text, std::string& shortcut)
 {
 	text=instring;
-	shortcut="";
+	shortcut = "";
 
 	//bool containsParanthesis=false;
 
-	int startPar=-1;
+	int startPar = -1;
 
 	int len=(int)instring.length();
 
-	for (int co=0;co<len;co++) {
-		if (instring[co]=='(') {
+	for (int co = 0; co < len; co++) {
+		if (instring[co] == '(') {
 			//containsParanthesis=true;
-			startPar=co;
+			startPar = co;
 			//LOG("Contains Paranthesis...");
 		}
 	}
@@ -108,10 +108,10 @@ void StringHelper::splitString(std::string instring,std::string& text,std::strin
 		}
 	}
 
-	if (posEndPar!=-1) {
-		if (startPar!=-1) {
-			text=instring.substr(0,startPar);
-			shortcut=instring.substr(startPar+1,len-(startPar+2));
+	if (posEndPar != -1) {
+		if (startPar != -1) {
+			text = instring.substr(0, startPar);
+			shortcut = instring.substr(startPar + 1, len - (startPar + 2));
 		}
 	}
 }
@@ -124,7 +124,7 @@ int StringHelper::stringToInt(const std::string &str)
 	std::istringstream i(str);
 	int res;
 
-	if (!(i>>res))
+	if (!(i >> res))
 		throw ExceptionLib::StringToIntException();
 
 	return res;
@@ -135,20 +135,20 @@ int StringHelper::stringToInt(const std::string &str)
  */
 std::string StringHelper::doubleParanthesis(std::string st)
 {
-	std::string result="";
+	std::string result = "";
 
 
 
-	for (int co=0;co<(int)st.length();co++) {
+	for (int co = 0; co < (int)st.length(); co++) {
 		char ch=st[co];
 
 		switch (ch) {
 			case '[':
 			case ']':
-				result+=ch;
+				result += ch;
 		}
 
-		result+=ch;
+		result += ch;
 
 	}
 	return result;

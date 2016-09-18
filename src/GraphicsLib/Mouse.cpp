@@ -47,9 +47,9 @@ namespace GraphicsLib
 {
 
 
-ALLEGRO_MOUSE_CURSOR *Mouse::systemMouseCursor=NULL;
+ALLEGRO_MOUSE_CURSOR *Mouse::systemMouseCursor = NULL;
 
-Vector2d Mouse::mousePosition = Vector2d(0,0);
+Vector2d Mouse::mousePosition = Vector2d(0, 0);
 
 /**
  *
@@ -78,7 +78,7 @@ void Mouse::doneMouse()
 void Mouse::setMouseBitmap(Bitmap *mouseBitmap)
 {
 	if (mouseBitmap) {
-		systemMouseCursor = al_create_mouse_cursor(mouseBitmap->getAllegroBitmap(), 0,0);
+		systemMouseCursor = al_create_mouse_cursor(mouseBitmap->getAllegroBitmap(), 0, 0);
 	}
 
 	if (systemMouseCursor) {

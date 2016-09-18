@@ -43,30 +43,30 @@ namespace LogLib
 /**
  *
  */
-Log GUSGAME_DLL *log=NULL;
+Log GUSGAME_DLL *log = NULL;
 
 #ifdef _DEBUG
 std::vector<LogHandler::StoreAlloc> LogHandler::allocList;
 #endif
 	
-bool LogHandler::fileLogActive=true;
+bool LogHandler::fileLogActive = true;
 
-bool LogHandler::logActive=true;
+bool LogHandler::logActive = true;
 
-bool LogHandler::logTime=false;
+bool LogHandler::logTime = false;
 	
 
 /**
  *
  */
-void GUSGAME_DLL LogHandler::initLog(std::string filename,bool activateScreenLog)
+void GUSGAME_DLL LogHandler::initLog(std::string filename, bool activateScreenLog)
 {
 	fileLogActive=false;
 	
 	try {
-		if (filename!="") {
-			fileLogActive=true;
-			log=new Log(filename,fileLogActive,activateScreenLog);
+		if (filename != "") {
+			fileLogActive = true;
+			log = new Log(filename, fileLogActive, activateScreenLog);
 		}
 	}
 	catch (Exception)
@@ -90,7 +90,7 @@ void GUSGAME_DLL LogHandler::doneLog()
 #endif
 
 	delete log;
-	log=NULL;
+	log = NULL;
 }
 
 
@@ -99,7 +99,7 @@ void GUSGAME_DLL LogHandler::doneLog()
  */
 void GUSGAME_DLL LogHandler::logOn()
 {
-	logActive=true;
+	logActive = true;
 }
 
 
@@ -135,10 +135,10 @@ void GUSGAME_DLL LogHandler::addInit(std::string st)
 {
 	// Get the number
 
-	int nr=getIndex(st);
+	int nr = getIndex(st);
 
 	// the string is in the list
-	if (nr!=-1) {
+	if (nr != -1) {
 		allocList[nr].m_Value++;
 	} else {
 		// string not in list
@@ -154,7 +154,7 @@ void GUSGAME_DLL LogHandler::addInit(std::string st)
 void GUSGAME_DLL LogHandler::doneInit(std::string st)
 {
 	int nr=getIndex(st);
-	if (nr!=-1) {
+	if (nr != -1) {
 		allocList[nr].m_Value--;
 	} else {
 		StoreAlloc ny;
@@ -168,14 +168,14 @@ void GUSGAME_DLL LogHandler::doneInit(std::string st)
  */
 int GUSGAME_DLL LogHandler::getIndex(std::string st)
 {
-	int nr=-1;
+	int nr = -1;
 
 	if (!allocList.empty()) {
-		int counter=0;
-		for(std::vector<LogHandler::StoreAlloc>::iterator iter=allocList.begin();iter!=allocList.end();) {
+		int counter = 0;
+		for(std::vector<LogHandler::StoreAlloc>::iterator iter = allocList.begin(); iter != allocList.end();) {
 			StoreAlloc current=(*iter);
 
-			if (current.m_Text==st) nr=counter;
+			if (current.m_Text == st) nr = counter;
 
 			++iter;
 			++counter;
@@ -191,11 +191,11 @@ int GUSGAME_DLL LogHandler::getIndex(std::string st)
 void GUSGAME_DLL LogHandler::printList()
 {
 	if (!allocList.empty()) {
-		for(std::vector<LogHandler::StoreAlloc>::iterator iter=allocList.begin();iter!=allocList.end();)
+		for(std::vector<LogHandler::StoreAlloc>::iterator iter = allocList.begin();iter != allocList.end();)
 		{
-			StoreAlloc current=(*iter);
+			StoreAlloc current = (*iter);
 
-			if (current.m_Value!=0) {
+			if (current.m_Value != 0) {
 				std::cout << current.m_Text << ":" << current.m_Value << std::endl;
 			}
 

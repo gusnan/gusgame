@@ -48,8 +48,8 @@ MouseButtonEvent::MouseButtonEvent(ALLEGRO_EVENT event) :
 	m_Status(MouseButtonStatusPressed)
 {
 	// We default to "pressed", check if it really is a "released" event
-	if (event.type==ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
-		m_Status=MouseButtonStatusReleased;
+	if (event.type == ALLEGRO_EVENT_MOUSE_BUTTON_UP) {
+		m_Status = MouseButtonStatusReleased;
 	}
 
 }

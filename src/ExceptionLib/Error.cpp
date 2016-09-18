@@ -44,14 +44,14 @@ namespace Gus
 namespace ExceptionLib
 {
 	
-Error *ErrorHandler::error=NULL;
+Error *ErrorHandler::error = NULL;
 
 /**
  *
  */
 void ErrorHandler::initErrorHandler()
 {
-	error=NULL;
+	error = NULL;
 }
 
 /**
@@ -59,7 +59,7 @@ void ErrorHandler::initErrorHandler()
  */
 void ErrorHandler::setError(Error *err)
 {
-	error=err;
+	error = err;
 }
 
 /**
@@ -75,7 +75,7 @@ Error *ErrorHandler::getError()
  */
 void ErrorHandler::reportError(Exception& e)
 {
-	std::string st=e.getString();
+	std::string st = e.getString();
 	
 	LOG(st);
 	
@@ -114,7 +114,7 @@ Error::~Error()
  */
 void Error::setString(std::string st)
 {
-	m_String=st;
+	m_String = st;
 }
 
 /**

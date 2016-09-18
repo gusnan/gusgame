@@ -52,7 +52,7 @@ namespace GraphicsLib
 /**
  *
  */
-Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1,-1)
+Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1, -1)
 {
 	setTarget(NULL);
 }
@@ -61,7 +61,7 @@ Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1,-1)
 /**
  *
  */
-Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1,-1)
+Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1, -1)
 {
 	std::string fixedFilename = FileHelper::getFilename(filename);
 
@@ -75,8 +75,8 @@ Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1,-1)
 		throw ExceptionLib::Exception(st.str());
 	}
 
-	m_Size.x=al_get_bitmap_width(m_AllegroBitmap);
-	m_Size.y=al_get_bitmap_height(m_AllegroBitmap);
+	m_Size.x = al_get_bitmap_width(m_AllegroBitmap);
+	m_Size.y = al_get_bitmap_height(m_AllegroBitmap);
 
 	setTarget(NULL);
 }
@@ -85,15 +85,15 @@ Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1,-1)
 /**
  *
  */
-Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1,-1)
+Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1, -1)
 {
 	LOG("Copyconstructor...");
 
 	if (source.m_AllegroBitmap)
 		m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
 
-	m_Size.x=source.m_Size.x;
-	m_Size.y=source.m_Size.y;
+	m_Size.x = source.m_Size.x;
+	m_Size.y = source.m_Size.y;
 
 	setTarget(NULL);
 }
@@ -108,13 +108,13 @@ Bitmap &Bitmap::operator=(const Bitmap &source)
 		if (m_AllegroBitmap) {
 			al_destroy_bitmap(m_AllegroBitmap);
 		}
-		m_AllegroBitmap=NULL;
+		m_AllegroBitmap = NULL;
 
 		if (source.m_AllegroBitmap)
 			m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
 
-		m_Size.x=source.m_Size.x;
-		m_Size.y=source.m_Size.y;
+		m_Size.x = source.m_Size.x;
+		m_Size.y = source.m_Size.y;
 
 		setTarget(NULL);
 	}

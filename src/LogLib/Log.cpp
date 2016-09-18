@@ -53,7 +53,7 @@ namespace LogLib
 GUSGAME_DLL Log::Log(std::string filename,bool activeFileLog,bool activeScreenLog) : m_Indent(0), m_FileLogActive(activeFileLog), m_ScreenLogActive(activeScreenLog), m_File(), m_Filename(filename)
 {
 	if (m_FileLogActive) {
-		m_File.open((char*)(m_Filename.c_str()),std::fstream::trunc);
+		m_File.open((char*)(m_Filename.c_str()), std::fstream::trunc);
 		
 		m_File << std::endl;
 		m_File << getTime() << COLON;
@@ -108,7 +108,7 @@ void GUSGAME_DLL Log::add(std::string message)
 	openFile();
 	if (m_FileLogActive) {
 		m_File << getTime() << COLON;
-		for (int co=0;co<m_Indent;co++) {
+		for (int co = 0; co < m_Indent; co++) {
 			m_File << "   ";
 		}
 		m_File << message << std::endl;
@@ -118,7 +118,7 @@ void GUSGAME_DLL Log::add(std::string message)
 	
 	if (m_ScreenLogActive) {
 		std::cout << getTime() << COLON;
-		for (int co=0;co<m_Indent;co++) {
+		for (int co = 0; co < m_Indent; co++) {
 			std::cout << "   ";
 		}
 		std::cout << message << std::endl;
@@ -135,7 +135,7 @@ void GUSGAME_DLL Log::add(std::stringstream message)
 	openFile();
 	if (m_FileLogActive) {
 		m_File << getTime() << COLON;
-		for (int co=0;co<m_Indent;co++) {
+		for (int co = 0; co < m_Indent; co++) {
 			m_File << "   ";
 		}
 		m_File << message.str();
@@ -144,7 +144,7 @@ void GUSGAME_DLL Log::add(std::stringstream message)
 	
 	if (m_ScreenLogActive) {
 		std::cout << getTime() << COLON;
-		for (int co=0;co<m_Indent;co++) {
+		for (int co = 0; co < m_Indent; co++) {
 			std::cout << "   ";
 		}
 		std::cout << message << std::endl;
@@ -205,11 +205,11 @@ std::string GUSGAME_DLL Log::getTime()
 #ifdef _MSC_VER
 	struct tm timeinfo;
 	localtime_s(&timeinfo,&rawtime);
-	strftime(buffer,80,"%X",&timeinfo);
+	strftime(buffer, 80, "%X", &timeinfo);
 #else
 	struct tm *timeinfo;
-	timeinfo=localtime(&rawtime);
-	strftime(buffer,80,"%X",timeinfo);
+	timeinfo = localtime(&rawtime);
+	strftime(buffer, 80, "%X", timeinfo);
 #endif
 	
 	return buffer;
@@ -228,12 +228,12 @@ std::string GUSGAME_DLL Log::getDate()
 
 #ifdef _MSC_VER
 	struct tm timeinfo;
-	localtime_s(&timeinfo,&rawtime);
-	strftime(buffer,80,"%x",&timeinfo);
+	localtime_s(&timeinfo, &rawtime);
+	strftime(buffer, 80, "%x", &timeinfo);
 #else
 	struct tm *timeinfo;
-	timeinfo=localtime(&rawtime);
-	strftime(buffer,80,"%x",timeinfo);
+	timeinfo = localtime(&rawtime);
+	strftime(buffer, 80, "%x", timeinfo);
 #endif
 	
 	return buffer;
@@ -246,7 +246,7 @@ std::string GUSGAME_DLL Log::getDate()
 void GUSGAME_DLL Log::openFile()
 {
 	/*if (m_LogActive) {
-		m_File.open((char*)(m_Filename.c_str()),std::fstream::ate);
+		m_File.open((char*)(m_Filename.c_str()), std::fstream::ate);
 	}
 	*/
 	

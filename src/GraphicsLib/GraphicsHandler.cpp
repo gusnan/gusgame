@@ -49,7 +49,7 @@ namespace GraphicsLib
 /**
  *
  */
-ALLEGRO_DISPLAY *GraphicsHandler::display=NULL;
+ALLEGRO_DISPLAY *GraphicsHandler::display = NULL;
 
 Vector2d GraphicsHandler::screenSize;
 
@@ -103,7 +103,7 @@ std::string GraphicsHandler::getOpenGLVersionString()
  */
 void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable)
 {
-	int flags=0;
+	int flags = 0;
 
 	if (fullscreen) {
 		flags |= ALLEGRO_FULLSCREEN;
@@ -117,7 +117,7 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, boo
 
 	al_set_new_display_flags(flags);
 
-	display=al_create_display(size.x,size.y);
+	display=al_create_display(size.x, size.y);
 
 	screenSize=size;
 
@@ -144,7 +144,7 @@ void GraphicsHandler::setWindowTitle(std::string windowTitle)
  */
 void GraphicsHandler::clearScreen()
 {
-	al_clear_to_color(al_map_rgb(0,0,0));
+	al_clear_to_color(al_map_rgb(0, 0, 0));
 }
 
 
@@ -162,7 +162,7 @@ void GraphicsHandler::updateScreen()
  */
 Rect GraphicsHandler::getScreenRect()
 {
-		return Rect(Vector2d(0,0),screenSize);
+		return Rect(Vector2d(0, 0),screenSize);
 }
 
 

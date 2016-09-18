@@ -76,8 +76,8 @@ void Primitives::rect(const Rect &rect, const Color &color, float thickness)
 {
 	al_draw_rectangle(rect.position.x,
 							rect.position.y,
-							rect.position.x+rect.size.x,
-							rect.position.y+rect.size.y,
+							rect.position.x + rect.size.x,
+							rect.position.y + rect.size.y,
 							color.getAllegroColor(),
 							thickness);
 }
@@ -90,8 +90,8 @@ void Primitives::rectFill(const Rect &rect, const Color &color)
 {
 	al_draw_filled_rectangle(rect.position.x,
 									 rect.position.y,
-									 rect.position.x+rect.size.x,
-									 rect.position.y+rect.size.y,
+									 rect.position.x + rect.size.x,
+									 rect.position.y + rect.size.y,
 									 color.getAllegroColor());
 
 }

@@ -54,7 +54,7 @@ KeyEvent::KeyEvent(ALLEGRO_EVENT event) : m_KeyEventType(KeyEventPressed),
 	// int keycode=event.keyboard.keycode;
 	setValue(convertAllegroToKeyValue(event.keyboard.keycode));
 
-	unsigned alModifiers=event.keyboard.modifiers;
+	unsigned alModifiers = event.keyboard.modifiers;
 
 	setShiftPressed(false);
 	if (alModifiers & ALLEGRO_KEYMOD_SHIFT) {
@@ -135,167 +135,167 @@ int KeyEvent::getValue() const
  */
 int KeyEvent::convertAllegroToKeyValue(int alValue)
 {
-	int result=-1;
+	int result = -1;
 	switch (alValue)
 	{
 	case ALLEGRO_KEY_A:
-		result=Key::A;
+		result = Key::A;
 		break;
 	case ALLEGRO_KEY_B:
-		result=Key::B;
+		result = Key::B;
 		break;
 	case ALLEGRO_KEY_C:
-		result=Key::C;
+		result = Key::C;
 		break;
 	case ALLEGRO_KEY_D:
-		result=Key::D;
+		result = Key::D;
 		break;
 	case ALLEGRO_KEY_E:
-		result=Key::E;
+		result = Key::E;
 		break;
 	case ALLEGRO_KEY_F:
-		result=Key::F;
+		result = Key::F;
 		break;
 	case ALLEGRO_KEY_G:
-		result=Key::G;
+		result = Key::G;
 		break;
 	case ALLEGRO_KEY_H:
-		result=Key::H;
+		result = Key::H;
 		break;
 	case ALLEGRO_KEY_I:
-		result=Key::I;
+		result = Key::I;
 		break;
 	case ALLEGRO_KEY_J:
-		result=Key::J;
+		result = Key::J;
 		break;
 	case ALLEGRO_KEY_K:
-		result=Key::K;
+		result = Key::K;
 		break;
 	case ALLEGRO_KEY_L:
-		result=Key::L;
+		result = Key::L;
 		break;
 	case ALLEGRO_KEY_M:
-		result=Key::M;
+		result = Key::M;
 		break;
 	case ALLEGRO_KEY_N:
-		result=Key::N;
+		result = Key::N;
 		break;
 	case ALLEGRO_KEY_O:
-		result=Key::O;
+		result = Key::O;
 		break;
 	case ALLEGRO_KEY_P:
-		result=Key::P;
+		result = Key::P;
 		break;
 	case ALLEGRO_KEY_Q:
-		result=Key::Q;
+		result = Key::Q;
 		break;
 	case ALLEGRO_KEY_R:
-		result=Key::R;
+		result = Key::R;
 		break;
 	case ALLEGRO_KEY_S:
-		result=Key::S;
+		result = Key::S;
 		break;
 	case ALLEGRO_KEY_T:
-		result=Key::T;
+		result = Key::T;
 		break;
 	case ALLEGRO_KEY_U:
-		result=Key::U;
+		result = Key::U;
 		break;
 	case ALLEGRO_KEY_V:
-		result=Key::V;
+		result = Key::V;
 		break;
 	case ALLEGRO_KEY_W:
-		result=Key::W;
+		result = Key::W;
 		break;
 	case ALLEGRO_KEY_X:
-		result=Key::X;
+		result = Key::X;
 		break;
 	case ALLEGRO_KEY_Y:
-		result=Key::Y;
+		result = Key::Y;
 		break;
 	case ALLEGRO_KEY_Z:
-		result=Key::Z;
+		result = Key::Z;
 		break;
 	// ----------------------------- Numbers
 	case ALLEGRO_KEY_0:
-		result=Key::Key1;
+		result = Key::Key1;
 		break;
 	case ALLEGRO_KEY_1:
-		result=Key::Key1;
+		result = Key::Key1;
 		break;
 	case ALLEGRO_KEY_2:
-		result=Key::Key2;
+		result = Key::Key2;
 		break;
 	case ALLEGRO_KEY_3:
-		result=Key::Key3;
+		result = Key::Key3;
 		break;
 	case ALLEGRO_KEY_4:
-		result=Key::Key4;
+		result = Key::Key4;
 		break;
 	case ALLEGRO_KEY_5:
-		result=Key::Key5;
+		result = Key::Key5;
 		break;
 	case ALLEGRO_KEY_6:
-		result=Key::Key6;
+		result = Key::Key6;
 		break;
 	case ALLEGRO_KEY_7:
-		result=Key::Key7;
+		result = Key::Key7;
 		break;
 	case ALLEGRO_KEY_8:
-		result=Key::Key8;
+		result = Key::Key8;
 		break;
 	case ALLEGRO_KEY_9:
-		result=Key::Key9;
+		result = Key::Key9;
 		break;
 	// ----------------------------- Numbers PAD
 	case ALLEGRO_KEY_PAD_0:
-		result=Key::KeyPad0;
+		result = Key::KeyPad0;
 		break;
 	case ALLEGRO_KEY_PAD_1:
-		result=Key::KeyPad1;
+		result = Key::KeyPad1;
 		break;
 	case ALLEGRO_KEY_PAD_2:
-		result=Key::KeyPad2;
+		result = Key::KeyPad2;
 		break;
 	case ALLEGRO_KEY_PAD_3:
-		result=Key::KeyPad3;
+		result = Key::KeyPad3;
 		break;
 	case ALLEGRO_KEY_PAD_4:
-		result=Key::KeyPad4;
+		result = Key::KeyPad4;
 		break;
 	case ALLEGRO_KEY_PAD_5:
-		result=Key::KeyPad5;
+		result = Key::KeyPad5;
 		break;
 	case ALLEGRO_KEY_PAD_6:
-		result=Key::KeyPad6;
+		result = Key::KeyPad6;
 		break;
 	case ALLEGRO_KEY_PAD_7:
-		result=Key::KeyPad7;
+		result = Key::KeyPad7;
 		break;
 	case ALLEGRO_KEY_PAD_8:
-		result=Key::KeyPad8;
+		result = Key::KeyPad8;
 		break;
 	case ALLEGRO_KEY_PAD_9:
-		result=Key::KeyPad9;
+		result = Key::KeyPad9;
 		break;
 	// ----------------------------- Other
 	case ALLEGRO_KEY_ESCAPE:
-		result=Key::Escape;
+		result = Key::Escape;
 		break;
 	case ALLEGRO_KEY_MINUS:
-		result=Key::Minus;
+		result = Key::Minus;
 		break;
 	case ALLEGRO_KEY_EQUALS:
-		result=Key::Equals;
+		result = Key::Equals;
 		break;
 	case ALLEGRO_KEY_BACKSPACE:
-		result=Key::Backspace;
+		result = Key::Backspace;
 		break;
 	case ALLEGRO_KEY_TAB:
-		result=Key::Tab;
+		result = Key::Tab;
 		break;
 	case ALLEGRO_KEY_SPACE:
-		result=Key::Space;
+		result = Key::Space;
 		break;
 	};
 
