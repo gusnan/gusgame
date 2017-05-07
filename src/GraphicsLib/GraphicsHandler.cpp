@@ -162,7 +162,7 @@ void GraphicsHandler::updateScreen()
  */
 Rect GraphicsHandler::getScreenRect()
 {
-		return Rect(Vector2d(0, 0),screenSize);
+		return Rect(Vector2d(0, 0), screenSize);
 }
 
 
@@ -171,7 +171,7 @@ Rect GraphicsHandler::getScreenRect()
  */
 void GraphicsHandler::setClipRect(const Rect &rect)
 {
-	al_set_clipping_rectangle(rect.position.x,rect.position.y, rect.size.x, rect.size.y);
+	al_set_clipping_rectangle(rect.position.x, rect.position.y, rect.size.x, rect.size.y);
 }
 
 
@@ -191,7 +191,7 @@ void GraphicsHandler::setIcon(Bitmap *icon)
 {
 	if (display) {
 		if (icon) {
-			al_set_display_icon(display,icon->getAllegroBitmap());
+			al_set_display_icon(display, icon->getAllegroBitmap());
 		}
 	}
 }
