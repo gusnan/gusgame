@@ -57,16 +57,16 @@ public:
 
 	void setTarget(Bitmap *targetBitmap);
 
-	void blit(const Vector2d &position,float opacity=1.0f);
-	void blit(const Rect &sourceRect, const Vector2d &position, float opacity=1.0f);
+	void blit(const Vector2d &position,float opacity = 1.0f);
+	void blit(const Rect &sourceRect, const Vector2d &position, float opacity = 1.0f);
 
-	void blitCenter(const Rect &targetRect, float opacity=1.0f);
-	void blitCenter(const Rect &sourceRect, const Rect &targetRect, float opacity=1.0f);
+	void blitCenter(const Rect &targetRect, float opacity = 1.0f);
+	void blitCenter(const Rect &sourceRect, const Rect &targetRect, float opacity = 1.0f);
 
-	void blitColor(const Vector2d &position, const Color &color, float opacity=1.0f);
-	void blitCenterColor(const Rect &sourceRect, const Color &color, float opacity=1.0f);
+	void blitColor(const Vector2d &position, const Color &color, float opacity = 1.0f);
+	void blitCenterColor(const Rect &sourceRect, const Color &color, float opacity = 1.0f);
 
-	void drawPattern(const Rect &rect, float opacity=1.0f);
+	void drawPattern(const Rect &rect, float opacity = 1.0f);
 
 protected:
 
