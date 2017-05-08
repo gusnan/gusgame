@@ -188,6 +188,25 @@ void Bitmap::blit(const Vector2d &position, float opacity)
 /**
  *
  */
+void Bitmap::blit(const Rect &targetRect, float opacity)
+{
+	if (m_AllegroBitmap) {
+
+		al_draw_scaled_bitmap(m_AllegroBitmap,
+			0, 0, m_Size.x, m_Size.y, targetRect.position.x, targetRect.position.y,
+				targetRect.size.x, targetRect.size.y, 0);
+
+		/*
+		void al_draw_scaled_bitmap(ALLEGRO_BITMAP *bitmap,
+   float sx, float sy, float sw, float sh,
+   float dx, float dy, float dw, float dh, int flags)
+		*/
+	}
+}
+
+/**
+ *
+ */
 void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, float opacity)
 {
 }
