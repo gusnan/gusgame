@@ -45,7 +45,7 @@ public:
 	/**
 	 *
 	 */
-	Vector2d() : x(-1),y(-1)
+	Vector2d() : x(-1), y(-1)
 	{
 		//SetPosition(-1,-1);
 	}
@@ -53,7 +53,7 @@ public:
 	/**
 	 *
 	 */
-	Vector2d(int xpos,int ypos) : x(xpos),y(ypos)
+	Vector2d(int xpos,int ypos) : x(xpos), y(ypos)
 	{
 		//x=xpos;
 		//y=ypos;
@@ -63,11 +63,11 @@ public:
 	/**
 	 *
 	 */
-	Vector2d(const Vector2d &source) : x(0),y(0)
+	Vector2d(const Vector2d &source) : x(0), y(0)
 	{
-		if (this!=&source) {
-			this->x=source.x;
-			this->y=source.y;
+		if (this != &source) {
+			this->x = source.x;
+			this->y = source.y;
 		}
 	}
 
@@ -76,8 +76,8 @@ public:
 	 */
 	Vector2d& operator=(const Vector2d& source)
 	{
-		x=source.x;
-		y=source.y;
+		x = source.x;
+		y = source.y;
 
 		return *this;
 	}
@@ -90,8 +90,8 @@ public:
 	{
 		Vector2d res(*this);
 
-		res.x=x*source.x;
-		res.y=y*source.y;
+		res.x = x * source.x;
+		res.y = y * source.y;
 
 		return res;
 	}
@@ -103,8 +103,8 @@ public:
 	{
 		Vector2d res(*this);
 
-		res.x=x*a;
-		res.y=y*a;
+		res.x = x * a;
+		res.y = y * a;
 
 		return res;
 	}
@@ -119,8 +119,8 @@ public:
 	{
 		Vector2d res(*this);
 
-		res.x=x-source.x;
-		res.y=y-source.y;
+		res.x = x - source.x;
+		res.y = y - source.y;
 
 		return res;
 	}
@@ -134,8 +134,8 @@ public:
 
 	//	Vector2d res(*this);
 
-		this->x=x*source.x;
-		this->y=y*source.y;
+		this->x = x * source.x;
+		this->y = y * source.y;
 
 		//return *this;
 	}
@@ -148,8 +148,8 @@ public:
 
 		Vector2d res(*this);
 
-		this->x=x+source.x;
-		this->y=y+source.y;
+		this->x = x + source.x;
+		this->y = y + source.y;
 
 		return *this;
 	}
@@ -160,10 +160,10 @@ public:
 	Vector2d operator+(const Vector2d& source) const
 	{
 
-		Vector2d res=Vector2d(*this);
+		Vector2d res = Vector2d(*this);
 
-		res.x=x+source.x;
-		res.y=y+source.y;
+		res.x = x + source.x;
+		res.y = y + source.y;
 
 		return res;
 	}
@@ -185,8 +185,8 @@ public:
 	{
 		//Vector2d res(*this);
 
-		this->x=x-source.x;
-		this->y=y-source.y;
+		this->x = x - source.x;
+		this->y = y - source.y;
 
 		//return *this; //*this;
 	}
@@ -197,10 +197,10 @@ public:
 	 */
 	bool operator==(const Vector2d& source) const
 	{
-		bool res=false;
+		bool res = false;
 
-		if ((this->x==source.x) && (this->y==source.y)) {
-			res=true;
+		if ((this->x == source.x) && (this->y == source.y)) {
+			res = true;
 		}
 
 		return res;
@@ -212,10 +212,10 @@ public:
 	 */
 	bool operator!=(const Vector2d& source) const
 	{
-		bool res=false;
+		bool res = false;
 
-		if ((this->x!=source.x) || (this->y!=source.y)) {
-			res=true;
+		if ((this->x != source.x) || (this->y != source.y)) {
+			res = true;
 		}
 
 		return res;
@@ -245,8 +245,8 @@ public:
 	 */
 	void setPosition(int xpos,int ypos)
 	{
-		x=xpos;
-		y=ypos;
+		x = xpos;
+		y = ypos;
 	}
 
 	/**
@@ -281,12 +281,12 @@ public:
 	 */
 	bool inRange(Vector2d pos) const
 	{
-		bool result=false;
+		bool result = false;
 
-		if ((pos.x==x+1) && (pos.y==y)) result=true;
-		if ((pos.x==x-1) && (pos.y==y)) result=true;
-		if ((pos.x==x) && (pos.y==y+1)) result=true;
-		if ((pos.x==x) && (pos.y==y-1)) result=true;
+		if ((pos.x == x + 1) && (pos.y == y)) result = true;
+		if ((pos.x == x - 1) && (pos.y == y)) result = true;
+		if ((pos.x == x) && (pos.y == y + 1)) result = true;
+		if ((pos.x == x) && (pos.y == y - 1)) result = true;
 
 		return result;
 
@@ -298,7 +298,7 @@ public:
 	 */
 	Vector2d oneRight()
 	{
-		return Vector2d(x+1,y);
+		return Vector2d(x + 1, y);
 	}
 
 	/**
@@ -306,7 +306,7 @@ public:
 	 */
 	Vector2d oneLeft()
 	{
-		return Vector2d(x-1,y);
+		return Vector2d(x - 1, y);
 	}
 
 	/**
@@ -314,7 +314,7 @@ public:
 	 */
 	Vector2d oneUp()
 	{
-		return Vector2d(x,y-1);
+		return Vector2d(x, y - 1);
 	}
 
 	/**
@@ -322,7 +322,7 @@ public:
 	 */
 	Vector2d oneDown()
 	{
-		return Vector2d(x,y+1);
+		return Vector2d(x, y + 1);
 	}
 
 	friend std::ostream &operator<<(std::ostream &stream, Vector2d vec) {
