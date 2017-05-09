@@ -119,7 +119,7 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, boo
 
 	display=al_create_display(size.x, size.y);
 
-	screenSize=size;
+	screenSize = size;
 
 	if (!display) {
 		throw ExceptionLib::Exception("Couldn't init display!");
