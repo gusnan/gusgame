@@ -45,14 +45,14 @@ public:
 	/**
 	 *
 	 */
-	Rect() : position(Vector2d()),size(Vector2d())
+	Rect() : position(Vector2d()), size(Vector2d())
 	{
 	}
 
 	/**
 	 *
 	 */
-	Rect(const Vector2d& pos,const Vector2d& siz) : position(pos), size(siz)
+	Rect(const Vector2d& pos, const Vector2d& siz) : position(pos), size(siz)
 	//Rect(Vector2d<Type> pos,Vector2d<Type> siz)
 	{
 		//SetPosition(pos);
@@ -65,7 +65,7 @@ public:
 	/**
 	 *
 	 */
-	Rect(int XPos,int YPos,int XSize,int YSize) : position(Vector2d(XPos,YPos)), size(Vector2d(XSize,YSize))
+	Rect(int XPos, int YPos, int XSize, int YSize) : position(Vector2d(XPos, YPos)), size(Vector2d(XSize, YSize))
 	{
 		//position=Vector2d<Type>(XPos,YPos);
 		//position.SetPosition(XPos,YPos);
@@ -89,9 +89,9 @@ public:
 	 */
 	Rect& operator=(const Rect& sourceRect)
 	{
-		if (this!=&sourceRect) {
-			position=sourceRect.position;
-			size=sourceRect.size;
+		if (this != &sourceRect) {
+			position = sourceRect.position;
+			size = sourceRect.size;
 
 		}
 
@@ -119,14 +119,14 @@ public:
 		int x2=(int)vect.x();
 		int y2=vect.y;
 		*/
-		Vector2d pos=position;
+		Vector2d pos = position;
 
-		pos.x+=vect.x;
-		pos.y+=vect.y;
+		pos.x += vect.x;
+		pos.y += vect.y;
 
 		//position.setPosition(x+vect.x(),y+vect.y);
 
-		Rect result=Rect(pos,size);
+		Rect result = Rect(pos,size);
 
 		return result;
 
@@ -146,14 +146,14 @@ public:
 	 */
 	bool operator==(const Rect& sourceRect)
 	{
-		bool result=false;
+		bool result = false;
 
-		bool checkPos=false,checkSize=false;
+		bool checkPos = false, checkSize = false;
 
-		if (position==sourceRect.position) checkPos=true;
-		if (size==sourceRect.size) checkSize=true;
+		if (position == sourceRect.position) checkPos = true;
+		if (size == sourceRect.size) checkSize = true;
 
-		if (checkPos && checkSize) result=true;
+		if (checkPos && checkSize) result = true;
 
 		return result;
 	}
@@ -210,7 +210,7 @@ public:
 	 */
 	bool isPointOver(Vector2d point)
 	{
-		bool res=false;
+		bool res = false;
 
 		/*
 		if (*this==fullScreenRect) {
@@ -218,16 +218,16 @@ public:
 		}
 		*/
 
-		int px=point.x;
-		int py=point.y;
+		int px = point.x;
+		int py = point.y;
 
-		int rpx=position.x;
-		int rpy=position.y;
+		int rpx = position.x;
+		int rpy = position.y;
 
-		int rxs=size.x;
-		int rys=size.y;
+		int rxs = size.x;
+		int rys = size.y;
 
-		if ((px>=rpx) && (py>=rpy) && (px<rpx+rxs) && (py<rpy+rys)) res=true;
+		if ((px >= rpx) && (py >= rpy) && (px < rpx + rxs) && (py < rpy + rys)) res = true;
 
 		return res;
 	}
@@ -239,13 +239,13 @@ public:
 	 */
 	Vector2d getCenter()
 	{
-		int x=position.x;
-		int y=position.y;
+		int x = position.x;
+		int y = position.y;
 
-		int xs=size.x;
-		int ys=size.y;
+		int xs = size.x;
+		int ys = size.y;
 
-		Vector2d result(x+xs/2, y+ys/2);
+		Vector2d result(x + xs / 2, y + ys / 2);
 
 		return result;
 	}
@@ -255,7 +255,7 @@ public:
 	 */
 	void setPosition(Vector2d pos)
 	{
-		position=pos;
+		position = pos;
 	}
 
 	/**
@@ -263,13 +263,13 @@ public:
 	 */
 	void setCenter(Vector2d pos)
 	{
-		int xs=size.x;
-		int ys=size.y;
+		int xs = size.x;
+		int ys = size.y;
 
-		Vector2d newPosition = Vector2d(pos.x - (xs/2), pos.y - (ys/2));
+		Vector2d newPosition = Vector2d(pos.x - (xs / 2), pos.y - (ys / 2));
 
 		//SetPosition(newPosition);
-		position=newPosition;
+		position = newPosition;
 	}
 
 	/**
@@ -277,7 +277,7 @@ public:
 	 */
 	int getXCenter()
 	{
-		return position.x+(size.x/2);
+		return position.x + (size.x / 2);
 	}
 
 	Vector2d position;
