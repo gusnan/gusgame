@@ -43,6 +43,7 @@ namespace GraphicsHandler
 	void doneGraphicsHandler();
 
 	void setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable = false);
+	void setBackgroundSize(const Vector2d &size);
 
 	void setWindowTitle(std::string title);
 
@@ -64,6 +65,9 @@ namespace GraphicsHandler
 	extern ALLEGRO_DISPLAY *display;
 
 	extern Vector2d screenSize;
+	extern Vector2d backgroundSize;
+	
+	extern float zoomX, zoomY;
 };
 
 // end of namespace

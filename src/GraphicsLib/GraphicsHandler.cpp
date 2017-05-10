@@ -52,6 +52,9 @@ namespace GraphicsLib
 ALLEGRO_DISPLAY *GraphicsHandler::display = NULL;
 
 Vector2d GraphicsHandler::screenSize;
+Vector2d GraphicsHandler::backgroundSize;
+	
+float GraphicsHandler::zoomX = 1.0f, GraphicsHandler::zoomY = 1.0f;
 
 /**
  *
@@ -117,15 +120,28 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, boo
 
 	al_set_new_display_flags(flags);
 
-	display=al_create_display(size.x, size.y);
+	display = al_create_display(size.x, size.y);
 
 	screenSize = size;
+	setBackgroundSize(screenSize);
 
 	if (!display) {
 		throw ExceptionLib::Exception("Couldn't init display!");
 	}
 
 	//al_set_window_position(display, 32, 32);
+}
+
+
+/**
+ *
+ */
+void GraphicsHandler::setBackgroundSize(const Vector2d &size)
+{
+	backgroundSize = size;
+	
+	zoomX = (float)screenSize.x / (float)backgroundSize.x;
+	zoomY = (float)screenSize.y / (float)backgroundSize.y;
 }
 
 

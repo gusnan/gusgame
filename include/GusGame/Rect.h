@@ -1,7 +1,7 @@
 /**
  *
  *	This file is part of GusGame.
- *	Copyright 2011 Andreas Rönnquist
+ *	Copyright 2011-2017 Andreas Rönnquist
  *
  *	GusGame is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU Lesser General Public License as published by
@@ -226,6 +226,33 @@ public:
 
 		int rxs = size.x;
 		int rys = size.y;
+
+		if ((px >= rpx) && (py >= rpy) && (px < rpx + rxs) && (py < rpy + rys)) res = true;
+
+		return res;
+	}
+
+	/**
+	 *
+	 */
+	bool isPointOverTranslated(Vector2d point, float zoomX, float zoomY)
+	{
+		bool res = false;
+
+		/*
+		if (*this==fullScreenRect) {
+			return true;
+		}
+		*/
+
+		int px = point.x;
+		int py = point.y;
+
+		int rpx = (float)position.x * (float)zoomX;
+		int rpy = (float)position.y * (float)zoomY;
+
+		int rxs = (float)size.x * (float)zoomX;
+		int rys = (float)size.y * (float)zoomY;
 
 		if ((px >= rpx) && (py >= rpy) && (px < rpx + rxs) && (py < rpy + rys)) res = true;
 

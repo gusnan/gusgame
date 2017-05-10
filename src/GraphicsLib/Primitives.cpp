@@ -27,6 +27,8 @@
 
 #include "Primitives.h"
 
+#include "GraphicsHandler.h"
+
 /**
  *
  */
@@ -64,8 +66,21 @@ void Primitives::donePrimitives()
  */
 void Primitives::line(const Vector2d &sourcePoint, const Vector2d &targetPoint, const Color &color, float thickness)
 {
+	float sx = (float)((float)sourcePoint.x + 0.5f);
+	float sy = (float)((float)sourcePoint.y + 0.5f);
+	
+	float tx = (float)((float)targetPoint.x + 0.5f);
+	float ty = (float)((float)targetPoint.y + 0.5f);
+	
+	float zx = GraphicsHandler::zoomX;
+	float zy = GraphicsHandler::zoomY;
+	
+	al_draw_line(sx * zx, sy * zy, tx * zx, ty * zy, color.getAllegroColor(), thickness);
+	
+	/*
 	al_draw_line((float)((float)sourcePoint.x + 0.5f), (float)((float)sourcePoint.y + 0.5f),
 					 (float)((float)targetPoint.x + 0.5f), (float)((float)targetPoint.y + 0.5f), color.getAllegroColor(), thickness);
+	*/
 }
 
 
@@ -74,10 +89,19 @@ void Primitives::line(const Vector2d &sourcePoint, const Vector2d &targetPoint, 
  */
 void Primitives::rect(const Rect &rect, const Color &color, float thickness)
 {
-	al_draw_rectangle(rect.position.x,
-							rect.position.y,
-							rect.position.x + rect.size.x,
-							rect.position.y + rect.size.y,
+	float x = (float)rect.position.x;
+	float y = (float)rect.position.y;
+	
+	float sx = (float)rect.size.x;
+	float sy = (float)rect.size.y;
+	
+	float zx = GraphicsHandler::zoomX;
+	float zy = GraphicsHandler::zoomY;
+
+	al_draw_rectangle(x * zx,
+							y * zy,
+							x * zx + sx * zx,
+							y * zy + sy * zy,
 							color.getAllegroColor(),
 							thickness);
 }
@@ -88,12 +112,28 @@ void Primitives::rect(const Rect &rect, const Color &color, float thickness)
  */
 void Primitives::rectFill(const Rect &rect, const Color &color)
 {
+	
+	float x = (float)rect.position.x;
+	float y = (float)rect.position.y;
+	
+	float sx = (float)rect.size.x;
+	float sy = (float)rect.size.y;
+	
+	float zx = GraphicsHandler::zoomX;
+	float zy = GraphicsHandler::zoomY;
+
+	al_draw_filled_rectangle(x * zx,
+							y * zy,
+							x * zx + sx * zx,
+							y * zy + sy * zy,
+							color.getAllegroColor());
+	/*
 	al_draw_filled_rectangle(rect.position.x,
 									 rect.position.y,
 									 rect.position.x + rect.size.x,
 									 rect.position.y + rect.size.y,
 									 color.getAllegroColor());
-
+	*/
 }
 
 
