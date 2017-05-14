@@ -111,8 +111,6 @@ UserEvent &UserEvent::operator=(const UserEvent &source)
  */
 bool UserEvent::operator==(const UserEvent &source) const
 {
-	std::cout << "Value : " << m_UserEventValue << ", " << source.m_UserEventValue << std::endl;
-
 	if (m_UserEventValue == source.m_UserEventValue) {
 		return true;
 	}
