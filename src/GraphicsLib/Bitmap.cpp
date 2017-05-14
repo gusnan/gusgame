@@ -165,7 +165,8 @@ Vector2d Bitmap::getSize() const
 
 
 /**
- *
+ * setTarget
+ *   Set the target to NULL to draw directly to screen.
  */
 void Bitmap::setTarget(Bitmap *targetBitmap)
 {
