@@ -56,8 +56,11 @@ using namespace EventLib;
 /**
  *
  */
-UserEvent::UserEvent() : m_UserEventValue(0), userEvent()
+UserEvent::UserEvent() : /*m_UserEventValue(0),*/ userEvent()
 {
+	static int value = 1;
+
+	m_UserEventValue = ++value;
 }
 
 
@@ -83,8 +86,8 @@ UserEvent::UserEvent(int value) : m_UserEventValue(value), userEvent()
  */
 UserEvent::UserEvent(const UserEvent &source) : m_UserEventValue(), userEvent()
 {
-	m_UserEventValue = source.m_UserEventValue;
 	userEvent = source.userEvent;
+	m_UserEventValue = source.m_UserEventValue;
 }
 
 
@@ -95,13 +98,32 @@ UserEvent &UserEvent::operator=(const UserEvent &source)
 {
 	if (this != &source) {
 
-		m_UserEventValue = source.m_UserEventValue;
 		userEvent = source.userEvent;
+		m_UserEventValue = source.m_UserEventValue;
 	}
 
 	return *this;
 }
 
+
+/**
+ *
+ */
+bool UserEvent::operator==(const UserEvent &source) const
+{
+	std::cout << "Value : " << m_UserEventValue << ", " << source.m_UserEventValue << std::endl;
+
+	if (m_UserEventValue == source.m_UserEventValue) {
+		return true;
+	}
+
+	return false;
+}
+
+
+bool UserEvent::operator!=(const UserEvent &other) const {
+	return !(*this == other);
+}
 
 /**
  *

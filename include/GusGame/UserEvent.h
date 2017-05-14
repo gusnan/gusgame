@@ -47,6 +47,9 @@ public:
 	UserEvent(const UserEvent &source);
 	UserEvent &operator=(const UserEvent &source);
 
+	bool operator==(const UserEvent &source) const;
+	bool operator!=(const UserEvent &source) const;
+
 	virtual ~UserEvent();
 
 	void pushEvent();
