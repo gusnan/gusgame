@@ -84,7 +84,7 @@ EventHandler::EventHandler(const EventHandler &source) : m_Name(source.m_Name)
  */
 EventHandler &EventHandler::operator=(const EventHandler &source)
 {
-	if (this!=&source)
+	if (this != &source)
 	{
 		m_Name = source.m_Name;
 	}
