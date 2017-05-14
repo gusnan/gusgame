@@ -218,6 +218,33 @@ void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float 
 /**
  *
  */
+void Bitmap::blitFlipped(const Rect &rect, FlipDirection inFlags, float opacity)
+{
+	if (m_AllegroBitmap) {
+
+		int al_flags = 0;
+
+		switch(inFlags) {
+		case FlipNone:
+			al_flags = 0;
+			break;
+		case FlipHorizontal:
+			al_flags = ALLEGRO_FLIP_HORIZONTAL;
+			break;
+		case  FlipVertical:
+			al_flags = ALLEGRO_FLIP_VERTICAL;
+			break;
+		};
+
+		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rect.position.x, rect.position.y,
+				rect.size.x, rect.size.y, al_flags);
+	}
+}
+
+
+/**
+ *
+ */
 void Bitmap::blit(const Rect &targetRect, float opacity)
 {
 	if (m_AllegroBitmap) {
