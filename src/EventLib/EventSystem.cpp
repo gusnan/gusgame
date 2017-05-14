@@ -206,7 +206,7 @@ void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
  */
 bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 {
-	bool result=false;
+	bool result = false;
 
 	switch (ev.type) {
 	case ALLEGRO_EVENT_DISPLAY_CLOSE:
@@ -240,13 +240,13 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 		break;
 	case ALLEGRO_EVENT_MOUSE_AXES:
 		{
-			if ((ev.mouse.dx!=0) || (ev.mouse.dy!=0)) {
+			if ((ev.mouse.dx != 0) || (ev.mouse.dy != 0)) {
 				MouseMotionEvent mouseMotionEvent(ev);
 
 				eventHandler.get()->handleMouseMotion(mouseMotionEvent);
 			}
 
-			if (ev.mouse.dz!=0) {
+			if (ev.mouse.dz != 0) {
 
 				MouseScrollerEvent mouseScrollerEvent(ev);
 
@@ -306,14 +306,14 @@ void EventSystem::handleEvents()
 
 						std::list<boost::shared_ptr<EventHandler> >::iterator iter;
 
-						for (iter=listOfEventHandlers->begin();iter!=listOfEventHandlers->end();) {
+						for (iter = listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
 
 							currentEventHandler = (*iter);
 
 							if (currentEventHandler != boost::shared_ptr<EventHandler>()) {
 
 								if (!eventHandled) {
-									eventHandled = doHandleEvents(ev,currentEventHandler);
+									eventHandled = doHandleEvents(ev, currentEventHandler);
 								}
 							}
 							++iter;

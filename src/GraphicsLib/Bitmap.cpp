@@ -37,17 +37,20 @@
 
 #include "LogLib.h"
 
+
 /**
  *
  */
 namespace Gus
 {
 
+
 /**
  *
  */
 namespace GraphicsLib
 {
+
 
 /**
  *
@@ -204,6 +207,7 @@ void Bitmap::blit(const Rect &targetRect, float opacity)
 	}
 }
 
+
 /**
  *
  */
@@ -228,6 +232,7 @@ void Bitmap::blitCenterColor(const Rect &sourceRect, const Color &color, float o
 
 }
 
+
 /**
  *
  */
@@ -251,6 +256,7 @@ void Bitmap::drawPattern(const Rect &rect, float opacity)
 {
 
 }
+
 
 /**
  *

@@ -57,7 +57,7 @@ public:
 
 	void setTarget(Bitmap *targetBitmap);
 
-	void blit(const Vector2d &position,float opacity = 1.0f);
+	void blit(const Vector2d &position, float opacity = 1.0f);
 	void blit(const Rect &sourceRect, const Vector2d &position, float opacity = 1.0f);
 
 	void blit(const Rect &targetRect, float opacity = 1.0f);
