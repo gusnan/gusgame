@@ -56,7 +56,7 @@ using namespace EventLib;
 /**
  *
  */
-UserEvent::UserEvent() : /*m_UserEventValue(0),*/ userEvent()
+UserEvent::UserEvent() : m_UserEventValue(0), userEvent()
 {
 	static int value = 1;
 
