@@ -148,7 +148,7 @@ void GraphicsHandler::setBackgroundSize(const Vector2d &size)
 /**
  *
  */
-void GraphicsHandler::setWindowTitle(std::string windowTitle)
+void GraphicsHandler::setWindowTitle(const std::string &windowTitle)
 {
 	if (display)
 		al_set_window_title(display, (const char*)(windowTitle.c_str()));

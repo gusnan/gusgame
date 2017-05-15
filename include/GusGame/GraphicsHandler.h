@@ -45,7 +45,7 @@ namespace GraphicsHandler
 	void setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable = false);
 	void setBackgroundSize(const Vector2d &size);
 
-	void setWindowTitle(std::string title);
+	void setWindowTitle(const std::string &title);
 
 	void clearScreen();
 	void updateScreen();
