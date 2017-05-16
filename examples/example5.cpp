@@ -37,7 +37,7 @@ using namespace ExceptionLib;
 using namespace GraphicsLib;
 using namespace EventLib;
 
-bool quit=false;
+bool quit = false;
 
 UserEvent *testEvent = NULL;
 UserEvent *testEvent2 = NULL;
@@ -105,7 +105,6 @@ public:
 		} else if (inEvent == *testEvent2) {
 			std::cout << "Event 2..." << std::endl;
 			return true;
-
 		}
 
 		return false;
