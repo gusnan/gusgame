@@ -42,9 +42,6 @@ bool quit=false;
 UserEvent *testEvent = NULL;
 UserEvent *testEvent2 = NULL;
 
-const int TEST_EVENT = 43;
-const int TEST_EVENT2 =	44;
-
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
  *	events, and the Quit events. (This event is pushed when you press the close
@@ -101,22 +98,14 @@ public:
 	 */
 	virtual bool handleUserEvent(UserEvent &inEvent)
 	{
-		// Is it out custom User event that is triggered?
-		switch (inEvent.getUserEventValue()) {
-			case TEST_EVENT:
-				{
-					std::cout << "Something is happening..." << std::endl;
-					return true;
-				}
-				break;
-			case TEST_EVENT2:
-				{
-					std::cout << "Event 2..." << std::endl;
-					return true;
-				}
-				break;
-			default:
-				break;
+		if (inEvent == *testEvent) {
+			std::cout << "Something is happening..." << std::endl;
+			return true;
+
+		} else if (inEvent == *testEvent2) {
+			std::cout << "Event 2..." << std::endl;
+			return true;
+
 		}
 
 		return false;
@@ -163,8 +152,8 @@ int main(int argc,char **argv)
 		EventSystem::addEventHandler(eventHandler);
 
 		// Create the test events
-		testEvent = new UserEvent(TEST_EVENT);
-		testEvent2 = new UserEvent(TEST_EVENT2);
+		testEvent = new UserEvent();
+		testEvent2 = new UserEvent();
 
 		mouseBitmap = new Bitmap("mouse.png");
 
