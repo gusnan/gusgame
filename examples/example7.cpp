@@ -110,7 +110,7 @@ int main(int argc, char **argv)
 
 		// Create an EventHandler for our "custom" events from the class
 		// that is defined above
-		eventHandler=boost::shared_ptr<EventHandler>(new ExampleEventHandler());
+		eventHandler = boost::shared_ptr<EventHandler>(new ExampleEventHandler());
 
 		EventSystem::initEventSystem();
 

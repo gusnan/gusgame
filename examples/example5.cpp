@@ -163,8 +163,8 @@ int main(int argc,char **argv)
 		EventSystem::addEventHandler(eventHandler);
 
 		// Create the test events
-		testEvent=new UserEvent(TEST_EVENT);
-		testEvent2=new UserEvent(TEST_EVENT2);
+		testEvent = new UserEvent(TEST_EVENT);
+		testEvent2 = new UserEvent(TEST_EVENT2);
 
 		mouseBitmap = new Bitmap("mouse.png");
 

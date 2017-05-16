@@ -66,7 +66,7 @@ public:
 	 */
 	virtual void handleQuitEvent()
 	{
-		quit=true;
+		quit = true;
 	}
 
 	/**
@@ -129,9 +129,9 @@ int main(int argc,char **argv)
 		// set the used EventHandler to the one we just created.
 		EventSystem::addEventHandler(eventHandler);
 
-		mouseBitmap=new Bitmap("mouse.png");
+		mouseBitmap = new Bitmap("mouse.png");
 
-		testBitmap=mouseBitmap->makeCopy();
+		testBitmap = mouseBitmap->makeCopy();
 
 		Mouse::setMouseBitmap(mouseBitmap);
 
