@@ -44,6 +44,7 @@ public:
 	virtual ~MouseScrollerEvent();
 
 	int getScroller() const;
+	void setScroller(int inValue);
 
 protected:
 	int m_Scroller;

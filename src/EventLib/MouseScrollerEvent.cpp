@@ -90,6 +90,15 @@ int MouseScrollerEvent::getScroller() const
 	return m_Scroller;
 }
 
+
+/**
+ *
+ */
+void MouseScrollerEvent::setScroller(int inValue)
+{
+	al_set_mouse_z(inValue);
+}
+
 /**
  *
  */
