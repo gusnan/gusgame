@@ -187,7 +187,13 @@ Rect GraphicsHandler::getScreenRect()
  */
 void GraphicsHandler::setClipRect(const Rect &rect)
 {
-	al_set_clipping_rectangle(rect.position.x, rect.position.y, rect.size.x, rect.size.y);
+	int x = (float)rect.position.x * (float)GraphicsHandler::zoomX;
+	int y = (float)rect.position.y * (float)GraphicsHandler::zoomY;
+
+	int xs = (float)rect.size.x * (float)GraphicsHandler::zoomX;
+	int ys = (float)rect.size.y * (float)GraphicsHandler::zoomY;
+
+	al_set_clipping_rectangle(x, y, xs, ys);
 }
 
 
