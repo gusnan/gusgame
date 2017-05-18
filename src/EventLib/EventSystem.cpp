@@ -140,7 +140,12 @@ void EventSystem::doneEventSystem()
 		*/
 
 		delete listOfEventHandlers;
-		listOfEventHandlers=0;
+		listOfEventHandlers = 0;
+	}
+
+	if (listDelayedEvents) {
+		delete listDelayedEvents;
+		listDelayedEvents = 0;
 	}
 }
 
