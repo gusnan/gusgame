@@ -156,9 +156,11 @@ std::string FileHelper::getFilename(std::string inFilename)
 		//testResult=fixFilename(testResult);
 
 
+		/*
 		std::stringstream logst;
 		logst << "Testing:" << testResult;
 		STLOG(logst);
+		*/
 
 
 		if (FileHelper::fileExists(testResult)) {
