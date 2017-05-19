@@ -291,11 +291,14 @@ void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, FlipDirectio
 		int spx = sourceRect.position.x;
 		int spy = sourceRect.position.y;
 
-		int txs = (float)sourceRect.size.x * (float)GraphicsHandler::zoomX;
-		int tys = (float)sourceRect.size.y * (float)GraphicsHandler::zoomY;
+		float sxs = sourceRect.size.x;
+		float sys = sourceRect.size.y;
 
-		int tpx = (float)position.x * (float)GraphicsHandler::zoomX;
-		int tpy = (float)position.y * (float)GraphicsHandler::zoomY;
+		float txs = (float)((float)sourceRect.size.x * (float)GraphicsHandler::zoomX);
+		float tys = (float)((float)sourceRect.size.y * (float)GraphicsHandler::zoomY);
+
+		float tpx = (float)((float)position.x * (float)GraphicsHandler::zoomX);
+		float tpy = (float)((float)position.y * (float)GraphicsHandler::zoomY);
 
 		int al_flags = 0;
 
@@ -313,7 +316,7 @@ void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, FlipDirectio
 
 		// Rect rect(Vector2d(rpx, rpy), Vector2d(rxs, rys));
 
-		al_draw_scaled_bitmap(m_AllegroBitmap, spx, spy, sourceRect.size.x, sourceRect.size.y, tpx, tpy,
+		al_draw_scaled_bitmap(m_AllegroBitmap, spx, spy, sxs, sys, tpx, tpy,
 				txs, tys, al_flags);
 	}	
 }
