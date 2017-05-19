@@ -186,16 +186,14 @@ void Bitmap::blit(const Vector2d &position, float opacity)
 	if (m_AllegroBitmap) {
 		// al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, 0);
 
-		int rpx = (float)position.x * (float)GraphicsHandler::zoomX;
-		int rpy = (float)position.y * (float)GraphicsHandler::zoomY;
+		float rpx = (float)position.x * (float)GraphicsHandler::zoomX;
+		float rpy = (float)position.y * (float)GraphicsHandler::zoomY;
 
-		int rxs = (float)m_Size.x * (float)GraphicsHandler::zoomX;
-		int rys = (float)m_Size.y * (float)GraphicsHandler::zoomY;
+		float rxs = (float)m_Size.x * (float)GraphicsHandler::zoomX;
+		float rys = (float)m_Size.y * (float)GraphicsHandler::zoomY;
 
-		Rect rect(Vector2d(rpx, rpy), Vector2d(rxs, rys));
-
-		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rect.position.x, rect.position.y,
-				rect.size.x, rect.size.y, 0/*al_flags*/);
+		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy,
+				rxs, rys, 0/*al_flags*/);
 	}
 }
 
@@ -221,7 +219,16 @@ void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float 
 			break;
 		};
 
-		al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, al_flags);
+		// al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, al_flags);
+
+		float rpx = (float)position.x * (float)GraphicsHandler::zoomX;
+		float rpy = (float)position.y * (float)GraphicsHandler::zoomY;
+
+		float rxs = (float)m_Size.x * (float)GraphicsHandler::zoomX;
+		float rys = (float)m_Size.y * (float)GraphicsHandler::zoomY;
+
+		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy,
+				rxs, rys, al_flags);
 	}
 }
 

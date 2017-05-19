@@ -119,8 +119,8 @@ void Primitives::rectFill(const Rect &rect, const Color &color)
 	float sx = (float)rect.size.x;
 	float sy = (float)rect.size.y;
 	
-	float zx = GraphicsHandler::zoomX;
-	float zy = GraphicsHandler::zoomY;
+	float zx = (float)GraphicsHandler::zoomX;
+	float zy = (float)GraphicsHandler::zoomY;
 
 	al_draw_filled_rectangle(x * zx,
 							y * zy,
