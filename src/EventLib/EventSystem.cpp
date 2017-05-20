@@ -177,10 +177,11 @@ void EventSystem::addEventHandler(EventHandlerPtr inEventHandler)
  */
 void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
 {
+	LOG("*** Remove eventHandler...");
 	std::list<EventHandlerPtr>::iterator iter;
-	EventHandlerPtr currentEventHandler = boost::shared_ptr<EventHandler>();
+	EventHandlerPtr currentEventHandler;  // = boost::shared_ptr<EventHandler>();
 
-	EventHandler *inEvent = inEventHandler.get();
+	EventHandlerPtr inEvent = inEventHandler/*.get()*/;
 
 	if (listOfEventHandlers) {
 
@@ -190,8 +191,8 @@ void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
 			for (iter=listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
 				currentEventHandler = (*iter);
 
-				if (inEvent == currentEventHandler.get()) {
-					//LOG("Removed ONE!");
+				if (inEvent == currentEventHandler/*.get()*/) {
+					LOG("Removed ONE!");
 
 					iter = listOfEventHandlers->erase(iter);
 
