@@ -361,6 +361,9 @@ void EventSystem::handleEvents()
 	while(get_event);
 	inEventLoop = false;
 
+
+	// Remove the eventhandler items that were queued for removal in the list
+	// through eventhandlers above
 	if (handlersToRemove) {
 		std::list<EventHandlerPtr>::iterator iter;
 
