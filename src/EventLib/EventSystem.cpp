@@ -75,6 +75,13 @@ std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = NULL;
 
 std::list<UserEvent*> *EventSystem::listDelayedEvents = NULL;
 
+
+std::list<EventHandlerPtr> *EventSystem::handlersToRemove = NULL;
+
+// Check if we are in a event loop, and don't remove event from the list
+// in that case, but instead do it after the loop.
+bool EventSystem::inEventLoop = false;
+
 /**
  *
  */
@@ -111,6 +118,11 @@ void EventSystem::initEventSystem()
 
 	listDelayedEvents = new std::list<UserEvent*>();
 	listDelayedEvents->clear();
+
+	handlersToRemove = new std::list<EventHandlerPtr>();
+	handlersToRemove->clear();
+
+	inEventLoop = false;
 }
 
 
@@ -146,6 +158,11 @@ void EventSystem::doneEventSystem()
 	if (listDelayedEvents) {
 		delete listDelayedEvents;
 		listDelayedEvents = 0;
+	}
+
+	if (handlersToRemove) {
+		delete handlersToRemove;
+		handlersToRemove = 0;
 	}
 }
 
@@ -183,24 +200,33 @@ void EventSystem::removeEventHandler(EventHandlerPtr inEventHandler)
 
 	EventHandlerPtr inEvent = inEventHandler/*.get()*/;
 
-	if (listOfEventHandlers) {
+	if (inEventLoop) {
+		LOG("In event loop!");
+		if (handlersToRemove) {
+			handlersToRemove->push_back(inEventHandler);
+		}
 
-		//listOfEventHandlers->remove_if(ptr_contains(inEventHandler.get()));
-		if (!listOfEventHandlers->empty()) {
+	} else {
 
-			for (iter=listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
-				currentEventHandler = (*iter);
+		if (listOfEventHandlers) {
 
-				if (inEvent == currentEventHandler/*.get()*/) {
-					LOG("Removed ONE!");
+			//listOfEventHandlers->remove_if(ptr_contains(inEventHandler.get()));
+			if (!listOfEventHandlers->empty()) {
 
-					iter = listOfEventHandlers->erase(iter);
+				for (iter=listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
+					currentEventHandler = (*iter);
 
-				} else {
+					if (inEvent == currentEventHandler/*.get()*/) {
+						LOG("Removed ONE!");
 
-					++iter;
+						iter = listOfEventHandlers->erase(iter);
+
+					} else {
+
+						++iter;
+					}
+
 				}
-
 			}
 		}
 	}
@@ -300,6 +326,7 @@ void EventSystem::handleEvents()
 	bool eventHandled = false;
 
 	// Make sure to handle all events in the queue before drawing
+	inEventLoop = true;
 	do {
 		if (!al_is_event_queue_empty(eventQueue)) {
 
@@ -334,6 +361,20 @@ void EventSystem::handleEvents()
 		}
 	}
 	while(get_event);
+	inEventLoop = false;
+
+	if (handlersToRemove) {
+		std::list<EventHandlerPtr>::iterator iter;
+
+		if (!handlersToRemove->empty()) {
+			for (iter = handlersToRemove->begin(); iter != handlersToRemove->end(); ) {
+
+				removeEventHandler(*iter);
+				iter = handlersToRemove->erase(iter);
+				// ++iter;
+			}
+		}
+	}
 
 	// Push the delayed events
 

@@ -62,6 +62,11 @@ namespace EventSystem
 
 	extern std::list<UserEvent*> *listDelayedEvents;
 
+
+	extern std::list<EventHandlerPtr> *handlersToRemove;
+
+	extern bool inEventLoop;
+
 };
 
 // end of namespace
