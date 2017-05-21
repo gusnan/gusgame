@@ -47,11 +47,13 @@
 namespace Gus
 {
 
+
 /**
  *
  */
 
 using namespace EventLib;
+
 
 /**
  *
@@ -80,6 +82,7 @@ UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventValue(), userEvent()
 UserEvent::UserEvent(int value) : m_UserEventValue(value), userEvent()
 {
 }
+
 
 /**
  *
@@ -119,9 +122,13 @@ bool UserEvent::operator==(const UserEvent &source) const
 }
 
 
+/**
+ *
+ */
 bool UserEvent::operator!=(const UserEvent &other) const {
 	return !(*this == other);
 }
+
 
 /**
  *
