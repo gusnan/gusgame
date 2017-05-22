@@ -332,7 +332,7 @@ public:
 	}
 
 
-	int x,y;
+	int x, y;
 };
 
 // end of namespace
