@@ -147,7 +147,7 @@ void GUSGAME_DLL Log::add(std::stringstream message)
 		for (int co = 0; co < m_Indent; co++) {
 			std::cout << "   ";
 		}
-		std::cout << message << std::endl;
+		std::cout << message.str() << std::endl;
 	}
 	closeFile();
 }
