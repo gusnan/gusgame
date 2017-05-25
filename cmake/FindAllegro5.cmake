@@ -6,18 +6,18 @@
 #  ALLEGRO_FOUND       - True if allegro found.
 
 
-# IF (ALLEGRO_INCLUDE_DIR)
+IF (ALLEGRO_INCLUDE_DIR)
   # Already in cache, be silent
-  # SET(ALLEGRO_FIND_QUIETLY TRUE)
-# ENDIF (ALLEGRO_INCLUDE_DIR)
+  SET(ALLEGRO_FIND_QUIETLY TRUE)
+ENDIF (ALLEGRO_INCLUDE_DIR)
 
-FIND_PATH(ALLEGRO_INCLUDE_DIR allegro5.h allegro.h
+FIND_PATH(ALLEGRO_INCLUDE_DIR allegro.h allegro5.h
   /usr/local/include/allegro5
   /usr/include/allegro5
   $ENV{MINGDIR}/include/allegro5
 )
 
-set(VERSION_NUMBER "5")
+set(VERSION_NUMBER "5.0")
 
 if(UNIX AND NOT CYGWIN)
 	exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
@@ -31,6 +31,7 @@ if(UNIX AND NOT CYGWIN)
 	IF (${LIB_CHECK})
 	    set(ALLEGRO_LIBRARIES "")
 	ENDIF (${LIB_CHECK})
+
 # FIXME - Figure out what to do for windows 
 #else(UNIX AND NOT CYGWIN)
 #	SET(ALLEGRO_NAMES allegro allegrolib allegrodll)
