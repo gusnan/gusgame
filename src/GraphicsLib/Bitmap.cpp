@@ -267,9 +267,14 @@ void Bitmap::blit(const Rect &targetRect, float opacity)
 {
 	if (m_AllegroBitmap) {
 
+		float rpx = (float)targetRect.position.x * (float)GraphicsHandler::zoomX;
+		float rpy = (float)targetRect.position.y * (float)GraphicsHandler::zoomY;
+
+		float rxs = (float)targetRect.size.x * (float)GraphicsHandler::zoomX;
+		float rys = (float)targetRect.size.y * (float)GraphicsHandler::zoomY;
+
 		al_draw_scaled_bitmap(m_AllegroBitmap,
-			0, 0, m_Size.x, m_Size.y, targetRect.position.x, targetRect.position.y,
-				targetRect.size.x, targetRect.size.y, 0);
+			0, 0, m_Size.x, m_Size.y, rpx, rpy, rxs, rys, 0);
 
 		/*
 		void al_draw_scaled_bitmap(ALLEGRO_BITMAP *bitmap,

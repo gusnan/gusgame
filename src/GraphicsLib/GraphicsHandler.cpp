@@ -178,7 +178,7 @@ void GraphicsHandler::updateScreen()
  */
 Rect GraphicsHandler::getScreenRect()
 {
-		return Rect(Vector2d(0, 0), screenSize);
+		return Rect(Vector2d(0, 0), backgroundSize);
 }
 
 
