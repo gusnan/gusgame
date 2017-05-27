@@ -254,8 +254,13 @@ void Bitmap::blitFlipped(const Rect &rect, FlipDirection inFlags, float opacity)
 			break;
 		};
 
-		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rect.position.x, rect.position.y,
-				rect.size.x, rect.size.y, al_flags);
+		float rpx = (float)rect.position.x * (float)GraphicsHandler::zoomX;
+		float rpy = (float)rect.position.y * (float)GraphicsHandler::zoomY;
+
+		float rxs = (float)rect.size.x * (float)GraphicsHandler::zoomX;
+		float rys = (float)rect.size.y * (float)GraphicsHandler::zoomY;
+
+		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy, rxs, rys, al_flags);
 	}
 }
 
