@@ -17,7 +17,7 @@ FIND_PATH(ALLEGRO_INCLUDE_DIR allegro.h allegro5.h
   $ENV{MINGDIR}/include/allegro5
 )
 
-set(VERSION_NUMBER "5.0")
+set(VERSION_NUMBER "5")
 
 if(UNIX AND NOT CYGWIN)
 	exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
