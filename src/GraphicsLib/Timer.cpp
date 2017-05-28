@@ -38,6 +38,26 @@ namespace GraphicsLib
 /**
  *
  */
+double Timer::timerValue1 = 0.0f, Timer::timerValue2 = 0.0f;
+
+double Timer::deltaTime = 0.0f;
+
+
+/**
+ *
+ */
+void Timer::initTimer()
+{
+	timerValue1 = timerValue2 = al_get_time();
+}
+
+
+/**
+ *
+ */
+void Timer::doneTimer()
+{
+}
 
 
 /**
@@ -45,6 +65,7 @@ namespace GraphicsLib
  */
 void Timer::updateFrame()
 {
+	deltaTime = Timer::timerValue2 - timerValue1;
 }
 
 
@@ -53,7 +74,7 @@ void Timer::updateFrame()
  */
 double Timer::getDeltaTime()
 {
-	return 0.0f;
+	return deltaTime;
 }
 
 // end of namespace
@@ -63,4 +84,3 @@ double Timer::getDeltaTime()
 // end of namespace
 // ----------------
 };
-

@@ -1,7 +1,7 @@
 /**
  *
  *	This file is part of GusGame
- *	Copyright (C) 2013 Andreas Rönnquist
+ *	Copyright (C) 2017 Andreas Rönnquist
  *
  *	GusGame is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published
@@ -16,6 +16,7 @@
  *	You should have received a copy of the GNU General Public License
  *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
+ *
  */
 #ifndef __HEADER_TIMER_
 #define __HEADER_TIMER_
@@ -33,22 +34,28 @@ namespace Gus
 namespace GraphicsLib
 {
 
+
 /**
  *
  */
 namespace Timer
 {
+	void initTimer();
+	void doneTimer();
+
 	void updateFrame();
+
 	double getDeltaTime();
 
+	extern double timerValue1, timerValue2;
+
+	extern double deltaTime;
+
 };
 
-// end of namespace
-// ----------------
 };
 
-// end of namespace
-// ----------------
 };
+
 
 #endif /*__HEADER_TIMER_*/

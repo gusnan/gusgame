@@ -33,6 +33,8 @@
 
 #include "GraphicsHandler.h"
 
+#include "Timer.h"
+
 /**
  *
  */
@@ -61,6 +63,7 @@ float GraphicsHandler::zoomX = 1.0f, GraphicsHandler::zoomY = 1.0f;
  */
 void GraphicsHandler::initGraphicsHandler()
 {
+	Timer::initTimer();
 }
 
 
@@ -72,6 +75,8 @@ void GraphicsHandler::doneGraphicsHandler()
 	if (display) {
 		al_destroy_display(display);
 	}
+
+	Timer::doneTimer();
 }
 
 
@@ -169,6 +174,10 @@ void GraphicsHandler::clearScreen()
  */
 void GraphicsHandler::updateScreen()
 {
+	Timer::timerValue1 = Timer::timerValue2;
+
+	Timer::timerValue2 = al_get_time();
+
 	al_flip_display();
 }
 
