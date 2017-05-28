@@ -175,7 +175,6 @@ void GraphicsHandler::clearScreen()
 void GraphicsHandler::updateScreen()
 {
 	Timer::timerValue1 = Timer::timerValue2;
-
 	Timer::timerValue2 = al_get_time();
 
 	al_flip_display();
