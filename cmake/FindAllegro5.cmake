@@ -11,15 +11,17 @@ IF (ALLEGRO_INCLUDE_DIR)
   SET(ALLEGRO_FIND_QUIETLY TRUE)
 ENDIF (ALLEGRO_INCLUDE_DIR)
 
-FIND_PATH(ALLEGRO_INCLUDE_DIR allegro.h allegro5.h
+FIND_PATH(ALLEGRO_INCLUDE_DIR allegro.h allegro5.h allegro5/allegro.h
   /usr/local/include/allegro5
   /usr/include/allegro5
   $ENV{MINGDIR}/include/allegro5
+  $ENV{ALLEGRO_INCLUDE_DIR}
 )
 
 set(VERSION_NUMBER "5")
 
 if(UNIX AND NOT CYGWIN)
+	message(STATUS "Unix and not Cygwin!")
 	exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
 	IF (NOT ALLEGRO_LIBRARIES)
 	    # FALL BACK TO 5.0
@@ -33,12 +35,14 @@ if(UNIX AND NOT CYGWIN)
 	ENDIF (${LIB_CHECK})
 
 # FIXME - Figure out what to do for windows 
-#else(UNIX AND NOT CYGWIN)
-#	SET(ALLEGRO_NAMES allegro allegrolib allegrodll)
-#	FIND_LIBRARY(ALLEGRO_LIBRARY
-#	NAMES ${ALLEGRO_NAMES}
-#	PATHS /usr/lib /usr/local/lib $ENV{MINGDIR}/lib)
+else(UNIX AND NOT CYGWIN)
+	SET(ALLEGRO_NAMES allegro allegrolib allegrodll allegro5 allegro_monolith allegro_monolith.dll.a allegro_monolith.dll)
+	FIND_LIBRARY(ALLEGRO_LIBRARY
+	NAMES ${ALLEGRO_NAMES}
+	PATHS /usr/lib /usr/local/lib $ENV{MINGDIR}/lib)
 endif(UNIX AND NOT CYGWIN)
+
+# message(STATUS "Allegro library: ${ALLEGRO_LIBRARY}")
 
 IF (ALLEGRO_INCLUDE_DIR AND ALLEGRO_LIBRARIES)
    SET(ALLEGRO_FOUND TRUE)
