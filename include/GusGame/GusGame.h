@@ -33,4 +33,6 @@
 #include "EventLib.h"
 #include "EventSystem.h"
 
+#include "FileHelper.h"
+
 #endif /*__HEADER_GUSGAME_INCLUDE_*/
