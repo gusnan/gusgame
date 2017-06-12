@@ -39,6 +39,7 @@ namespace System
 	int getRamSize();
 
 	std::string getAllegroVersionString();
+	std::string getAppName();
 
 };
 

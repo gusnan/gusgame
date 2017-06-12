@@ -68,6 +68,9 @@ int main(int argc, char **argv)
 		STLOG(st);
 #endif
 
+		st << "App name: " << System::getAppName();
+		STLOG(st);
+
 		// Get the GusGui version:
 		st << "GusGui version: " << System::getGusGameVersion();
 

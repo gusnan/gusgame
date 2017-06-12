@@ -129,6 +129,19 @@ std::string System::getAllegroVersionString()
 }
 
 
+/**
+ *
+ */
+std::string System::getAppName()
+{
+	std::string result = "";
+
+	result = (std::string)(al_get_app_name());
+
+	return result;
+}
+
+
 // end of namespace
 // ----------------
 };
