@@ -41,6 +41,9 @@ namespace System
 	std::string getAllegroVersionString();
 	std::string getAppName();
 
+	extern std::string executablePath;
+	extern std::string executableFilename;
+
 };
 
 // end of namespace

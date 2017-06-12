@@ -46,6 +46,9 @@ using namespace Gus::ExceptionLib;
 namespace Gus
 {
 
+std::string System::executablePath = "";
+std::string System::executableFilename = "";
+
 /**
  *
  */
@@ -71,6 +74,24 @@ void System::initSystem()
 	FileHelper::addDataFolder("data/");
 	FileHelper::addDataFolder("../data/");
 	FileHelper::addDataFolder("../../data/");
+
+
+	ALLEGRO_PATH *path_including_filename = al_get_standard_path(ALLEGRO_EXENAME_PATH);
+
+	const char *char_filename = al_path_cstr(path_including_filename, '/');
+
+	ALLEGRO_PATH *path = al_create_path(char_filename);
+
+	al_set_path_filename(path, NULL);
+
+	const char *char_directory = al_path_cstr(path, '/');
+
+	executableFilename = char_filename;
+
+	executablePath = char_directory;
+
+	al_destroy_path(path);
+	al_destroy_path(path_including_filename);
 
 }
 
