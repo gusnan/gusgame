@@ -100,6 +100,34 @@ std::string System::getGusGameVersion()
 }
 
 
+/**
+ *
+ */
+int System::getRamSize()
+{
+	return al_get_ram_size();
+}
+
+
+/**
+ *
+ */
+std::string System::getAllegroVersionString()
+{
+	uint32_t version = al_get_allegro_version();
+	int major = version >> 24;
+	int minor = (version >> 16) & 255;
+	int revision = (version >> 8) & 255;
+	int release = version & 255;
+
+	std::stringstream st;
+	st << "" << major << "." << minor << "." << revision << "." << release;
+
+	std::string result = st.str();
+
+	return result;
+}
+
 
 // end of namespace
 // ----------------

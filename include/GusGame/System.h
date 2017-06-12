@@ -36,6 +36,10 @@ namespace System
 
 	std::string getGusGameVersion();
 
+	int getRamSize();
+
+	std::string getAllegroVersionString();
+
 };
 
 // end of namespace
