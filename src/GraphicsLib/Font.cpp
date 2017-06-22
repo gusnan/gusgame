@@ -148,8 +148,8 @@ int Font::getHeight()
 {
 	int result = -1;
 
-	if (m_AllegroFont!=NULL) {
-		result=al_get_font_line_height(m_AllegroFont);
+	if (m_AllegroFont != NULL) {
+		result = al_get_font_line_height(m_AllegroFont);
 	}
 
 
