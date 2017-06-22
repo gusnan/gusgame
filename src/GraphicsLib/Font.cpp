@@ -35,6 +35,10 @@
 
 #include "ExceptionLib.h"
 
+#include "Vector2d.h"
+#include "Rect.h"
+#include "GraphicsHandler.h"
+
 /**
  *
  */
