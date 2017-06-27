@@ -46,7 +46,7 @@ Color colorDarkRed = Color(0.6f, 0.0f, 0.0f, 1.0f);
 Color colorGreen = Color(0.0f, 0.8f, 0.0f, 1.0f);
 Color colorBlue = Color(0.0f, 0.0f, 1.0f, 1.0f);
 Color colorYellow = Color(1.0f, 1.0f, 0.0f, 1.0f);
-Color colorLightGray = Color(0.6f, 0.6f, 0.6f, 1.0f);
+Color colorLightGray = Color(0.8f, 0.8, 0.8f, 1.0f);
 
 
 /**
