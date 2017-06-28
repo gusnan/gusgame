@@ -42,7 +42,7 @@ class UserEvent
 public:
 	UserEvent();
 	UserEvent(ALLEGRO_EVENT ev);
-	UserEvent(int value);
+	UserEvent(int number);
 
 	UserEvent(const UserEvent &source);
 	UserEvent &operator=(const UserEvent &source);
@@ -54,10 +54,10 @@ public:
 
 	void pushEvent();
 
-	int getUserEventValue();
+	int getUserEventNumber();
 
 protected:
-	int m_UserEventValue;
+	int m_UserEventNumber;
 
 	ALLEGRO_EVENT userEvent;
 };

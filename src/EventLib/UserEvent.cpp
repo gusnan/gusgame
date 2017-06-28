@@ -58,20 +58,20 @@ using namespace EventLib;
 /**
  *
  */
-UserEvent::UserEvent() : m_UserEventValue(0), userEvent()
+UserEvent::UserEvent() : m_UserEventNumber(0), userEvent()
 {
 	static int value = 1;
 
-	m_UserEventValue = ++value;
+	m_UserEventNumber = ++value;
 }
 
 
 /**
  *
  */
-UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventValue(), userEvent()
+UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventNumber(), userEvent()
 {
-	m_UserEventValue = ev.user.data1;
+	m_UserEventNumber = ev.user.data1;
 	//userEvent=ev;
 }
 
@@ -79,7 +79,7 @@ UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventValue(), userEvent()
 /**
  *
  */
-UserEvent::UserEvent(int value) : m_UserEventValue(value), userEvent()
+UserEvent::UserEvent(int inNumber) : m_UserEventNumber(inNumber), userEvent()
 {
 }
 
@@ -87,10 +87,10 @@ UserEvent::UserEvent(int value) : m_UserEventValue(value), userEvent()
 /**
  *
  */
-UserEvent::UserEvent(const UserEvent &source) : m_UserEventValue(), userEvent()
+UserEvent::UserEvent(const UserEvent &source) : m_UserEventNumber(), userEvent()
 {
 	userEvent = source.userEvent;
-	m_UserEventValue = source.m_UserEventValue;
+	m_UserEventNumber = source.m_UserEventNumber;
 }
 
 
@@ -102,7 +102,7 @@ UserEvent &UserEvent::operator=(const UserEvent &source)
 	if (this != &source) {
 
 		userEvent = source.userEvent;
-		m_UserEventValue = source.m_UserEventValue;
+		m_UserEventNumber = source.m_UserEventNumber;
 	}
 
 	return *this;
@@ -114,7 +114,7 @@ UserEvent &UserEvent::operator=(const UserEvent &source)
  */
 bool UserEvent::operator==(const UserEvent &source) const
 {
-	if (m_UserEventValue == source.m_UserEventValue) {
+	if (m_UserEventNumber == source.m_UserEventNumber) {
 		return true;
 	}
 
@@ -150,9 +150,9 @@ void UserEvent::pushEvent()
 /**
  *
  */
-int UserEvent::getUserEventValue()
+int UserEvent::getUserEventNumber()
 {
-	return m_UserEventValue;
+	return m_UserEventNumber;
 }
 
 

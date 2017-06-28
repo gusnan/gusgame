@@ -388,7 +388,7 @@ void EventSystem::handleEvents()
 		ALLEGRO_EVENT userEvent;
 
 		userEvent.user.type = SIMPLE_USER_EVENT_TYPE;
-		userEvent.user.data1 = current_event->getUserEventValue();
+		userEvent.user.data1 = current_event->getUserEventNumber();
 
 		if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, NULL)) {
 			std::cout << "al_emit_user_event FAILED!" << std::endl;
