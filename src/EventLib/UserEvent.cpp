@@ -33,6 +33,7 @@
 
 #include "KeyEvent.h"
 #include "ActiveEvent.h"
+#include "EventData.h"
 #include "UserEvent.h"
 #include "MouseButtonEvent.h"
 #include "MouseMotionEvent.h"
@@ -58,7 +59,7 @@ using namespace EventLib;
 /**
  *
  */
-UserEvent::UserEvent() : m_UserEventNumber(0), userEvent()
+UserEvent::UserEvent() : m_UserEventNumber(0), userEvent(), m_EventData()
 {
 	static int value = 1;
 
@@ -72,6 +73,7 @@ UserEvent::UserEvent() : m_UserEventNumber(0), userEvent()
 UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventNumber(), userEvent()
 {
 	m_UserEventNumber = ev.user.data1;
+	m_EventData = (EventData*)ev.user.data2;
 	//userEvent=ev;
 }
 
@@ -91,6 +93,7 @@ UserEvent::UserEvent(const UserEvent &source) : m_UserEventNumber(), userEvent()
 {
 	userEvent = source.userEvent;
 	m_UserEventNumber = source.m_UserEventNumber;
+	m_EventData = source.m_EventData;
 }
 
 
@@ -103,6 +106,7 @@ UserEvent &UserEvent::operator=(const UserEvent &source)
 
 		userEvent = source.userEvent;
 		m_UserEventNumber = source.m_UserEventNumber;
+		m_EventData = source.m_EventData;
 	}
 
 	return *this;
@@ -155,6 +159,23 @@ int UserEvent::getUserEventNumber()
 	return m_UserEventNumber;
 }
 
+
+/**
+ *
+ */
+void UserEvent::setEventData(EventData *eventData)
+{
+	m_EventData = eventData;
+}
+
+
+/**
+ *
+ */
+EventData *UserEvent::getEventData()
+{
+	return m_EventData;
+}
 
 // end of namespace
 // ----------------

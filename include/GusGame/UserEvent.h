@@ -20,6 +20,8 @@
 #ifndef __HEADER_USER_EVENT_
 #define __HEADER_USER_EVENT_
 
+#include "EventData.h"
+
 /**
  *
  */
@@ -56,10 +58,15 @@ public:
 
 	int getUserEventNumber();
 
+	void setEventData(EventData *inEventData);
+	EventData *getEventData();
+
 protected:
 	int m_UserEventNumber;
 
 	ALLEGRO_EVENT userEvent;
+
+	EventData *m_EventData;
 };
 
 // end of namespace

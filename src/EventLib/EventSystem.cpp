@@ -389,6 +389,7 @@ void EventSystem::handleEvents()
 
 		userEvent.user.type = SIMPLE_USER_EVENT_TYPE;
 		userEvent.user.data1 = current_event->getUserEventNumber();
+		userEvent.user.data2 = (intptr_t)current_event->getEventData();
 
 		if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, NULL)) {
 			std::cout << "al_emit_user_event FAILED!" << std::endl;

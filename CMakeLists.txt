@@ -111,6 +111,7 @@ set(INCLUDE_FILES
 	${INC}/ActiveEvent.h
 	${INC}/EventSystem.h
 	${INC}/UserEvent.h
+	${INC}/EventData.h
 	${INC}/KeyEvent.h
 	${INC}/MouseMotionEvent.h
 	${INC}/MouseButtonEvent.h
@@ -155,6 +156,7 @@ set(SOURCES
 	
 	src/EventLib/ActiveEvent.cpp
 	src/EventLib/UserEvent.cpp
+	src/EventLib/EventData.cpp
 	src/EventLib/KeyEvent.cpp
 	src/EventLib/EventHandler.cpp
 	src/EventLib/EventSystem.cpp
