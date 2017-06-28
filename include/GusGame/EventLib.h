@@ -20,6 +20,7 @@
 #ifndef __HEADER_EVENT_LIB_
 #define __HEADER_EVENT_LIB_
 
+#include "EventData.h"
 #include "UserEvent.h"
 #include "KeyEvent.h"
 
