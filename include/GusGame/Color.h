@@ -66,6 +66,8 @@ extern Color colorGreen;
 extern Color colorBlue;
 extern Color colorYellow;
 extern Color colorLightGray;
+extern Color colorMediumGray;
+extern Color colorDarkGray;
 
 Color getColorFromString(const std::string& st);
 Color getMiddleColor(Color col1,Color col2);
