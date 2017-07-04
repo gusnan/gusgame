@@ -43,7 +43,7 @@ namespace EventSystem
 	void doneEventSystem();
 
 	void addEventHandler(EventHandlerPtr eventHandler);
-	void removeEventHandler(EventHandlerPtr eventHandler);
+	void removeEventHandler(const EventHandlerPtr &eventHandler);
 
 	void handleEvents();
 	bool doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler);
