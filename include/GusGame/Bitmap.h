@@ -51,6 +51,8 @@ public:
 	Bitmap();
 	Bitmap(const Bitmap &source);
 
+	Bitmap(const Vector2d &size);
+
 	Bitmap &operator=(const Bitmap &source);
 
 	Bitmap(std::string filename);
