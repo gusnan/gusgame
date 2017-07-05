@@ -88,6 +88,8 @@ protected:
 
 	Vector2d m_Size;
 
+	Bitmap *m_TargetBitmap;
+
 };
 
 // end of namespace

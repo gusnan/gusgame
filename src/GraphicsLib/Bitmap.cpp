@@ -55,7 +55,7 @@ namespace GraphicsLib
 /**
  *
  */
-Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1, -1)
+Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL)
 {
 	setTarget(NULL);
 }
@@ -64,7 +64,7 @@ Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1, -1)
 /**
  *
  */
-Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y)
+Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(NULL)
 {
 	m_AllegroBitmap = al_create_bitmap(size.x, size.y);
 	
@@ -75,7 +75,7 @@ Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y)
 /**
  *
  */
-Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1, -1)
+Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL)
 {
 	std::string fixedFilename = FileHelper::getFilename(filename);
 
@@ -99,7 +99,7 @@ Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1, -1)
 /**
  *
  */
-Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1, -1)
+Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL)
 {
 	LOG("Copyconstructor...");
 
@@ -179,13 +179,14 @@ Vector2d Bitmap::getSize() const
  * setTarget
  *   Set the target to NULL to draw directly to screen.
  */
-void Bitmap::setTarget(Bitmap *targetBitmap)
+void Bitmap::setTarget(Bitmap *inTargetBitmap)
 {
-	if (!targetBitmap) {
+	if (!inTargetBitmap) {
 		al_set_target_bitmap(al_get_backbuffer(GraphicsHandler::display));
 	} else {
-		al_set_target_bitmap(targetBitmap->getAllegroBitmap());
+		al_set_target_bitmap(inTargetBitmap->getAllegroBitmap());
 	}
+	m_TargetBitmap = inTargetBitmap;
 }
 
 
@@ -197,11 +198,19 @@ void Bitmap::blit(const Vector2d &position, float opacity)
 	if (m_AllegroBitmap) {
 		// al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, 0);
 
-		float rpx = (float)position.x * (float)GraphicsHandler::zoomX;
-		float rpy = (float)position.y * (float)GraphicsHandler::zoomY;
+		float multiX = GraphicsHandler::zoomX;
+		float multiY = GraphicsHandler::zoomY;
 
-		float rxs = (float)m_Size.x * (float)GraphicsHandler::zoomX;
-		float rys = (float)m_Size.y * (float)GraphicsHandler::zoomY;
+		if (m_TargetBitmap) {
+			multiX = 1.0f;
+			multiY = 1.0f;
+		}
+
+		float rpx = (float)position.x * (float)multiX;
+		float rpy = (float)position.y * (float)multiY;
+
+		float rxs = (float)m_Size.x * (float)multiX;
+		float rys = (float)m_Size.y * (float)multiY;
 
 		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy,
 				rxs, rys, 0/*al_flags*/);
@@ -232,11 +241,20 @@ void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float 
 
 		// al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, al_flags);
 
-		float rpx = (float)position.x * (float)GraphicsHandler::zoomX;
-		float rpy = (float)position.y * (float)GraphicsHandler::zoomY;
 
-		float rxs = (float)m_Size.x * (float)GraphicsHandler::zoomX;
-		float rys = (float)m_Size.y * (float)GraphicsHandler::zoomY;
+		float multiX = GraphicsHandler::zoomX;
+		float multiY = GraphicsHandler::zoomY;
+
+		if (m_TargetBitmap) {
+			multiX = 1.0f;
+			multiY = 1.0f;
+		}
+
+		float rpx = (float)position.x * (float)multiX;
+		float rpy = (float)position.y * (float)multiY;
+
+		float rxs = (float)m_Size.x * (float)multiX;
+		float rys = (float)m_Size.y * (float)multiY;
 
 		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy,
 				rxs, rys, al_flags);
@@ -265,11 +283,19 @@ void Bitmap::blitFlipped(const Rect &rect, FlipDirection inFlags, float opacity)
 			break;
 		};
 
-		float rpx = (float)rect.position.x * (float)GraphicsHandler::zoomX;
-		float rpy = (float)rect.position.y * (float)GraphicsHandler::zoomY;
+		float multiX = GraphicsHandler::zoomX;
+		float multiY = GraphicsHandler::zoomY;
 
-		float rxs = (float)rect.size.x * (float)GraphicsHandler::zoomX;
-		float rys = (float)rect.size.y * (float)GraphicsHandler::zoomY;
+		if (m_TargetBitmap) {
+			multiX = 1.0f;
+			multiY = 1.0f;
+		}
+
+		float rpx = (float)rect.position.x * (float)multiX;
+		float rpy = (float)rect.position.y * (float)multiY;
+
+		float rxs = (float)rect.size.x * (float)multiX;
+		float rys = (float)rect.size.y * (float)multiY;
 
 		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy, rxs, rys, al_flags);
 	}
@@ -282,12 +308,20 @@ void Bitmap::blitFlipped(const Rect &rect, FlipDirection inFlags, float opacity)
 void Bitmap::blit(const Rect &targetRect, float opacity)
 {
 	if (m_AllegroBitmap) {
+		
+		float multiX = GraphicsHandler::zoomX;
+		float multiY = GraphicsHandler::zoomY;
 
-		float rpx = (float)targetRect.position.x * (float)GraphicsHandler::zoomX;
-		float rpy = (float)targetRect.position.y * (float)GraphicsHandler::zoomY;
+		if (m_TargetBitmap) {
+			multiX = 1.0f;
+			multiY = 1.0f;
+		}
 
-		float rxs = (float)targetRect.size.x * (float)GraphicsHandler::zoomX;
-		float rys = (float)targetRect.size.y * (float)GraphicsHandler::zoomY;
+		float rpx = (float)targetRect.position.x * (float)multiX;
+		float rpy = (float)targetRect.position.y * (float)multiY;
+
+		float rxs = (float)targetRect.size.x * (float)multiX;
+		float rys = (float)targetRect.size.y * (float)multiY;
 
 		al_draw_scaled_bitmap(m_AllegroBitmap,
 			0, 0, m_Size.x, m_Size.y, rpx, rpy, rxs, rys, 0);
@@ -315,11 +349,19 @@ void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, FlipDirectio
 		float sxs = sourceRect.size.x;
 		float sys = sourceRect.size.y;
 
-		float txs = (float)((float)sourceRect.size.x * (float)GraphicsHandler::zoomX);
-		float tys = (float)((float)sourceRect.size.y * (float)GraphicsHandler::zoomY);
+		float multiX = GraphicsHandler::zoomX;
+		float multiY = GraphicsHandler::zoomY;
 
-		float tpx = (float)((float)position.x * (float)GraphicsHandler::zoomX);
-		float tpy = (float)((float)position.y * (float)GraphicsHandler::zoomY);
+		if (m_TargetBitmap) {
+			multiX = 1.0f;
+			multiY = 1.0f;
+		}
+
+		float txs = (float)((float)sourceRect.size.x * (float)multiX);
+		float tys = (float)((float)sourceRect.size.y * (float)multiY);
+
+		float tpx = (float)((float)position.x * (float)multiX);
+		float tpy = (float)((float)position.y * (float)multiY);
 
 		int al_flags = 0;
 
