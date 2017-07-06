@@ -98,7 +98,6 @@ public:
 		return *this;
 	}
 
-
 	/**
 	 *
 	 */
@@ -313,6 +312,22 @@ public:
 };
 
 extern const Rect fullScreenRect;
+
+
+inline bool operator==(Rect &rect1, Rect &rect2)
+{
+	bool result = true;
+	
+	if (rect1.position != rect2.position) result = false;
+	if (rect1.size != rect2.size) result = false;
+	
+	return result;
+}
+
+inline bool operator!=(Rect &rect1, Rect &rect2)
+{
+	return !operator==(rect1, rect2);
+}
 
 // end of namespace
 // ----------------
