@@ -388,6 +388,42 @@ void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, FlipDirectio
 /**
  *
  */
+void Bitmap::blit(const Rect &sourceRect, const Rect &targetRect, float opacity)
+{
+	if (m_AllegroBitmap) {
+		
+		int spx = sourceRect.position.x;
+		int spy = sourceRect.position.y;
+
+		float sxs = sourceRect.size.x;
+		float sys = sourceRect.size.y;
+		
+		float multiX = GraphicsHandler::zoomX;
+		float multiY = GraphicsHandler::zoomY;
+
+		if (m_TargetBitmap) {
+			multiX = 1.0f;
+			multiY = 1.0f;
+		}
+
+		float txs = (float)((float)targetRect.size.x * (float)multiX);
+		float tys = (float)((float)targetRect.size.y * (float)multiY);
+
+		float tpx = (float)((float)targetRect.position.x * (float)multiX);
+		float tpy = (float)((float)targetRect.position.y * (float)multiY);
+
+		int al_flags = 0;
+		
+		al_draw_scaled_bitmap(m_AllegroBitmap, spx, spy, sxs, sys, tpx, tpy,
+				txs, tys, al_flags);
+	}
+}
+
+
+
+/**
+ *
+ */
 void Bitmap::blitColor(const Vector2d &position, const Color &color, float opacity)
 {
 }

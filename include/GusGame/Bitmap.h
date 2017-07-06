@@ -72,6 +72,8 @@ public:
 	void blitFlipped(const Rect &rect, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
 	void blit(const Rect &sourceRect, const Vector2d &position, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
 
+	void blit(const Rect &sourceRect, const Rect &targetRect, float opacity = 1.0f);
+	
 	void blit(const Rect &targetRect, float opacity = 1.0f);
 
 	void blitCenter(const Rect &targetRect, float opacity = 1.0f);
