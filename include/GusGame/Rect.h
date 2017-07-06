@@ -314,7 +314,7 @@ public:
 extern const Rect fullScreenRect;
 
 
-inline bool operator==(Rect &rect1, Rect &rect2)
+inline bool operator==(Rect &rect1, const Rect &rect2)
 {
 	bool result = true;
 	
@@ -324,7 +324,7 @@ inline bool operator==(Rect &rect1, Rect &rect2)
 	return result;
 }
 
-inline bool operator!=(Rect &rect1, Rect &rect2)
+inline bool operator!=(Rect &rect1, const Rect &rect2)
 {
 	return !operator==(rect1, rect2);
 }
