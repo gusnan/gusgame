@@ -178,12 +178,12 @@ void EventSystem::addEventHandler(EventHandlerPtr inEventHandler)
 		if (listOfEventHandlers) {
 			listOfEventHandlers->push_back(inEventHandler);
 
-			/*
+			
 			std::stringstream st;
 
-			st << "Adding:" << inEventHandler.get()->getName();
+			st << "Adding eventhandler:" << inEventHandler.get()->getName();
 			STLOG(st);
-			*/
+			
 		}
 	}
 }
@@ -294,7 +294,7 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 		{
 			MouseButtonEvent mouseButtonEvent(ev);
 
-			eventHandler.get()->handleMouseButton(mouseButtonEvent);
+			result = eventHandler.get()->handleMouseButton(mouseButtonEvent);
 		}
 		break;
 	case ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY:
