@@ -75,7 +75,7 @@ Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(NU
 /**
  *
  */
-Bitmap::Bitmap(std::string filename) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL)
+Bitmap::Bitmap(const std::string &filename) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL)
 {
 	std::string fixedFilename = FileHelper::getFilename(filename);
 

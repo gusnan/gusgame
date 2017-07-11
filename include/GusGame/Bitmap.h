@@ -55,7 +55,7 @@ public:
 
 	Bitmap &operator=(const Bitmap &source);
 
-	Bitmap(std::string filename);
+	Bitmap(const std::string &filename);
 
 	virtual ~Bitmap();
 
