@@ -55,7 +55,7 @@ public:
 
 	Bitmap &operator=(const Bitmap &source);
 
-	Bitmap(const std::string &filename);
+	Bitmap(const std::string &filename, bool inNoResize = false);
 
 	virtual ~Bitmap();
 
@@ -91,6 +91,8 @@ protected:
 	Vector2d m_Size;
 
 	Bitmap *m_TargetBitmap;
+
+	bool m_NoResize;
 
 };
 

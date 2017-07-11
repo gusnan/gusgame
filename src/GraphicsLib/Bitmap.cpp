@@ -55,7 +55,7 @@ namespace GraphicsLib
 /**
  *
  */
-Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL)
+Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL), m_NoResize(false)
 {
 	setTarget(NULL);
 }
@@ -64,7 +64,7 @@ Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL)
 /**
  *
  */
-Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(NULL)
+Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(NULL), m_NoResize(false), m_AllegroBitmap(NULL)
 {
 	m_AllegroBitmap = al_create_bitmap(size.x, size.y);
 	
@@ -75,7 +75,7 @@ Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(NU
 /**
  *
  */
-Bitmap::Bitmap(const std::string &filename) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL)
+Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL), m_NoResize(inNoResize)
 {
 	std::string fixedFilename = FileHelper::getFilename(filename);
 
@@ -99,7 +99,7 @@ Bitmap::Bitmap(const std::string &filename) : m_AllegroBitmap(NULL), m_Size(-1, 
 /**
  *
  */
-Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL)
+Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL), m_NoResize(false)
 {
 	LOG("Copyconstructor...");
 
@@ -108,6 +108,8 @@ Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_
 
 	m_Size.x = source.m_Size.x;
 	m_Size.y = source.m_Size.y;
+	
+	m_NoResize = source.m_NoResize;
 
 	setTarget(NULL);
 }
@@ -129,6 +131,8 @@ Bitmap &Bitmap::operator=(const Bitmap &source)
 
 		m_Size.x = source.m_Size.x;
 		m_Size.y = source.m_Size.y;
+		
+		m_NoResize = source.m_NoResize;
 
 		setTarget(NULL);
 	}
@@ -201,13 +205,19 @@ void Bitmap::blit(const Vector2d &position, float opacity)
 		float multiX = GraphicsHandler::zoomX;
 		float multiY = GraphicsHandler::zoomY;
 
-		if (m_TargetBitmap) {
+		if ((m_TargetBitmap)) {
 			multiX = 1.0f;
 			multiY = 1.0f;
 		}
 
 		float rpx = (float)position.x * (float)multiX;
 		float rpy = (float)position.y * (float)multiY;
+
+		
+		if ((m_TargetBitmap) || (m_NoResize)) {
+			multiX = 1.0f;
+			multiY = 1.0f;
+		}
 
 		float rxs = (float)m_Size.x * (float)multiX;
 		float rys = (float)m_Size.y * (float)multiY;
@@ -245,7 +255,7 @@ void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float 
 		float multiX = GraphicsHandler::zoomX;
 		float multiY = GraphicsHandler::zoomY;
 
-		if (m_TargetBitmap) {
+		if ((m_TargetBitmap) || (m_NoResize)) {
 			multiX = 1.0f;
 			multiY = 1.0f;
 		}
@@ -286,7 +296,7 @@ void Bitmap::blitFlipped(const Rect &rect, FlipDirection inFlags, float opacity)
 		float multiX = GraphicsHandler::zoomX;
 		float multiY = GraphicsHandler::zoomY;
 
-		if (m_TargetBitmap) {
+		if ((m_TargetBitmap) || (m_NoResize)) {
 			multiX = 1.0f;
 			multiY = 1.0f;
 		}
@@ -312,7 +322,7 @@ void Bitmap::blit(const Rect &targetRect, float opacity)
 		float multiX = GraphicsHandler::zoomX;
 		float multiY = GraphicsHandler::zoomY;
 
-		if (m_TargetBitmap) {
+		if ((m_TargetBitmap) || (m_NoResize)) {
 			multiX = 1.0f;
 			multiY = 1.0f;
 		}
@@ -352,7 +362,7 @@ void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, FlipDirectio
 		float multiX = GraphicsHandler::zoomX;
 		float multiY = GraphicsHandler::zoomY;
 
-		if (m_TargetBitmap) {
+		if ((m_TargetBitmap) || (m_NoResize)) {
 			multiX = 1.0f;
 			multiY = 1.0f;
 		}
@@ -401,7 +411,7 @@ void Bitmap::blit(const Rect &sourceRect, const Rect &targetRect, float opacity)
 		float multiX = GraphicsHandler::zoomX;
 		float multiY = GraphicsHandler::zoomY;
 
-		if (m_TargetBitmap) {
+		if ((m_TargetBitmap) || (m_NoResize)) {
 			multiX = 1.0f;
 			multiY = 1.0f;
 		}
