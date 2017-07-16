@@ -52,6 +52,8 @@ namespace FileHelper
 	std::string getFilename(std::string);
 
 	std::string fixSlashes(const std::string &text);
+	
+	std::string getAbsolutePath(const std::string &inString);
 
 	extern std::list<std::string> m_DataFolders;
 

@@ -31,7 +31,7 @@ list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
 
 find_package(OpenGL REQUIRED)
 find_package(Allegro5 REQUIRED)
-find_package(Boost REQUIRED)
+find_package(Boost REQUIRED COMPONENTS filesystem)
 
 if (DEBUG)
 	message(STATUS "Building Debug executable")

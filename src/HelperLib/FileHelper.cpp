@@ -17,6 +17,7 @@
  *	along with GusGame.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
+#include <boost/filesystem.hpp>
 #include <sys/stat.h>
 
 #include <string>
@@ -239,6 +240,21 @@ std::string FileHelper::fixSlashes(const std::string &text)
 }
 
 
+/**
+ *
+ */
+std::string FileHelper::getAbsolutePath(const std::string &inString)
+{
+	LOG("Hej!");
+	// boost::filesystem::path canonicalPath = boost::filesystem::canonical(previousPath, relativeTo);
+	
+	boost::filesystem::path inPath = boost::filesystem::path(inString);
+	
+	
+	boost::filesystem::path canonicalPath = boost::filesystem::weakly_canonical(inPath);
+	LOG("Nej!");
+	return canonicalPath.string();
+}
 
 // end of namespace
 // ----------------
