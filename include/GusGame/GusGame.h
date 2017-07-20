@@ -35,4 +35,6 @@
 
 #include "FileHelper.h"
 
+#include "StringHelper.h"
+
 #endif /*__HEADER_GUSGAME_INCLUDE_*/
