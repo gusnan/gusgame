@@ -70,7 +70,7 @@ UserEvent::UserEvent() : m_UserEventNumber(0), userEvent(), m_EventData()
 /**
  *
  */
-UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventNumber(), userEvent()
+UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventNumber(), userEvent(), m_EventData()
 {
 	m_UserEventNumber = ev.user.data1;
 	m_EventData = (EventData*)ev.user.data2;
@@ -81,7 +81,7 @@ UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventNumber(), userEvent()
 /**
  *
  */
-UserEvent::UserEvent(int inNumber) : m_UserEventNumber(inNumber), userEvent()
+UserEvent::UserEvent(int inNumber) : m_UserEventNumber(inNumber), userEvent(), m_EventData()
 {
 }
 
@@ -89,7 +89,7 @@ UserEvent::UserEvent(int inNumber) : m_UserEventNumber(inNumber), userEvent()
 /**
  *
  */
-UserEvent::UserEvent(const UserEvent &source) : m_UserEventNumber(), userEvent()
+UserEvent::UserEvent(const UserEvent &source) : m_UserEventNumber(), userEvent(), m_EventData()
 {
 	userEvent = source.userEvent;
 	m_UserEventNumber = source.m_UserEventNumber;
