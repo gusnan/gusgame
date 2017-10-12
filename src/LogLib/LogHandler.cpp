@@ -43,7 +43,7 @@ namespace LogLib
 /**
  *
  */
-Log GUSGAME_DLL *log = NULL;
+Log GUSGAME_DLL *log = nullptr;
 
 #ifdef _DEBUG
 std::vector<LogHandler::StoreAlloc> LogHandler::allocList;
@@ -90,7 +90,7 @@ void GUSGAME_DLL LogHandler::doneLog()
 #endif
 
 	delete log;
-	log = NULL;
+	log = nullptr;
 }
 
 

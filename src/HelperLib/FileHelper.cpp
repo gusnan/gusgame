@@ -75,7 +75,7 @@ bool FileHelper::isDir(std::string in_string)
  */
 bool FileHelper::fileExists(std::string strFilename)
 {
-	FILE* fp = NULL;
+	FILE* fp = nullptr;
 
 	/*
 	std::stringstream st;
@@ -89,7 +89,7 @@ bool FileHelper::fileExists(std::string strFilename)
 #else
 	fp = fopen( (char*)(strFilename.c_str()), "r" );
 #endif
-	if( fp != NULL )
+	if( fp != nullptr )
 	{
 		fclose( fp );
 

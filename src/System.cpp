@@ -82,7 +82,7 @@ void System::initSystem()
 
 	ALLEGRO_PATH *path = al_create_path(char_filename);
 
-	al_set_path_filename(path, NULL);
+	al_set_path_filename(path, nullptr);
 
 	const char *char_directory = al_path_cstr(path, '/');
 

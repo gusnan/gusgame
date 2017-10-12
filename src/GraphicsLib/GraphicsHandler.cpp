@@ -51,7 +51,7 @@ namespace GraphicsLib
 /**
  *
  */
-ALLEGRO_DISPLAY *GraphicsHandler::display = NULL;
+ALLEGRO_DISPLAY *GraphicsHandler::display = nullptr;
 
 Vector2d GraphicsHandler::screenSize;
 Vector2d GraphicsHandler::backgroundSize;

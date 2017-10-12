@@ -44,14 +44,14 @@ namespace Gus
 namespace ExceptionLib
 {
 	
-Error *ErrorHandler::error = NULL;
+Error *ErrorHandler::error = nullptr;
 
 /**
  *
  */
 void ErrorHandler::initErrorHandler()
 {
-	error = NULL;
+	error = nullptr;
 }
 
 /**

@@ -55,27 +55,27 @@ namespace GraphicsLib
 /**
  *
  */
-Bitmap::Bitmap() : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL), m_NoResize(false)
+Bitmap::Bitmap() : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(nullptr), m_NoResize(false)
 {
-	setTarget(NULL);
+	setTarget(nullptr);
 }
 
 
 /**
  *
  */
-Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(NULL), m_NoResize(false), m_AllegroBitmap(NULL)
+Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(nullptr), m_NoResize(false), m_AllegroBitmap(nullptr)
 {
 	m_AllegroBitmap = al_create_bitmap(size.x, size.y);
 	
-	setTarget(NULL);
+	setTarget(nullptr);
 }
 
 
 /**
  *
  */
-Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL), m_NoResize(inNoResize)
+Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(nullptr), m_NoResize(inNoResize)
 {
 	std::string fixedFilename = FileHelper::getFilename(filename);
 
@@ -92,14 +92,14 @@ Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(N
 	m_Size.x = al_get_bitmap_width(m_AllegroBitmap);
 	m_Size.y = al_get_bitmap_height(m_AllegroBitmap);
 
-	setTarget(NULL);
+	setTarget(nullptr);
 }
 
 
 /**
  *
  */
-Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_TargetBitmap(NULL), m_NoResize(false)
+Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(nullptr), m_NoResize(false)
 {
 	LOG("Copyconstructor...");
 
@@ -111,7 +111,7 @@ Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(NULL), m_Size(-1, -1), m_
 	
 	m_NoResize = source.m_NoResize;
 
-	setTarget(NULL);
+	setTarget(nullptr);
 }
 
 
@@ -124,7 +124,7 @@ Bitmap &Bitmap::operator=(const Bitmap &source)
 		if (m_AllegroBitmap) {
 			al_destroy_bitmap(m_AllegroBitmap);
 		}
-		m_AllegroBitmap = NULL;
+		m_AllegroBitmap = nullptr;
 
 		if (source.m_AllegroBitmap)
 			m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
@@ -134,7 +134,7 @@ Bitmap &Bitmap::operator=(const Bitmap &source)
 		
 		m_NoResize = source.m_NoResize;
 
-		setTarget(NULL);
+		setTarget(nullptr);
 	}
 
 	return *this;

@@ -65,18 +65,18 @@ namespace EventLib
 /**
  *
  */
-ALLEGRO_EVENT_QUEUE *EventSystem::eventQueue = NULL;
+ALLEGRO_EVENT_QUEUE *EventSystem::eventQueue = nullptr;
 //EventHandler *EventSystem::eventHandler=NULL;
 ALLEGRO_TIMEOUT timeout;
 
 ALLEGRO_EVENT_SOURCE EventSystem::userEventSource;
 
-std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = NULL;
+std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = nullptr;
 
-std::list<UserEvent*> *EventSystem::listDelayedEvents = NULL;
+std::list<UserEvent*> *EventSystem::listDelayedEvents = nullptr;
 
 
-std::list<EventHandlerPtr> *EventSystem::handlersToRemove = NULL;
+std::list<EventHandlerPtr> *EventSystem::handlersToRemove = nullptr;
 
 // Check if we are in a event loop, and don't remove event from the list
 // in that case, but instead do it after the loop.
@@ -137,7 +137,7 @@ void EventSystem::doneEventSystem()
 
 	if (eventQueue) {
 		al_destroy_event_queue(eventQueue);
-		eventQueue = NULL;
+		eventQueue = nullptr;
 	}
 
 	if (listOfEventHandlers) {
@@ -396,7 +396,7 @@ void EventSystem::handleEvents()
 		userEvent.user.data1 = current_event->getUserEventNumber();
 		userEvent.user.data2 = (intptr_t)current_event->getEventData();
 
-		if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, NULL)) {
+		if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, nullptr)) {
 			std::cout << "al_emit_user_event FAILED!" << std::endl;
 		}
 	}

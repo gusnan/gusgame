@@ -56,7 +56,7 @@ namespace GraphicsLib
 /**
  *
  */
-Font::Font() : m_AllegroFont(NULL)
+Font::Font() : m_AllegroFont(nullptr)
 {
 }
 
@@ -64,7 +64,7 @@ Font::Font() : m_AllegroFont(NULL)
 /**
  *
  */
-Font::Font(const Font &source) : m_AllegroFont(NULL)
+Font::Font(const Font &source) : m_AllegroFont(nullptr)
 {
 
 }
@@ -73,7 +73,7 @@ Font::Font(const Font &source) : m_AllegroFont(NULL)
 /**
  *
  */
-Font::Font(std::string filename, int size, bool useKerning) : m_AllegroFont(NULL)
+Font::Font(std::string filename, int size, bool useKerning) : m_AllegroFont(nullptr)
 {
 	std::string fixedFilename = FileHelper::getFilename(filename);
 
@@ -152,7 +152,7 @@ int Font::getHeight()
 {
 	int result = -1;
 
-	if (m_AllegroFont != NULL) {
+	if (m_AllegroFont != nullptr) {
 		result = al_get_font_line_height(m_AllegroFont);
 	}
 
