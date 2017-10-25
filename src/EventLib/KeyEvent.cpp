@@ -71,7 +71,7 @@ KeyEvent::KeyEvent(ALLEGRO_EVENT event) : m_KeyEventType(KeyEventPressed),
 		setAltPressed(true);
 	}
 
-	m_KeyEventType=KeyEventPressed;
+	m_KeyEventType = KeyEventPressed;
 }
 
 
