@@ -39,8 +39,8 @@ using namespace EventLib;
 
 bool quit = false;
 
-UserEvent *testEvent = NULL;
-UserEvent *testEvent2 = NULL;
+UserEvent *testEvent = nullptr;
+UserEvent *testEvent2 = nullptr;
 
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
@@ -119,7 +119,7 @@ int main(int argc,char **argv)
 {
 	EventHandlerPtr eventHandler; // = boost::shared_ptr<EventHandler>();
 
-	Bitmap *mouseBitmap = NULL;
+	Bitmap *mouseBitmap = nullptr;
 
 	try {
 		// init the log - this function takes a string (the log file filename)

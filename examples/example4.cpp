@@ -69,7 +69,7 @@ public:
 int main(int argc,char **argv)
 {
 	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
-	Bitmap *mouseBitmap = NULL;
+	Bitmap *mouseBitmap = nullptr;
 
 	try {
 		// init the log - this function takes a string (the log file filename) as

@@ -95,7 +95,7 @@ public:
  */
 int main(int argc, char **argv)
 {
-	Gus::GraphicsLib::Font *exampleFont = NULL;
+	Gus::GraphicsLib::Font *exampleFont = nullptr;
 
 	try {
 		// init the log - this function takes a string (the log file filename) as indata,
