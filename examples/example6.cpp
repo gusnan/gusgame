@@ -85,7 +85,7 @@ public:
 	 */
 	virtual void handleMouseMotion(MouseMotionEvent &event)
 	{
-		testPosition = event.getPosition()+Vector2d(50,50);
+		testPosition = event.getPosition() + Vector2d(50,50);
 	}
 
 
