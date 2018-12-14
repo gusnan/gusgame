@@ -23,6 +23,7 @@
 #include "Library.h"
 
 #include "Vector2d.h"
+#include "Rect.h"
 
 using namespace Gus;
 using namespace GraphicsLib;
@@ -33,6 +34,7 @@ using namespace GraphicsLib;
 #include "MouseScrollerEvent.h"
 #include "UserEvent.h"
 #include "ActiveEvent.h"
+#include "ResizeEvent.h"
 
 #include "EventHandler.h"
 
@@ -140,6 +142,14 @@ void EventHandler::handleMouseMotion(MouseMotionEvent &mouseMotionEvent)
  *
  */
 void EventHandler::handleMouseScroller(MouseScrollerEvent &mouseScrollerEvent)
+{
+}
+
+
+/**
+ *
+ */
+void EventHandler::handleResizeEvent(ResizeEvent &resizeEvent)
 {
 }
 

@@ -38,6 +38,7 @@
 #include "MouseButtonEvent.h"
 #include "MouseMotionEvent.h"
 #include "MouseScrollerEvent.h"
+#include "ResizeEvent.h"
 
 #include "EventHandler.h"
 #include "EventSystem.h"

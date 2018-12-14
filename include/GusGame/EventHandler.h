@@ -54,6 +54,7 @@ public:
 	virtual GUSGAME_DLL void handleMouseScroller(MouseScrollerEvent &mouseScrollerEvent);
 	virtual GUSGAME_DLL void handleQuitEvent();
 	virtual GUSGAME_DLL void handleSystemQuitEvent();
+	virtual GUSGAME_DLL void handleResizeEvent(ResizeEvent &resizeEvent);
 
 	virtual std::string getName();
 	virtual void setName(std::string inName);

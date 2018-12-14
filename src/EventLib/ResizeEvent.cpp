@@ -1,7 +1,7 @@
 /**
  *
  *	This file is part of GusGame
- *	Copyright (C) 2017 Andreas Rönnquist
+ *	Copyright (C) 2018 Andreas Rönnquist
  *
  *	GusGame is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published
@@ -16,33 +16,23 @@
  *	You should have received a copy of the GNU General Public License
  *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
- *
  */
-#include <boost/shared_ptr.hpp>
-
-#include <sstream>
 #include <string>
-#include <vector>
-#include <list>
+#include <sstream>
+#include <iostream>
 
 #include "Library.h"
 
-#include "LogLib.h"
+#include "Vector2d.h"
+#include "Rect.h"
+
+using namespace Gus;
+using namespace GraphicsLib;
 
 #include "GraphicsLib.h"
-#include "Vector2d.h"
 
-#include "KeyEvent.h"
-#include "ActiveEvent.h"
-#include "UserEvent.h"
-#include "MouseButtonEvent.h"
-#include "MouseMotionEvent.h"
-#include "MouseScrollerEvent.h"
+
 #include "ResizeEvent.h"
-
-#include "EventHandler.h"
-#include "EventSystem.h"
-#include "EventData.h"
 
 /**
  *
@@ -54,14 +44,13 @@ namespace Gus
 /**
  *
  */
-
-using namespace EventLib;
-
+namespace EventLib
+{
 
 /**
  *
  */
-EventData::EventData()
+ResizeEvent::ResizeEvent()
 {
 }
 
@@ -69,10 +58,38 @@ EventData::EventData()
 /**
  *
  */
-EventData::~EventData()
+ResizeEvent::ResizeEvent(ALLEGRO_EVENT alEvent) : m_Rect(0, 0, 0, 0)
 {
+	if (alEvent.type == ALLEGRO_EVENT_DISPLAY_RESIZE) {
+		
+		ALLEGRO_DISPLAY *display = alEvent.display.source;
+		
+		al_acknowledge_resize(display);
+		
+		m_Rect = Rect(alEvent.display.x, alEvent.display.y, alEvent.display.width, alEvent.display.height);
+	}
 }
 
 
-// end of namespace Gus
+/**
+ *
+ */
+GraphicsLib::Rect ResizeEvent::getRect()
+{
+	return m_Rect;
+}
+
+/**
+ *
+ */
+ResizeEvent::~ResizeEvent()
+{
+}
+
+// end of namespace
+// ----------------
+};
+
+// end of namespace
+// ----------------
 };

@@ -38,6 +38,7 @@
 #include "MouseButtonEvent.h"
 #include "MouseMotionEvent.h"
 #include "MouseScrollerEvent.h"
+#include "ResizeEvent.h"
 
 #include "EventHandler.h"
 
@@ -309,6 +310,15 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 		{
 			ActiveEvent activeEvent(ev);
 			eventHandler.get()->handleActiveEvent(activeEvent);
+		}
+		break;
+	case ALLEGRO_EVENT_DISPLAY_RESIZE:
+		{
+			ResizeEvent resizeEvent(ev);
+
+			eventHandler.get()->handleResizeEvent(resizeEvent);
+
+			return true;
 		}
 		break;
 	}

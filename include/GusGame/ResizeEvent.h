@@ -1,7 +1,7 @@
 /**
  *
  *	This file is part of GusGame
- *	Copyright (C) 2013 Andreas Rönnquist
+ *	Copyright (C) 2018 Andreas Rönnquist
  *
  *	GusGame is free software: you can redistribute it and/or
  *	modify it under the terms of the GNU General Public License as published
@@ -17,24 +17,49 @@
  *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
-#ifndef __HEADER_EVENT_LIB_
-#define __HEADER_EVENT_LIB_
+#ifndef __HEADER_RESIZE_EVENT_
+#define __HEADER_RESIZE_EVENT_
 
-#include "EventData.h"
-#include "UserEvent.h"
-#include "KeyEvent.h"
-#include "ResizeEvent.h"
+/**
+ *
+ */
+namespace Gus
+{
 
-#include "ActiveEvent.h"
+/**
+ *
+ */
+namespace EventLib
+{
 
-#include "MouseButtonEvent.h"
-#include "MouseMotionEvent.h"
-#include "MouseScrollerEvent.h"
+/**
+ *
+ */
+class ResizeEvent
+{
+public:
+	ResizeEvent();
+	ResizeEvent(ALLEGRO_EVENT alEvent);
+	// ActiveEvent(ActiveWindowState windowState);
 
-#include "SystemQuitEvent.h"
-#include "QuitEvent.h"
+	virtual ~ResizeEvent();
 
-#include "EventHandler.h"
-#include "EventSystem.h"
+	// ActiveWindowState getWindowState();
 
-#endif /*__HEADER_EVENT_LIB_*/
+	GraphicsLib::Rect getRect();
+
+protected:
+	GraphicsLib::Rect m_Rect;
+
+	
+};
+
+// end of namespace
+// ----------------
+};
+
+// end of namespace
+// ----------------
+};
+
+#endif /*__HEADER_RESIZE_EVENT_*/
