@@ -50,7 +50,7 @@ namespace EventLib
 /**
  *
  */
-ResizeEvent::ResizeEvent()
+ResizeEvent::ResizeEvent() : m_Rect(0, 0, 0, 0)
 {
 }
 
