@@ -127,6 +127,7 @@ bool EventHandler::handleUserEvent(UserEvent &event)
  */
 bool EventHandler::handleMouseButton(MouseButtonEvent &mouseButtonEvent)
 {
+	return true;
 }
 
 
