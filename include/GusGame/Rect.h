@@ -1,7 +1,7 @@
 /**
  *
  *	This file is part of GusGame.
- *	Copyright 2011-2017 Andreas Rönnquist
+ *	Copyright 2011-2020 Andreas Rönnquist
  *
  *	GusGame is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU Lesser General Public License as published by
