@@ -158,6 +158,14 @@ public:
 		return result;
 	}
 
+	/**
+	 *
+	 */
+	bool operator!=(const Rect& sourceRect)
+	{
+		return !operator==(sourceRect);
+	}
+
 
 	/**
 	 *
