@@ -123,7 +123,7 @@ bool EventHandler::handleUserEvent(UserEvent &event)
 /**
  *
  */
-void EventHandler::handleMouseButton(MouseButtonEvent &mouseButtonEvent)
+bool EventHandler::handleMouseButton(MouseButtonEvent &mouseButtonEvent)
 {
 }
 
