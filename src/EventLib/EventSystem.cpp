@@ -17,10 +17,9 @@
  *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
-#include "boost/shared_ptr.hpp"
-
 #include <sstream>
 #include <list>
+#include <memory>
 
 #include "Library.h"
 
@@ -174,7 +173,7 @@ void EventSystem::doneEventSystem()
 void EventSystem::addEventHandler(EventHandlerPtr inEventHandler)
 {
 
-	if (inEventHandler != boost::shared_ptr<EventHandler>()) {
+	if (inEventHandler != std::shared_ptr<EventHandler>()) {
 		//eventHandler=inEventHandler;
 		if (listOfEventHandlers) {
 			listOfEventHandlers->push_back(inEventHandler);
@@ -334,7 +333,7 @@ void EventSystem::handleEvents()
 {
 	ALLEGRO_EVENT ev;
 	bool get_event = false;
-	boost::shared_ptr<EventHandler> currentEventHandler = boost::shared_ptr<EventHandler>();
+	std::shared_ptr<EventHandler> currentEventHandler = std::shared_ptr<EventHandler>();
 
 	bool eventHandled = false;
 
@@ -350,13 +349,13 @@ void EventSystem::handleEvents()
 
 					if (!listOfEventHandlers->empty()) {
 
-						std::list<boost::shared_ptr<EventHandler> >::iterator iter;
+						std::list<std::shared_ptr<EventHandler> >::iterator iter;
 
 						for (iter = listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
 
 							currentEventHandler = (*iter);
 
-							if (currentEventHandler != boost::shared_ptr<EventHandler>()) {
+							if (currentEventHandler != std::shared_ptr<EventHandler>()) {
 
 								if (!eventHandled) {
 									eventHandled = doHandleEvents(ev, currentEventHandler);

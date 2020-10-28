@@ -32,7 +32,7 @@ namespace Gus
 namespace EventLib
 {
 
-typedef boost::shared_ptr<EventHandler> EventHandlerPtr;
+typedef std::shared_ptr<EventHandler> EventHandlerPtr;
 
 /**
  *

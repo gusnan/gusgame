@@ -17,12 +17,11 @@
  *	along with GusGame.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include <boost/shared_ptr.hpp>
-
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
 #include <list>
+#include <memory>
 
 #include "GusGame.h"
 
@@ -129,7 +128,7 @@ int main(int argc,char **argv)
 		EventSystem::initEventSystem();
 
 		// Create an EventHandler for our "custom" events
-		boost::shared_ptr<ExampleEventHandler> eventHandler = boost::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
+		std::shared_ptr<ExampleEventHandler> eventHandler = std::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
 
 		// set the used EventHandler to the one we just created.
 		EventSystem::addEventHandler(eventHandler);

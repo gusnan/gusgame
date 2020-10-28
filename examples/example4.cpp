@@ -17,12 +17,11 @@
  *	along with GusGame.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include <boost/shared_ptr.hpp>
-
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
 #include <list>
+#include <memory>
 
 #include "GusGame.h"
 
@@ -68,7 +67,7 @@ public:
  */
 int main(int argc,char **argv)
 {
-	boost::shared_ptr<EventHandler> eventHandler = boost::shared_ptr<EventHandler>();
+	std::shared_ptr<EventHandler> eventHandler = std::shared_ptr<EventHandler>();
 	Bitmap *mouseBitmap = nullptr;
 
 	try {
@@ -93,7 +92,7 @@ int main(int argc,char **argv)
 		GraphicsHandler::setWindowTitle("GusGame Example 4");
 
 		// Create an EventHandler for our "custom" events
-		boost::shared_ptr<ExampleEventHandler> eventHandler = boost::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
+		std::shared_ptr<ExampleEventHandler> eventHandler = std::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
 
 		EventSystem::initEventSystem();
 

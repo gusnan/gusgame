@@ -21,12 +21,11 @@
 
 
  */
-#include <boost/shared_ptr.hpp>
-
 #include <cstdlib>
 #include <iostream>
 #include <sstream>
 #include <list>
+#include <memory>
 
 #include "GusGame.h"
 
@@ -144,7 +143,7 @@ int main(int argc,char **argv)
 		// that is defined above
 		EventSystem::initEventSystem();
 
-		eventHandler = boost::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
+		eventHandler = std::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
 
 
 		// set the used EventHandler to the one we just created.
