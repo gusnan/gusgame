@@ -1,4 +1,6 @@
 
+-- SciteProj run commands
+
 --
 -- 
 hide_filter = {
@@ -8,8 +10,8 @@ hide_filter = {
 }
 
 
-xpos=1280
-ypos=256
-width=300
-height=1024
+xpos=2560
+ypos=0
+width=350
+height=1200
 
