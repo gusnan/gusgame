@@ -160,10 +160,12 @@ public:
 	/**
 	 *
 	 */
+	/*
 	bool operator!=(const Rect& sourceRect)
 	{
 		return !operator==(sourceRect);
 	}
+	*/
 
 
 	/**
