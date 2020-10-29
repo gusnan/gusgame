@@ -97,7 +97,7 @@ Color::Color(const Color &source) :
  */
 Color &Color::operator=(const Color &source)
 {
-	if (this!=&source) {
+	if (this != &source) {
 		m_Red = source.m_Red;
 		m_Green = source.m_Green;
 		m_Blue = source.m_Blue;
