@@ -17,12 +17,11 @@
  *	along with GusGame.
  *	If not, see <http://www.gnu.org/licenses/>.
  */
-#include <boost/shared_ptr.hpp>
-
 #include <sstream>
 #include <string>
 #include <vector>
 #include <list>
+#include <memory>
 
 #include "Library.h"
 
