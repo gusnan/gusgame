@@ -20,6 +20,7 @@
 #include <sstream>
 #include <list>
 #include <memory>
+#include <algorithm>
 
 #include "Library.h"
 
@@ -198,8 +199,6 @@ void EventSystem::removeEventHandler(const EventHandlerPtr &inEventHandler)
 	EventHandlerPtr currentEventHandler;  // = boost::shared_ptr<EventHandler>();
 
 	EventHandlerPtr inEvent = inEventHandler/*.get()*/;
-	
-	bool removed = false;
 
 	if (inEventLoop) {
 		if (handlersToRemove) {
@@ -210,26 +209,14 @@ void EventSystem::removeEventHandler(const EventHandlerPtr &inEventHandler)
 
 		if (listOfEventHandlers) {
 
-			//listOfEventHandlers->remove_if(ptr_contains(inEventHandler.get()));
 			if (!listOfEventHandlers->empty()) {
 
-				for (iter=listOfEventHandlers->begin(); iter != listOfEventHandlers->end(), (!removed);) {
-					currentEventHandler = (*iter);
+				auto iter = std::find_if(listOfEventHandlers->begin(), listOfEventHandlers->end(),
+								[&](auto &s) { return (s == inEventHandler); }
+				);
 
-					if (inEvent == currentEventHandler/*.get()*/) {
-						
-						LOG("Removed one eventhandler!");
-
-						iter = listOfEventHandlers->erase(iter);
-						
-						removed = true;
-
-					} else {
-
-						++iter;
-					}
-
-				}
+				if (iter != listOfEventHandlers->end())
+					listOfEventHandlers->erase(iter);
 			}
 		}
 	}
