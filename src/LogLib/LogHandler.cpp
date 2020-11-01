@@ -1,7 +1,7 @@
 /**
  *
  *	This file is part of GusGame.
- *	Copyright 2011 Andreas Rönnquist
+ *	Copyright 2011-2020 Andreas Rönnquist
  *
  *	GusGame is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU Lesser General Public License as published by
@@ -61,7 +61,7 @@ bool LogHandler::logTime = false;
  */
 void GUSGAME_DLL LogHandler::initLog(std::string filename, bool activateScreenLog)
 {
-	fileLogActive=false;
+	fileLogActive = false;
 	
 	try {
 		if (filename != "") {
@@ -108,7 +108,7 @@ void GUSGAME_DLL LogHandler::logOn()
  */
 void GUSGAME_DLL LogHandler::logOff()
 {
-	logActive=false;
+	logActive = false;
 }
 
 #ifdef _DEBUG
@@ -153,7 +153,7 @@ void GUSGAME_DLL LogHandler::addInit(std::string st)
  */
 void GUSGAME_DLL LogHandler::doneInit(std::string st)
 {
-	int nr=getIndex(st);
+	int nr = getIndex(st);
 	if (nr != -1) {
 		allocList[nr].m_Value--;
 	} else {
@@ -173,7 +173,7 @@ int GUSGAME_DLL LogHandler::getIndex(std::string st)
 	if (!allocList.empty()) {
 		int counter = 0;
 		for(std::vector<LogHandler::StoreAlloc>::iterator iter = allocList.begin(); iter != allocList.end();) {
-			StoreAlloc current=(*iter);
+			StoreAlloc current = (*iter);
 
 			if (current.m_Text == st) nr = counter;
 
@@ -191,7 +191,7 @@ int GUSGAME_DLL LogHandler::getIndex(std::string st)
 void GUSGAME_DLL LogHandler::printList()
 {
 	if (!allocList.empty()) {
-		for(std::vector<LogHandler::StoreAlloc>::iterator iter = allocList.begin();iter != allocList.end();)
+		for(std::vector<LogHandler::StoreAlloc>::iterator iter = allocList.begin(); iter != allocList.end();)
 		{
 			StoreAlloc current = (*iter);
 

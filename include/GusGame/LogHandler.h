@@ -1,7 +1,7 @@
 /**
  *
  *	This file is part of GusGame.
- *	Copyright 2011 Andreas Rönnquist
+ *	Copyright 2011-2020 Andreas Rönnquist
  *
  *	GusGame is free software: you can redistribute it and/or modify
  *	it under the terms of the GNU Lesser General Public License as published by
@@ -26,17 +26,17 @@
 #include <vector>
 #endif
 
-#define STLOG(a) if ((LogLib::log!=NULL) && (LogLib::LogHandler::logActive)) { LogLib::log->add(a.str());a.str(""); }
+#define STLOG(a) if ((LogLib::log != NULL) && (LogLib::LogHandler::logActive)) { LogLib::log->add(a.str()); a.str(""); }
 
-#define LOG(a) if ((LogLib::log!=NULL) && (LogLib::LogHandler::logActive)) LogLib::log->add(a)
-#define LOGLINE() if ((LogLib::log!=NULL) && (LogLib::LogHandler::logActive)) LogLib::log->add("---------------------")
+#define LOG(a) if ((LogLib::log != NULL) && (LogLib::LogHandler::logActive)) LogLib::log->add(a)
+#define LOGLINE() if ((LogLib::log != NULL) && (LogLib::LogHandler::logActive)) LogLib::log->add("---------------------")
 
 #ifdef _DEBUG
-#define __INIT(a,b) a;LogHandler::addInit(b);
-#define __DONE(a,b) a;LogHandler::doneInit(b);
+#define __INIT(a, b) a;LogHandler::addInit(b);
+#define __DONE(a, b) a;LogHandler::doneInit(b);
 #else
-#define __INIT(a,b)
-#define __DONE(a,b)
+#define __INIT(a, b)
+#define __DONE(a, b)
 #endif
 
 #define LOGOFF() LogLib::LogHandler::logOff();
@@ -67,11 +67,11 @@ namespace LogHandler
 		{
 		}
 
-		StoreAlloc(std::string text) : m_Value(0),m_Text(text)
+		StoreAlloc(std::string text) : m_Value(0), m_Text(text)
 		{
 		}
 
-		StoreAlloc(std::string text,int value) : m_Value(value),m_Text(text)
+		StoreAlloc(std::string text,int value) : m_Value(value), m_Text(text)
 		{
 		}
 
@@ -85,9 +85,9 @@ namespace LogHandler
 #endif
 
 #ifdef _DEBUG
-	void GUSGAME_DLL initLog(std::string logfilename="log.txt",bool activateScreenLog=true);
+	void GUSGAME_DLL initLog(std::string logfilename = "log.txt", bool activateScreenLog = true);
 #else
-	void GUSGAME_DLL initLog(std::string logfilename="log.txt",bool activateScreenLog=false);
+	void GUSGAME_DLL initLog(std::string logfilename = "log.txt", bool activateScreenLog = false);
 #endif
 	void GUSGAME_DLL doneLog();
 
@@ -103,7 +103,7 @@ namespace LogHandler
 	void GUSGAME_DLL printList();
 
 	extern std::vector<StoreAlloc> allocList;
-	//extern std::map<std::string,int> allocList;
+	//extern std::map<std::string, int> allocList;
 #endif
 
 	void GUSGAME_DLL logOff();
