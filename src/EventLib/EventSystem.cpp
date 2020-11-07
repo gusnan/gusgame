@@ -145,12 +145,17 @@ void EventSystem::doneEventSystem()
 
 		// Don't delete the eventhandlers in the list here, you'll have to do
 		// it by hand
-		/*
+
+		std::list<EventHandlerPtr>::iterator iter;
+
 		for (iter = listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
-			delete (*iter);
+
+			EventHandlerPtr ev = (*iter);
+
+			(*iter).~shared_ptr();
+
 			++iter;
 		}
-		*/
 
 		delete listOfEventHandlers;
 		listOfEventHandlers = 0;
@@ -320,7 +325,6 @@ void EventSystem::handleEvents()
 {
 	ALLEGRO_EVENT ev;
 	bool get_event = false;
-	std::shared_ptr<EventHandler> currentEventHandler = std::shared_ptr<EventHandler>();
 
 	bool eventHandled = false;
 
@@ -340,14 +344,10 @@ void EventSystem::handleEvents()
 
 						for (iter = listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
 
-							currentEventHandler = (*iter);
-
-							if (currentEventHandler != std::shared_ptr<EventHandler>()) {
-
 								if (!eventHandled) {
-									eventHandled = doHandleEvents(ev, currentEventHandler);
+									eventHandled = doHandleEvents(ev, (*iter));
 								}
-							}
+
 							++iter;
 						}
 					}

@@ -19,6 +19,7 @@
  */
 #include <string>
 #include <sstream>
+#include <memory>
 
 #include "Library.h"
 
@@ -187,6 +188,8 @@ void EventHandler::setName(std::string inName)
 {
 	m_Name = inName;
 }
+
+
 
 // end of namespace
 // ----------------
