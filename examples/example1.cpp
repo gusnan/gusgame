@@ -70,8 +70,8 @@ int main(int argc, char **argv)
 		st << "App name: " << System::getAppName();
 		STLOG(st);
 
-		// Get the GusGui version:
-		st << "GusGui version: " << System::getGusGameVersion();
+		// Get the GusGame version:
+		st << "GusGame version: " << System::getGusGameVersion();
 
 		// print it to the screen
 		std::cout << st.str() << std::endl;
