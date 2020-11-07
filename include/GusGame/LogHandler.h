@@ -22,7 +22,7 @@
 
 #include "DynamicLink.h"
 
-#ifdef _DEBUG
+#ifdef _ENABLE_ALLOC_TRACE
 #include <vector>
 #endif
 
@@ -31,7 +31,7 @@
 #define LOG(a) if ((LogLib::log != NULL) && (LogLib::LogHandler::logActive)) LogLib::log->add(a)
 #define LOGLINE() if ((LogLib::log != NULL) && (LogLib::LogHandler::logActive)) LogLib::log->add("---------------------")
 
-#ifdef _DEBUG
+#ifdef _ENABLE_ALLOC_TRACE
 #define __INIT(a, b) a;LogHandler::addInit(b);
 #define __DONE(a, b) a;LogHandler::doneInit(b);
 #else
@@ -59,7 +59,7 @@ namespace LogLib
  */
 namespace LogHandler
 {
-#ifdef _DEBUG
+#ifdef _ENABLE_ALLOC_TRACE
 	class StoreAlloc
 	{
 	public:
@@ -84,14 +84,14 @@ namespace LogHandler
 	};
 #endif
 
-#ifdef _DEBUG
+#ifdef _ENABLE_ALLOC_TRACE
 	void GUSGAME_DLL initLog(std::string logfilename = "log.txt", bool activateScreenLog = true);
 #else
 	void GUSGAME_DLL initLog(std::string logfilename = "log.txt", bool activateScreenLog = false);
 #endif
 	void GUSGAME_DLL doneLog();
 
-#ifdef _DEBUG
+#ifdef _ENABLE_ALLOC_TRACE
 	void GUSGAME_DLL initAllocTrace();
 	void GUSGAME_DLL doneAllocTrace();
 

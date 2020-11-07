@@ -45,7 +45,7 @@ namespace LogLib
  */
 Log GUSGAME_DLL *log = nullptr;
 
-#ifdef _DEBUG
+#ifdef _ENABLE_ALLOC_TRACE
 std::vector<LogHandler::StoreAlloc> LogHandler::allocList;
 #endif
 	
@@ -73,7 +73,7 @@ void GUSGAME_DLL LogHandler::initLog(std::string filename, bool activateScreenLo
 	{
 		throw;
 	}
-#ifdef _DEBUG
+#ifdef _ENABLE_ALLOC_TRACE
 	initAllocTrace();
 #endif
 	
@@ -85,11 +85,13 @@ void GUSGAME_DLL LogHandler::initLog(std::string filename, bool activateScreenLo
  */
 void GUSGAME_DLL LogHandler::doneLog()
 {
-#ifdef _DEBUG
+#ifdef _ENABLE_ALLOC_TRACE
 	doneAllocTrace();
 #endif
 
-	delete log;
+   if (log != nullptr) {
+      delete log;
+   }
 	log = nullptr;
 }
 
@@ -111,7 +113,7 @@ void GUSGAME_DLL LogHandler::logOff()
 	logActive = false;
 }
 
-#ifdef _DEBUG
+#ifdef _ENABLE_ALLOC_TRACE
 /**
  *
  */
