@@ -226,6 +226,22 @@ void GraphicsHandler::setIcon(Bitmap *icon)
 	}
 }
 
+
+/**
+ *
+ */
+Vector2d GraphicsHandler::getDisplayResolution()
+{
+	int w = 0, h = 0;
+
+	if (display != nullptr) {
+		w = al_get_display_width(display);
+		h = al_get_display_height(display);
+	}
+
+	return Vector2d(w, h);
+}
+
 // end of namespace
 // ----------------
 };

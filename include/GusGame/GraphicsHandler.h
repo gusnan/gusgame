@@ -62,11 +62,13 @@ namespace GraphicsHandler
 
 	void setIcon(Gus::GraphicsLib::Bitmap *icon);
 
+	Vector2d getDisplayResolution();
+
 	extern ALLEGRO_DISPLAY *display;
 
 	extern Vector2d screenSize;
 	extern Vector2d backgroundSize;
-	
+
 	extern float zoomX, zoomY;
 };
 
