@@ -61,14 +61,6 @@ using namespace EventLib;
 /**
  *
  */
-EventData::EventData()
-{
-}
-
-
-/**
- *
- */
 EventData::~EventData()
 {
 }

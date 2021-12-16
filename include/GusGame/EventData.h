@@ -39,7 +39,7 @@ namespace EventLib
 class EventData
 {
 public:
-	EventData();
+	EventData() = default;
 	virtual ~EventData();
 
 };
