@@ -200,7 +200,6 @@ void EventSystem::addEventHandler(EventHandlerPtr inEventHandler)
  */
 void EventSystem::removeEventHandler(const EventHandlerPtr &inEventHandler)
 {
-	std::list<EventHandlerPtr>::iterator iter;
 	EventHandlerPtr currentEventHandler;  // = boost::shared_ptr<EventHandler>();
 
 	EventHandlerPtr inEvent = inEventHandler/*.get()*/;
