@@ -146,17 +146,6 @@ void EventSystem::doneEventSystem()
 		// Don't delete the eventhandlers in the list here, you'll have to do
 		// it by hand
 
-		std::list<EventHandlerPtr>::iterator iter;
-
-		for (iter = listOfEventHandlers->begin(); iter != listOfEventHandlers->end();) {
-
-			EventHandlerPtr ev = (*iter);
-
-			(*iter).~shared_ptr();
-
-			++iter;
-		}
-
 		delete listOfEventHandlers;
 		listOfEventHandlers = 0;
 	}
