@@ -39,6 +39,7 @@ namespace ExceptionLib
 class Error
 {
 public:
+	Error() = delete;
 	Error(Exception &e);
 	Error(std::string);
 	virtual ~Error();
