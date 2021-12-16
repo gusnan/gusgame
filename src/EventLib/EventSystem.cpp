@@ -205,7 +205,7 @@ void EventSystem::removeEventHandler(const EventHandlerPtr &inEventHandler)
 			if (!listOfEventHandlers->empty()) {
 
 				auto iter = std::find_if(listOfEventHandlers->begin(), listOfEventHandlers->end(),
-								[&](auto &s) { return (s == inEventHandler); }
+								[&](auto const &s) { return (s == inEventHandler); }
 				);
 
 				if (iter != listOfEventHandlers->end())
