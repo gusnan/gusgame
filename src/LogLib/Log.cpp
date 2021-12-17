@@ -87,7 +87,9 @@ GUSGAME_DLL Log::~Log()
 	if (m_FileLogActive) {
 		m_File << getTime() << COLON;
 		m_File << "Done log..." << std::endl;
-		m_File.close();
+		if (m_File.is_open()) {
+			m_File.close();
+		}
 	}
 	
 	closeFile();
