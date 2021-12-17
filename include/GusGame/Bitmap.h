@@ -59,13 +59,14 @@ public:
 
 	virtual ~Bitmap();
 
-	Bitmap *makeCopy();
+	virtual std::shared_ptr<Bitmap> makeCopy() const;
+   virtual Bitmap* CloneImplementation() const;
 
 	ALLEGRO_BITMAP *getAllegroBitmap();
 
 	Vector2d getSize() const;
 
-	void setTarget(Bitmap *targetBitmap);
+	void setTarget(std::shared_ptr<Bitmap> targetBitmap);
 
 	void blit(const Vector2d &position, float opacity = 1.0f);
 	void blitFlipped(const Vector2d &position, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
@@ -90,7 +91,7 @@ protected:
 
 	Vector2d m_Size;
 
-	Bitmap *m_TargetBitmap;
+	std::shared_ptr<Bitmap> m_TargetBitmap;
 
 	bool m_NoResize;
 

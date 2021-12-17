@@ -118,7 +118,7 @@ int main(int argc,char **argv)
 {
 	EventHandlerPtr eventHandler; // = boost::shared_ptr<EventHandler>();
 
-	Bitmap *mouseBitmap = nullptr;
+	std::shared_ptr<Bitmap> mouseBitmap = nullptr;
 
 	try {
 		// init the log - this function takes a string (the log file filename)
@@ -153,7 +153,7 @@ int main(int argc,char **argv)
 		testEvent = new UserEvent();
 		testEvent2 = new UserEvent();
 
-		mouseBitmap = new Bitmap("mouse.png");
+		mouseBitmap = std::make_shared<Bitmap>("mouse.png");
 
 		Mouse::setMouseBitmap(mouseBitmap);
 
@@ -189,10 +189,13 @@ int main(int argc,char **argv)
 	delete testEvent;
 	delete testEvent2;
 
-	delete mouseBitmap;
+	// delete mouseBitmap;
 
 	// Remove mouse stuff
 	Mouse::doneMouse();
+
+	mouseBitmap.reset();
+
 
 	// done with system stuff
 	System::doneSystem();

@@ -21,6 +21,7 @@
 #include <string>
 #include <sstream>
 #include <list>
+#include <memory>
 
 #include "Exception.h"
 

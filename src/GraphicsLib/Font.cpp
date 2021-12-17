@@ -20,6 +20,7 @@
 #include <string>
 #include <sstream>
 #include <list>
+#include <memory>
 
 #include "Library.h"
 

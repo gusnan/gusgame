@@ -20,6 +20,7 @@
 #include <string>
 #include <sstream>
 #include <vector>
+#include <memory>
 
 #include "Library.h"
 
@@ -75,7 +76,7 @@ void Mouse::doneMouse()
 /**
  *
  */
-void Mouse::setMouseBitmap(Bitmap *mouseBitmap)
+void Mouse::setMouseBitmap(std::shared_ptr<Bitmap> mouseBitmap)
 {
 	if (mouseBitmap) {
 		systemMouseCursor = al_create_mouse_cursor(mouseBitmap->getAllegroBitmap(), 0, 0);

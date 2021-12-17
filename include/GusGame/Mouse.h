@@ -41,7 +41,7 @@ namespace Mouse
 	void initMouse();
 	void doneMouse();
 
-	void setMouseBitmap(Bitmap *mouseBitmap);
+	void setMouseBitmap(std::shared_ptr<Bitmap> mouseBitmap);
 
 	extern ALLEGRO_MOUSE_CURSOR *systemMouseCursor;
 

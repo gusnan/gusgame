@@ -19,6 +19,7 @@
  */
 #include <string>
 #include <sstream>
+#include <memory>
 
 #include "Library.h"
 

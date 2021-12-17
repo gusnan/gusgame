@@ -19,6 +19,7 @@
  */
 #include <stdint.h>
 #include <sstream>
+#include <memory>
 
 #include "Library.h"
 
@@ -72,11 +73,13 @@ void GraphicsHandler::initGraphicsHandler()
  */
 void GraphicsHandler::doneGraphicsHandler()
 {
-	if (display) {
+
+	if (display != nullptr) {
 		al_destroy_display(display);
 	}
 
 	Timer::doneTimer();
+
 }
 
 

@@ -20,6 +20,7 @@
 #include <string>
 #include <sstream>
 #include <list>
+#include <memory>
 
 #include "Library.h"
 
@@ -103,15 +104,19 @@ Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(nullptr), m_Size(-1, -1),
 {
 	LOG("Copyconstructor...");
 
+	m_AllegroBitmap = nullptr;
+
 	if (source.m_AllegroBitmap)
 		m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
 
 	m_Size.x = source.m_Size.x;
 	m_Size.y = source.m_Size.y;
-	
+
 	m_NoResize = source.m_NoResize;
 
-	setTarget(nullptr);
+	setTarget(source.m_TargetBitmap);
+
+	//setTarget(nullptr);
 }
 
 
@@ -148,6 +153,7 @@ Bitmap::~Bitmap()
 {
 	if (m_AllegroBitmap) {
 		al_destroy_bitmap(m_AllegroBitmap);
+		m_AllegroBitmap = nullptr;
 	}
 }
 
@@ -155,8 +161,18 @@ Bitmap::~Bitmap()
 /**
  *
  */
-Bitmap *Bitmap::makeCopy()
+std::shared_ptr<Bitmap> Bitmap::makeCopy() const
 {
+	return std::shared_ptr<Bitmap>(CloneImplementation());
+	// return CloneImplementation();
+	// return std::make_shared<Bitmap>(*this);
+	// return new Bitmap(*this);
+}
+
+Bitmap* Bitmap::CloneImplementation() const
+{
+	// return std::shared_ptr<Bitmap>(new Bitmap(*this));
+
 	return new Bitmap(*this);
 }
 
@@ -183,7 +199,7 @@ Vector2d Bitmap::getSize() const
  * setTarget
  *   Set the target to NULL to draw directly to screen.
  */
-void Bitmap::setTarget(Bitmap *inTargetBitmap)
+void Bitmap::setTarget(std::shared_ptr<Bitmap> inTargetBitmap)
 {
 	if (!inTargetBitmap) {
 		al_set_target_bitmap(al_get_backbuffer(GraphicsHandler::display));

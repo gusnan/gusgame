@@ -68,7 +68,7 @@ public:
 int main(int argc,char **argv)
 {
 	std::shared_ptr<EventHandler> eventHandler = std::shared_ptr<EventHandler>();
-	Bitmap *mouseBitmap = nullptr;
+	std::shared_ptr<Bitmap> mouseBitmap = nullptr;
 
 	try {
 		// init the log - this function takes a string (the log file filename) as
@@ -99,7 +99,7 @@ int main(int argc,char **argv)
 		// set the used EventHandler to the one we just created.
 		EventSystem::addEventHandler(eventHandler);
 
-		mouseBitmap = new Bitmap("mouse.png");
+		mouseBitmap = std::make_shared<Bitmap>("mouse.png");
 
 		Mouse::setMouseBitmap(mouseBitmap);
 	}
@@ -130,8 +130,6 @@ int main(int argc,char **argv)
 		// Update the screen
 		GraphicsHandler::updateScreen();
 	} while(!quit);
-
-	delete mouseBitmap;
 
 	// Remove our custom eventHandler
 	//delete eventHandler;
