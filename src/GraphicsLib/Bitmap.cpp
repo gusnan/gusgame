@@ -164,15 +164,10 @@ Bitmap::~Bitmap()
 std::shared_ptr<Bitmap> Bitmap::makeCopy() const
 {
    return std::shared_ptr<Bitmap>(CloneImplementation());
-   // return CloneImplementation();
-   // return std::make_shared<Bitmap>(*this);
-   // return new Bitmap(*this);
 }
 
 Bitmap* Bitmap::CloneImplementation() const
 {
-   // return std::shared_ptr<Bitmap>(new Bitmap(*this));
-
    return new Bitmap(*this);
 }
 
