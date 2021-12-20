@@ -65,10 +65,10 @@ MouseMotionEvent::MouseMotionEvent() : m_Position(Mouse::mousePosition)
 MouseMotionEvent::MouseMotionEvent(ALLEGRO_EVENT ev) : m_Position()
 {
 
-	m_Position.x = ev.mouse.x;
-	m_Position.y = ev.mouse.y;
+   m_Position.x = ev.mouse.x;
+   m_Position.y = ev.mouse.y;
 
-	Mouse::mousePosition = m_Position;
+   Mouse::mousePosition = m_Position;
 }
 
 
@@ -76,9 +76,9 @@ MouseMotionEvent::MouseMotionEvent(ALLEGRO_EVENT ev) : m_Position()
  *
  */
 MouseMotionEvent::MouseMotionEvent(const GraphicsLib::Vector2d &position) :
-	m_Position(position)
+   m_Position(position)
 {
-	Mouse::mousePosition = m_Position;
+   Mouse::mousePosition = m_Position;
 }
 
 
@@ -95,7 +95,7 @@ MouseMotionEvent::~MouseMotionEvent()
  */
 Vector2d MouseMotionEvent::getPosition() const
 {
-	return m_Position;
+   return m_Position;
 }
 
 /**

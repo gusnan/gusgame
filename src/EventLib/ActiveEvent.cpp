@@ -47,15 +47,15 @@ ActiveEvent::ActiveEvent() : m_WindowState(WindowStateDefault)
  */
 ActiveEvent::ActiveEvent(ALLEGRO_EVENT alEvent) : m_WindowState(WindowStateDefault)
 {
-	if (alEvent.type == ALLEGRO_EVENT_DISPLAY_SWITCH_IN) {
-		m_WindowState = WindowStateAppFocusGain;
-	} else if (alEvent.type == ALLEGRO_EVENT_DISPLAY_SWITCH_OUT) {
-		m_WindowState = WindowStateAppFocusLost;
-	} else if (alEvent.type == ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY) {
-		m_WindowState = WindowStateMouseFocusLost;
-	} else if (alEvent.type == ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY) {
-		m_WindowState = WindowStateMouseFocusGain;
-	}
+   if (alEvent.type == ALLEGRO_EVENT_DISPLAY_SWITCH_IN) {
+      m_WindowState = WindowStateAppFocusGain;
+   } else if (alEvent.type == ALLEGRO_EVENT_DISPLAY_SWITCH_OUT) {
+      m_WindowState = WindowStateAppFocusLost;
+   } else if (alEvent.type == ALLEGRO_EVENT_MOUSE_LEAVE_DISPLAY) {
+      m_WindowState = WindowStateMouseFocusLost;
+   } else if (alEvent.type == ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY) {
+      m_WindowState = WindowStateMouseFocusGain;
+   }
 }
 
 
@@ -80,7 +80,7 @@ ActiveEvent::~ActiveEvent()
  */
 ActiveWindowState ActiveEvent::getWindowState()
 {
-	return m_WindowState;
+   return m_WindowState;
 }
 
 // end of namespace

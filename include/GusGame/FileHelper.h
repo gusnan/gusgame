@@ -39,23 +39,23 @@ namespace Gus
 namespace FileHelper
 {
 
-	bool isSlash(char ch);
+   bool isSlash(char ch);
 
-	bool isDir(std::string in_string);
+   bool isDir(std::string in_string);
 
-	bool fileExists(std::string strFilename);
-	std::string fixBeginSlashFilename(std::string inFilename);
+   bool fileExists(std::string strFilename);
+   std::string fixBeginSlashFilename(std::string inFilename);
 
-	std::string fixEndSlash(const std::string &text);
+   std::string fixEndSlash(const std::string &text);
 
-	void addDataFolder(std::string);
-	std::string getFilename(std::string);
+   void addDataFolder(std::string);
+   std::string getFilename(std::string);
 
-	std::string fixSlashes(const std::string &text);
-	
-	std::string getAbsolutePath(const std::string &inString);
+   std::string fixSlashes(const std::string &text);
+   
+   std::string getAbsolutePath(const std::string &inString);
 
-	extern std::list<std::string> m_DataFolders;
+   extern std::list<std::string> m_DataFolders;
 
 };
 

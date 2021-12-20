@@ -43,16 +43,16 @@ namespace ExceptionLib
 class Exception
 {
 public:
-	Exception(std::string message);
-	virtual ~Exception();
+   Exception(std::string message);
+   virtual ~Exception();
 
-	void addMessage(std::string mes);
+   void addMessage(std::string mes);
 
-	virtual std::string getString();
+   virtual std::string getString();
 
 protected:
-	std::string m_Message;
-	//std::vector<std::string> m_MessageList;
+   std::string m_Message;
+   //std::vector<std::string> m_MessageList;
 
 };
 

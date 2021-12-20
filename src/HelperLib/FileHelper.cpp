@@ -53,7 +53,7 @@ std::list<std::string> FileHelper::m_DataFolders;
  */
 void FileHelper::addDataFolder(std::string folder)
 {
-	m_DataFolders.push_back(folder);
+   m_DataFolders.push_back(folder);
 }
 
 
@@ -62,11 +62,11 @@ void FileHelper::addDataFolder(std::string folder)
  */
 bool FileHelper::isDir(std::string in_string)
 {
-	struct stat stats;
+   struct stat stats;
 
-	if (((stat((char*)(in_string.c_str()), &stats) == 0) && (S_ISDIR(stats.st_mode)) != 0)) return true;
+   if (((stat((char*)(in_string.c_str()), &stats) == 0) && (S_ISDIR(stats.st_mode)) != 0)) return true;
 
-	return false;
+   return false;
 }
 
 
@@ -75,30 +75,30 @@ bool FileHelper::isDir(std::string in_string)
  */
 bool FileHelper::fileExists(std::string strFilename)
 {
-	FILE* fp = nullptr;
+   FILE* fp = nullptr;
 
-	/*
-	std::stringstream st;
-	st << "fileExists(" << strFilename << ")";
-	STLOG(st);
-	*/
+   /*
+   std::stringstream st;
+   st << "fileExists(" << strFilename << ")";
+   STLOG(st);
+   */
 
-	bool result = false;
+   bool result = false;
 #ifdef _MSC_VER
-	fopen_s(&fp, (char*)(strFilename.c_str()), "r" );
+   fopen_s(&fp, (char*)(strFilename.c_str()), "r" );
 #else
-	fp = fopen( (char*)(strFilename.c_str()), "r" );
+   fp = fopen( (char*)(strFilename.c_str()), "r" );
 #endif
-	if( fp != nullptr )
-	{
-		fclose( fp );
+   if( fp != nullptr )
+   {
+      fclose( fp );
 
-		result=true;
-		if (isDir(strFilename)) result = false;
+      result=true;
+      if (isDir(strFilename)) result = false;
 
-	}
+   }
 
-	return result;
+   return result;
 }
 
 
@@ -109,14 +109,14 @@ bool FileHelper::fileExists(std::string strFilename)
  */
 std::string FileHelper::fixBeginSlashFilename(std::string inFilename)
 {
-	std::string result = inFilename;
+   std::string result = inFilename;
 
-	// Fix so that the string doesn't start with a
-	if (result[0] == '/') {
-		result = inFilename.substr(1);
-	}
+   // Fix so that the string doesn't start with a
+   if (result[0] == '/') {
+      result = inFilename.substr(1);
+   }
 
-	return result;
+   return result;
 }
 
 /**
@@ -126,68 +126,68 @@ std::string FileHelper::fixBeginSlashFilename(std::string inFilename)
  */
 std::string FileHelper::getFilename(std::string inFilename)
 {
-	std::string result = "";
+   std::string result = "";
 
 #ifdef _WIN32
-	if ((inFilename[1] == ':') &&
-		((inFilename[2] == '/') || (inFilename[2] == '\\'))) {
+   if ((inFilename[1] == ':') &&
+      ((inFilename[2] == '/') || (inFilename[2] == '\\'))) {
 #else
-	if (inFilename[0] == '/') {
+   if (inFilename[0] == '/') {
 #endif
-		return inFilename;
-	}
+      return inFilename;
+   }
 
-	std::list<std::string>::iterator iter;
-	for (iter = m_DataFolders.begin(); iter != m_DataFolders.end(); ) {
+   std::list<std::string>::iterator iter;
+   for (iter = m_DataFolders.begin(); iter != m_DataFolders.end(); ) {
 
-		std::string temp = *iter;
-		std::string testResult = temp; //fixFilename(temp);
-		int len = testResult.length();
+      std::string temp = *iter;
+      std::string testResult = temp; //fixFilename(temp);
+      int len = testResult.length();
 
-		// if we have a proper length:
-		if (len > 0) {
-			// make sure the string ends with a slash
-			if (testResult[len - 1] != '/') {
-				testResult += "/";
-			}
-		}
+      // if we have a proper length:
+      if (len > 0) {
+         // make sure the string ends with a slash
+         if (testResult[len - 1] != '/') {
+            testResult += "/";
+         }
+      }
 
-		testResult += fixBeginSlashFilename(inFilename);
+      testResult += fixBeginSlashFilename(inFilename);
 
-		//testResult=fixFilename(testResult);
-
-
-		/*
-		std::stringstream logst;
-		logst << "Testing:" << testResult;
-		STLOG(logst);
-		*/
+      //testResult=fixFilename(testResult);
 
 
-		if (FileHelper::fileExists(testResult)) {
-			//LOG("File Exists TRUE");
-			if (result == "") result = testResult;
-		} else {
-			//LOG("File Exists FALSE");
-		}
+      /*
+      std::stringstream logst;
+      logst << "Testing:" << testResult;
+      STLOG(logst);
+      */
 
-		if (result != "") {
-			/*
-			std::stringstream logst;
-			logst << "FOUND:" << result;
-			STLOG(logst);
-			*/
-			iter = m_DataFolders.end();
-			//leaveLoop=true;
-			break;
-			//++iter;
-		} else {
 
-			++iter;
-		}
-	}
+      if (FileHelper::fileExists(testResult)) {
+         //LOG("File Exists TRUE");
+         if (result == "") result = testResult;
+      } else {
+         //LOG("File Exists FALSE");
+      }
 
-	return result;
+      if (result != "") {
+         /*
+         std::stringstream logst;
+         logst << "FOUND:" << result;
+         STLOG(logst);
+         */
+         iter = m_DataFolders.end();
+         //leaveLoop=true;
+         break;
+         //++iter;
+      } else {
+
+         ++iter;
+      }
+   }
+
+   return result;
 }
 
 
@@ -196,11 +196,11 @@ std::string FileHelper::getFilename(std::string inFilename)
  */
 bool FileHelper::isSlash(char ch)
 {
-	if ((ch == '/') || (ch == '\\')) {
-		return true;
-	}
+   if ((ch == '/') || (ch == '\\')) {
+      return true;
+   }
 
-	return false;
+   return false;
 }
 
 
@@ -209,18 +209,18 @@ bool FileHelper::isSlash(char ch)
  */
 std::string FileHelper::fixEndSlash(const std::string &text)
 {
-	std::string result = text;
+   std::string result = text;
 
-	if (text.length() == 0) {
-		result += SLASH;
-		return result;
-	}
+   if (text.length() == 0) {
+      result += SLASH;
+      return result;
+   }
 
-	if (!isSlash(text[text.length() - 1])) {
-		result += SLASH;
-	}
+   if (!isSlash(text[text.length() - 1])) {
+      result += SLASH;
+   }
 
-	return result;
+   return result;
 }
 
 
@@ -229,14 +229,14 @@ std::string FileHelper::fixEndSlash(const std::string &text)
  */
 std::string FileHelper::fixSlashes(const std::string &text)
 {
-	std::string result=text;
+   std::string result=text;
 
-	for (unsigned int co = 0; co < (unsigned int)text.length(); co++) {
-		if (isSlash(text[co])) {
-			result[co] = SLASH;
-		}
-	}
-	return result;
+   for (unsigned int co = 0; co < (unsigned int)text.length(); co++) {
+      if (isSlash(text[co])) {
+         result[co] = SLASH;
+      }
+   }
+   return result;
 }
 
 
@@ -245,10 +245,10 @@ std::string FileHelper::fixSlashes(const std::string &text)
  */
 std::string FileHelper::getAbsolutePath(const std::string &inString)
 {
-	boost::filesystem::path inPath = boost::filesystem::path(inString);
-	boost::filesystem::path canonicalPath = boost::filesystem::weakly_canonical(inPath);
+   boost::filesystem::path inPath = boost::filesystem::path(inString);
+   boost::filesystem::path canonicalPath = boost::filesystem::weakly_canonical(inPath);
 
-	return canonicalPath.string();
+   return canonicalPath.string();
 }
 
 // end of namespace

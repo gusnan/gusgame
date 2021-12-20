@@ -38,8 +38,8 @@ namespace EventLib
 class QuitEvent
 {
 public:
-	QuitEvent();
-	virtual ~QuitEvent();
+   QuitEvent();
+   virtual ~QuitEvent();
 
 protected:
 };

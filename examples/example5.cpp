@@ -49,65 +49,65 @@ UserEvent *testEvent2 = nullptr;
 class ExampleEventHandler : public EventHandler
 {
 public:
-	/**
-	 * Handle keyboard presses and releases
-	 */
-	virtual bool handleKeyboard(KeyEvent &keyEvent) {
+   /**
+    * Handle keyboard presses and releases
+    */
+   virtual bool handleKeyboard(KeyEvent &keyEvent) {
 
-		// Is it the Escape Button that is pressed? - then quit
-		if (keyEvent.getType() == KeyEventPressed) {
-			if (keyEvent.getValue() == Key::Escape) {
-				quit = true;
+      // Is it the Escape Button that is pressed? - then quit
+      if (keyEvent.getType() == KeyEventPressed) {
+         if (keyEvent.getValue() == Key::Escape) {
+            quit = true;
 
-				// event is handled
-				return true;
-			}
-			else {
-				std::cout << "Any key pressed" << std::endl;
-				testEvent2->pushEvent();
-				testEvent->pushEvent();
-				// event is handled - return true
-				return true;
-			}
-		}
-		return false;
-	}
+            // event is handled
+            return true;
+         }
+         else {
+            std::cout << "Any key pressed" << std::endl;
+            testEvent2->pushEvent();
+            testEvent->pushEvent();
+            // event is handled - return true
+            return true;
+         }
+      }
+      return false;
+   }
 
-	/**
-	 * handle the quit event
-	 */
-	virtual void handleQuitEvent()
-	{
-		testEvent->pushEvent();
-	}
+   /**
+    * handle the quit event
+    */
+   virtual void handleQuitEvent()
+   {
+      testEvent->pushEvent();
+   }
 
-	/**
-	 * Handle the system quit event. (This is called when the window close
-	 * button is pressed.) The System Quit event is separated from the standard
-	 * Quit event, so that you can separate for example window close button
-	 * presses from other quit events.
-	 */
-	virtual void handleSystemQuitEvent()
-	{
-		testEvent->pushEvent();
-	}
+   /**
+    * Handle the system quit event. (This is called when the window close
+    * button is pressed.) The System Quit event is separated from the standard
+    * Quit event, so that you can separate for example window close button
+    * presses from other quit events.
+    */
+   virtual void handleSystemQuitEvent()
+   {
+      testEvent->pushEvent();
+   }
 
-	/**
-	 *
-	 */
-	virtual bool handleUserEvent(UserEvent &inEvent)
-	{
-		if (inEvent == *testEvent) {
-			std::cout << "Something is happening..." << std::endl;
-			return true;
+   /**
+    *
+    */
+   virtual bool handleUserEvent(UserEvent &inEvent)
+   {
+      if (inEvent == *testEvent) {
+         std::cout << "Something is happening..." << std::endl;
+         return true;
 
-		} else if (inEvent == *testEvent2) {
-			std::cout << "Event 2..." << std::endl;
-			return true;
-		}
+      } else if (inEvent == *testEvent2) {
+         std::cout << "Event 2..." << std::endl;
+         return true;
+      }
 
-		return false;
-	}
+      return false;
+   }
 };
 
 
@@ -116,92 +116,92 @@ public:
  */
 int main(int argc,char **argv)
 {
-	EventHandlerPtr eventHandler; // = boost::shared_ptr<EventHandler>();
+   EventHandlerPtr eventHandler; // = boost::shared_ptr<EventHandler>();
 
-	std::shared_ptr<Bitmap> mouseBitmap = nullptr;
+   std::shared_ptr<Bitmap> mouseBitmap = nullptr;
 
-	try {
-		// init the log - this function takes a string (the log file filename)
-		// as indata, if none is inserted, "log.txt" is assumed. If you give the
-		// empty string "" as filename for the log, no log will be used.
-		//
-		// The second indata is a boolean to determine to print the log to
-		// std::cout or not in addition to to the file.
-		LogHandler::initLog("log.txt", true);
+   try {
+      // init the log - this function takes a string (the log file filename)
+      // as indata, if none is inserted, "log.txt" is assumed. If you give the
+      // empty string "" as filename for the log, no log will be used.
+      //
+      // The second indata is a boolean to determine to print the log to
+      // std::cout or not in addition to to the file.
+      LogHandler::initLog("log.txt", true);
 
-		// init system stuff
-		System::initSystem();
+      // init system stuff
+      System::initSystem();
 
-		// set up a screen with resolution of 640x480, and not fullscreen
-		GraphicsHandler::initGraphicsHandler();
-		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
+      // set up a screen with resolution of 640x480, and not fullscreen
+      GraphicsHandler::initGraphicsHandler();
+      GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
 
-		// set a window title
-		GraphicsHandler::setWindowTitle("GusGame Example 5");
+      // set a window title
+      GraphicsHandler::setWindowTitle("GusGame Example 5");
 
-		// Create an EventHandler for our "custom" events from the class
-		// that is defined above
-		EventSystem::initEventSystem();
+      // Create an EventHandler for our "custom" events from the class
+      // that is defined above
+      EventSystem::initEventSystem();
 
-		eventHandler = std::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
-
-
-		// set the used EventHandler to the one we just created.
-		EventSystem::addEventHandler(eventHandler);
-
-		// Create the test events
-		testEvent = new UserEvent();
-		testEvent2 = new UserEvent();
-
-		mouseBitmap = std::make_shared<Bitmap>("mouse.png");
-
-		Mouse::setMouseBitmap(mouseBitmap);
-
-	}
-	catch (Exception &e)
-	{
-		// If we get any problems with the code in the throw block, it will be
-		// caught here
-		std::cerr << "Exception: " << e.getString() << std::endl;
-
-		return EXIT_FAILURE;
-	}
-
-	LOG("Enter main loop.");
-
-	// the main loop
-	do {
-		// Update the timer
-		Timer::updateFrame();
-
-		// Handle events (see the class just above this main
-		EventSystem::handleEvents();
-
-		// Clear the screen every sync
-		GraphicsHandler::clearScreen();
-
-		//System::getMouse()->draw();
-
-		// Update the screen
-		GraphicsHandler::updateScreen();
-	} while(!quit);
-
-	delete testEvent;
-	delete testEvent2;
-
-	// delete mouseBitmap;
-
-	// Remove mouse stuff
-	Mouse::doneMouse();
-
-	mouseBitmap.reset();
+      eventHandler = std::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
 
 
-	// done with system stuff
-	System::doneSystem();
+      // set the used EventHandler to the one we just created.
+      EventSystem::addEventHandler(eventHandler);
 
-	// done with the Log
-	LogHandler::doneLog();
+      // Create the test events
+      testEvent = new UserEvent();
+      testEvent2 = new UserEvent();
 
-	return EXIT_SUCCESS;
+      mouseBitmap = std::make_shared<Bitmap>("mouse.png");
+
+      Mouse::setMouseBitmap(mouseBitmap);
+
+   }
+   catch (Exception &e)
+   {
+      // If we get any problems with the code in the throw block, it will be
+      // caught here
+      std::cerr << "Exception: " << e.getString() << std::endl;
+
+      return EXIT_FAILURE;
+   }
+
+   LOG("Enter main loop.");
+
+   // the main loop
+   do {
+      // Update the timer
+      Timer::updateFrame();
+
+      // Handle events (see the class just above this main
+      EventSystem::handleEvents();
+
+      // Clear the screen every sync
+      GraphicsHandler::clearScreen();
+
+      //System::getMouse()->draw();
+
+      // Update the screen
+      GraphicsHandler::updateScreen();
+   } while(!quit);
+
+   delete testEvent;
+   delete testEvent2;
+
+   // delete mouseBitmap;
+
+   // Remove mouse stuff
+   Mouse::doneMouse();
+
+   mouseBitmap.reset();
+
+
+   // done with system stuff
+   System::doneSystem();
+
+   // done with the Log
+   LogHandler::doneLog();
+
+   return EXIT_SUCCESS;
 }

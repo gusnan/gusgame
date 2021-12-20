@@ -38,23 +38,23 @@ namespace GraphicsLib
 class Font
 {
 public:
-	Font();
-	Font(const Font &source);
+   Font();
+   Font(const Font &source);
 
-	Font &operator=(const Font &source);
+   Font &operator=(const Font &source);
 
-	Font(std::string filename, int size, bool useKerning = false);
-	virtual ~Font();
+   Font(std::string filename, int size, bool useKerning = false);
+   virtual ~Font();
 
-	void draw(const Vector2d &position, std::string text, const Color &color);
+   void draw(const Vector2d &position, std::string text, const Color &color);
 
-	void drawCenter(const Vector2d &position, std::string text, const Color &color, bool centerVertical = true);
+   void drawCenter(const Vector2d &position, std::string text, const Color &color, bool centerVertical = true);
 
-	int getHeight();
+   int getHeight();
 
 protected:
 
-	ALLEGRO_FONT *m_AllegroFont;
+   ALLEGRO_FONT *m_AllegroFont;
 
 };
 

@@ -48,7 +48,7 @@ double Timer::deltaTime = 0.0f;
  */
 void Timer::initTimer()
 {
-	timerValue1 = timerValue2 = al_get_time();
+   timerValue1 = timerValue2 = al_get_time();
 }
 
 
@@ -65,7 +65,7 @@ void Timer::doneTimer()
  */
 void Timer::updateFrame()
 {
-	deltaTime = Timer::timerValue2 - timerValue1;
+   deltaTime = Timer::timerValue2 - timerValue1;
 }
 
 
@@ -74,7 +74,7 @@ void Timer::updateFrame()
  */
 double Timer::getDeltaTime()
 {
-	return deltaTime;
+   return deltaTime;
 }
 
 // end of namespace

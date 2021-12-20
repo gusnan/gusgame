@@ -63,7 +63,7 @@ MouseScrollerEvent::MouseScrollerEvent() : m_Scroller(0)
  */
 MouseScrollerEvent::MouseScrollerEvent(ALLEGRO_EVENT ev) : m_Scroller()
 {
-	m_Scroller = ev.mouse.z;
+   m_Scroller = ev.mouse.z;
 }
 
 /**
@@ -71,7 +71,7 @@ MouseScrollerEvent::MouseScrollerEvent(ALLEGRO_EVENT ev) : m_Scroller()
  */
 MouseScrollerEvent::MouseScrollerEvent(const MouseScrollerEvent &source) : m_Scroller()
 {
-	m_Scroller = source.m_Scroller;
+   m_Scroller = source.m_Scroller;
 }
 
 
@@ -88,7 +88,7 @@ MouseScrollerEvent::~MouseScrollerEvent()
  */
 int MouseScrollerEvent::getScroller() const
 {
-	return m_Scroller;
+   return m_Scroller;
 }
 
 
@@ -97,7 +97,7 @@ int MouseScrollerEvent::getScroller() const
  */
 void MouseScrollerEvent::setScroller(int inValue)
 {
-	al_set_mouse_z(inValue);
+   al_set_mouse_z(inValue);
 }
 
 /**

@@ -48,8 +48,8 @@ namespace GraphicsLib
  */
 void FontHandler::initFontHandler()
 {
-	al_init_font_addon();
-	al_init_ttf_addon();
+   al_init_font_addon();
+   al_init_ttf_addon();
 }
 
 
@@ -58,8 +58,8 @@ void FontHandler::initFontHandler()
  */
 void FontHandler::doneFontHandler()
 {
-	al_shutdown_ttf_addon();
-	al_shutdown_font_addon();
+   al_shutdown_ttf_addon();
+   al_shutdown_font_addon();
 }
 
 // end of namespace

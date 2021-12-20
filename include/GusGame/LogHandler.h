@@ -60,60 +60,60 @@ namespace LogLib
 namespace LogHandler
 {
 #ifdef _ENABLE_ALLOC_TRACE
-	class StoreAlloc
-	{
-	public:
-		StoreAlloc() : m_Value(0),m_Text("")
-		{
-		}
+   class StoreAlloc
+   {
+   public:
+      StoreAlloc() : m_Value(0),m_Text("")
+      {
+      }
 
-		StoreAlloc(std::string text) : m_Value(0), m_Text(text)
-		{
-		}
+      StoreAlloc(std::string text) : m_Value(0), m_Text(text)
+      {
+      }
 
-		StoreAlloc(std::string text,int value) : m_Value(value), m_Text(text)
-		{
-		}
+      StoreAlloc(std::string text,int value) : m_Value(value), m_Text(text)
+      {
+      }
 
-		virtual ~StoreAlloc()
-		{
-		}
+      virtual ~StoreAlloc()
+      {
+      }
 
-		int m_Value;
-		std::string m_Text;
-	};
+      int m_Value;
+      std::string m_Text;
+   };
 #endif
 
 #ifdef _ENABLE_ALLOC_TRACE
-	void GUSGAME_DLL initLog(std::string logfilename = "log.txt", bool activateScreenLog = true);
+   void GUSGAME_DLL initLog(std::string logfilename = "log.txt", bool activateScreenLog = true);
 #else
-	void GUSGAME_DLL initLog(std::string logfilename = "log.txt", bool activateScreenLog = false);
+   void GUSGAME_DLL initLog(std::string logfilename = "log.txt", bool activateScreenLog = false);
 #endif
-	void GUSGAME_DLL doneLog();
+   void GUSGAME_DLL doneLog();
 
 #ifdef _ENABLE_ALLOC_TRACE
-	void GUSGAME_DLL initAllocTrace();
-	void GUSGAME_DLL doneAllocTrace();
+   void GUSGAME_DLL initAllocTrace();
+   void GUSGAME_DLL doneAllocTrace();
 
-	void GUSGAME_DLL addInit(std::string st);
-	void GUSGAME_DLL doneInit(std::string);
+   void GUSGAME_DLL addInit(std::string st);
+   void GUSGAME_DLL doneInit(std::string);
 
-	int GUSGAME_DLL getIndex(std::string st);
+   int GUSGAME_DLL getIndex(std::string st);
 
-	void GUSGAME_DLL printList();
+   void GUSGAME_DLL printList();
 
-	extern std::vector<StoreAlloc> allocList;
-	//extern std::map<std::string, int> allocList;
+   extern std::vector<StoreAlloc> allocList;
+   //extern std::map<std::string, int> allocList;
 #endif
 
-	void GUSGAME_DLL logOff();
-	void GUSGAME_DLL logOn();
+   void GUSGAME_DLL logOff();
+   void GUSGAME_DLL logOn();
 
-	extern bool fileLogActive;
+   extern bool fileLogActive;
 
-	extern bool logTime;
+   extern bool logTime;
 
-	extern bool logActive;
+   extern bool logActive;
 
 };
 

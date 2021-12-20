@@ -48,7 +48,7 @@ RuntimeError::RuntimeError(std::string message) : Exception(message)
 RuntimeError::~RuntimeError()
 {
 }
-	
+
 // end of namespace
 // ----------------
 };

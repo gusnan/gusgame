@@ -42,31 +42,31 @@ namespace EventLib
 class UserEvent
 {
 public:
-	UserEvent();
-	UserEvent(ALLEGRO_EVENT ev);
-	UserEvent(int number);
+   UserEvent();
+   UserEvent(ALLEGRO_EVENT ev);
+   UserEvent(int number);
 
-	UserEvent(const UserEvent &source);
-	UserEvent &operator=(const UserEvent &source);
+   UserEvent(const UserEvent &source);
+   UserEvent &operator=(const UserEvent &source);
 
-	bool operator==(const UserEvent &source) const;
-	bool operator!=(const UserEvent &source) const;
+   bool operator==(const UserEvent &source) const;
+   bool operator!=(const UserEvent &source) const;
 
-	virtual ~UserEvent();
+   virtual ~UserEvent();
 
-	void pushEvent();
+   void pushEvent();
 
-	int getUserEventNumber();
+   int getUserEventNumber();
 
-	void setEventData(EventData *inEventData);
-	EventData *getEventData();
+   void setEventData(EventData *inEventData);
+   EventData *getEventData();
 
 protected:
-	int m_UserEventNumber;
+   int m_UserEventNumber;
 
-	ALLEGRO_EVENT userEvent;
+   ALLEGRO_EVENT userEvent;
 
-	EventData *m_EventData;
+   EventData *m_EventData;
 };
 
 // end of namespace

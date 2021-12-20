@@ -42,297 +42,297 @@ namespace GraphicsLib
 class Vector2d
 {
 public:
-	/**
-	 *
-	 */
-	Vector2d() : x(-1), y(-1)
-	{
-		//SetPosition(-1,-1);
-	}
-
-	/**
-	 *
-	 */
-	Vector2d(int xpos,int ypos) : x(xpos), y(ypos)
-	{
-		//x=xpos;
-		//y=ypos;
-		//SetPosition(xpos,ypos);
-	}
-
-	/**
-	 *
-	 */
-	Vector2d(const Vector2d &source) : x(0), y(0)
-	{
-		if (this != &source) {
-			this->x = source.x;
-			this->y = source.y;
-		}
-	}
-
-	/**
-	 *
-	 */
-	Vector2d& operator=(const Vector2d& source)
-	{
-		x = source.x;
-		y = source.y;
+   /**
+    *
+    */
+   Vector2d() : x(-1), y(-1)
+   {
+      //SetPosition(-1,-1);
+   }
+
+   /**
+    *
+    */
+   Vector2d(int xpos,int ypos) : x(xpos), y(ypos)
+   {
+      //x=xpos;
+      //y=ypos;
+      //SetPosition(xpos,ypos);
+   }
+
+   /**
+    *
+    */
+   Vector2d(const Vector2d &source) : x(0), y(0)
+   {
+      if (this != &source) {
+         this->x = source.x;
+         this->y = source.y;
+      }
+   }
+
+   /**
+    *
+    */
+   Vector2d& operator=(const Vector2d& source)
+   {
+      x = source.x;
+      y = source.y;
 
-		return *this;
-	}
-
-
-	/**
-	 *
-	 */
-	Vector2d operator*(const Vector2d& source) const
-	{
-		Vector2d res(*this);
-
-		res.x = x * source.x;
-		res.y = y * source.y;
+      return *this;
+   }
+
+
+   /**
+    *
+    */
+   Vector2d operator*(const Vector2d& source) const
+   {
+      Vector2d res(*this);
+
+      res.x = x * source.x;
+      res.y = y * source.y;
 
-		return res;
-	}
-
-	/**
-	 *
-	 */
-	Vector2d operator*(const int a) const
-	{
-		Vector2d res(*this);
-
-		res.x = x * a;
-		res.y = y * a;
-
-		return res;
-	}
+      return res;
+   }
+
+   /**
+    *
+    */
+   Vector2d operator*(const int a) const
+   {
+      Vector2d res(*this);
+
+      res.x = x * a;
+      res.y = y * a;
+
+      return res;
+   }
 
 
 
-
-	/**
-	 *
-	 */
-	Vector2d operator-(const Vector2d& source) const
-	{
-		Vector2d res(*this);
+
+   /**
+    *
+    */
+   Vector2d operator-(const Vector2d& source) const
+   {
+      Vector2d res(*this);
 
-		res.x = x - source.x;
-		res.y = y - source.y;
+      res.x = x - source.x;
+      res.y = y - source.y;
 
-		return res;
-	}
+      return res;
+   }
 
 
-	/**
-	 *
-	 */
-	void operator*=(const Vector2d& source)
-	{
-
-	//	Vector2d res(*this);
+   /**
+    *
+    */
+   void operator*=(const Vector2d& source)
+   {
+
+   //	Vector2d res(*this);
 
-		this->x = x * source.x;
-		this->y = y * source.y;
-
-		//return *this;
-	}
-
-	/**
-	 *
-	 */
-	Vector2d operator+=(const Vector2d& source)
-	{
+      this->x = x * source.x;
+      this->y = y * source.y;
+
+      //return *this;
+   }
+
+   /**
+    *
+    */
+   Vector2d operator+=(const Vector2d& source)
+   {
 
-		Vector2d res(*this);
+      Vector2d res(*this);
 
-		this->x = x + source.x;
-		this->y = y + source.y;
+      this->x = x + source.x;
+      this->y = y + source.y;
 
-		return *this;
-	}
+      return *this;
+   }
 
-	/**
-	 *
-	 */
-	Vector2d operator+(const Vector2d& source) const
-	{
+   /**
+    *
+    */
+   Vector2d operator+(const Vector2d& source) const
+   {
 
-		Vector2d res = Vector2d(*this);
+      Vector2d res = Vector2d(*this);
 
-		res.x = x + source.x;
-		res.y = y + source.y;
+      res.x = x + source.x;
+      res.y = y + source.y;
 
-		return res;
-	}
-
-	/*
-	Vector2d operator+(Vector2d a,Vector2d b)
-	{
-		Vector2d r=a;
-		return r+=b;
+      return res;
+   }
+
+   /*
+   Vector2d operator+(Vector2d a,Vector2d b)
+   {
+      Vector2d r=a;
+      return r+=b;
 
-	}
-	*/
+   }
+   */
 
 
-	/**
-	 *
-	 */
-	void operator-=(const Vector2d& source)
-	{
-		//Vector2d res(*this);
+   /**
+    *
+    */
+   void operator-=(const Vector2d& source)
+   {
+      //Vector2d res(*this);
 
-		this->x = x - source.x;
-		this->y = y - source.y;
+      this->x = x - source.x;
+      this->y = y - source.y;
 
-		//return *this; //*this;
-	}
+      //return *this; //*this;
+   }
 
 
-	/**
-	 *
-	 */
-	bool operator==(const Vector2d& source) const
-	{
-		bool res = false;
+   /**
+    *
+    */
+   bool operator==(const Vector2d& source) const
+   {
+      bool res = false;
 
-		if ((this->x == source.x) && (this->y == source.y)) {
-			res = true;
-		}
+      if ((this->x == source.x) && (this->y == source.y)) {
+         res = true;
+      }
 
-		return res;
-	}
+      return res;
+   }
 
 
-	/**
-	 *
-	 */
-	bool operator!=(const Vector2d& source) const
-	{
-		bool res = false;
+   /**
+    *
+    */
+   bool operator!=(const Vector2d& source) const
+   {
+      bool res = false;
 
-		if ((this->x != source.x) || (this->y != source.y)) {
-			res = true;
-		}
+      if ((this->x != source.x) || (this->y != source.y)) {
+         res = true;
+      }
 
-		return res;
-
-		//return (!(operator==(source)));
-	}
-
-
-	/**
-	 *
-	 */
-	Vector2d *makeCopy()
-	{
-		return new Vector2d(*this);
-	}
-
-	/**
-	 *
-	 */
-	virtual ~Vector2d()
-	{
+      return res;
+
+      //return (!(operator==(source)));
+   }
+
+
+   /**
+    *
+    */
+   Vector2d *makeCopy()
+   {
+      return new Vector2d(*this);
+   }
+
+   /**
+    *
+    */
+   virtual ~Vector2d()
+   {
 
-	}
+   }
 
-	/**
-	 *
-	 */
-	void setPosition(int xpos,int ypos)
-	{
-		x = xpos;
-		y = ypos;
-	}
+   /**
+    *
+    */
+   void setPosition(int xpos,int ypos)
+   {
+      x = xpos;
+      y = ypos;
+   }
 
-	/**
-	 *
-	 */
-	std::string getString()
-	{
-		std::stringstream stringStream;
+   /**
+    *
+    */
+   std::string getString()
+   {
+      std::stringstream stringStream;
 
-		stringStream << "Vector2d: xpos:" << x << " ypos:" << y <<
-				" Ptr:" << (this);
+      stringStream << "Vector2d: xpos:" << x << " ypos:" << y <<
+            " Ptr:" << (this);
 
-		return stringStream.str();
-	}
+      return stringStream.str();
+   }
 
-	/**
-	 *
-	 */
-	std::string getShortString()
-	{
-		std::stringstream stringStream;
+   /**
+    *
+    */
+   std::string getShortString()
+   {
+      std::stringstream stringStream;
 
-		stringStream << x << "," << y;
+      stringStream << x << "," << y;
 
-		return stringStream.str();
-	}
+      return stringStream.str();
+   }
 
 
 
-	/**
-	 *
-	 */
-	bool inRange(Vector2d pos) const
-	{
-		bool result = false;
+   /**
+    *
+    */
+   bool inRange(Vector2d pos) const
+   {
+      bool result = false;
 
-		if ((pos.x == x + 1) && (pos.y == y)) result = true;
-		if ((pos.x == x - 1) && (pos.y == y)) result = true;
-		if ((pos.x == x) && (pos.y == y + 1)) result = true;
-		if ((pos.x == x) && (pos.y == y - 1)) result = true;
+      if ((pos.x == x + 1) && (pos.y == y)) result = true;
+      if ((pos.x == x - 1) && (pos.y == y)) result = true;
+      if ((pos.x == x) && (pos.y == y + 1)) result = true;
+      if ((pos.x == x) && (pos.y == y - 1)) result = true;
 
-		return result;
+      return result;
 
-	}
+   }
 
 
-	/**
-	 *	to get the positions next to the actual one:
-	 */
-	Vector2d oneRight()
-	{
-		return Vector2d(x + 1, y);
-	}
+   /**
+    *	to get the positions next to the actual one:
+    */
+   Vector2d oneRight()
+   {
+      return Vector2d(x + 1, y);
+   }
 
-	/**
-	 *
-	 */
-	Vector2d oneLeft()
-	{
-		return Vector2d(x - 1, y);
-	}
+   /**
+    *
+    */
+   Vector2d oneLeft()
+   {
+      return Vector2d(x - 1, y);
+   }
 
-	/**
-	 *
-	 */
-	Vector2d oneUp()
-	{
-		return Vector2d(x, y - 1);
-	}
+   /**
+    *
+    */
+   Vector2d oneUp()
+   {
+      return Vector2d(x, y - 1);
+   }
 
-	/**
-	 *
-	 */
-	Vector2d oneDown()
-	{
-		return Vector2d(x, y + 1);
-	}
+   /**
+    *
+    */
+   Vector2d oneDown()
+   {
+      return Vector2d(x, y + 1);
+   }
 
-	friend std::ostream &operator<<(std::ostream &stream, Vector2d vec) {
-		stream << vec.x << "," << vec.y;
+   friend std::ostream &operator<<(std::ostream &stream, Vector2d vec) {
+      stream << vec.x << "," << vec.y;
 
-		return stream;
-	}
+      return stream;
+   }
 
 
-	int x, y;
+   int x, y;
 };
 
 // end of namespace

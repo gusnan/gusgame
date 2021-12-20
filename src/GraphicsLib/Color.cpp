@@ -49,7 +49,7 @@ Color colorYellow = Color(1.0f, 1.0f, 0.0f, 1.0f);
 Color colorLightGray = Color(0.8f, 0.8, 0.8f, 1.0f);
 Color colorDarkGray = Color(0.3125f, 0.3125f, 0.3125f, 1.0f);
 Color colorMediumGray = Color(0.4375f, 0.4375f, 0.4375f, 1.0f);
-	
+
 
 
 /**
@@ -64,7 +64,7 @@ Color::Color() : m_Red(1.0f), m_Green(1.0f), m_Blue(1.0f), m_Alpha(1.0f)
  *
  */
 Color::Color(float red, float green, float blue)  :
-	m_Red(red), m_Green(green), m_Blue(blue), m_Alpha(1.0f)
+   m_Red(red), m_Green(green), m_Blue(blue), m_Alpha(1.0f)
 {
 }
 
@@ -73,7 +73,7 @@ Color::Color(float red, float green, float blue)  :
  *
  */
 Color::Color(float red, float green, float blue, float alpha) :
-	m_Red(red), m_Green(green), m_Blue(blue), m_Alpha(alpha)
+   m_Red(red), m_Green(green), m_Blue(blue), m_Alpha(alpha)
 {
 }
 
@@ -82,13 +82,13 @@ Color::Color(float red, float green, float blue, float alpha) :
  *
  */
 Color::Color(const Color &source) :
-	m_Red(1.0f), m_Green(1.0f), m_Blue(1.0f), m_Alpha(1.0f)
+   m_Red(1.0f), m_Green(1.0f), m_Blue(1.0f), m_Alpha(1.0f)
 {
-	m_Red = source.m_Red;
-	m_Green = source.m_Green;
-	m_Blue = source.m_Blue;
+   m_Red = source.m_Red;
+   m_Green = source.m_Green;
+   m_Blue = source.m_Blue;
 
-	m_Alpha = source.m_Alpha;
+   m_Alpha = source.m_Alpha;
 }
 
 
@@ -97,15 +97,15 @@ Color::Color(const Color &source) :
  */
 Color &Color::operator=(const Color &source)
 {
-	if (this != &source) {
-		m_Red = source.m_Red;
-		m_Green = source.m_Green;
-		m_Blue = source.m_Blue;
+   if (this != &source) {
+      m_Red = source.m_Red;
+      m_Green = source.m_Green;
+      m_Blue = source.m_Blue;
 
-		m_Alpha = source.m_Alpha;
-	}
+      m_Alpha = source.m_Alpha;
+   }
 
-	return *this;
+   return *this;
 }
 
 
@@ -114,10 +114,10 @@ Color &Color::operator=(const Color &source)
  */
 ALLEGRO_COLOR Color::getAllegroColor() const
 {
-	ALLEGRO_COLOR result;
-	result = al_map_rgba_f(m_Red, m_Green, m_Blue, m_Alpha);
+   ALLEGRO_COLOR result;
+   result = al_map_rgba_f(m_Red, m_Green, m_Blue, m_Alpha);
 
-	return result;
+   return result;
 }
 
 

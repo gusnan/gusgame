@@ -44,48 +44,48 @@ class ExampleEventHandler : public EventHandler
 {
 public:
 
-	/**
-	 * Handle keyboard presses and releases
-	 */
-	virtual bool handleKeyboard(KeyEvent &keyEvent) {
-		bool result = false;
+   /**
+    * Handle keyboard presses and releases
+    */
+   virtual bool handleKeyboard(KeyEvent &keyEvent) {
+      bool result = false;
 
-		// Is it the Escape Button that is pressed? - then quit
-		if (keyEvent.getType() == KeyEventPressed) {
-			if (keyEvent.getValue() == Key::Escape) {
-				printf("Test...\n");
-				quit = true;
-				result = true;
-			}
+      // Is it the Escape Button that is pressed? - then quit
+      if (keyEvent.getType() == KeyEventPressed) {
+         if (keyEvent.getValue() == Key::Escape) {
+            printf("Test...\n");
+            quit = true;
+            result = true;
+         }
 
-			if (keyEvent.getValue() == Key::Z) {
-				if (keyEvent.getCtrlPressed() && keyEvent.getAltPressed()) {
-					quit = true;
-					result = true;
-				}
-			}
-		}
-		return result;
-	}
+         if (keyEvent.getValue() == Key::Z) {
+            if (keyEvent.getCtrlPressed() && keyEvent.getAltPressed()) {
+               quit = true;
+               result = true;
+            }
+         }
+      }
+      return result;
+   }
 
-	/**
-	 * handle the quit event (This is called when the window close button is pressed.)
-	 */
-	virtual void handleQuitEvent()
-	{
-		quit = true;
-	}
+   /**
+    * handle the quit event (This is called when the window close button is pressed.)
+    */
+   virtual void handleQuitEvent()
+   {
+      quit = true;
+   }
 
-	/**
-	 * handle mouse movement
-	 */
-	virtual void handleMouseMotion(MouseMotionEvent &event)
-	{
-		Vector2d pos = event.getPosition();
-		std::stringstream st;
-		st << "Pos:" << pos;
-		posString = st.str();
-	}
+   /**
+    * handle mouse movement
+    */
+   virtual void handleMouseMotion(MouseMotionEvent &event)
+   {
+      Vector2d pos = event.getPosition();
+      std::stringstream st;
+      st << "Pos:" << pos;
+      posString = st.str();
+   }
 };
 
 
@@ -94,92 +94,92 @@ public:
  */
 int main(int argc, char **argv)
 {
-	Gus::GraphicsLib::Font *exampleFont = nullptr;
+   Gus::GraphicsLib::Font *exampleFont = nullptr;
 
-	try {
-		// init the log - this function takes a string (the log file filename) as indata,
-		// if none is inserted, "log.txt" is assumed. If you give the empty string ""
-		// as filename for the log, no log will be used.
-		//
-		// The second indata is a boolean to determine to print the log to std::cout
-		// or not in addition to to the file.
-		LogHandler::initLog("log.txt", true);
+   try {
+      // init the log - this function takes a string (the log file filename) as indata,
+      // if none is inserted, "log.txt" is assumed. If you give the empty string ""
+      // as filename for the log, no log will be used.
+      //
+      // The second indata is a boolean to determine to print the log to std::cout
+      // or not in addition to to the file.
+      LogHandler::initLog("log.txt", true);
 
-		// init system stuff
-		System::initSystem();
+      // init system stuff
+      System::initSystem();
 
-		GraphicsHandler::initGraphicsHandler();
+      GraphicsHandler::initGraphicsHandler();
 
-		// set up a screen with resolution of 640x480, and not fullscreen
-		GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
+      // set up a screen with resolution of 640x480, and not fullscreen
+      GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
 
-		// set a window title
-		GraphicsHandler::setWindowTitle("GusGame Example 2");
+      // set a window title
+      GraphicsHandler::setWindowTitle("GusGame Example 2");
 
-		// Init the font handler
-		FontHandler::initFontHandler();
+      // Init the font handler
+      FontHandler::initFontHandler();
 
-		// Load a font
-		exampleFont = new GraphicsLib::Font("FreeSans.ttf", 25, false);
+      // Load a font
+      exampleFont = new GraphicsLib::Font("FreeSans.ttf", 25, false);
 
-		EventSystem::initEventSystem();
+      EventSystem::initEventSystem();
 
-		// Create an EventHandler for our "custom" events
-		//ExampleEventHandler *eventHandler=new ExampleEventHandler();
+      // Create an EventHandler for our "custom" events
+      //ExampleEventHandler *eventHandler=new ExampleEventHandler();
 
-		std::shared_ptr<ExampleEventHandler> eventHandler = std::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
+      std::shared_ptr<ExampleEventHandler> eventHandler = std::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
 
-		// set the used EventHandler to the one we just created.
-		//EventHelper::instance()->setEventHandler(eventHandler);
-		EventSystem::addEventHandler(eventHandler);
+      // set the used EventHandler to the one we just created.
+      //EventHelper::instance()->setEventHandler(eventHandler);
+      EventSystem::addEventHandler(eventHandler);
 
-	}
-	catch (Exception &e)
-	{
-		// If we get any problems with the code in the throw block, it will be
-		// caught here
-		std::cerr << "Exception: " << e.getString() << std::endl;
+   }
+   catch (Exception &e)
+   {
+      // If we get any problems with the code in the throw block, it will be
+      // caught here
+      std::cerr << "Exception: " << e.getString() << std::endl;
 
-		return EXIT_FAILURE;
-	}
+      return EXIT_FAILURE;
+   }
 
-	LOG("Enter main loop.");
+   LOG("Enter main loop.");
 
-	// the main loop
-	do {
-		// Update the timer
-		Timer::updateFrame();
+   // the main loop
+   do {
+      // Update the timer
+      Timer::updateFrame();
 
-		// Handle events (see the class just above this main
-		EventSystem::handleEvents();
+      // Handle events (see the class just above this main
+      EventSystem::handleEvents();
 
-		// Clear the screen every sync
-		GraphicsHandler::clearScreen();
+      // Clear the screen every sync
+      GraphicsHandler::clearScreen();
 
-		// Draw something
-		exampleFont->draw(Vector2d(0, 0), posString, colorWhite);
+      // Draw something
+      exampleFont->draw(Vector2d(0, 0), posString, colorWhite);
 
-		// Update the screen
-		GraphicsHandler::updateScreen();
-	} while(!quit);
+      // Update the screen
+      GraphicsHandler::updateScreen();
+   } while(!quit);
 
 
-	// remove our loaded font
-	delete exampleFont;
+   // remove our loaded font
+   delete exampleFont;
 
-	GraphicsHandler::doneGraphicsHandler();
+   GraphicsHandler::doneGraphicsHandler();
 
-	// kill the event system
-	EventSystem::doneEventSystem();
+   // kill the event system
+   EventSystem::doneEventSystem();
 
-	// kill the font handler
-	FontHandler::doneFontHandler();
+   // kill the font handler
+   FontHandler::doneFontHandler();
 
-	// done with system stuff
-	System::doneSystem();
+   // done with system stuff
+   System::doneSystem();
 
-	// done with the Log
-	LogHandler::doneLog();
+   // done with the Log
+   LogHandler::doneLog();
 
-	return EXIT_SUCCESS;
+   return EXIT_SUCCESS;
 }

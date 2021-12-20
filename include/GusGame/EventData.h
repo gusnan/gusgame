@@ -39,8 +39,8 @@ namespace EventLib
 class EventData
 {
 public:
-	EventData() = default;
-	virtual ~EventData();
+   EventData() = default;
+   virtual ~EventData();
 
 };
 

@@ -38,14 +38,14 @@ namespace GraphicsLib
  */
 namespace Mouse
 {
-	void initMouse();
-	void doneMouse();
+   void initMouse();
+   void doneMouse();
 
-	void setMouseBitmap(std::shared_ptr<Bitmap> mouseBitmap);
+   void setMouseBitmap(std::shared_ptr<Bitmap> mouseBitmap);
 
-	extern ALLEGRO_MOUSE_CURSOR *systemMouseCursor;
+   extern ALLEGRO_MOUSE_CURSOR *systemMouseCursor;
 
-	extern Vector2d mousePosition;
+   extern Vector2d mousePosition;
 };
 
 // end of namespace

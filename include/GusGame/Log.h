@@ -47,33 +47,33 @@ class Log
 {
 public:
 
-	GUSGAME_DLL Log(std::string fileName,bool activeFilelog,bool activeScreenLog);
-	virtual GUSGAME_DLL ~Log();
+   GUSGAME_DLL Log(std::string fileName,bool activeFilelog,bool activeScreenLog);
+   virtual GUSGAME_DLL ~Log();
 
-	void GUSGAME_DLL add(std::string message);
-	void GUSGAME_DLL add(std::stringstream message);
-	void GUSGAME_DLL addLine();
+   void GUSGAME_DLL add(std::string message);
+   void GUSGAME_DLL add(std::stringstream message);
+   void GUSGAME_DLL addLine();
 
-	void GUSGAME_DLL addIndent();
-	void GUSGAME_DLL removeIndent();
+   void GUSGAME_DLL addIndent();
+   void GUSGAME_DLL removeIndent();
 
-	std::string GUSGAME_DLL getTime();
-	std::string GUSGAME_DLL getDate();
+   std::string GUSGAME_DLL getTime();
+   std::string GUSGAME_DLL getDate();
 
 private:
-	void openFile();
-	void closeFile();
+   void openFile();
+   void closeFile();
 
 protected:
 
-	std::ofstream m_File;
+   std::ofstream m_File;
 
-	bool m_FileLogActive;
-	bool m_ScreenLogActive;
+   bool m_FileLogActive;
+   bool m_ScreenLogActive;
 
-	int m_Indent;
+   int m_Indent;
 
-	std::string m_Filename;
+   std::string m_Filename;
 
 };
 

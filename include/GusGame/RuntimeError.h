@@ -38,8 +38,8 @@ namespace ExceptionLib
 class RuntimeError : public Gus::ExceptionLib::Exception
 {
 public:
-	RuntimeError(std::string message);
-	virtual ~RuntimeError();
+   RuntimeError(std::string message);
+   virtual ~RuntimeError();
 protected:
 };
 

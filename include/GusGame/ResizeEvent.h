@@ -38,20 +38,20 @@ namespace EventLib
 class ResizeEvent
 {
 public:
-	ResizeEvent();
-	ResizeEvent(ALLEGRO_EVENT alEvent);
-	// ActiveEvent(ActiveWindowState windowState);
+   ResizeEvent();
+   ResizeEvent(ALLEGRO_EVENT alEvent);
+   // ActiveEvent(ActiveWindowState windowState);
 
-	virtual ~ResizeEvent();
+   virtual ~ResizeEvent();
 
-	// ActiveWindowState getWindowState();
+   // ActiveWindowState getWindowState();
 
-	GraphicsLib::Rect getRect();
+   GraphicsLib::Rect getRect();
 
 protected:
-	GraphicsLib::Rect m_Rect;
+   GraphicsLib::Rect m_Rect;
 
-	
+   
 };
 
 // end of namespace

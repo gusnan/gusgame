@@ -74,10 +74,10 @@ EventHandler::~EventHandler()
  */
 EventHandler::EventHandler(const EventHandler &source) : m_Name(source.m_Name)
 {
-	if (this != &source)
-	{
-		m_Name = source.m_Name;
-	}
+   if (this != &source)
+   {
+      m_Name = source.m_Name;
+   }
 
 }
 
@@ -87,12 +87,12 @@ EventHandler::EventHandler(const EventHandler &source) : m_Name(source.m_Name)
  */
 EventHandler &EventHandler::operator=(const EventHandler &source)
 {
-	if (this != &source)
-	{
-		m_Name = source.m_Name;
-	}
+   if (this != &source)
+   {
+      m_Name = source.m_Name;
+   }
 
-	return *this;
+   return *this;
 }
 
 
@@ -102,7 +102,7 @@ EventHandler &EventHandler::operator=(const EventHandler &source)
  */
 bool EventHandler::handleKeyboard(KeyEvent &keyEvent)
 {
-	return false;
+   return false;
 }
 
 
@@ -119,7 +119,7 @@ void EventHandler::handleActiveEvent(ActiveEvent &activeEvent)
  */
 bool EventHandler::handleUserEvent(UserEvent &event)
 {
-	return false;
+   return false;
 }
 
 
@@ -128,7 +128,7 @@ bool EventHandler::handleUserEvent(UserEvent &event)
  */
 bool EventHandler::handleMouseButton(MouseButtonEvent &mouseButtonEvent)
 {
-	return true;
+   return true;
 }
 
 
@@ -177,7 +177,7 @@ void EventHandler::handleSystemQuitEvent()
  */
 std::string EventHandler::getName()
 {
-	return m_Name;
+   return m_Name;
 }
 
 
@@ -186,7 +186,7 @@ std::string EventHandler::getName()
  */
 void EventHandler::setName(std::string inName)
 {
-	m_Name = inName;
+   m_Name = inName;
 }
 
 

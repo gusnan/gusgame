@@ -40,20 +40,20 @@ namespace GraphicsLib
 class Color
 {
 public:
-	Color();
-	Color(float, float, float);
-	Color(float, float, float, float);
+   Color();
+   Color(float, float, float);
+   Color(float, float, float, float);
 
-	Color(ALLEGRO_COLOR allegroColor);
+   Color(ALLEGRO_COLOR allegroColor);
 
-	Color(const Color &source);
-	Color &operator=(const Color &source);
+   Color(const Color &source);
+   Color &operator=(const Color &source);
 
-	virtual ~Color();
+   virtual ~Color();
 
-	ALLEGRO_COLOR getAllegroColor() const;
+   ALLEGRO_COLOR getAllegroColor() const;
 
-	float m_Red, m_Green, m_Blue, m_Alpha;
+   float m_Red, m_Green, m_Blue, m_Alpha;
 
 protected:
 };

@@ -40,21 +40,21 @@ enum MouseButtonStatus {MouseButtonStatusPressed=1, MouseButtonStatusReleased=2}
 class MouseButtonEvent
 {
 public:
-	MouseButtonEvent(ALLEGRO_EVENT event);
-	virtual ~MouseButtonEvent();
+   MouseButtonEvent(ALLEGRO_EVENT event);
+   virtual ~MouseButtonEvent();
 
-	Gus::GraphicsLib::Vector2d getPosition() const;
-	int getButton() const;
+   Gus::GraphicsLib::Vector2d getPosition() const;
+   int getButton() const;
 
-	MouseButtonStatus getStatus() const;
+   MouseButtonStatus getStatus() const;
 
 
 protected:
 
-	Gus::GraphicsLib::Vector2d m_Position;
-	int m_Button;
+   Gus::GraphicsLib::Vector2d m_Position;
+   int m_Button;
 
-	MouseButtonStatus m_Status;
+   MouseButtonStatus m_Status;
 };
 
 // end of namespace

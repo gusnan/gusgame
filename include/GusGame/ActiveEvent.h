@@ -37,13 +37,13 @@ namespace EventLib
  */
 enum ActiveWindowState
 {
-	WindowStateDefault = 0,
-	WindowStateMouseFocusGain,
-	WindowStateMouseFocusLost,
-	WindowStateInputFocusGain,
-	WindowStateInputFocusLost,
-	WindowStateAppFocusGain,
-	WindowStateAppFocusLost
+   WindowStateDefault = 0,
+   WindowStateMouseFocusGain,
+   WindowStateMouseFocusLost,
+   WindowStateInputFocusGain,
+   WindowStateInputFocusLost,
+   WindowStateAppFocusGain,
+   WindowStateAppFocusLost
 };
 
 /**
@@ -52,16 +52,16 @@ enum ActiveWindowState
 class ActiveEvent
 {
 public:
-	ActiveEvent();
-	ActiveEvent(ALLEGRO_EVENT alEvent);
-	ActiveEvent(ActiveWindowState windowState);
+   ActiveEvent();
+   ActiveEvent(ALLEGRO_EVENT alEvent);
+   ActiveEvent(ActiveWindowState windowState);
 
-	virtual ~ActiveEvent();
+   virtual ~ActiveEvent();
 
-	ActiveWindowState getWindowState();
+   ActiveWindowState getWindowState();
 
 protected:
-	ActiveWindowState m_WindowState;
+   ActiveWindowState m_WindowState;
 };
 
 // end of namespace

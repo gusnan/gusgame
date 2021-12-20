@@ -45,33 +45,33 @@ namespace LogLib
 {
 
 #define COLON ": "
-	
-	
+   
+   
 /**
  *
  */
 GUSGAME_DLL Log::Log(std::string filename,bool activeFileLog,bool activeScreenLog) : m_Indent(0), m_FileLogActive(activeFileLog), m_ScreenLogActive(activeScreenLog), m_File(), m_Filename(filename)
 {
-	if (m_FileLogActive) {
-		m_File.open((char*)(m_Filename.c_str()), std::fstream::trunc);
-		
-		m_File << std::endl;
-		m_File << getTime() << COLON;
-		m_File << "Initing log..." << std::endl;
-		m_File << getTime() << COLON;
-		m_File << "Current Date is:" << getDate() << std::endl;
-	}
-		
-	if (m_ScreenLogActive) {
-		std::cout << std::endl;
-		std::cout << getTime() << COLON;
-		std::cout << "Initing log..." << std::endl;
-		std::cout << getTime() << COLON;
-		std::cout << "Current Date is:" << getDate() << std::endl;
-	}
-	
-	addLine();
-	closeFile();
+   if (m_FileLogActive) {
+      m_File.open((char*)(m_Filename.c_str()), std::fstream::trunc);
+      
+      m_File << std::endl;
+      m_File << getTime() << COLON;
+      m_File << "Initing log..." << std::endl;
+      m_File << getTime() << COLON;
+      m_File << "Current Date is:" << getDate() << std::endl;
+   }
+      
+   if (m_ScreenLogActive) {
+      std::cout << std::endl;
+      std::cout << getTime() << COLON;
+      std::cout << "Initing log..." << std::endl;
+      std::cout << getTime() << COLON;
+      std::cout << "Current Date is:" << getDate() << std::endl;
+   }
+   
+   addLine();
+   closeFile();
 }
 
 
@@ -80,24 +80,24 @@ GUSGAME_DLL Log::Log(std::string filename,bool activeFileLog,bool activeScreenLo
  */
 GUSGAME_DLL Log::~Log()
 {
-	closeFile();
-	addLine();
+   closeFile();
+   addLine();
 
-	openFile();
-	if (m_FileLogActive) {
-		m_File << getTime() << COLON;
-		m_File << "Done log..." << std::endl;
-		if (m_File.is_open()) {
-			m_File.close();
-		}
-	}
-	
-	closeFile();
-		
-	if (m_ScreenLogActive) {
-		std::cout << getTime() << COLON;
-		std::cout << "Done log..." << std::endl;
-	}
+   openFile();
+   if (m_FileLogActive) {
+      m_File << getTime() << COLON;
+      m_File << "Done log..." << std::endl;
+      if (m_File.is_open()) {
+         m_File.close();
+      }
+   }
+   
+   closeFile();
+      
+   if (m_ScreenLogActive) {
+      std::cout << getTime() << COLON;
+      std::cout << "Done log..." << std::endl;
+   }
 
 }
 
@@ -107,24 +107,24 @@ GUSGAME_DLL Log::~Log()
  */
 void GUSGAME_DLL Log::add(std::string message)
 {
-	openFile();
-	if (m_FileLogActive) {
-		m_File << getTime() << COLON;
-		for (int co = 0; co < m_Indent; co++) {
-			m_File << "   ";
-		}
-		m_File << message << std::endl;
-		m_File.flush();
-	}
-	closeFile();
-	
-	if (m_ScreenLogActive) {
-		std::cout << getTime() << COLON;
-		for (int co = 0; co < m_Indent; co++) {
-			std::cout << "   ";
-		}
-		std::cout << message << std::endl;
-	}
+   openFile();
+   if (m_FileLogActive) {
+      m_File << getTime() << COLON;
+      for (int co = 0; co < m_Indent; co++) {
+         m_File << "   ";
+      }
+      m_File << message << std::endl;
+      m_File.flush();
+   }
+   closeFile();
+   
+   if (m_ScreenLogActive) {
+      std::cout << getTime() << COLON;
+      for (int co = 0; co < m_Indent; co++) {
+         std::cout << "   ";
+      }
+      std::cout << message << std::endl;
+   }
 
 }
 
@@ -134,24 +134,24 @@ void GUSGAME_DLL Log::add(std::string message)
  */
 void GUSGAME_DLL Log::add(std::stringstream message)
 {
-	openFile();
-	if (m_FileLogActive) {
-		m_File << getTime() << COLON;
-		for (int co = 0; co < m_Indent; co++) {
-			m_File << "   ";
-		}
-		m_File << message.str();
-		m_File.flush();
-	}
-	
-	if (m_ScreenLogActive) {
-		std::cout << getTime() << COLON;
-		for (int co = 0; co < m_Indent; co++) {
-			std::cout << "   ";
-		}
-		std::cout << message.str() << std::endl;
-	}
-	closeFile();
+   openFile();
+   if (m_FileLogActive) {
+      m_File << getTime() << COLON;
+      for (int co = 0; co < m_Indent; co++) {
+         m_File << "   ";
+      }
+      m_File << message.str();
+      m_File.flush();
+   }
+   
+   if (m_ScreenLogActive) {
+      std::cout << getTime() << COLON;
+      for (int co = 0; co < m_Indent; co++) {
+         std::cout << "   ";
+      }
+      std::cout << message.str() << std::endl;
+   }
+   closeFile();
 }
 
 
@@ -160,19 +160,19 @@ void GUSGAME_DLL Log::add(std::stringstream message)
  */
 void GUSGAME_DLL Log::addLine()
 {
-	openFile();
-	if (m_FileLogActive) {
-		m_File << getTime() << COLON;
-		m_File << "-------------------------" << std::endl;
-		m_File.flush();
-	}
-	
-	if (m_ScreenLogActive) {
-		std::cout << getTime() << COLON;
-		std::cout << "------------------------" << std::endl;
-	}
-	
-	closeFile();
+   openFile();
+   if (m_FileLogActive) {
+      m_File << getTime() << COLON;
+      m_File << "-------------------------" << std::endl;
+      m_File.flush();
+   }
+   
+   if (m_ScreenLogActive) {
+      std::cout << getTime() << COLON;
+      std::cout << "------------------------" << std::endl;
+   }
+   
+   closeFile();
 }
 
 
@@ -181,7 +181,7 @@ void GUSGAME_DLL Log::addLine()
  */
 void GUSGAME_DLL Log::addIndent()
 {
-	m_Indent++;
+   m_Indent++;
 }
 
 
@@ -190,7 +190,7 @@ void GUSGAME_DLL Log::addIndent()
  */
 void GUSGAME_DLL Log::removeIndent()
 {
-	m_Indent--;
+   m_Indent--;
 }
 
 
@@ -199,22 +199,22 @@ void GUSGAME_DLL Log::removeIndent()
  */
 std::string GUSGAME_DLL Log::getTime()
 {
-	time_t rawtime;
-	char buffer[80];
+   time_t rawtime;
+   char buffer[80];
 
-	time(&rawtime);
+   time(&rawtime);
 
 #ifdef _MSC_VER
-	struct tm timeinfo;
-	localtime_s(&timeinfo,&rawtime);
-	strftime(buffer, 80, "%X", &timeinfo);
+   struct tm timeinfo;
+   localtime_s(&timeinfo,&rawtime);
+   strftime(buffer, 80, "%X", &timeinfo);
 #else
-	struct tm *timeinfo;
-	timeinfo = localtime(&rawtime);
-	strftime(buffer, 80, "%X", timeinfo);
+   struct tm *timeinfo;
+   timeinfo = localtime(&rawtime);
+   strftime(buffer, 80, "%X", timeinfo);
 #endif
-	
-	return buffer;
+   
+   return buffer;
 }
 
 
@@ -223,22 +223,22 @@ std::string GUSGAME_DLL Log::getTime()
  */
 std::string GUSGAME_DLL Log::getDate()
 {
-	time_t rawtime;
-	char buffer[80];
+   time_t rawtime;
+   char buffer[80];
 
-	time(&rawtime);
+   time(&rawtime);
 
 #ifdef _MSC_VER
-	struct tm timeinfo;
-	localtime_s(&timeinfo, &rawtime);
-	strftime(buffer, 80, "%x", &timeinfo);
+   struct tm timeinfo;
+   localtime_s(&timeinfo, &rawtime);
+   strftime(buffer, 80, "%x", &timeinfo);
 #else
-	struct tm *timeinfo;
-	timeinfo = localtime(&rawtime);
-	strftime(buffer, 80, "%x", timeinfo);
+   struct tm *timeinfo;
+   timeinfo = localtime(&rawtime);
+   strftime(buffer, 80, "%x", timeinfo);
 #endif
-	
-	return buffer;
+   
+   return buffer;
 }
 
 
@@ -247,11 +247,11 @@ std::string GUSGAME_DLL Log::getDate()
  */
 void GUSGAME_DLL Log::openFile()
 {
-	/*if (m_LogActive) {
-		m_File.open((char*)(m_Filename.c_str()), std::fstream::ate);
-	}
-	*/
-	
+   /*if (m_LogActive) {
+      m_File.open((char*)(m_Filename.c_str()), std::fstream::ate);
+   }
+   */
+   
 }
 
 
@@ -260,10 +260,10 @@ void GUSGAME_DLL Log::openFile()
  */
 void GUSGAME_DLL Log::closeFile()
 {
-	/*if (m_LogActive) {
-		m_File.flush();
-		m_File.close();
-	}*/
+   /*if (m_LogActive) {
+      m_File.flush();
+      m_File.close();
+   }*/
 }
 
 

@@ -31,18 +31,18 @@ namespace Gus
  */
 namespace System
 {
-	void initSystem();
-	void doneSystem();
+   void initSystem();
+   void doneSystem();
 
-	std::string getGusGameVersion();
+   std::string getGusGameVersion();
 
-	int getRamSize();
+   int getRamSize();
 
-	std::string getAllegroVersionString();
-	std::string getAppName();
+   std::string getAllegroVersionString();
+   std::string getAppName();
 
-	extern std::string executablePath;
-	extern std::string executableFilename;
+   extern std::string executablePath;
+   extern std::string executableFilename;
 
 };
 

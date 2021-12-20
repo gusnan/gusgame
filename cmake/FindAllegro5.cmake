@@ -21,25 +21,25 @@ FIND_PATH(ALLEGRO_INCLUDE_DIR allegro.h allegro5.h allegro5/allegro.h
 set(VERSION_NUMBER "5")
 
 if(UNIX AND NOT CYGWIN)
-	message(STATUS "Unix and not Cygwin!")
-	exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} allegro_main-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
-	IF (NOT ALLEGRO_LIBRARIES)
-	    # FALL BACK TO 5.0
-	    set(VERSION_NUMBER "5.0")
-	    exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} allegro_main-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
-	ENDIF (NOT ALLEGRO_LIBRARIES)
-	# Check if any of these checks have found if so then cause failure)
-	STRING(REGEX MATCH "not found" LIB_CHECK ${ALLEGRO_LIBRARIES})
-	IF (${LIB_CHECK})
-	    set(ALLEGRO_LIBRARIES "")
-	ENDIF (${LIB_CHECK})
+   message(STATUS "Unix and not Cygwin!")
+   exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} allegro_main-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
+   IF (NOT ALLEGRO_LIBRARIES)
+       # FALL BACK TO 5.0
+       set(VERSION_NUMBER "5.0")
+       exec_program(pkg-config ARGS "allegro-${VERSION_NUMBER} allegro_ttf-${VERSION_NUMBER} allegro_memfile-${VERSION_NUMBER} allegro_image-${VERSION_NUMBER} allegro_primitives-${VERSION_NUMBER} allegro_audio-${VERSION_NUMBER} allegro_acodec-${VERSION_NUMBER} allegro_main-${VERSION_NUMBER} --libs" OUTPUT_VARIABLE ALLEGRO_LIBRARIES)
+   ENDIF (NOT ALLEGRO_LIBRARIES)
+   # Check if any of these checks have found if so then cause failure)
+   STRING(REGEX MATCH "not found" LIB_CHECK ${ALLEGRO_LIBRARIES})
+   IF (${LIB_CHECK})
+       set(ALLEGRO_LIBRARIES "")
+   ENDIF (${LIB_CHECK})
 
 # FIXME - Figure out what to do for windows 
 else(UNIX AND NOT CYGWIN)
-	SET(ALLEGRO_NAMES allegro allegrolib allegrodll allegro5 allegro_monolith allegro_monolith.dll.a allegro_monolith.dll)
-	FIND_LIBRARY(ALLEGRO_LIBRARY
-	NAMES ${ALLEGRO_NAMES}
-	PATHS /usr/lib /usr/local/lib $ENV{MINGDIR}/lib)
+   SET(ALLEGRO_NAMES allegro allegrolib allegrodll allegro5 allegro_monolith allegro_monolith.dll.a allegro_monolith.dll)
+   FIND_LIBRARY(ALLEGRO_LIBRARY
+   NAMES ${ALLEGRO_NAMES}
+   PATHS /usr/lib /usr/local/lib $ENV{MINGDIR}/lib)
 endif(UNIX AND NOT CYGWIN)
 
 # message(STATUS "Allegro library: ${ALLEGRO_LIBRARY}")

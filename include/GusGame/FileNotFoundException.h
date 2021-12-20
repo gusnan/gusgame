@@ -38,8 +38,8 @@ namespace ExceptionLib
 class FileNotFoundException : public RuntimeError
 {
 public:
-	FileNotFoundException(std::string message);
-	virtual ~FileNotFoundException();
+   FileNotFoundException(std::string message);
+   virtual ~FileNotFoundException();
 protected:
 };
 

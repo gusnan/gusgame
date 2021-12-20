@@ -39,33 +39,33 @@ typedef std::shared_ptr<EventHandler> EventHandlerPtr;
  */
 namespace EventSystem
 {
-	void initEventSystem();
-	void doneEventSystem();
+   void initEventSystem();
+   void doneEventSystem();
 
-	void addEventHandler(EventHandlerPtr eventHandler);
-	void removeEventHandler(const EventHandlerPtr &eventHandler);
+   void addEventHandler(EventHandlerPtr eventHandler);
+   void removeEventHandler(const EventHandlerPtr &eventHandler);
 
-	void handleEvents();
-	bool doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler);
+   void handleEvents();
+   bool doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler);
 
-	void printEventHandlers();
+   void printEventHandlers();
 
-	extern ALLEGRO_EVENT_QUEUE *eventQueue;
+   extern ALLEGRO_EVENT_QUEUE *eventQueue;
 
-	//extern EventHandler *eventHandler;
+   //extern EventHandler *eventHandler;
 
-	//ALLEGRO_EVENT_SOURCE *getUserEventSource();
+   //ALLEGRO_EVENT_SOURCE *getUserEventSource();
 
-	extern std::list<EventHandlerPtr> *listOfEventHandlers;
+   extern std::list<EventHandlerPtr> *listOfEventHandlers;
 
-	extern ALLEGRO_EVENT_SOURCE userEventSource;
+   extern ALLEGRO_EVENT_SOURCE userEventSource;
 
-	extern std::list<UserEvent*> *listDelayedEvents;
+   extern std::list<UserEvent*> *listDelayedEvents;
 
 
-	extern std::list<EventHandlerPtr> *handlersToRemove;
+   extern std::list<EventHandlerPtr> *handlersToRemove;
 
-	extern bool inEventLoop;
+   extern bool inEventLoop;
 
 };
 

@@ -38,20 +38,20 @@ namespace Gus
 std::string StringHelper::upcase(std::string str)
 {
 
-	/* --- Doesn't work on Visual C++ 2008 Express
-	std::transform(str.begin(),
-				str.end(),
-				str.begin(),
-				(int(*)(int)) std::toupper);
+   /* --- Doesn't work on Visual C++ 2008 Express
+   std::transform(str.begin(),
+            str.end(),
+            str.begin(),
+            (int(*)(int)) std::toupper);
 */
-	std::string res=str;
+   std::string res=str;
 
-	for (int co=0; co < (int)str.length(); co++) {
-		char ch = str[co];
-		res[co] = toupper(ch);
-	}
+   for (int co=0; co < (int)str.length(); co++) {
+      char ch = str[co];
+      res[co] = toupper(ch);
+   }
 
-	return res;
+   return res;
 }
 
 /**
@@ -59,21 +59,21 @@ std::string StringHelper::upcase(std::string str)
  */
 std::string StringHelper::lowercase(std::string str)
 {
-	/* --- Doesn't work on Visual C++ 2008 Express
-	std::transform(str.begin(),
-				str.end(),
-				str.begin(),
-				(int(*)(int)) std::tolower);
-	*/
+   /* --- Doesn't work on Visual C++ 2008 Express
+   std::transform(str.begin(),
+            str.end(),
+            str.begin(),
+            (int(*)(int)) std::tolower);
+   */
 
-	std::string res = str;
+   std::string res = str;
 
-	for (int co = 0 ;co < (int)str.length(); co++) {
-		char ch = str[co];
-		res[co] = tolower(ch);
-	}
+   for (int co = 0 ;co < (int)str.length(); co++) {
+      char ch = str[co];
+      res[co] = tolower(ch);
+   }
 
-	return res;
+   return res;
 }
 
 
@@ -82,38 +82,38 @@ std::string StringHelper::lowercase(std::string str)
  */
 void StringHelper::splitString(std::string instring, std::string& text, std::string& shortcut)
 {
-	text=instring;
-	shortcut = "";
+   text=instring;
+   shortcut = "";
 
-	//bool containsParanthesis=false;
+   //bool containsParanthesis=false;
 
-	int startPar = -1;
+   int startPar = -1;
 
-	int len=(int)instring.length();
+   int len=(int)instring.length();
 
-	for (int co = 0; co < len; co++) {
-		if (instring[co] == '(') {
-			//containsParanthesis=true;
-			startPar = co;
-			//LOG("Contains Paranthesis...");
-		}
-	}
+   for (int co = 0; co < len; co++) {
+      if (instring[co] == '(') {
+         //containsParanthesis=true;
+         startPar = co;
+         //LOG("Contains Paranthesis...");
+      }
+   }
 
-	int posEndPar=-1;
+   int posEndPar=-1;
 
-	for (int co=0;co<(int)instring.length();co++) {
-		if (instring[co]==')') {
-			posEndPar=co; //containsParanthesis=true;
-			//std::cout << "Contains Parathesis!" << std::endl;
-		}
-	}
+   for (int co=0;co<(int)instring.length();co++) {
+      if (instring[co]==')') {
+         posEndPar=co; //containsParanthesis=true;
+         //std::cout << "Contains Parathesis!" << std::endl;
+      }
+   }
 
-	if (posEndPar != -1) {
-		if (startPar != -1) {
-			text = instring.substr(0, startPar);
-			shortcut = instring.substr(startPar + 1, len - (startPar + 2));
-		}
-	}
+   if (posEndPar != -1) {
+      if (startPar != -1) {
+         text = instring.substr(0, startPar);
+         shortcut = instring.substr(startPar + 1, len - (startPar + 2));
+      }
+   }
 }
 
 /**
@@ -121,13 +121,13 @@ void StringHelper::splitString(std::string instring, std::string& text, std::str
  */
 int StringHelper::stringToInt(const std::string &str)
 {
-	std::istringstream i(str);
-	int res;
+   std::istringstream i(str);
+   int res;
 
-	if (!(i >> res))
-		throw ExceptionLib::StringToIntException();
+   if (!(i >> res))
+      throw ExceptionLib::StringToIntException();
 
-	return res;
+   return res;
 }
 
 /**
@@ -135,23 +135,23 @@ int StringHelper::stringToInt(const std::string &str)
  */
 std::string StringHelper::doubleParanthesis(std::string st)
 {
-	std::string result = "";
+   std::string result = "";
 
 
 
-	for (int co = 0; co < (int)st.length(); co++) {
-		char ch=st[co];
+   for (int co = 0; co < (int)st.length(); co++) {
+      char ch=st[co];
 
-		switch (ch) {
-			case '[':
-			case ']':
-				result += ch;
-		}
+      switch (ch) {
+         case '[':
+         case ']':
+            result += ch;
+      }
 
-		result += ch;
+      result += ch;
 
-	}
-	return result;
+   }
+   return result;
 }
 
 // end of namespace

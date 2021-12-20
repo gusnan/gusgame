@@ -56,7 +56,7 @@ ALLEGRO_DISPLAY *GraphicsHandler::display = nullptr;
 
 Vector2d GraphicsHandler::screenSize;
 Vector2d GraphicsHandler::backgroundSize;
-	
+   
 float GraphicsHandler::zoomX = 1.0f, GraphicsHandler::zoomY = 1.0f;
 
 /**
@@ -64,7 +64,7 @@ float GraphicsHandler::zoomX = 1.0f, GraphicsHandler::zoomY = 1.0f;
  */
 void GraphicsHandler::initGraphicsHandler()
 {
-	Timer::initTimer();
+   Timer::initTimer();
 }
 
 
@@ -74,11 +74,11 @@ void GraphicsHandler::initGraphicsHandler()
 void GraphicsHandler::doneGraphicsHandler()
 {
 
-	if (display != nullptr) {
-		al_destroy_display(display);
-	}
+   if (display != nullptr) {
+      al_destroy_display(display);
+   }
 
-	Timer::doneTimer();
+   Timer::doneTimer();
 
 }
 
@@ -88,24 +88,24 @@ void GraphicsHandler::doneGraphicsHandler()
  */
 std::string GraphicsHandler::getOpenGLVersionString()
 {
-	uint32_t openGLversion = al_get_opengl_version();
+   uint32_t openGLversion = al_get_opengl_version();
 
-	/*
-	std::cout << ((openGLversion >> 24) % 0x100) << std::endl;
-	std::cout << ((openGLversion >> 16) % 0x100) << std::endl;
-	std::cout << ((openGLversion >> 8) % 0x100) << std::endl;
-	std::cout << (openGLversion % 0x100) << std::endl;
-	*/
+   /*
+   std::cout << ((openGLversion >> 24) % 0x100) << std::endl;
+   std::cout << ((openGLversion >> 16) % 0x100) << std::endl;
+   std::cout << ((openGLversion >> 8) % 0x100) << std::endl;
+   std::cout << (openGLversion % 0x100) << std::endl;
+   */
 
-	std::stringstream result;
+   std::stringstream result;
 
-	//result << openGLversion;
+   //result << openGLversion;
 
-	result << ((openGLversion >> 24) % 0x100) << "." <<
-				 ((openGLversion >> 16) % 0x100) << "." <<
-				 ((openGLversion >> 8) % 0x100) << "."<< (openGLversion % 0x100);
+   result << ((openGLversion >> 24) % 0x100) << "." <<
+             ((openGLversion >> 16) % 0x100) << "." <<
+             ((openGLversion >> 8) % 0x100) << "."<< (openGLversion % 0x100);
 
-	return (std::string)(result.str());
+   return (std::string)(result.str());
 }
 
 
@@ -114,30 +114,30 @@ std::string GraphicsHandler::getOpenGLVersionString()
  */
 void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable)
 {
-	int flags = 0;
+   int flags = 0;
 
-	if (fullscreen) {
-		flags |= ALLEGRO_FULLSCREEN;
-	} else {
-		flags |= ALLEGRO_WINDOWED;
-	}
+   if (fullscreen) {
+      flags |= ALLEGRO_FULLSCREEN;
+   } else {
+      flags |= ALLEGRO_WINDOWED;
+   }
 
-	flags |= ALLEGRO_OPENGL;
+   flags |= ALLEGRO_OPENGL;
 
-	if (resizable) flags |= ALLEGRO_RESIZABLE;
+   if (resizable) flags |= ALLEGRO_RESIZABLE;
 
-	al_set_new_display_flags(flags);
+   al_set_new_display_flags(flags);
 
-	display = al_create_display(size.x, size.y);
+   display = al_create_display(size.x, size.y);
 
-	screenSize = size;
-	setBackgroundSize(screenSize);
+   screenSize = size;
+   setBackgroundSize(screenSize);
 
-	if (!display) {
-		throw ExceptionLib::Exception("Couldn't init display!");
-	}
+   if (!display) {
+      throw ExceptionLib::Exception("Couldn't init display!");
+   }
 
-	//al_set_window_position(display, 32, 32);
+   //al_set_window_position(display, 32, 32);
 }
 
 
@@ -146,10 +146,10 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, boo
  */
 void GraphicsHandler::setBackgroundSize(const Vector2d &size)
 {
-	backgroundSize = size;
-	
-	zoomX = (float)screenSize.x / (float)backgroundSize.x;
-	zoomY = (float)screenSize.y / (float)backgroundSize.y;
+   backgroundSize = size;
+   
+   zoomX = (float)screenSize.x / (float)backgroundSize.x;
+   zoomY = (float)screenSize.y / (float)backgroundSize.y;
 }
 
 
@@ -158,8 +158,8 @@ void GraphicsHandler::setBackgroundSize(const Vector2d &size)
  */
 void GraphicsHandler::setWindowTitle(const std::string &windowTitle)
 {
-	if (display)
-		al_set_window_title(display, (const char*)(windowTitle.c_str()));
+   if (display)
+      al_set_window_title(display, (const char*)(windowTitle.c_str()));
 }
 
 
@@ -168,7 +168,7 @@ void GraphicsHandler::setWindowTitle(const std::string &windowTitle)
  */
 void GraphicsHandler::clearScreen()
 {
-	al_clear_to_color(al_map_rgb(0, 0, 0));
+   al_clear_to_color(al_map_rgb(0, 0, 0));
 }
 
 
@@ -177,10 +177,10 @@ void GraphicsHandler::clearScreen()
  */
 void GraphicsHandler::updateScreen()
 {
-	Timer::timerValue1 = Timer::timerValue2;
-	Timer::timerValue2 = al_get_time();
+   Timer::timerValue1 = Timer::timerValue2;
+   Timer::timerValue2 = al_get_time();
 
-	al_flip_display();
+   al_flip_display();
 }
 
 
@@ -189,7 +189,7 @@ void GraphicsHandler::updateScreen()
  */
 Rect GraphicsHandler::getScreenRect()
 {
-	return Rect(Vector2d(0, 0), backgroundSize);
+   return Rect(Vector2d(0, 0), backgroundSize);
 }
 
 
@@ -198,13 +198,13 @@ Rect GraphicsHandler::getScreenRect()
  */
 void GraphicsHandler::setClipRect(const Rect &rect)
 {
-	int x = (float)rect.position.x * (float)GraphicsHandler::zoomX;
-	int y = (float)rect.position.y * (float)GraphicsHandler::zoomY;
+   int x = (float)rect.position.x * (float)GraphicsHandler::zoomX;
+   int y = (float)rect.position.y * (float)GraphicsHandler::zoomY;
 
-	int xs = (float)rect.size.x * (float)GraphicsHandler::zoomX;
-	int ys = (float)rect.size.y * (float)GraphicsHandler::zoomY;
+   int xs = (float)rect.size.x * (float)GraphicsHandler::zoomX;
+   int ys = (float)rect.size.y * (float)GraphicsHandler::zoomY;
 
-	al_set_clipping_rectangle(x, y, xs, ys);
+   al_set_clipping_rectangle(x, y, xs, ys);
 }
 
 
@@ -213,7 +213,7 @@ void GraphicsHandler::setClipRect(const Rect &rect)
  */
 void GraphicsHandler::noClip()
 {
-	setClipRect(getScreenRect());
+   setClipRect(getScreenRect());
 }
 
 
@@ -222,11 +222,11 @@ void GraphicsHandler::noClip()
  */
 void GraphicsHandler::setIcon(Bitmap *icon)
 {
-	if (display) {
-		if (icon) {
-			al_set_display_icon(display, icon->getAllegroBitmap());
-		}
-	}
+   if (display) {
+      if (icon) {
+         al_set_display_icon(display, icon->getAllegroBitmap());
+      }
+   }
 }
 
 
@@ -235,14 +235,14 @@ void GraphicsHandler::setIcon(Bitmap *icon)
  */
 Vector2d GraphicsHandler::getDisplayResolution()
 {
-	int w = 0, h = 0;
+   int w = 0, h = 0;
 
-	if (display != nullptr) {
-		w = al_get_display_width(display);
-		h = al_get_display_height(display);
-	}
+   if (display != nullptr) {
+      w = al_get_display_width(display);
+      h = al_get_display_height(display);
+   }
 
-	return Vector2d(w, h);
+   return Vector2d(w, h);
 }
 
 // end of namespace

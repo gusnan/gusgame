@@ -43,7 +43,7 @@ namespace Gus
  */
 namespace ExceptionLib
 {
-	
+   
 Error *ErrorHandler::error = nullptr;
 
 /**
@@ -51,7 +51,7 @@ Error *ErrorHandler::error = nullptr;
  */
 void ErrorHandler::initErrorHandler()
 {
-	error = nullptr;
+   error = nullptr;
 }
 
 /**
@@ -59,7 +59,7 @@ void ErrorHandler::initErrorHandler()
  */
 void ErrorHandler::setError(Error *err)
 {
-	error = err;
+   error = err;
 }
 
 /**
@@ -67,7 +67,7 @@ void ErrorHandler::setError(Error *err)
  */
 Error *ErrorHandler::getError()
 {
-	return error;
+   return error;
 }
 
 /**
@@ -75,14 +75,14 @@ Error *ErrorHandler::getError()
  */
 void ErrorHandler::reportError(Exception& e)
 {
-	std::string st = e.getString();
-	
-	LOG(st);
-	
+   std::string st = e.getString();
+   
+   LOG(st);
+   
 #ifdef _WIN32
-	MessageBox(NULL,(char*)(st.c_str()),(char*)(st.c_str()),MB_OK | MB_ICONWARNING);
+   MessageBox(NULL,(char*)(st.c_str()),(char*)(st.c_str()),MB_OK | MB_ICONWARNING);
 #else
-	std::cout << st << std::endl;
+   std::cout << st << std::endl;
 #endif
 }
 
@@ -91,7 +91,7 @@ void ErrorHandler::reportError(Exception& e)
  */
 Error::Error(Exception &e) : m_String(e.getString())
 {
-	//SetString(e.GetString());
+   //SetString(e.GetString());
 }
 
 /**
@@ -99,7 +99,7 @@ Error::Error(Exception &e) : m_String(e.getString())
  */
 Error::Error(std::string st) : m_String(st)
 {
-	//SetString(st);
+   //SetString(st);
 }
 
 /**
@@ -114,7 +114,7 @@ Error::~Error()
  */
 void Error::setString(std::string st)
 {
-	m_String = st;
+   m_String = st;
 }
 
 /**
@@ -122,7 +122,7 @@ void Error::setString(std::string st)
  */
 std::string Error::getString() const
 {
-	return m_String;
+   return m_String;
 }
 
 // end of namespace

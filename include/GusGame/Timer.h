@@ -40,16 +40,16 @@ namespace GraphicsLib
  */
 namespace Timer
 {
-	void initTimer();
-	void doneTimer();
+   void initTimer();
+   void doneTimer();
 
-	void updateFrame();
+   void updateFrame();
 
-	double getDeltaTime();
+   double getDeltaTime();
 
-	extern double timerValue1, timerValue2;
+   extern double timerValue1, timerValue2;
 
-	extern double deltaTime;
+   extern double deltaTime;
 
 };
 

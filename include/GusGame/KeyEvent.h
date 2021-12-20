@@ -42,39 +42,39 @@ namespace Key
 {
 enum KeyNames
 {
-	Space=	' ',
-	Tab=		'\t',
-	Enter=		'\n',
-	LeftAlt=		1000,
-	RightAlt,
-	RightShift,
-	LeftShift,
-	RightControl,
-	LeftControl,
-	RightMeta,
-	LeftMeta,
-	RightSuper,LeftSuper,
-	Insert,
-	Home,
-	PageUp,
-	PageDown,
-	Delete,
-	End,
-	Escape,
-	CapsLock,
-	Backspace,
-	F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12,F13,F14,F15,
-	PrintScreen,
-	ScrollLock,
-	Pause,
-	NumLock,
-	AltGr,
-	Left,Right,Up,Down,
-	A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
-	KeyPad0,KeyPad1,KeyPad2,KeyPad3,KeyPad4,
-	KeyPad5,KeyPad6,KeyPad7,KeyPad8,KeyPad9,
-	Key1,Key2,Key3,Key4,Key5,Key6,Key7,Key8,Key9,Key0,
-	Minus, Plus, Equals
+   Space=      ' ',
+   Tab=        '\t',
+   Enter=      '\n',
+   LeftAlt=    1000,
+   RightAlt,
+   RightShift,
+   LeftShift,
+   RightControl,
+   LeftControl,
+   RightMeta,
+   LeftMeta,
+   RightSuper,LeftSuper,
+   Insert,
+   Home,
+   PageUp,
+   PageDown,
+   Delete,
+   End,
+   Escape,
+   CapsLock,
+   Backspace,
+   F1,F2,F3,F4,F5,F6,F7,F8,F9,F10,F11,F12,F13,F14,F15,
+   PrintScreen,
+   ScrollLock,
+   Pause,
+   NumLock,
+   AltGr,
+   Left,Right,Up,Down,
+   A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z,
+   KeyPad0,KeyPad1,KeyPad2,KeyPad3,KeyPad4,
+   KeyPad5,KeyPad6,KeyPad7,KeyPad8,KeyPad9,
+   Key1,Key2,Key3,Key4,Key5,Key6,Key7,Key8,Key9,Key0,
+   Minus, Plus, Equals
 };
 
 };
@@ -87,42 +87,42 @@ enum KeyNames
 class KeyEvent
 {
 public:
-	KeyEvent();
-	KeyEvent(const KeyEvent &source);
-	KeyEvent &operator=(const KeyEvent &source);
+   KeyEvent();
+   KeyEvent(const KeyEvent &source);
+   KeyEvent &operator=(const KeyEvent &source);
 
-	KeyEvent(ALLEGRO_EVENT event);
+   KeyEvent(ALLEGRO_EVENT event);
 
-	virtual ~KeyEvent();
+   virtual ~KeyEvent();
 
-	KeyEventType getType() const;
+   KeyEventType getType() const;
 
-	void setValue(int value);
-	int getValue() const;
+   void setValue(int value);
+   int getValue() const;
 
-	bool getShiftPressed() const;
-	void setShiftPressed(bool pressed);
+   bool getShiftPressed() const;
+   void setShiftPressed(bool pressed);
 
-	bool getAltPressed() const;
-	void setAltPressed(bool pressed);
+   bool getAltPressed() const;
+   void setAltPressed(bool pressed);
 
-	bool getCtrlPressed() const;
-	void setCtrlPressed(bool pressed);
+   bool getCtrlPressed() const;
+   void setCtrlPressed(bool pressed);
 
-	bool getMetaPressed() const;
-	void setMetaPressed(bool pressed);
+   bool getMetaPressed() const;
+   void setMetaPressed(bool pressed);
 
 
 protected:
-	KeyEventType m_KeyEventType;
-	int m_Value;
+   KeyEventType m_KeyEventType;
+   int m_Value;
 
-	int convertAllegroToKeyValue(int alValue);
+   int convertAllegroToKeyValue(int alValue);
 
-	bool m_AltPressed;
-	bool m_CtrlPressed;
-	bool m_ShiftPressed;
-	bool m_MetaPressed;
+   bool m_AltPressed;
+   bool m_CtrlPressed;
+   bool m_ShiftPressed;
+   bool m_MetaPressed;
 
 };
 

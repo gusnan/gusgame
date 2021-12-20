@@ -37,9 +37,9 @@ namespace GraphicsLib
  *
  */
 enum FlipDirection {
-	FlipNone,
-	FlipHorizontal,
-	FlipVertical
+   FlipNone,
+   FlipHorizontal,
+   FlipVertical
 };
 
 /**
@@ -48,52 +48,52 @@ enum FlipDirection {
 class Bitmap
 {
 public:
-	Bitmap();
-	Bitmap(const Bitmap &source);
+   Bitmap();
+   Bitmap(const Bitmap &source);
 
-	Bitmap(const Vector2d &size);
+   Bitmap(const Vector2d &size);
 
-	Bitmap &operator=(const Bitmap &source);
+   Bitmap &operator=(const Bitmap &source);
 
-	Bitmap(const std::string &filename, bool inNoResize = false);
+   Bitmap(const std::string &filename, bool inNoResize = false);
 
-	virtual ~Bitmap();
+   virtual ~Bitmap();
 
-	virtual std::shared_ptr<Bitmap> makeCopy() const;
+   virtual std::shared_ptr<Bitmap> makeCopy() const;
    virtual Bitmap* CloneImplementation() const;
 
-	ALLEGRO_BITMAP *getAllegroBitmap();
+   ALLEGRO_BITMAP *getAllegroBitmap();
 
-	Vector2d getSize() const;
+   Vector2d getSize() const;
 
-	void setTarget(std::shared_ptr<Bitmap> targetBitmap);
+   void setTarget(std::shared_ptr<Bitmap> targetBitmap);
 
-	void blit(const Vector2d &position, float opacity = 1.0f);
-	void blitFlipped(const Vector2d &position, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
-	void blitFlipped(const Rect &rect, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
-	void blit(const Rect &sourceRect, const Vector2d &position, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
+   void blit(const Vector2d &position, float opacity = 1.0f);
+   void blitFlipped(const Vector2d &position, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
+   void blitFlipped(const Rect &rect, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
+   void blit(const Rect &sourceRect, const Vector2d &position, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
 
-	void blit(const Rect &sourceRect, const Rect &targetRect, float opacity = 1.0f);
-	
-	void blit(const Rect &targetRect, float opacity = 1.0f);
+   void blit(const Rect &sourceRect, const Rect &targetRect, float opacity = 1.0f);
+   
+   void blit(const Rect &targetRect, float opacity = 1.0f);
 
-	void blitCenter(const Rect &targetRect, float opacity = 1.0f);
-	void blitCenter(const Rect &sourceRect, const Rect &targetRect, float opacity = 1.0f);
+   void blitCenter(const Rect &targetRect, float opacity = 1.0f);
+   void blitCenter(const Rect &sourceRect, const Rect &targetRect, float opacity = 1.0f);
 
-	void blitColor(const Vector2d &position, const Color &color, float opacity = 1.0f);
-	void blitCenterColor(const Rect &sourceRect, const Color &color, float opacity = 1.0f);
+   void blitColor(const Vector2d &position, const Color &color, float opacity = 1.0f);
+   void blitCenterColor(const Rect &sourceRect, const Color &color, float opacity = 1.0f);
 
-	void drawPattern(const Rect &rect, float opacity = 1.0f);
+   void drawPattern(const Rect &rect, float opacity = 1.0f);
 
 protected:
 
-	ALLEGRO_BITMAP *m_AllegroBitmap;
+   ALLEGRO_BITMAP *m_AllegroBitmap;
 
-	Vector2d m_Size;
+   Vector2d m_Size;
 
-	std::shared_ptr<Bitmap> m_TargetBitmap;
+   std::shared_ptr<Bitmap> m_TargetBitmap;
 
-	bool m_NoResize;
+   bool m_NoResize;
 
 };
 

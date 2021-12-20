@@ -29,7 +29,7 @@
  */
 namespace Gus
 {
-	
+   
 /**
  *
  */
@@ -56,7 +56,7 @@ StringToIntException::StringToIntException(std::string message) : RuntimeError(m
 StringToIntException::~StringToIntException()
 {
 }
-	
+
 // end of namespace
 // ----------------
 };

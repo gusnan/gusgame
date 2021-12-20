@@ -61,14 +61,14 @@ ResizeEvent::ResizeEvent() : m_Rect(0, 0, 0, 0)
  */
 ResizeEvent::ResizeEvent(ALLEGRO_EVENT alEvent) : m_Rect(0, 0, 0, 0)
 {
-	if (alEvent.type == ALLEGRO_EVENT_DISPLAY_RESIZE) {
-		
-		ALLEGRO_DISPLAY *display = alEvent.display.source;
-		
-		al_acknowledge_resize(display);
-		
-		m_Rect = Rect(alEvent.display.x, alEvent.display.y, alEvent.display.width, alEvent.display.height);
-	}
+   if (alEvent.type == ALLEGRO_EVENT_DISPLAY_RESIZE) {
+      
+      ALLEGRO_DISPLAY *display = alEvent.display.source;
+      
+      al_acknowledge_resize(display);
+      
+      m_Rect = Rect(alEvent.display.x, alEvent.display.y, alEvent.display.width, alEvent.display.height);
+   }
 }
 
 
@@ -77,7 +77,7 @@ ResizeEvent::ResizeEvent(ALLEGRO_EVENT alEvent) : m_Rect(0, 0, 0, 0)
  */
 GraphicsLib::Rect ResizeEvent::getRect()
 {
-	return m_Rect;
+   return m_Rect;
 }
 
 /**

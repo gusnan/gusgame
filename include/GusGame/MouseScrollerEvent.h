@@ -36,18 +36,18 @@ namespace EventLib
 class MouseScrollerEvent
 {
 public:
-	MouseScrollerEvent();
-	MouseScrollerEvent(ALLEGRO_EVENT ev);
+   MouseScrollerEvent();
+   MouseScrollerEvent(ALLEGRO_EVENT ev);
 
-	MouseScrollerEvent(const MouseScrollerEvent &source);
+   MouseScrollerEvent(const MouseScrollerEvent &source);
 
-	virtual ~MouseScrollerEvent();
+   virtual ~MouseScrollerEvent();
 
-	int getScroller() const;
-	void setScroller(int inValue);
+   int getScroller() const;
+   void setScroller(int inValue);
 
 protected:
-	int m_Scroller;
+   int m_Scroller;
 };
 
 //

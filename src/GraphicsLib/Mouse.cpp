@@ -65,9 +65,9 @@ void Mouse::initMouse()
 void Mouse::doneMouse()
 {
 
-	if (systemMouseCursor) {
-		al_destroy_mouse_cursor(systemMouseCursor);
-	}
+   if (systemMouseCursor) {
+      al_destroy_mouse_cursor(systemMouseCursor);
+   }
 
 }
 
@@ -78,15 +78,15 @@ void Mouse::doneMouse()
  */
 void Mouse::setMouseBitmap(std::shared_ptr<Bitmap> mouseBitmap)
 {
-	if (mouseBitmap) {
-		systemMouseCursor = al_create_mouse_cursor(mouseBitmap->getAllegroBitmap(), 0, 0);
-	}
+   if (mouseBitmap) {
+      systemMouseCursor = al_create_mouse_cursor(mouseBitmap->getAllegroBitmap(), 0, 0);
+   }
 
-	if (systemMouseCursor) {
-		if (GraphicsHandler::display) {
-			al_set_mouse_cursor(GraphicsHandler::display, systemMouseCursor);
-		}
-	}
+   if (systemMouseCursor) {
+      if (GraphicsHandler::display) {
+         al_set_mouse_cursor(GraphicsHandler::display, systemMouseCursor);
+      }
+   }
 }
 
 

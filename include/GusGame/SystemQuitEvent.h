@@ -38,8 +38,8 @@ namespace EventLib
 class SystemQuitEvent
 {
 public:
-	SystemQuitEvent();
-	virtual ~SystemQuitEvent();
+   SystemQuitEvent();
+   virtual ~SystemQuitEvent();
 
 protected:
 };

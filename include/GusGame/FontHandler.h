@@ -37,8 +37,8 @@ namespace GraphicsLib
  */
 namespace FontHandler
 {
-	void initFontHandler();
-	void doneFontHandler();
+   void initFontHandler();
+   void doneFontHandler();
 
 };
 

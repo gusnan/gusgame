@@ -58,7 +58,7 @@ namespace GraphicsLib
  */
 Bitmap::Bitmap() : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(nullptr), m_NoResize(false)
 {
-	setTarget(nullptr);
+   setTarget(nullptr);
 }
 
 
@@ -67,9 +67,9 @@ Bitmap::Bitmap() : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(null
  */
 Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(nullptr), m_NoResize(false), m_AllegroBitmap(nullptr)
 {
-	m_AllegroBitmap = al_create_bitmap(size.x, size.y);
-	
-	setTarget(nullptr);
+   m_AllegroBitmap = al_create_bitmap(size.x, size.y);
+   
+   setTarget(nullptr);
 }
 
 
@@ -78,22 +78,22 @@ Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(nu
  */
 Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(nullptr), m_NoResize(inNoResize)
 {
-	std::string fixedFilename = FileHelper::getFilename(filename);
+   std::string fixedFilename = FileHelper::getFilename(filename);
 
-	m_AllegroBitmap = al_load_bitmap((char*)(fixedFilename.c_str()));
+   m_AllegroBitmap = al_load_bitmap((char*)(fixedFilename.c_str()));
 
-	if (!m_AllegroBitmap) {
-		std::stringstream st;
+   if (!m_AllegroBitmap) {
+      std::stringstream st;
 
-		st << "Couldn't load image: " << filename;
+      st << "Couldn't load image: " << filename;
 
-		throw ExceptionLib::Exception(st.str());
-	}
+      throw ExceptionLib::Exception(st.str());
+   }
 
-	m_Size.x = al_get_bitmap_width(m_AllegroBitmap);
-	m_Size.y = al_get_bitmap_height(m_AllegroBitmap);
+   m_Size.x = al_get_bitmap_width(m_AllegroBitmap);
+   m_Size.y = al_get_bitmap_height(m_AllegroBitmap);
 
-	setTarget(nullptr);
+   setTarget(nullptr);
 }
 
 
@@ -102,21 +102,21 @@ Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(n
  */
 Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(nullptr), m_NoResize(false)
 {
-	LOG("Copyconstructor...");
+   LOG("Copyconstructor...");
 
-	m_AllegroBitmap = nullptr;
+   m_AllegroBitmap = nullptr;
 
-	if (source.m_AllegroBitmap)
-		m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
+   if (source.m_AllegroBitmap)
+      m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
 
-	m_Size.x = source.m_Size.x;
-	m_Size.y = source.m_Size.y;
+   m_Size.x = source.m_Size.x;
+   m_Size.y = source.m_Size.y;
 
-	m_NoResize = source.m_NoResize;
+   m_NoResize = source.m_NoResize;
 
-	setTarget(source.m_TargetBitmap);
+   setTarget(source.m_TargetBitmap);
 
-	//setTarget(nullptr);
+   //setTarget(nullptr);
 }
 
 
@@ -125,24 +125,24 @@ Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(nullptr), m_Size(-1, -1),
  */
 Bitmap &Bitmap::operator=(const Bitmap &source)
 {
-	if (this != &source) {
-		if (m_AllegroBitmap) {
-			al_destroy_bitmap(m_AllegroBitmap);
-		}
-		m_AllegroBitmap = nullptr;
+   if (this != &source) {
+      if (m_AllegroBitmap) {
+         al_destroy_bitmap(m_AllegroBitmap);
+      }
+      m_AllegroBitmap = nullptr;
 
-		if (source.m_AllegroBitmap)
-			m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
+      if (source.m_AllegroBitmap)
+         m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
 
-		m_Size.x = source.m_Size.x;
-		m_Size.y = source.m_Size.y;
-		
-		m_NoResize = source.m_NoResize;
+      m_Size.x = source.m_Size.x;
+      m_Size.y = source.m_Size.y;
+      
+      m_NoResize = source.m_NoResize;
 
-		setTarget(nullptr);
-	}
+      setTarget(nullptr);
+   }
 
-	return *this;
+   return *this;
 }
 
 
@@ -151,10 +151,10 @@ Bitmap &Bitmap::operator=(const Bitmap &source)
  */
 Bitmap::~Bitmap()
 {
-	if (m_AllegroBitmap) {
-		al_destroy_bitmap(m_AllegroBitmap);
-		m_AllegroBitmap = nullptr;
-	}
+   if (m_AllegroBitmap) {
+      al_destroy_bitmap(m_AllegroBitmap);
+      m_AllegroBitmap = nullptr;
+   }
 }
 
 
@@ -163,17 +163,17 @@ Bitmap::~Bitmap()
  */
 std::shared_ptr<Bitmap> Bitmap::makeCopy() const
 {
-	return std::shared_ptr<Bitmap>(CloneImplementation());
-	// return CloneImplementation();
-	// return std::make_shared<Bitmap>(*this);
-	// return new Bitmap(*this);
+   return std::shared_ptr<Bitmap>(CloneImplementation());
+   // return CloneImplementation();
+   // return std::make_shared<Bitmap>(*this);
+   // return new Bitmap(*this);
 }
 
 Bitmap* Bitmap::CloneImplementation() const
 {
-	// return std::shared_ptr<Bitmap>(new Bitmap(*this));
+   // return std::shared_ptr<Bitmap>(new Bitmap(*this));
 
-	return new Bitmap(*this);
+   return new Bitmap(*this);
 }
 
 
@@ -182,7 +182,7 @@ Bitmap* Bitmap::CloneImplementation() const
  */
 ALLEGRO_BITMAP *Bitmap::getAllegroBitmap()
 {
-	return m_AllegroBitmap;
+   return m_AllegroBitmap;
 }
 
 
@@ -191,7 +191,7 @@ ALLEGRO_BITMAP *Bitmap::getAllegroBitmap()
  */
 Vector2d Bitmap::getSize() const
 {
-	return m_Size;
+   return m_Size;
 }
 
 
@@ -201,12 +201,12 @@ Vector2d Bitmap::getSize() const
  */
 void Bitmap::setTarget(std::shared_ptr<Bitmap> inTargetBitmap)
 {
-	if (!inTargetBitmap) {
-		al_set_target_bitmap(al_get_backbuffer(GraphicsHandler::display));
-	} else {
-		al_set_target_bitmap(inTargetBitmap->getAllegroBitmap());
-	}
-	m_TargetBitmap = inTargetBitmap;
+   if (!inTargetBitmap) {
+      al_set_target_bitmap(al_get_backbuffer(GraphicsHandler::display));
+   } else {
+      al_set_target_bitmap(inTargetBitmap->getAllegroBitmap());
+   }
+   m_TargetBitmap = inTargetBitmap;
 }
 
 
@@ -215,32 +215,32 @@ void Bitmap::setTarget(std::shared_ptr<Bitmap> inTargetBitmap)
  */
 void Bitmap::blit(const Vector2d &position, float opacity)
 {
-	if (m_AllegroBitmap) {
-		// al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, 0);
+   if (m_AllegroBitmap) {
+      // al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, 0);
 
-		float multiX = GraphicsHandler::zoomX;
-		float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::zoomX;
+      float multiY = GraphicsHandler::zoomY;
 
-		if ((m_TargetBitmap)) {
-			multiX = 1.0f;
-			multiY = 1.0f;
-		}
+      if ((m_TargetBitmap)) {
+         multiX = 1.0f;
+         multiY = 1.0f;
+      }
 
-		float rpx = (float)position.x * (float)multiX;
-		float rpy = (float)position.y * (float)multiY;
+      float rpx = (float)position.x * (float)multiX;
+      float rpy = (float)position.y * (float)multiY;
 
-		
-		if ((m_TargetBitmap) || (m_NoResize)) {
-			multiX = 1.0f;
-			multiY = 1.0f;
-		}
+      
+      if ((m_TargetBitmap) || (m_NoResize)) {
+         multiX = 1.0f;
+         multiY = 1.0f;
+      }
 
-		float rxs = (float)m_Size.x * (float)multiX;
-		float rys = (float)m_Size.y * (float)multiY;
+      float rxs = (float)m_Size.x * (float)multiX;
+      float rys = (float)m_Size.y * (float)multiY;
 
-		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy,
-				rxs, rys, 0/*al_flags*/);
-	}
+      al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy,
+            rxs, rys, 0/*al_flags*/);
+   }
 }
 
 
@@ -249,42 +249,42 @@ void Bitmap::blit(const Vector2d &position, float opacity)
  */
 void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float opacity)
 {
-	if (m_AllegroBitmap) {
+   if (m_AllegroBitmap) {
 
-		int al_flags = 0;
+      int al_flags = 0;
 
-		switch(inFlags) {
-		case FlipNone:
-			al_flags = 0;
-			break;
-		case FlipHorizontal:
-			al_flags = ALLEGRO_FLIP_HORIZONTAL;
-			break;
-		case  FlipVertical:
-			al_flags = ALLEGRO_FLIP_VERTICAL;
-			break;
-		};
+      switch(inFlags) {
+      case FlipNone:
+         al_flags = 0;
+         break;
+      case FlipHorizontal:
+         al_flags = ALLEGRO_FLIP_HORIZONTAL;
+         break;
+      case  FlipVertical:
+         al_flags = ALLEGRO_FLIP_VERTICAL;
+         break;
+      };
 
-		// al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, al_flags);
+      // al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, al_flags);
 
 
-		float multiX = GraphicsHandler::zoomX;
-		float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::zoomX;
+      float multiY = GraphicsHandler::zoomY;
 
-		if ((m_TargetBitmap) || (m_NoResize)) {
-			multiX = 1.0f;
-			multiY = 1.0f;
-		}
+      if ((m_TargetBitmap) || (m_NoResize)) {
+         multiX = 1.0f;
+         multiY = 1.0f;
+      }
 
-		float rpx = (float)position.x * (float)multiX;
-		float rpy = (float)position.y * (float)multiY;
+      float rpx = (float)position.x * (float)multiX;
+      float rpy = (float)position.y * (float)multiY;
 
-		float rxs = (float)m_Size.x * (float)multiX;
-		float rys = (float)m_Size.y * (float)multiY;
+      float rxs = (float)m_Size.x * (float)multiX;
+      float rys = (float)m_Size.y * (float)multiY;
 
-		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy,
-				rxs, rys, al_flags);
-	}
+      al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy,
+            rxs, rys, al_flags);
+   }
 }
 
 
@@ -293,38 +293,38 @@ void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float 
  */
 void Bitmap::blitFlipped(const Rect &rect, FlipDirection inFlags, float opacity)
 {
-	if (m_AllegroBitmap) {
+   if (m_AllegroBitmap) {
 
-		int al_flags = 0;
+      int al_flags = 0;
 
-		switch(inFlags) {
-		case FlipNone:
-			al_flags = 0;
-			break;
-		case FlipHorizontal:
-			al_flags = ALLEGRO_FLIP_HORIZONTAL;
-			break;
-		case  FlipVertical:
-			al_flags = ALLEGRO_FLIP_VERTICAL;
-			break;
-		};
+      switch(inFlags) {
+      case FlipNone:
+         al_flags = 0;
+         break;
+      case FlipHorizontal:
+         al_flags = ALLEGRO_FLIP_HORIZONTAL;
+         break;
+      case  FlipVertical:
+         al_flags = ALLEGRO_FLIP_VERTICAL;
+         break;
+      };
 
-		float multiX = GraphicsHandler::zoomX;
-		float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::zoomX;
+      float multiY = GraphicsHandler::zoomY;
 
-		if ((m_TargetBitmap) || (m_NoResize)) {
-			multiX = 1.0f;
-			multiY = 1.0f;
-		}
+      if ((m_TargetBitmap) || (m_NoResize)) {
+         multiX = 1.0f;
+         multiY = 1.0f;
+      }
 
-		float rpx = (float)rect.position.x * (float)multiX;
-		float rpy = (float)rect.position.y * (float)multiY;
+      float rpx = (float)rect.position.x * (float)multiX;
+      float rpy = (float)rect.position.y * (float)multiY;
 
-		float rxs = (float)rect.size.x * (float)multiX;
-		float rys = (float)rect.size.y * (float)multiY;
+      float rxs = (float)rect.size.x * (float)multiX;
+      float rys = (float)rect.size.y * (float)multiY;
 
-		al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy, rxs, rys, al_flags);
-	}
+      al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, rpx, rpy, rxs, rys, al_flags);
+   }
 }
 
 
@@ -333,31 +333,31 @@ void Bitmap::blitFlipped(const Rect &rect, FlipDirection inFlags, float opacity)
  */
 void Bitmap::blit(const Rect &targetRect, float opacity)
 {
-	if (m_AllegroBitmap) {
-		
-		float multiX = GraphicsHandler::zoomX;
-		float multiY = GraphicsHandler::zoomY;
+   if (m_AllegroBitmap) {
+      
+      float multiX = GraphicsHandler::zoomX;
+      float multiY = GraphicsHandler::zoomY;
 
-		if ((m_TargetBitmap) || (m_NoResize)) {
-			multiX = 1.0f;
-			multiY = 1.0f;
-		}
+      if ((m_TargetBitmap) || (m_NoResize)) {
+         multiX = 1.0f;
+         multiY = 1.0f;
+      }
 
-		float rpx = (float)targetRect.position.x * (float)multiX;
-		float rpy = (float)targetRect.position.y * (float)multiY;
+      float rpx = (float)targetRect.position.x * (float)multiX;
+      float rpy = (float)targetRect.position.y * (float)multiY;
 
-		float rxs = (float)targetRect.size.x * (float)multiX;
-		float rys = (float)targetRect.size.y * (float)multiY;
+      float rxs = (float)targetRect.size.x * (float)multiX;
+      float rys = (float)targetRect.size.y * (float)multiY;
 
-		al_draw_scaled_bitmap(m_AllegroBitmap,
-			0, 0, m_Size.x, m_Size.y, rpx, rpy, rxs, rys, 0);
+      al_draw_scaled_bitmap(m_AllegroBitmap,
+         0, 0, m_Size.x, m_Size.y, rpx, rpy, rxs, rys, 0);
 
-		/*
-		void al_draw_scaled_bitmap(ALLEGRO_BITMAP *bitmap,
+      /*
+      void al_draw_scaled_bitmap(ALLEGRO_BITMAP *bitmap,
    float sx, float sy, float sw, float sh,
    float dx, float dy, float dw, float dh, int flags)
-		*/
-	}
+      */
+   }
 }
 
 
@@ -366,48 +366,48 @@ void Bitmap::blit(const Rect &targetRect, float opacity)
  */
 void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, FlipDirection inFlip, float opacity)
 {
-	if (m_AllegroBitmap) {
-		// al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, 0);
+   if (m_AllegroBitmap) {
+      // al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, 0);
 
-		int spx = sourceRect.position.x;
-		int spy = sourceRect.position.y;
+      int spx = sourceRect.position.x;
+      int spy = sourceRect.position.y;
 
-		float sxs = sourceRect.size.x;
-		float sys = sourceRect.size.y;
+      float sxs = sourceRect.size.x;
+      float sys = sourceRect.size.y;
 
-		float multiX = GraphicsHandler::zoomX;
-		float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::zoomX;
+      float multiY = GraphicsHandler::zoomY;
 
-		if ((m_TargetBitmap) || (m_NoResize)) {
-			multiX = 1.0f;
-			multiY = 1.0f;
-		}
+      if ((m_TargetBitmap) || (m_NoResize)) {
+         multiX = 1.0f;
+         multiY = 1.0f;
+      }
 
-		float txs = (float)((float)sourceRect.size.x * (float)multiX);
-		float tys = (float)((float)sourceRect.size.y * (float)multiY);
+      float txs = (float)((float)sourceRect.size.x * (float)multiX);
+      float tys = (float)((float)sourceRect.size.y * (float)multiY);
 
-		float tpx = (float)((float)position.x * (float)multiX);
-		float tpy = (float)((float)position.y * (float)multiY);
+      float tpx = (float)((float)position.x * (float)multiX);
+      float tpy = (float)((float)position.y * (float)multiY);
 
-		int al_flags = 0;
+      int al_flags = 0;
 
-		switch(inFlip) {
-		case FlipNone:
-			al_flags = 0;
-			break;
-		case FlipHorizontal:
-			al_flags = ALLEGRO_FLIP_HORIZONTAL;
-			break;
-		case  FlipVertical:
-			al_flags = ALLEGRO_FLIP_VERTICAL;
-			break;
-		};
+      switch(inFlip) {
+      case FlipNone:
+         al_flags = 0;
+         break;
+      case FlipHorizontal:
+         al_flags = ALLEGRO_FLIP_HORIZONTAL;
+         break;
+      case  FlipVertical:
+         al_flags = ALLEGRO_FLIP_VERTICAL;
+         break;
+      };
 
-		// Rect rect(Vector2d(rpx, rpy), Vector2d(rxs, rys));
+      // Rect rect(Vector2d(rpx, rpy), Vector2d(rxs, rys));
 
-		al_draw_scaled_bitmap(m_AllegroBitmap, spx, spy, sxs, sys, tpx, tpy,
-				txs, tys, al_flags);
-	}	
+      al_draw_scaled_bitmap(m_AllegroBitmap, spx, spy, sxs, sys, tpx, tpy,
+            txs, tys, al_flags);
+   }	
 }
 
 
@@ -416,33 +416,33 @@ void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, FlipDirectio
  */
 void Bitmap::blit(const Rect &sourceRect, const Rect &targetRect, float opacity)
 {
-	if (m_AllegroBitmap) {
-		
-		int spx = sourceRect.position.x;
-		int spy = sourceRect.position.y;
+   if (m_AllegroBitmap) {
+      
+      int spx = sourceRect.position.x;
+      int spy = sourceRect.position.y;
 
-		float sxs = sourceRect.size.x;
-		float sys = sourceRect.size.y;
-		
-		float multiX = GraphicsHandler::zoomX;
-		float multiY = GraphicsHandler::zoomY;
+      float sxs = sourceRect.size.x;
+      float sys = sourceRect.size.y;
+      
+      float multiX = GraphicsHandler::zoomX;
+      float multiY = GraphicsHandler::zoomY;
 
-		if ((m_TargetBitmap) || (m_NoResize)) {
-			multiX = 1.0f;
-			multiY = 1.0f;
-		}
+      if ((m_TargetBitmap) || (m_NoResize)) {
+         multiX = 1.0f;
+         multiY = 1.0f;
+      }
 
-		float txs = (float)((float)targetRect.size.x * (float)multiX);
-		float tys = (float)((float)targetRect.size.y * (float)multiY);
+      float txs = (float)((float)targetRect.size.x * (float)multiX);
+      float tys = (float)((float)targetRect.size.y * (float)multiY);
 
-		float tpx = (float)((float)targetRect.position.x * (float)multiX);
-		float tpy = (float)((float)targetRect.position.y * (float)multiY);
+      float tpx = (float)((float)targetRect.position.x * (float)multiX);
+      float tpy = (float)((float)targetRect.position.y * (float)multiY);
 
-		int al_flags = 0;
-		
-		al_draw_scaled_bitmap(m_AllegroBitmap, spx, spy, sxs, sys, tpx, tpy,
-				txs, tys, al_flags);
-	}
+      int al_flags = 0;
+      
+      al_draw_scaled_bitmap(m_AllegroBitmap, spx, spy, sxs, sys, tpx, tpy,
+            txs, tys, al_flags);
+   }
 }
 
 

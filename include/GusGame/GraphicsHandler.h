@@ -39,35 +39,35 @@ namespace GraphicsLib
  */
 namespace GraphicsHandler
 {
-	void initGraphicsHandler();
-	void doneGraphicsHandler();
+   void initGraphicsHandler();
+   void doneGraphicsHandler();
 
-	void setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable = false);
-	void setBackgroundSize(const Vector2d &size);
+   void setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable = false);
+   void setBackgroundSize(const Vector2d &size);
 
-	void setWindowTitle(const std::string &title);
+   void setWindowTitle(const std::string &title);
 
-	void clearScreen();
-	void updateScreen();
+   void clearScreen();
+   void updateScreen();
 
-	Rect getScreenRect();
+   Rect getScreenRect();
 
-	void setClipRect(const Rect &rect);
-	void noClip();
+   void setClipRect(const Rect &rect);
+   void noClip();
 
 
-	std::string getOpenGLVersionString();
+   std::string getOpenGLVersionString();
 
-	void setIcon(Gus::GraphicsLib::Bitmap *icon);
+   void setIcon(Gus::GraphicsLib::Bitmap *icon);
 
-	Vector2d getDisplayResolution();
+   Vector2d getDisplayResolution();
 
-	extern ALLEGRO_DISPLAY *display;
+   extern ALLEGRO_DISPLAY *display;
 
-	extern Vector2d screenSize;
-	extern Vector2d backgroundSize;
+   extern Vector2d screenSize;
+   extern Vector2d backgroundSize;
 
-	extern float zoomX, zoomY;
+   extern float zoomX, zoomY;
 };
 
 // end of namespace

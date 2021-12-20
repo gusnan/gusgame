@@ -31,15 +31,15 @@ namespace Gus
  */
 namespace StringHelper
 {
-	std::string upcase(std::string st);
-	std::string lowercase(std::string st);
+   std::string upcase(std::string st);
+   std::string lowercase(std::string st);
 
-	//void ChangeCase(std::string& str,int(*)(int));
-	void splitString(std::string instring,std::string& text,std::string& shortcut);
+   //void ChangeCase(std::string& str,int(*)(int));
+   void splitString(std::string instring,std::string& text,std::string& shortcut);
 
-	int stringToInt(const std::string &st);
+   int stringToInt(const std::string &st);
 
-	std::string doubleParanthesis(std::string);
+   std::string doubleParanthesis(std::string);
 
 }
 

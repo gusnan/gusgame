@@ -38,17 +38,17 @@ namespace EventLib
 class MouseMotionEvent
 {
 public:
-	MouseMotionEvent();
-	MouseMotionEvent(ALLEGRO_EVENT ev);
+   MouseMotionEvent();
+   MouseMotionEvent(ALLEGRO_EVENT ev);
 
-	MouseMotionEvent(const GraphicsLib::Vector2d &position);
-	virtual ~MouseMotionEvent();
+   MouseMotionEvent(const GraphicsLib::Vector2d &position);
+   virtual ~MouseMotionEvent();
 
-	GraphicsLib::Vector2d getPosition() const;
+   GraphicsLib::Vector2d getPosition() const;
 
 protected:
 
-	GraphicsLib::Vector2d m_Position;
+   GraphicsLib::Vector2d m_Position;
 };
 
 // end of namespace

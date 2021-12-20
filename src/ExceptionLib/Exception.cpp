@@ -39,8 +39,8 @@ namespace ExceptionLib
  */
 Exception::Exception(std::string message) : m_Message(message)
 {
-	//m_MessageList.push_back(message);
-	//m_Message=message;
+   //m_MessageList.push_back(message);
+   //m_Message=message;
 }
 
 /**
@@ -55,8 +55,8 @@ Exception::~Exception()
  */
 void Exception::addMessage(std::string mes)
 {
-	//m_MessageList.push_back(mes);
-	m_Message = mes;
+   //m_MessageList.push_back(mes);
+   m_Message = mes;
 }
 
 /**
@@ -64,8 +64,8 @@ void Exception::addMessage(std::string mes)
  */
 std::string Exception::getString()
 {
-	//return m_MessageList[0];
-	return m_Message;
+   //return m_MessageList[0];
+   return m_Message;
 }
 
 // end of namespace

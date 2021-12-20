@@ -39,16 +39,16 @@ namespace ExceptionLib
 class Error
 {
 public:
-	Error() = delete;
-	Error(Exception &e);
-	Error(std::string);
-	virtual ~Error();
+   Error() = delete;
+   Error(Exception &e);
+   Error(std::string);
+   virtual ~Error();
 
-	void setString(std::string st);
-	std::string getString() const;
+   void setString(std::string st);
+   std::string getString() const;
 
 protected:
-	std::string m_String;
+   std::string m_String;
 
 };
 
@@ -57,15 +57,15 @@ protected:
  */
 namespace ErrorHandler
 {
-	void initErrorHandler();
+   void initErrorHandler();
 
-	void setError(Error *err);
+   void setError(Error *err);
 
-	void reportError(Exception& e);
+   void reportError(Exception& e);
 
-	Error *getError();
+   Error *getError();
 
-	extern Error *error;
+   extern Error *error;
 };
 
 // end of namespace

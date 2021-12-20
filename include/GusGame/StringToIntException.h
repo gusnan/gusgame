@@ -38,9 +38,9 @@ namespace ExceptionLib
 class StringToIntException : public RuntimeError
 {
 public:
-	StringToIntException();
-	StringToIntException(std::string message);
-	virtual ~StringToIntException();
+   StringToIntException();
+   StringToIntException(std::string message);
+   virtual ~StringToIntException();
 protected:
 };
 

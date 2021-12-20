@@ -40,27 +40,27 @@ namespace EventLib
 class EventHandler
 {
 public:
-	GUSGAME_DLL EventHandler(std::string inName = "");
-	GUSGAME_DLL virtual ~EventHandler();
+   GUSGAME_DLL EventHandler(std::string inName = "");
+   GUSGAME_DLL virtual ~EventHandler();
 
-	GUSGAME_DLL EventHandler(const EventHandler &source);
-	GUSGAME_DLL EventHandler &operator=(const EventHandler &source);
+   GUSGAME_DLL EventHandler(const EventHandler &source);
+   GUSGAME_DLL EventHandler &operator=(const EventHandler &source);
 
-	virtual GUSGAME_DLL bool handleKeyboard(KeyEvent &keyEvent);
-	virtual GUSGAME_DLL void handleActiveEvent(ActiveEvent &activeEvent);
-	virtual GUSGAME_DLL bool handleUserEvent(UserEvent &event);
-	virtual GUSGAME_DLL bool handleMouseButton(MouseButtonEvent &mouseButtonEvent);
-	virtual GUSGAME_DLL void handleMouseMotion(MouseMotionEvent &mouseMotionEvent);
-	virtual GUSGAME_DLL void handleMouseScroller(MouseScrollerEvent &mouseScrollerEvent);
-	virtual GUSGAME_DLL void handleQuitEvent();
-	virtual GUSGAME_DLL void handleSystemQuitEvent();
-	virtual GUSGAME_DLL void handleResizeEvent(ResizeEvent &resizeEvent);
+   virtual GUSGAME_DLL bool handleKeyboard(KeyEvent &keyEvent);
+   virtual GUSGAME_DLL void handleActiveEvent(ActiveEvent &activeEvent);
+   virtual GUSGAME_DLL bool handleUserEvent(UserEvent &event);
+   virtual GUSGAME_DLL bool handleMouseButton(MouseButtonEvent &mouseButtonEvent);
+   virtual GUSGAME_DLL void handleMouseMotion(MouseMotionEvent &mouseMotionEvent);
+   virtual GUSGAME_DLL void handleMouseScroller(MouseScrollerEvent &mouseScrollerEvent);
+   virtual GUSGAME_DLL void handleQuitEvent();
+   virtual GUSGAME_DLL void handleSystemQuitEvent();
+   virtual GUSGAME_DLL void handleResizeEvent(ResizeEvent &resizeEvent);
 
-	virtual std::string getName();
-	virtual void setName(std::string inName);
+   virtual std::string getName();
+   virtual void setName(std::string inName);
 
 protected:
-	std::string m_Name;
+   std::string m_Name;
 };
 
 // end of namespace
