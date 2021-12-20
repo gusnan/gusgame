@@ -96,7 +96,7 @@ public:
  */
 int main(int argc,char **argv)
 {
-   std::shared_ptr<EventHandler> eventHandler = std::shared_ptr<EventHandler>();
+   std::shared_ptr<ExampleEventHandler> eventHandler = nullptr;
    std::shared_ptr<Bitmap> mouseBitmap = nullptr;
    std::shared_ptr<Bitmap> testBitmap = nullptr;
 
@@ -121,7 +121,7 @@ int main(int argc,char **argv)
 
       // Create an EventHandler for our "custom" events from the class
       // that is defined above
-      eventHandler = std::shared_ptr<EventHandler>(new ExampleEventHandler());
+      eventHandler = std::make_shared<ExampleEventHandler>();
 
       EventSystem::initEventSystem();
 

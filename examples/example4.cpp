@@ -67,7 +67,7 @@ public:
  */
 int main(int argc,char **argv)
 {
-   std::shared_ptr<EventHandler> eventHandler = std::shared_ptr<EventHandler>();
+   std::shared_ptr<EventHandler> eventHandler = nullptr;
    std::shared_ptr<Bitmap> mouseBitmap = nullptr;
 
    try {
@@ -92,7 +92,7 @@ int main(int argc,char **argv)
       GraphicsHandler::setWindowTitle("GusGame Example 4");
 
       // Create an EventHandler for our "custom" events
-      std::shared_ptr<ExampleEventHandler> eventHandler = std::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
+      eventHandler = std::make_shared<ExampleEventHandler>();
 
       EventSystem::initEventSystem();
 
@@ -136,6 +136,8 @@ int main(int argc,char **argv)
 
    // Remove mouse stuff
    Mouse::doneMouse();
+
+   mouseBitmap.reset();
 
    // done with system stuff
    System::doneSystem();
