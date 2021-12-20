@@ -16,6 +16,8 @@ FIND_PATH(ALLEGRO_INCLUDE_DIR allegro.h allegro5.h allegro5/allegro.h
   /usr/include/allegro5
   $ENV{MINGDIR}/include/allegro5
   $ENV{ALLEGRO_INCLUDE_DIR}
+  /mingw64/bin/
+  /mingw64/include/allegro5
 )
 
 set(VERSION_NUMBER "5")
