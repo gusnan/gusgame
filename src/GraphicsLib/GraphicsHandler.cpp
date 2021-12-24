@@ -220,7 +220,7 @@ void GraphicsHandler::noClip()
 /**
  *
  */
-void GraphicsHandler::setIcon(Bitmap *icon)
+void GraphicsHandler::setIcon(std::shared_ptr<Bitmap> icon)
 {
    if (display) {
       if (icon) {

@@ -58,7 +58,7 @@ namespace GraphicsHandler
 
    std::string getOpenGLVersionString();
 
-   void setIcon(Gus::GraphicsLib::Bitmap *icon);
+   void setIcon(std::shared_ptr<Gus::GraphicsLib::Bitmap> icon);
 
    Vector2d getDisplayResolution();
 
