@@ -26,6 +26,7 @@
 
 #include <sys/types.h>
 
+/*
 #if STAT_MACROS_BROKEN
 # undef S_ISDIR
 #endif
@@ -33,6 +34,7 @@
 #if !defined S_ISDIR && defined S_IFDIR
 # define S_ISDIR(Mode) (((Mode) & S_IFMT) == S_IFDIR)
 #endif
+*/
 
 #include "FileHelper.h"
 
@@ -64,7 +66,7 @@ bool FileHelper::isDir(std::string in_string)
 {
    struct stat stats;
 
-   if (((stat((char*)(in_string.c_str()), &stats) == 0) && (S_ISDIR(stats.st_mode)) != 0)) return true;
+   if (boost::filesystem::is_directory(in_string)) return true;
 
    return false;
 }
@@ -75,30 +77,9 @@ bool FileHelper::isDir(std::string in_string)
  */
 bool FileHelper::fileExists(std::string strFilename)
 {
-   FILE* fp = nullptr;
+   if (boost::filesystem::exists(strFilename)) return true;
 
-   /*
-   std::stringstream st;
-   st << "fileExists(" << strFilename << ")";
-   STLOG(st);
-   */
-
-   bool result = false;
-#ifdef _MSC_VER
-   fopen_s(&fp, (char*)(strFilename.c_str()), "r" );
-#else
-   fp = fopen( (char*)(strFilename.c_str()), "r" );
-#endif
-   if( fp != nullptr )
-   {
-      fclose( fp );
-
-      result=true;
-      if (isDir(strFilename)) result = false;
-
-   }
-
-   return result;
+   return false;
 }
 
 
