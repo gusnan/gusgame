@@ -132,7 +132,7 @@ int main(int argc, char **argv)
 
       // Create an EventHandler for our "custom" events from the class
       // that is defined above
-      eventHandler = std::make_shared<EventHandler>();
+      eventHandler = std::make_shared<ExampleEventHandler>();
 
       EventSystem::initEventSystem();
 
