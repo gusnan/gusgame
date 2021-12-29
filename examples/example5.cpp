@@ -143,7 +143,7 @@ int main(int argc,char **argv)
       // that is defined above
       EventSystem::initEventSystem();
 
-      eventHandler = std::shared_ptr<ExampleEventHandler>(new ExampleEventHandler());
+      eventHandler = std::make_shared<ExampleEventHandler>();
 
 
       // set the used EventHandler to the one we just created.
