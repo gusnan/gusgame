@@ -38,8 +38,8 @@ using namespace EventLib;
 
 bool quit = false;
 
-UserEvent *testEvent = nullptr;
-UserEvent *testEvent2 = nullptr;
+std::shared_ptr<UserEvent> testEvent = nullptr;
+std::shared_ptr<UserEvent> testEvent2 = nullptr;
 
 /**
  * This is an Eventhandler that takes care of the keyboard events, mouse motion
@@ -150,8 +150,8 @@ int main(int argc,char **argv)
       EventSystem::addEventHandler(eventHandler);
 
       // Create the test events
-      testEvent = new UserEvent();
-      testEvent2 = new UserEvent();
+      testEvent = std::make_shared<UserEvent>();
+      testEvent2 = std::make_shared<UserEvent>();
 
       mouseBitmap = std::make_shared<Bitmap>("mouse.png");
 
@@ -186,8 +186,8 @@ int main(int argc,char **argv)
       GraphicsHandler::updateScreen();
    } while(!quit);
 
-   delete testEvent;
-   delete testEvent2;
+   testEvent.reset();
+   testEvent2.reset();
 
    // delete mouseBitmap;
 
