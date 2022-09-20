@@ -112,6 +112,7 @@ Font::~Font()
 {
    if (m_AllegroFont) {
       al_destroy_font(m_AllegroFont);
+      m_AllegroFont = NULL;
    }
 }
 
