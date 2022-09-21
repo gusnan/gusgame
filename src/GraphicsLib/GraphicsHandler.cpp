@@ -133,7 +133,7 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, boo
    // Couldn't set the display when using ALLEGRO_OPENGL flag,
    // now try without (This happens with Windows under VirtualBox)
    if (!display) {
-   flags ^= ALLEGRO_OPENGL;
+      flags ^= ALLEGRO_OPENGL;
 
       al_set_new_display_flags(flags);
 
