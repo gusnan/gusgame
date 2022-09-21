@@ -182,6 +182,8 @@ int main(int argc, char **argv)
 
    EventSystem::doneEventSystem();
 
+   GraphicsHandler::instance().doneGraphicsHandler();
+
    // done with system stuff
    System::doneSystem();
 

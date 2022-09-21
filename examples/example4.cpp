@@ -139,6 +139,8 @@ int main(int argc,char **argv)
 
    mouseBitmap.reset();
 
+   GraphicsHandler::instance().doneGraphicsHandler();
+
    // done with system stuff
    System::doneSystem();
 

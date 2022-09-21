@@ -189,6 +189,8 @@ int main(int argc,char **argv)
    testEvent.reset();
    testEvent2.reset();
 
+   GraphicsHandler::instance().doneGraphicsHandler();
+
    // delete mouseBitmap;
 
    // Remove mouse stuff

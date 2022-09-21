@@ -160,6 +160,8 @@ int main(int argc,char **argv)
       GraphicsHandler::instance().updateScreen();
    } while(!quit);
 
+   GraphicsHandler::instance().doneGraphicsHandler();
+
    // done with system stuff
    System::doneSystem();
 

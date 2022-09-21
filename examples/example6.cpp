@@ -178,6 +178,8 @@ int main(int argc,char **argv)
    testBitmap.reset();
    mouseBitmap.reset();
 
+   GraphicsHandler::instance().doneGraphicsHandler();
+
    // done with system stuff
    System::doneSystem();
 
