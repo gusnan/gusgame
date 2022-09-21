@@ -52,12 +52,49 @@ namespace GraphicsLib
 /**
  *
  */
-ALLEGRO_DISPLAY *GraphicsHandler::display = nullptr;
+GraphicsHandler &GraphicsHandler::instance()
+{
+   static GraphicsHandler instance;
 
-Vector2d GraphicsHandler::screenSize;
-Vector2d GraphicsHandler::backgroundSize;
-   
-float GraphicsHandler::zoomX = 1.0f, GraphicsHandler::zoomY = 1.0f;
+   return instance;
+}
+
+
+/**
+ *
+ */
+GraphicsHandler::GraphicsHandler(const GraphicsHandler &inGraphicsHandler)
+{
+}
+
+
+/**
+ *
+ */
+GraphicsHandler::~GraphicsHandler()
+{
+   doneGraphicsHandler();
+}
+
+
+/**
+ *
+ */
+GraphicsHandler &GraphicsHandler::operator=(const GraphicsHandler &inGraphicsHandler)
+{
+   // this->setQuit(inProgram.m_Quit);
+
+   return *this;
+}
+
+
+/**
+ *
+ */
+GraphicsHandler::GraphicsHandler()
+{
+}
+
 
 /**
  *
@@ -76,6 +113,7 @@ void GraphicsHandler::doneGraphicsHandler()
 
    if (display != nullptr) {
       al_destroy_display(display);
+      display = nullptr;
    }
 
    Timer::doneTimer();
@@ -258,6 +296,32 @@ Vector2d GraphicsHandler::getDisplayResolution()
 
    return Vector2d(w, h);
 }
+
+/**
+ *
+ */
+float GraphicsHandler::getZoomX()
+{
+   return zoomX;
+}
+
+/**
+ *
+ */
+float GraphicsHandler::getZoomY()
+{
+   return zoomY;
+}
+
+/**
+ *
+ */
+ALLEGRO_DISPLAY *GraphicsHandler::getDisplay()
+{
+   return display;
+}
+
+
 
 // end of namespace
 // ----------------

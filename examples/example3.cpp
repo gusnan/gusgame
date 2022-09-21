@@ -117,13 +117,13 @@ int main(int argc,char **argv)
       // init system stuff
       System::initSystem();
 
-      GraphicsHandler::initGraphicsHandler();
+      GraphicsHandler::instance().initGraphicsHandler();
 
       // set up a screen with resolution of 640x480, and not fullscreen
-      GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
+      GraphicsHandler::instance().setGraphicsMode(Vector2d(640, 480), false);
 
       // set a window title
-      GraphicsHandler::setWindowTitle("GusGame Example 3");
+      GraphicsHandler::instance().setWindowTitle("GusGame Example 3");
 
       EventSystem::initEventSystem();
 
@@ -154,10 +154,10 @@ int main(int argc,char **argv)
       EventSystem::handleEvents();
 
       // Clear the screen every sync
-      GraphicsHandler::clearScreen();
+      GraphicsHandler::instance().clearScreen();
 
       // Update the screen
-      GraphicsHandler::updateScreen();
+      GraphicsHandler::instance().updateScreen();
    } while(!quit);
 
    // done with system stuff

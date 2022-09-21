@@ -122,8 +122,8 @@ Font::~Font()
  */
 void Font::draw(const Vector2d &position, std::string text, const Color &color)
 {
-   float px = (float)position.x * (float)GraphicsHandler::zoomX;
-   float py = (float)position.y * (float)GraphicsHandler::zoomY;
+   float px = (float)position.x * (float)GraphicsHandler::instance().getZoomX();
+   float py = (float)position.y * (float)GraphicsHandler::instance().getZoomY();
 
    al_draw_text(m_AllegroFont, color.getAllegroColor(), px, py,
                   ALLEGRO_ALIGN_LEFT, (char*)text.c_str());
@@ -139,8 +139,8 @@ void Font::drawCenter(const Vector2d &position, std::string text, const Color &c
    if (centerVertical)
       subVertical = getHeight() / 2;
    
-   float px = (float)position.x * (float)GraphicsHandler::zoomX;
-   float py = (float)position.y * (float)GraphicsHandler::zoomY;
+   float px = (float)position.x * (float)GraphicsHandler::instance().getZoomX();
+   float py = (float)position.y * (float)GraphicsHandler::instance().getZoomY();
 
    al_draw_text(m_AllegroFont, color.getAllegroColor(), px, py - subVertical,
                   ALLEGRO_ALIGN_CENTER, (char*)text.c_str());

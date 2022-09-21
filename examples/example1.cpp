@@ -79,13 +79,13 @@ int main(int argc, char **argv)
       STLOG(st);
 
       // we need to init the graphics handler to get the OpenGL version
-      GraphicsHandler::initGraphicsHandler();
+      GraphicsHandler::instance().initGraphicsHandler();
 
             // we need to init a graphics screen to get the OpenGL information
-      GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
+      GraphicsHandler::instance().setGraphicsMode(Vector2d(640, 480), false);
 
       // print the openGL version
-      st << "OpenGL version: " << GraphicsHandler::getOpenGLVersionString();
+      st << "OpenGL version: " << GraphicsHandler::instance().getOpenGLVersionString();
 
       // print it to the screen
       std::cout << st.str() << std::endl;
@@ -103,7 +103,7 @@ int main(int argc, char **argv)
       return EXIT_FAILURE;
    }
 
-   GraphicsHandler::doneGraphicsHandler();
+   GraphicsHandler::instance().doneGraphicsHandler();
 
    // done with system stuff
    System::doneSystem();

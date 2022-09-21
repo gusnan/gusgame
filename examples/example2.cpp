@@ -108,13 +108,13 @@ int main(int argc, char **argv)
       // init system stuff
       System::initSystem();
 
-      GraphicsHandler::initGraphicsHandler();
+      GraphicsHandler::instance().initGraphicsHandler();
 
       // set up a screen with resolution of 640x480, and not fullscreen
-      GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
+      GraphicsHandler::instance().setGraphicsMode(Vector2d(640, 480), false);
 
       // set a window title
-      GraphicsHandler::setWindowTitle("GusGame Example 2");
+      GraphicsHandler::instance().setWindowTitle("GusGame Example 2");
 
       // Init the font handler
       FontHandler::initFontHandler();
@@ -154,20 +154,20 @@ int main(int argc, char **argv)
       EventSystem::handleEvents();
 
       // Clear the screen every sync
-      GraphicsHandler::clearScreen();
+      GraphicsHandler::instance().clearScreen();
 
       // Draw something
       exampleFont->draw(Vector2d(0, 0), posString, colorWhite);
 
       // Update the screen
-      GraphicsHandler::updateScreen();
+      GraphicsHandler::instance().updateScreen();
    } while(!quit);
 
 
    // remove our loaded font
    delete exampleFont;
 
-   GraphicsHandler::doneGraphicsHandler();
+   GraphicsHandler::instance().doneGraphicsHandler();
 
    // kill the event system
    EventSystem::doneEventSystem();

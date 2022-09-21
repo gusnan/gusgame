@@ -116,11 +116,11 @@ int main(int argc, char **argv)
 
       // set up a screen with resolution of 640x480, and not fullscreen,
       // but resizable
-      GraphicsHandler::initGraphicsHandler();
-      GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false, true);
+      GraphicsHandler::instance().initGraphicsHandler();
+      GraphicsHandler::instance().setGraphicsMode(Vector2d(640, 480), false, true);
 
       // set a window title
-      GraphicsHandler::setWindowTitle("GusGame Example 8");
+      GraphicsHandler::instance().setWindowTitle("GusGame Example 8");
 
       // Create an EventHandler for our "custom" events from the class
       // that is defined above
@@ -157,7 +157,7 @@ int main(int argc, char **argv)
       EventSystem::handleEvents();
 
       // Clear the screen every sync
-      GraphicsHandler::clearScreen();
+      GraphicsHandler::instance().clearScreen();
 
       Primitives::line(Vector2d(100, 100), Vector2d(200, 250), Color(1.0f, 1.0f, 0.0f), 3.0f);
 
@@ -166,7 +166,7 @@ int main(int argc, char **argv)
       Primitives::rect(rect, Color(0.0f, 1.0f, 1.0f), 1.0f);
 
       // Update the screen
-      GraphicsHandler::updateScreen();
+      GraphicsHandler::instance().updateScreen();
    } while(!quit);
 
 

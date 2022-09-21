@@ -113,11 +113,11 @@ int main(int argc,char **argv)
       System::initSystem();
 
       // set up a screen with resolution of 640x480, and not fullscreen
-      GraphicsHandler::initGraphicsHandler();
-      GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
+      GraphicsHandler::instance().initGraphicsHandler();
+      GraphicsHandler::instance().setGraphicsMode(Vector2d(640, 480), false);
 
       // set a window title
-      GraphicsHandler::setWindowTitle("GusGame Example 6");
+      GraphicsHandler::instance().setWindowTitle("GusGame Example 6");
 
       // Create an EventHandler for our "custom" events from the class
       // that is defined above
@@ -156,13 +156,13 @@ int main(int argc,char **argv)
       EventSystem::handleEvents();
 
       // Clear the screen every sync
-      GraphicsHandler::clearScreen();
+      GraphicsHandler::instance().clearScreen();
 
       //System::getMouse()->draw();
       testBitmap->blit(testPosition);
 
       // Update the screen
-      GraphicsHandler::updateScreen();
+      GraphicsHandler::instance().updateScreen();
    } while(!quit);
 
    // delete mouseBitmap;

@@ -103,7 +103,7 @@ void EventSystem::initEventSystem()
 
    al_register_event_source(eventQueue, &userEventSource);
 
-   ALLEGRO_EVENT_SOURCE *display_event_source = al_get_display_event_source(GraphicsLib::GraphicsHandler::display);
+   ALLEGRO_EVENT_SOURCE *display_event_source = al_get_display_event_source(GraphicsLib::GraphicsHandler::instance().getDisplay());
    if (display_event_source) {
       al_register_event_source(eventQueue, display_event_source);
    }

@@ -83,8 +83,8 @@ void Mouse::setMouseBitmap(std::shared_ptr<Bitmap> mouseBitmap)
    }
 
    if (systemMouseCursor) {
-      if (GraphicsHandler::display) {
-         al_set_mouse_cursor(GraphicsHandler::display, systemMouseCursor);
+      if (GraphicsHandler::instance().getDisplay()) {
+         al_set_mouse_cursor(GraphicsHandler::instance().getDisplay(), systemMouseCursor);
       }
    }
 }

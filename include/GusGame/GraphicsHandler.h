@@ -41,8 +41,17 @@ const int SET_GRAPHICS_RESULT_NO_OPEN_GL =   1;
 /**
  *
  */
-namespace GraphicsHandler
+class GraphicsHandler
 {
+public:
+
+   static GraphicsHandler &instance();
+
+   float getZoomX();
+   float getZoomY();
+
+   ALLEGRO_DISPLAY *getDisplay();
+
    void initGraphicsHandler();
    void doneGraphicsHandler();
 
@@ -59,19 +68,28 @@ namespace GraphicsHandler
    void setClipRect(const Rect &rect);
    void noClip();
 
-
    std::string getOpenGLVersionString();
 
    void setIcon(std::shared_ptr<Gus::GraphicsLib::Bitmap> icon);
 
    Vector2d getDisplayResolution();
 
-   extern ALLEGRO_DISPLAY *display;
+protected:
 
-   extern Vector2d screenSize;
-   extern Vector2d backgroundSize;
+   GraphicsHandler();
 
-   extern float zoomX, zoomY;
+   virtual ~GraphicsHandler();
+
+private:
+   GraphicsHandler(const GraphicsHandler &inGraphicsHandler);
+   GraphicsHandler &operator=(const GraphicsHandler &inGraphicsHandler);
+
+   Vector2d screenSize;
+   Vector2d backgroundSize;
+
+   float zoomX, zoomY;
+
+   ALLEGRO_DISPLAY *display;
 };
 
 // end of namespace

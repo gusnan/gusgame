@@ -197,7 +197,7 @@ Vector2d Bitmap::getSize() const
 void Bitmap::setTarget(std::shared_ptr<Bitmap> inTargetBitmap)
 {
    if (!inTargetBitmap) {
-      al_set_target_bitmap(al_get_backbuffer(GraphicsHandler::display));
+      al_set_target_bitmap(al_get_backbuffer(GraphicsHandler::instance().getDisplay()));
    } else {
       al_set_target_bitmap(inTargetBitmap->getAllegroBitmap());
    }
@@ -213,8 +213,8 @@ void Bitmap::blit(const Vector2d &position, float opacity)
    if (m_AllegroBitmap) {
       // al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, 0);
 
-      float multiX = GraphicsHandler::zoomX;
-      float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::instance().getZoomX();
+      float multiY = GraphicsHandler::instance().getZoomY();
 
       if ((m_TargetBitmap)) {
          multiX = 1.0f;
@@ -263,8 +263,8 @@ void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float 
       // al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, al_flags);
 
 
-      float multiX = GraphicsHandler::zoomX;
-      float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::instance().getZoomX();
+      float multiY = GraphicsHandler::instance().getZoomY();
 
       if ((m_TargetBitmap) || (m_NoResize)) {
          multiX = 1.0f;
@@ -304,8 +304,8 @@ void Bitmap::blitFlipped(const Rect &rect, FlipDirection inFlags, float opacity)
          break;
       };
 
-      float multiX = GraphicsHandler::zoomX;
-      float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::instance().getZoomX();
+      float multiY = GraphicsHandler::instance().getZoomY();
 
       if ((m_TargetBitmap) || (m_NoResize)) {
          multiX = 1.0f;
@@ -330,8 +330,8 @@ void Bitmap::blit(const Rect &targetRect, float opacity)
 {
    if (m_AllegroBitmap) {
       
-      float multiX = GraphicsHandler::zoomX;
-      float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::instance().getZoomX();
+      float multiY = GraphicsHandler::instance().getZoomY();
 
       if ((m_TargetBitmap) || (m_NoResize)) {
          multiX = 1.0f;
@@ -370,8 +370,8 @@ void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, FlipDirectio
       float sxs = sourceRect.size.x;
       float sys = sourceRect.size.y;
 
-      float multiX = GraphicsHandler::zoomX;
-      float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::instance().getZoomX();
+      float multiY = GraphicsHandler::instance().getZoomY();
 
       if ((m_TargetBitmap) || (m_NoResize)) {
          multiX = 1.0f;
@@ -419,8 +419,8 @@ void Bitmap::blit(const Rect &sourceRect, const Rect &targetRect, float opacity)
       float sxs = sourceRect.size.x;
       float sys = sourceRect.size.y;
       
-      float multiX = GraphicsHandler::zoomX;
-      float multiY = GraphicsHandler::zoomY;
+      float multiX = GraphicsHandler::instance().getZoomX();
+      float multiY = GraphicsHandler::instance().getZoomY();
 
       if ((m_TargetBitmap) || (m_NoResize)) {
          multiX = 1.0f;

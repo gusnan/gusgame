@@ -83,13 +83,13 @@ int main(int argc,char **argv)
       System::initSystem();
 
       // Init the graphics stuff
-      GraphicsHandler::initGraphicsHandler();
+      GraphicsHandler::instance().initGraphicsHandler();
 
       // set up a screen with resolution of 640x480, and not fullscreen
-      GraphicsHandler::setGraphicsMode(Vector2d(640, 480), false);
+      GraphicsHandler::instance().setGraphicsMode(Vector2d(640, 480), false);
 
       // set a window title
-      GraphicsHandler::setWindowTitle("GusGame Example 4");
+      GraphicsHandler::instance().setWindowTitle("GusGame Example 4");
 
       // Create an EventHandler for our "custom" events
       eventHandler = std::make_shared<ExampleEventHandler>();
@@ -123,12 +123,12 @@ int main(int argc,char **argv)
       EventSystem::handleEvents();
 
       // Clear the screen every sync
-      GraphicsHandler::clearScreen();
+      GraphicsHandler::instance().clearScreen();
 
       //System::getMouse()->draw();
 
       // Update the screen
-      GraphicsHandler::updateScreen();
+      GraphicsHandler::instance().updateScreen();
    } while(!quit);
 
    // Remove our custom eventHandler

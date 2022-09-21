@@ -73,8 +73,8 @@ void Primitives::line(const Vector2d &sourcePoint, const Vector2d &targetPoint, 
    float tx = (float)((float)targetPoint.x + 0.5f);
    float ty = (float)((float)targetPoint.y + 0.5f);
    
-   float zx = GraphicsHandler::zoomX;
-   float zy = GraphicsHandler::zoomY;
+   float zx = GraphicsHandler::instance().getZoomX();
+   float zy = GraphicsHandler::instance().getZoomY();
    
    al_draw_line(sx * zx, sy * zy, tx * zx, ty * zy, color.getAllegroColor(), thickness);
    
@@ -96,8 +96,8 @@ void Primitives::rect(const Rect &rect, const Color &color, float thickness)
    float sx = (float)rect.size.x;
    float sy = (float)rect.size.y;
    
-   float zx = GraphicsHandler::zoomX;
-   float zy = GraphicsHandler::zoomY;
+   float zx = GraphicsHandler::instance().getZoomX();
+   float zy = GraphicsHandler::instance().getZoomY();
 
    al_draw_rectangle(x * zx,
                      y * zy,
@@ -120,8 +120,8 @@ void Primitives::rectFill(const Rect &rect, const Color &color)
    float sx = (float)rect.size.x;
    float sy = (float)rect.size.y;
    
-   float zx = (float)GraphicsHandler::zoomX;
-   float zy = (float)GraphicsHandler::zoomY;
+   float zx = GraphicsHandler::instance().getZoomX();
+   float zy = GraphicsHandler::instance().getZoomY();
 
    al_draw_filled_rectangle(x * zx,
                      y * zy,
