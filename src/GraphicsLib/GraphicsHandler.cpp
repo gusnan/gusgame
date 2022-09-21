@@ -112,8 +112,9 @@ std::string GraphicsHandler::getOpenGLVersionString()
 /**
  *
  */
-void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable)
+int GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable)
 {
+   int set_graphics_result = SET_GRAPHICS_RESULT_OK;
    int flags = 0;
 
    if (fullscreen) {
@@ -138,6 +139,8 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, boo
       al_set_new_display_flags(flags);
 
       display = al_create_display(size.x, size.y);
+
+      set_graphics_result = SET_GRAPHICS_RESULT_NO_OPEN_GL;
    }
 
    screenSize = size;
@@ -148,6 +151,7 @@ void GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, boo
    }
 
    //al_set_window_position(display, 32, 32);
+   return set_graphics_result;
 }
 
 

@@ -34,6 +34,10 @@ namespace Gus
 namespace GraphicsLib
 {
 
+const int SET_GRAPHICS_RESULT_OK =           0;
+const int SET_GRAPHICS_RESULT_NO_OPEN_GL =   1;
+
+
 /**
  *
  */
@@ -42,7 +46,7 @@ namespace GraphicsHandler
    void initGraphicsHandler();
    void doneGraphicsHandler();
 
-   void setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable = false);
+   int setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable = false);
    void setBackgroundSize(const Vector2d &size);
 
    void setWindowTitle(const std::string &title);
