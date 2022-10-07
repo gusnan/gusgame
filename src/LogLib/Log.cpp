@@ -206,6 +206,7 @@ std::string GUSGAME_DLL Log::getTime()
 
 #ifdef _MSC_VER
    struct tm timeinfo;
+   // cppcheck-suppress uninitvar
    localtime_s(&timeinfo,&rawtime);
    strftime(buffer, 80, "%X", &timeinfo);
 #else
@@ -230,6 +231,7 @@ std::string GUSGAME_DLL Log::getDate()
 
 #ifdef _MSC_VER
    struct tm timeinfo;
+   // cppcheck-suppress uninitvar
    localtime_s(&timeinfo, &rawtime);
    strftime(buffer, 80, "%x", &timeinfo);
 #else
