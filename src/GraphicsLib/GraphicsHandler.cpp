@@ -63,7 +63,11 @@ GraphicsHandler &GraphicsHandler::instance()
 /**
  *
  */
-GraphicsHandler::GraphicsHandler(const GraphicsHandler &inGraphicsHandler)
+GraphicsHandler::GraphicsHandler(const GraphicsHandler &inGraphicsHandler) : screenSize(),
+                                                                             backgroundSize(),
+                                                                             zoomX(),
+                                                                             zoomY(),
+                                                                             display(nullptr)
 {
 }
 
@@ -82,7 +86,12 @@ GraphicsHandler::~GraphicsHandler()
  */
 GraphicsHandler &GraphicsHandler::operator=(const GraphicsHandler &inGraphicsHandler)
 {
-   // this->setQuit(inProgram.m_Quit);
+   screenSize = inGraphicsHandler.screenSize;
+   backgroundSize = inGraphicsHandler.backgroundSize;
+   zoomX = inGraphicsHandler.zoomX;
+   zoomY = inGraphicsHandler.zoomY;
+   display = inGraphicsHandler.display;
+
 
    return *this;
 }
@@ -91,7 +100,11 @@ GraphicsHandler &GraphicsHandler::operator=(const GraphicsHandler &inGraphicsHan
 /**
  *
  */
-GraphicsHandler::GraphicsHandler()
+GraphicsHandler::GraphicsHandler() : screenSize(),
+                                     backgroundSize(),
+                                     zoomX(),
+                                     zoomY(),
+                                     display(nullptr)
 {
 }
 
