@@ -80,7 +80,7 @@ void ErrorHandler::reportError(Exception& e)
    LOG(st);
    
 #ifdef _WIN32
-   MessageBox(NULL,(char*)(st.c_str()),(char*)(st.c_str()),MB_OK | MB_ICONWARNING);
+   MessageBox(NULL,const_cast<char*>(st.c_str()),const_cast<char*>(st.c_str()),MB_OK | MB_ICONWARNING);
 #else
    std::cout << st << std::endl;
 #endif

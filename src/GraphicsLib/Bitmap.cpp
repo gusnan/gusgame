@@ -80,7 +80,7 @@ Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(n
 {
    std::string fixedFilename = FileHelper::getFilename(filename);
 
-   m_AllegroBitmap = al_load_bitmap((char*)(fixedFilename.c_str()));
+   m_AllegroBitmap = al_load_bitmap(const_cast<char*>(fixedFilename.c_str()));
 
    if (!m_AllegroBitmap) {
       std::stringstream st;

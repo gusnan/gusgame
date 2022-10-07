@@ -80,7 +80,7 @@ Font::Font(std::string filename, int size, bool useKerning) : m_AllegroFont(null
 
    int flags = 0;
 
-   m_AllegroFont = al_load_font((char*)(fixedFilename.c_str()), size, flags);
+   m_AllegroFont = al_load_font(const_cast<char*>(fixedFilename.c_str()), size, flags);
 
    if (!m_AllegroFont) {
       std::stringstream st;
@@ -126,7 +126,7 @@ void Font::draw(const Vector2d &position, std::string text, const Color &color)
    float py = (float)position.y * (float)GraphicsHandler::instance().getZoomY();
 
    al_draw_text(m_AllegroFont, color.getAllegroColor(), px, py,
-                  ALLEGRO_ALIGN_LEFT, (char*)text.c_str());
+                  ALLEGRO_ALIGN_LEFT, const_cast<char*>(text.c_str()));
 }
 
 
@@ -143,7 +143,7 @@ void Font::drawCenter(const Vector2d &position, std::string text, const Color &c
    float py = (float)position.y * (float)GraphicsHandler::instance().getZoomY();
 
    al_draw_text(m_AllegroFont, color.getAllegroColor(), px, py - subVertical,
-                  ALLEGRO_ALIGN_CENTER, (char*)text.c_str());
+                  ALLEGRO_ALIGN_CENTER, const_cast<char*>(text.c_str()));
 }
 
 

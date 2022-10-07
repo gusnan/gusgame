@@ -73,7 +73,7 @@ UserEvent::UserEvent() : m_UserEventNumber(0), userEvent(), m_EventData()
 UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventNumber(), userEvent(), m_EventData()
 {
    m_UserEventNumber = ev.user.data1;
-   m_EventData = (EventData*)ev.user.data2;
+   m_EventData = reinterpret_cast<EventData*>(ev.user.data2);
    //userEvent=ev;
 }
 

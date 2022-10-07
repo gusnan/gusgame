@@ -53,7 +53,7 @@ namespace LogLib
 GUSGAME_DLL Log::Log(std::string filename,bool activeFileLog,bool activeScreenLog) : m_Indent(0), m_FileLogActive(activeFileLog), m_ScreenLogActive(activeScreenLog), m_File(), m_Filename(filename)
 {
    if (m_FileLogActive) {
-      m_File.open((char*)(m_Filename.c_str()), std::fstream::trunc);
+      m_File.open(const_cast<char*>(m_Filename.c_str()), std::fstream::trunc);
       
       m_File << std::endl;
       m_File << getTime() << COLON;
