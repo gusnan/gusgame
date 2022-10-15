@@ -1,13 +1,12 @@
 
-README
-------
+# GusGame
 
 This is GusGame, a object oriented wrapper around the functionality in
 Allegro. It is currently tested on Debian GNU/Linux using g++, and on
 Windows using Microsoft Visual Studio Express 2012.
 
 
-EXAMPLES:
+### EXAMPLES:
 
 * example1:
 
