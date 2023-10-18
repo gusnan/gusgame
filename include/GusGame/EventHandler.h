@@ -59,6 +59,9 @@ public:
    virtual std::string getName();
    virtual void setName(std::string inName);
 
+   std::shared_ptr<EventHandler> makeCopy() const;
+   virtual std::shared_ptr<EventHandler> cloneImplementation() const;
+
 protected:
    std::string m_Name;
 };

@@ -190,6 +190,22 @@ void EventHandler::setName(std::string inName)
 }
 
 
+/**
+ *
+ */
+std::shared_ptr<EventHandler> EventHandler::makeCopy() const
+{
+   return cloneImplementation();
+}
+
+
+/**
+ *
+ */
+std::shared_ptr<EventHandler> EventHandler::cloneImplementation() const
+{
+   return std::shared_ptr<EventHandler >(new EventHandler(*this));
+}
 
 // end of namespace
 // ----------------
