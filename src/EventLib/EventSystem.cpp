@@ -176,7 +176,7 @@ void EventSystem::addEventHandler(EventHandlerPtr inEventHandler)
          
          std::stringstream st;
 
-         st << "Adding eventhandler:" << inEventHandler.get()->getName();
+         st << "Adding eventhandler: " << inEventHandler.get()->getName();
          STLOG(st);
          
       }
