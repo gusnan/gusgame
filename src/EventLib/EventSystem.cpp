@@ -132,6 +132,7 @@ void EventSystem::initEventSystem()
  */
 void EventSystem::doneEventSystem()
 {
+   LOG("Done Event System");
    //std::list<EventHandler*>::iterator iter;
 
    al_destroy_user_event_source(&userEventSource);
