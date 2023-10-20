@@ -66,6 +66,8 @@ protected:
    std::string m_Name;
 };
 
+typedef std::shared_ptr<EventHandler> EventHandlerPtr;
+
 // end of namespace
 // ----------------
 };

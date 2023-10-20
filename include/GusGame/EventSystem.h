@@ -32,8 +32,6 @@ namespace Gus
 namespace EventLib
 {
 
-typedef std::shared_ptr<EventHandler> EventHandlerPtr;
-
 /**
  *
  */
