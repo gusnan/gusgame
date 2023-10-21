@@ -46,7 +46,7 @@ std::string StringHelper::upcase(std::string str)
 */
    std::string res=str;
 
-   for (int co=0; co < (int)str.length(); co++) {
+   for (int co = 0; co < (int)str.length(); co++) {
       char ch = str[co];
       res[co] = toupper(ch);
    }
@@ -68,7 +68,7 @@ std::string StringHelper::lowercase(std::string str)
 
    std::string res = str;
 
-   for (int co = 0 ;co < (int)str.length(); co++) {
+   for (int co = 0; co < (int)str.length(); co++) {
       char ch = str[co];
       res[co] = tolower(ch);
    }
@@ -101,7 +101,7 @@ void StringHelper::splitString(std::string instring, std::string& text, std::str
 
    int posEndPar=-1;
 
-   for (int co=0;co<(int)instring.length();co++) {
+   for (int co = 0;co < (int)instring.length();co++) {
       if (instring[co]==')') {
          posEndPar=co; //containsParanthesis=true;
          //std::cout << "Contains Parathesis!" << std::endl;
