@@ -1,0 +1,3899 @@
+#
+# Use with the following command:
+#  valgrind --leak-check=full --suppressions=../valgrind.supp ./puzzleblocks
+#
+# to generate something to enter into this file, use:
+#  valgrind --leak-check=full --gen-suppressions=all ./puzzleblocks 
+#
+#
+# valgrind --leak-check=full --show-leak-kinds=all --suppressions=../valgrind.supp --gen-suppressions=all ./game 
+#
+
+
+
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   obj:/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7
+   obj:/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_XlcResolveLocaleName
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   obj:/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7
+   obj:/usr/lib/x86_64-linux-gnu/liballegro.so.5.2.7
+   fun:al_create_display
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:*
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:*
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:*
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:*
+   fun:call_init.part.0
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Param
+   sendmsg(msg.msg_iov[0])
+   fun:__libc_sendmsg
+   fun:sendmsg
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   fun:xcb_flush
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XrmInternalStringToQuark
+   fun:_XlcGetLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XrmInternalStringToQuark
+   fun:_XlcGetCharSet
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XrmInternalStringToQuark
+   fun:_XlcGetCharSet
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XrmInternalStringToQuark
+   fun:_XlcGetCharSet
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XlcCreateDefaultCharSet
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.2.5
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcCreateDefaultCharSet
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_dl_check_map_versions
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.2.5
+   obj:/usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+   obj:/usr/lib/x86_64-linux-gnu/libGLX.so.0.0.0
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddCharSet
+   fun:_XlcAddCT
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_al_system_xglx_driver
+   fun:_al_register_system_interfaces
+   fun:al_install_system
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_dl_check_map_versions
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.2.5
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_dl_load_cache_lookup
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+}
+
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddLoader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XInitThreads
+   fun:xglx_initialize
+   fun:find_system
+   fun:al_install_system
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XInitThreads
+   fun:xglx_initialize
+   fun:find_system
+   fun:al_install_system
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcCreateLocaleDataBase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+}
+
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+}
+ 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcInitCTInfo
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   fun:_XcursorGetDisplayInfo
+   fun:XcursorSupportsARGB
+   fun:XcursorNoticeCreateBitmap
+   fun:XCreatePixmap
+   fun:xpmCreatePixmapFromImage
+   fun:XpmCreatePixmapFromData
+}
+
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcCreateDefaultCharSet
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddCharSet
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcCreateDefaultCharSet
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_dl_check_map_versions
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.2.5
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_dl_load_cache_lookup
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.2.5
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen@@GLIBC_2.2.5
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.470.141.03
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+ 
+ 
+ {
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:_Znwm
+   fun:_ZNSt6vectorISt10shared_ptrIN6GusGui9GuiObjectEESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_
+   fun:_ZN6GusGui10GuiHandler15addToHandleListERKSt10shared_ptrINS_9GuiObjectEE
+   fun:_ZN16GameModeMainMenu13enterGameModeEv
+   fun:_ZN16EventHandlerGame14handleKeyboardERN3Gus8EventLib8KeyEventE
+   fun:_ZN3Gus8EventLib11EventSystem14doHandleEventsE13ALLEGRO_EVENTSt10shared_ptrINS0_12EventHandlerEE
+   fun:_ZN3Gus8EventLib11EventSystem12handleEventsEv
+   fun:_ZN7Program8mainLoopEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddLoader
+   fun:_XlcInitLoader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddLoader
+   fun:_XlcInitLoader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcDefaultMapModifiers
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XimOpenIM
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7ProgramC1Ev
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_XlcResolveLocaleName
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: possible
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:realloc
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:realloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:realloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:calloc
+   fun:_dl_check_map_versions
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen_implementation
+   fun:dlopen@@GLIBC_2.34
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:realloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/nvidia/current/libGLX_nvidia.so.525.125.06
+   obj:*
+   fun:call_init
+   fun:call_init
+   fun:_dl_init
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XrmGetStringDatabase
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XGetDefault
+   fun:_XcursorGetDisplayInfo
+   fun:XcursorSupportsARGB
+   fun:XcursorNoticeCreateBitmap
+   fun:XCreatePixmap
+   fun:xpmCreatePixmapFromImage
+   fun:XpmCreatePixmapFromData
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:strdup
+   fun:_dl_load_cache_lookup
+   fun:_dl_map_object
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XrmInternalStringToQuark
+   fun:_XlcGetCharSet
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:calloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:calloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:strdup
+   fun:_dl_load_cache_lookup
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:_dl_new_object
+   fun:_dl_map_object_from_fd
+   fun:_dl_map_object
+   fun:openaux
+   fun:_dl_catch_exception
+   fun:_dl_map_object_deps
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: indirect
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:malloc
+   fun:add_to_global_resize
+   fun:dl_open_worker_begin
+   fun:_dl_catch_exception
+   fun:dl_open_worker
+   fun:_dl_catch_exception
+   fun:_dl_open
+   fun:dlopen_doit
+   fun:_dl_catch_exception
+   fun:_dl_catch_error
+   fun:_dlerror_run
+   fun:dlopen_implementation
+   fun:dlopen@@GLIBC_2.34
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_al_system_xglx_driver
+   fun:_al_register_system_interfaces
+   fun:al_install_system
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddLoader
+   fun:_XlcInitLoader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcAddLoader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8LocaleConverters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XimOpenIM
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcDefaultMapModifiers
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_XlcCreateLC
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+   fun:main
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcSetConverter
+   fun:_XlcAddUtf8Converters
+   fun:_XlcUtf8Loader
+   fun:_XOpenLC
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:_ZN7Program11initProgramEv
+   fun:_ZN7ProgramC1Ev
+   fun:_ZN7Program8instanceEv
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:calloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libdrm.so.2.4.0
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
