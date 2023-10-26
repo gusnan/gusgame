@@ -3897,3 +3897,68 @@
    obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
    obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
 }
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:_XlcCreateLC
+   fun:_XlcDefaultLoader
+   fun:_XOpenLC
+   fun:Xutf8TextListToTextProperty
+   fun:xdpy_set_window_title_default
+   fun:xdpy_create_display_locked
+   fun:xdpy_create_display
+   fun:al_create_display
+   fun:_ZN3Gus11GraphicsLib15GraphicsHandler15setGraphicsModeERKNS0_8Vector2dEbb
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XimOpenIM
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:main
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   obj:*
+   obj:*
+   obj:*
+   obj:*
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+   obj:/usr/lib/x86_64-linux-gnu/libnvidia-glcore.so.525.125.06
+}
+
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XlcDefaultMapModifiers
+   fun:XSetLocaleModifiers
+   fun:x_keyboard_init
+   fun:xkeybd_init_keyboard
+   fun:al_install_keyboard
+   fun:_ZN3Gus6System10initSystemEv
+   fun:main
+}
+
+
