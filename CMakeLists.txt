@@ -19,7 +19,7 @@
 
 project(gusgame)
 
-cmake_minimum_required(VERSION 2.6)
+cmake_minimum_required(VERSION 3.10.2)
 
 set(LIBRARY_NAME gusgame)
 
@@ -28,6 +28,13 @@ set(LIBRARY_OUTPUT_PATH ${CMAKE_SOURCE_DIR}/lib)
 
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR})
 list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+
+# Silence OpenGL cmake policy warnings
+# See CMP0072 for more details (cmake --help-policy CMP0072)
+if ((NOT ${CMAKE_VERSION} VERSION_LESS 3.11) AND (NOT OpenGL_GL_PREFERENCE))
+  set(OpenGL_GL_PREFERENCE "GLVND")
+endif()
+
 
 find_package(OpenGL REQUIRED)
 find_package(Allegro5 REQUIRED)
