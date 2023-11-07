@@ -20,6 +20,8 @@
 #ifndef __HEADER_GUSGAME_INCLUDE_
 #define __HEADER_GUSGAME_INCLUDE_
 
+#define REMOVE(a) if (a != nullptr) { delete a; a = nullptr; }
+
 #include "Library.h"
 
 #include "GraphicsLib.h"
