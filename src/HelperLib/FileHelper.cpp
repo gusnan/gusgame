@@ -17,12 +17,12 @@
  *	along with GusGame.  If not, see <http://www.gnu.org/licenses/>.
  *
  */
-#include <boost/filesystem.hpp>
 #include <sys/stat.h>
 
 #include <string>
 #include <list>
 #include <sstream>
+#include <filesystem>
 
 #include <sys/types.h>
 
@@ -66,7 +66,7 @@ bool FileHelper::isDir(std::string in_string)
 {
    struct stat stats;
 
-   if (boost::filesystem::is_directory(in_string)) return true;
+   if (std::filesystem::is_directory(in_string)) return true;
 
    return false;
 }
@@ -77,7 +77,7 @@ bool FileHelper::isDir(std::string in_string)
  */
 bool FileHelper::fileExists(std::string strFilename)
 {
-   if (boost::filesystem::exists(strFilename)) return true;
+   if (std::filesystem::exists(strFilename)) return true;
 
    return false;
 }
@@ -226,8 +226,8 @@ std::string FileHelper::fixSlashes(const std::string &text)
  */
 std::string FileHelper::getAbsolutePath(const std::string &inString)
 {
-   boost::filesystem::path inPath = boost::filesystem::path(inString);
-   boost::filesystem::path canonicalPath = boost::filesystem::weakly_canonical(inPath);
+   std::filesystem::path inPath = std::filesystem::path(inString);
+   std::filesystem::path canonicalPath = std::filesystem::weakly_canonical(inPath);
 
    return canonicalPath.string();
 }
