@@ -163,7 +163,7 @@ std::string GraphicsHandler::getOpenGLVersionString()
 /**
  *
  */
-int GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable)
+int GraphicsHandler::setGraphicsMode(const Vector2d &windowSize, const Vector2d &graphicsSize, bool fullscreen, bool resizable)
 {
    int set_graphics_result = SET_GRAPHICS_RESULT_OK;
    int flags = 0;
@@ -180,7 +180,7 @@ int GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool
 
    al_set_new_display_flags(flags);
 
-   display = al_create_display(size.x, size.y);
+   display = al_create_display(windowSize.x, windowSize.y);
 
    // Couldn't set the display when using ALLEGRO_OPENGL flag,
    // now try without (This happens with Windows under VirtualBox)
@@ -189,13 +189,13 @@ int GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool
 
       al_set_new_display_flags(flags);
 
-      display = al_create_display(size.x, size.y);
+      display = al_create_display(windowSize.x, windowSize.y);
 
       set_graphics_result = SET_GRAPHICS_RESULT_NO_OPEN_GL;
    }
 
-   screenSize = size;
-   setBackgroundSize(screenSize);
+   screenSize = windowSize;
+   setBackgroundSize(graphicsSize);
 
    if (!display) {
       throw ExceptionLib::Exception("Couldn't init display!");
@@ -203,6 +203,15 @@ int GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool
 
    //al_set_window_position(display, 32, 32);
    return set_graphics_result;
+}
+
+
+/**
+ *
+ */
+int GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable)
+{
+   return setGraphicsMode(size, size, fullscreen, resizable);
 }
 
 

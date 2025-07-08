@@ -55,6 +55,7 @@ public:
    void initGraphicsHandler();
    void doneGraphicsHandler();
 
+   int setGraphicsMode(const Vector2d &windowSize, const Vector2d &graphicsSize, bool fullscreen, bool resizable);
    int setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable = false);
    void setBackgroundSize(const Vector2d &size);
 
