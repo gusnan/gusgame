@@ -63,8 +63,8 @@ GraphicsHandler &GraphicsHandler::instance()
 /**
  *
  */
-GraphicsHandler::GraphicsHandler(const GraphicsHandler &inGraphicsHandler) : screenSize(),
-                                                                             backgroundSize(),
+GraphicsHandler::GraphicsHandler(const GraphicsHandler &inGraphicsHandler) : windowSize(),
+                                                                             graphicsSize(),
                                                                              zoomX(),
                                                                              zoomY(),
                                                                              display(nullptr),
@@ -87,8 +87,8 @@ GraphicsHandler::~GraphicsHandler()
  */
 GraphicsHandler &GraphicsHandler::operator=(const GraphicsHandler &inGraphicsHandler)
 {
-   screenSize = inGraphicsHandler.screenSize;
-   backgroundSize = inGraphicsHandler.backgroundSize;
+   windowSize = inGraphicsHandler.windowSize;
+   graphicsSize = inGraphicsHandler.graphicsSize;
    zoomX = inGraphicsHandler.zoomX;
    zoomY = inGraphicsHandler.zoomY;
    display = inGraphicsHandler.display;
@@ -102,8 +102,8 @@ GraphicsHandler &GraphicsHandler::operator=(const GraphicsHandler &inGraphicsHan
 /**
  *
  */
-GraphicsHandler::GraphicsHandler() : screenSize(),
-                                     backgroundSize(),
+GraphicsHandler::GraphicsHandler() : windowSize(),
+                                     graphicsSize(),
                                      zoomX(),
                                      zoomY(),
                                      display(nullptr),
@@ -166,7 +166,7 @@ std::string GraphicsHandler::getOpenGLVersionString()
 /**
  *
  */
-int GraphicsHandler::setGraphicsMode(const Vector2d &windowSize, const Vector2d &graphicsSize, bool fullscreen, bool resizable)
+int GraphicsHandler::setGraphicsMode(const Vector2d &inWindowSize, const Vector2d &inGraphicsSize, bool fullscreen, bool resizable)
 {
    int set_graphics_result = SET_GRAPHICS_RESULT_OK;
    int flags = 0;
@@ -183,7 +183,7 @@ int GraphicsHandler::setGraphicsMode(const Vector2d &windowSize, const Vector2d 
 
    al_set_new_display_flags(flags);
 
-   display = al_create_display(windowSize.x, windowSize.y);
+   display = al_create_display(inWindowSize.x, inWindowSize.y);
 
    // Couldn't set the display when using ALLEGRO_OPENGL flag,
    // now try without (This happens with Windows under VirtualBox)
@@ -192,13 +192,13 @@ int GraphicsHandler::setGraphicsMode(const Vector2d &windowSize, const Vector2d 
 
       al_set_new_display_flags(flags);
 
-      display = al_create_display(windowSize.x, windowSize.y);
+      display = al_create_display(inWindowSize.x, inWindowSize.y);
 
       set_graphics_result = SET_GRAPHICS_RESULT_NO_OPEN_GL;
    }
 
-   screenSize = windowSize;
-   setBackgroundSize(graphicsSize);
+   windowSize = inWindowSize;
+   setGraphicsSize(inGraphicsSize);
 
    if (!display) {
       throw ExceptionLib::Exception("Couldn't init display!");
@@ -221,12 +221,12 @@ int GraphicsHandler::setGraphicsMode(const Vector2d &size, bool fullscreen, bool
 /**
  *
  */
-void GraphicsHandler::setBackgroundSize(const Vector2d &size)
+void GraphicsHandler::setGraphicsSize(const Vector2d &size)
 {
-   backgroundSize = size;
+   graphicsSize = size;
    
-   zoomX = (float)screenSize.x / (float)backgroundSize.x;
-   zoomY = (float)screenSize.y / (float)backgroundSize.y;
+   zoomX = (float)windowSize.x / (float)graphicsSize.x;
+   zoomY = (float)windowSize.y / (float)graphicsSize.y;
 }
 
 
@@ -266,7 +266,7 @@ void GraphicsHandler::updateScreen()
  */
 Rect GraphicsHandler::getScreenRect()
 {
-   return Rect(Vector2d(0, 0), backgroundSize);
+   return Rect(Vector2d(0, 0), graphicsSize);
 }
 
 

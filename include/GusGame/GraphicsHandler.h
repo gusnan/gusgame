@@ -57,7 +57,7 @@ public:
 
    int setGraphicsMode(const Vector2d &windowSize, const Vector2d &graphicsSize, bool fullscreen, bool resizable);
    int setGraphicsMode(const Vector2d &size, bool fullscreen, bool resizable = false);
-   void setBackgroundSize(const Vector2d &size);
+   void setGraphicsSize(const Vector2d &size);
 
    void setWindowTitle(const std::string &title);
 
@@ -88,8 +88,8 @@ private:
    GraphicsHandler(const GraphicsHandler &inGraphicsHandler);
    GraphicsHandler &operator=(const GraphicsHandler &inGraphicsHandler);
 
-   Vector2d screenSize;
-   Vector2d backgroundSize;
+   Vector2d windowSize;
+   Vector2d graphicsSize;
 
    std::shared_ptr<Bitmap> targetBitmap;
 
