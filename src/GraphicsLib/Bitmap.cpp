@@ -56,27 +56,46 @@ namespace GraphicsLib
 /**
  *
  */
-Bitmap::Bitmap() : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(nullptr), m_NoResize(false)
+Bitmap::Bitmap() : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_NoResize(false)
 {
-   setTarget(nullptr);
 }
 
 
 /**
  *
  */
-Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_TargetBitmap(nullptr), m_NoResize(false), m_AllegroBitmap(nullptr)
+Bitmap::Bitmap(const Vector2d &size) : m_Size(size.x, size.y), m_NoResize(false), m_AllegroBitmap(nullptr)
 {
    m_AllegroBitmap = al_create_bitmap(size.x, size.y);
-   
-   setTarget(nullptr);
 }
 
 
 /**
  *
  */
-Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(nullptr), m_NoResize(inNoResize)
+Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_NoResize(false)
+{
+   LOG("Copyconstructor...");
+
+   m_AllegroBitmap = nullptr;
+
+   if (source.m_AllegroBitmap)
+      m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
+
+   m_Size.x = source.m_Size.x;
+   m_Size.y = source.m_Size.y;
+
+   m_NoResize = source.m_NoResize;
+
+   //setTarget(nullptr);
+ }
+
+
+
+/**
+ *
+ */
+Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_NoResize(inNoResize)
 {
    std::string fixedFilename = FileHelper::getFilename(filename);
 
@@ -92,31 +111,6 @@ Bitmap::Bitmap(const std::string &filename, bool inNoResize) : m_AllegroBitmap(n
 
    m_Size.x = al_get_bitmap_width(m_AllegroBitmap);
    m_Size.y = al_get_bitmap_height(m_AllegroBitmap);
-
-   setTarget(nullptr);
-}
-
-
-/**
- *
- */
-Bitmap::Bitmap(const Bitmap &source) : m_AllegroBitmap(nullptr), m_Size(-1, -1), m_TargetBitmap(nullptr), m_NoResize(false)
-{
-   LOG("Copyconstructor...");
-
-   m_AllegroBitmap = nullptr;
-
-   if (source.m_AllegroBitmap)
-      m_AllegroBitmap = al_clone_bitmap(source.m_AllegroBitmap);
-
-   m_Size.x = source.m_Size.x;
-   m_Size.y = source.m_Size.y;
-
-   m_NoResize = source.m_NoResize;
-
-   setTarget(source.m_TargetBitmap);
-
-   //setTarget(nullptr);
 }
 
 
@@ -138,8 +132,6 @@ Bitmap &Bitmap::operator=(const Bitmap &source)
       m_Size.y = source.m_Size.y;
       
       m_NoResize = source.m_NoResize;
-
-      setTarget(nullptr);
    }
 
    return *this;
@@ -191,21 +183,6 @@ Vector2d Bitmap::getSize() const
 
 
 /**
- * setTarget
- *   Set the target to NULL to draw directly to screen.
- */
-void Bitmap::setTarget(std::shared_ptr<Bitmap> inTargetBitmap)
-{
-   if (!inTargetBitmap) {
-      al_set_target_bitmap(al_get_backbuffer(GraphicsHandler::instance().getDisplay()));
-   } else {
-      al_set_target_bitmap(inTargetBitmap->getAllegroBitmap());
-   }
-   m_TargetBitmap = inTargetBitmap;
-}
-
-
-/**
  *
  */
 void Bitmap::blit(const Vector2d &position, float opacity)
@@ -213,10 +190,13 @@ void Bitmap::blit(const Vector2d &position, float opacity)
    if (m_AllegroBitmap) {
       // al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, 0);
 
+      std::shared_ptr<Bitmap> target = GraphicsHandler::instance().getTargetBitmap();
+
       float multiX = GraphicsHandler::instance().getZoomX();
       float multiY = GraphicsHandler::instance().getZoomY();
 
-      if ((m_TargetBitmap)) {
+      //if ((m_TargetBitmap)) {
+      if ((target)) {
          multiX = 1.0f;
          multiY = 1.0f;
       }
@@ -225,7 +205,7 @@ void Bitmap::blit(const Vector2d &position, float opacity)
       float rpy = (float)position.y * (float)multiY;
 
       
-      if ((m_TargetBitmap) || (m_NoResize)) {
+      if ((target) || (m_NoResize)) {
          multiX = 1.0f;
          multiY = 1.0f;
       }
@@ -248,6 +228,8 @@ void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float 
 
       int al_flags = 0;
 
+      std::shared_ptr<Bitmap> target = GraphicsHandler::instance().getTargetBitmap();
+
       switch(inFlags) {
       case FlipNone:
          al_flags = 0;
@@ -262,11 +244,10 @@ void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float 
 
       // al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, al_flags);
 
-
       float multiX = GraphicsHandler::instance().getZoomX();
       float multiY = GraphicsHandler::instance().getZoomY();
 
-      if ((m_TargetBitmap) || (m_NoResize)) {
+      if ((target) || (m_NoResize)) {
          multiX = 1.0f;
          multiY = 1.0f;
       }
@@ -307,7 +288,9 @@ void Bitmap::blitFlipped(const Rect &rect, FlipDirection inFlags, float opacity)
       float multiX = GraphicsHandler::instance().getZoomX();
       float multiY = GraphicsHandler::instance().getZoomY();
 
-      if ((m_TargetBitmap) || (m_NoResize)) {
+      std::shared_ptr<Bitmap> target = GraphicsHandler::instance().getTargetBitmap();
+
+      if ((target) || (m_NoResize)) {
          multiX = 1.0f;
          multiY = 1.0f;
       }
@@ -333,7 +316,9 @@ void Bitmap::blit(const Rect &targetRect, float opacity)
       float multiX = GraphicsHandler::instance().getZoomX();
       float multiY = GraphicsHandler::instance().getZoomY();
 
-      if ((m_TargetBitmap) || (m_NoResize)) {
+      std::shared_ptr<Bitmap> target = GraphicsHandler::instance().getTargetBitmap();
+
+      if ((target) || (m_NoResize)) {
          multiX = 1.0f;
          multiY = 1.0f;
       }
@@ -373,7 +358,9 @@ void Bitmap::blit(const Rect &sourceRect, const Vector2d &position, FlipDirectio
       float multiX = GraphicsHandler::instance().getZoomX();
       float multiY = GraphicsHandler::instance().getZoomY();
 
-      if ((m_TargetBitmap) || (m_NoResize)) {
+      std::shared_ptr<Bitmap> target = GraphicsHandler::instance().getTargetBitmap();
+
+      if ((target) || (m_NoResize)) {
          multiX = 1.0f;
          multiY = 1.0f;
       }
@@ -422,7 +409,9 @@ void Bitmap::blit(const Rect &sourceRect, const Rect &targetRect, float opacity)
       float multiX = GraphicsHandler::instance().getZoomX();
       float multiY = GraphicsHandler::instance().getZoomY();
 
-      if ((m_TargetBitmap) || (m_NoResize)) {
+      std::shared_ptr<Bitmap> target = GraphicsHandler::instance().getTargetBitmap();
+
+      if ((target) || (m_NoResize)) {
          multiX = 1.0f;
          multiY = 1.0f;
       }

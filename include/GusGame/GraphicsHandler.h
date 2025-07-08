@@ -75,6 +75,9 @@ public:
 
    Vector2d getDisplayResolution();
 
+   void setTarget(std::shared_ptr<Bitmap> inTargetBitmap);
+   std::shared_ptr<Bitmap> getTargetBitmap();
+
 protected:
 
    GraphicsHandler();
@@ -87,6 +90,8 @@ private:
 
    Vector2d screenSize;
    Vector2d backgroundSize;
+
+   std::shared_ptr<Bitmap> targetBitmap;
 
    float zoomX, zoomY;
 

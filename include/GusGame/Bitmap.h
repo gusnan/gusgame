@@ -66,8 +66,6 @@ public:
 
    Vector2d getSize() const;
 
-   void setTarget(std::shared_ptr<Bitmap> targetBitmap);
-
    void blit(const Vector2d &position, float opacity = 1.0f);
    void blitFlipped(const Vector2d &position, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
    void blitFlipped(const Rect &rect, FlipDirection inFlags = FlipNone, float opacity = 1.0f);
@@ -90,8 +88,6 @@ protected:
    ALLEGRO_BITMAP *m_AllegroBitmap;
 
    Vector2d m_Size;
-
-   std::shared_ptr<Bitmap> m_TargetBitmap;
 
    bool m_NoResize;
 

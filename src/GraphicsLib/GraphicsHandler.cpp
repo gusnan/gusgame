@@ -67,7 +67,8 @@ GraphicsHandler::GraphicsHandler(const GraphicsHandler &inGraphicsHandler) : scr
                                                                              backgroundSize(),
                                                                              zoomX(),
                                                                              zoomY(),
-                                                                             display(nullptr)
+                                                                             display(nullptr),
+                                                                             targetBitmap(nullptr)
 {
 }
 
@@ -91,6 +92,7 @@ GraphicsHandler &GraphicsHandler::operator=(const GraphicsHandler &inGraphicsHan
    zoomX = inGraphicsHandler.zoomX;
    zoomY = inGraphicsHandler.zoomY;
    display = inGraphicsHandler.display;
+   targetBitmap = inGraphicsHandler.targetBitmap;
 
 
    return *this;
@@ -104,7 +106,8 @@ GraphicsHandler::GraphicsHandler() : screenSize(),
                                      backgroundSize(),
                                      zoomX(),
                                      zoomY(),
-                                     display(nullptr)
+                                     display(nullptr),
+                                     targetBitmap(nullptr)
 {
 }
 
@@ -342,6 +345,32 @@ ALLEGRO_DISPLAY *GraphicsHandler::getDisplay()
 {
    return display;
 }
+
+
+
+/**
+ * setTarget
+ *   Set the target to NULL to draw directly to screen.
+ */
+void GraphicsHandler::setTarget(std::shared_ptr<Bitmap> inTargetBitmap)
+{
+   if (!inTargetBitmap) {
+      al_set_target_bitmap(al_get_backbuffer(display));
+   } else {
+      al_set_target_bitmap(inTargetBitmap->getAllegroBitmap());
+   }
+   targetBitmap = inTargetBitmap;
+}
+
+/***
+ *
+ */
+std::shared_ptr<Bitmap> GraphicsHandler::getTargetBitmap()
+{
+   return targetBitmap;
+}
+
+
 
 
 
