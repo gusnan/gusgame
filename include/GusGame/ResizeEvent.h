@@ -39,7 +39,7 @@ class ResizeEvent
 {
 public:
    ResizeEvent();
-   ResizeEvent(ALLEGRO_EVENT alEvent);
+   explicit ResizeEvent(ALLEGRO_EVENT alEvent);
    // ActiveEvent(ActiveWindowState windowState);
 
    virtual ~ResizeEvent();

@@ -37,7 +37,7 @@ class MouseScrollerEvent
 {
 public:
    MouseScrollerEvent();
-   MouseScrollerEvent(ALLEGRO_EVENT ev);
+   explicit MouseScrollerEvent(ALLEGRO_EVENT ev);
 
    MouseScrollerEvent(const MouseScrollerEvent &source);
 

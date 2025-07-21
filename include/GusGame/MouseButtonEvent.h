@@ -40,7 +40,7 @@ enum MouseButtonStatus {MouseButtonStatusPressed=1, MouseButtonStatusReleased=2}
 class MouseButtonEvent
 {
 public:
-   MouseButtonEvent(ALLEGRO_EVENT event);
+   explicit MouseButtonEvent(ALLEGRO_EVENT event);
    virtual ~MouseButtonEvent();
 
    Gus::GraphicsLib::Vector2d getPosition() const;

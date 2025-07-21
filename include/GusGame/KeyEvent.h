@@ -91,7 +91,7 @@ public:
    KeyEvent(const KeyEvent &source);
    KeyEvent &operator=(const KeyEvent &source);
 
-   KeyEvent(ALLEGRO_EVENT event);
+   explicit KeyEvent(ALLEGRO_EVENT event);
 
    virtual ~KeyEvent();
 

@@ -43,8 +43,8 @@ class UserEvent
 {
 public:
    UserEvent();
-   UserEvent(ALLEGRO_EVENT ev);
-   UserEvent(int number);
+   explicit UserEvent(ALLEGRO_EVENT ev);
+   explicit UserEvent(int number);
 
    UserEvent(const UserEvent &source);
    UserEvent &operator=(const UserEvent &source);

@@ -43,7 +43,7 @@ namespace ExceptionLib
 class Exception
 {
 public:
-   Exception(std::string message);
+   explicit Exception(std::string message);
    virtual ~Exception();
 
    void addMessage(std::string mes);

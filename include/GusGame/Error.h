@@ -40,8 +40,8 @@ class Error
 {
 public:
    Error() = delete;
-   Error(Exception &e);
-   Error(std::string);
+   explicit Error(Exception &e);
+   explicit Error(std::string);
    virtual ~Error();
 
    void setString(std::string st);

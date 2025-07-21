@@ -44,7 +44,7 @@ public:
    Color(float, float, float);
    Color(float, float, float, float);
 
-   Color(ALLEGRO_COLOR allegroColor);
+   explicit Color(ALLEGRO_COLOR allegroColor);
 
    Color(const Color &source);
    Color &operator=(const Color &source);

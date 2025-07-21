@@ -39,7 +39,7 @@ class StringToIntException : public RuntimeError
 {
 public:
    StringToIntException();
-   StringToIntException(std::string message);
+   explicit StringToIntException(std::string message);
    virtual ~StringToIntException();
 protected:
 };

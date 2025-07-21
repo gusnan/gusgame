@@ -39,9 +39,9 @@ class MouseMotionEvent
 {
 public:
    MouseMotionEvent();
-   MouseMotionEvent(ALLEGRO_EVENT ev);
+   explicit MouseMotionEvent(ALLEGRO_EVENT ev);
 
-   MouseMotionEvent(const GraphicsLib::Vector2d &position);
+   explicit MouseMotionEvent(const GraphicsLib::Vector2d &position);
    virtual ~MouseMotionEvent();
 
    GraphicsLib::Vector2d getPosition() const;

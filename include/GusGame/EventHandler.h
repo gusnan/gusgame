@@ -40,7 +40,7 @@ namespace EventLib
 class EventHandler
 {
 public:
-   GUSGAME_DLL EventHandler(std::string inName = "");
+   explicit GUSGAME_DLL EventHandler(std::string inName = "");
    GUSGAME_DLL virtual ~EventHandler();
 
    GUSGAME_DLL EventHandler(const EventHandler &source);

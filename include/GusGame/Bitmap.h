@@ -51,11 +51,11 @@ public:
    Bitmap();
    Bitmap(const Bitmap &source);
 
-   Bitmap(const Vector2d &size);
+   explicit Bitmap(const Vector2d &size);
 
    Bitmap &operator=(const Bitmap &source);
 
-   Bitmap(const std::string &filename, bool inNoResize = false);
+   explicit Bitmap(const std::string &filename, bool inNoResize = false);
 
    virtual ~Bitmap();
 
