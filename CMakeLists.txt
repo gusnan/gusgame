@@ -139,6 +139,8 @@ set(INCLUDE_FILES
    ${INC}/FontHandler.h
    
    ${INC}/GusGame.h
+   
+   ${INC}/SoundHandler.h
 )
 
 set(SOURCES
@@ -177,6 +179,8 @@ set(SOURCES
    src/EventLib/SystemQuitEvent.cpp
    src/EventLib/QuitEvent.cpp
    src/EventLib/ResizeEvent.cpp
+   
+   src/SoundLib/SoundHandler.cpp
 )
 
 if (WIN32)
