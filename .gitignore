@@ -1,3 +1,5 @@
 build/example*
 lib/libgusgame.a
 build/*
+data/font.png
+data/font2.png
