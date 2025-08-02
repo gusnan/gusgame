@@ -33,6 +33,7 @@
 #include "GraphicsHandler.h"
 
 #include "Font.h"
+#include "BitmapFont.h"
 #include "FontHandler.h"
 
 #include "Timer.h"

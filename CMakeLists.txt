@@ -137,6 +137,7 @@ set(INCLUDE_FILES
    
    ${INC}/Font.h
    ${INC}/FontHandler.h
+   ${INC}/BitmapFont.h
    
    ${INC}/GusGame.h
    
@@ -159,6 +160,7 @@ set(SOURCES
    src/GraphicsLib/GraphicsHandler.cpp
    src/GraphicsLib/Color.cpp
    src/GraphicsLib/Font.cpp
+   src/GraphicsLib/BitmapFont.cpp
    src/GraphicsLib/FontHandler.cpp
    src/GraphicsLib/Timer.cpp
    src/GraphicsLib/Bitmap.cpp
@@ -248,6 +250,9 @@ target_link_libraries(example8 ${ALL_LIBS} ${LIBRARY_NAME})
 
 add_executable(example9 WIN32 ${EX_DIR}/example9.cpp)
 target_link_libraries(example9 ${ALL_LIBS} ${LIBRARY_NAME})
+
+add_executable(example10 WIN32 ${EX_DIR}/example10.cpp)
+target_link_libraries(example10 ${ALL_LIBS} ${LIBRARY_NAME})
 
 install_targets(/lib ${LIBRARY_NAME})
 
