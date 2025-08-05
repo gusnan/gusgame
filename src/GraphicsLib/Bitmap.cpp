@@ -476,6 +476,17 @@ void Bitmap::drawPattern(const Rect &rect, float opacity)
 /**
  *
  */
+void Bitmap::convertMaskToAlpha(const Vector2d &pos)
+{
+   ALLEGRO_COLOR color = al_get_pixel(m_AllegroBitmap, pos.x, pos.y);
+
+   al_convert_mask_to_alpha(m_AllegroBitmap, color);
+}
+
+
+/**
+ *
+ */
 
 
 // end of namespace

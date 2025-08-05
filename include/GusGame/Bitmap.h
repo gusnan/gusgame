@@ -83,6 +83,8 @@ public:
 
    void drawPattern(const Rect &rect, float opacity = 1.0f);
 
+   void convertMaskToAlpha(const Vector2d &pos);
+
 protected:
 
    ALLEGRO_BITMAP *m_AllegroBitmap;
