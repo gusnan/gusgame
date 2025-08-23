@@ -97,6 +97,30 @@ void Mouse::setMouseBitmap(std::shared_ptr<Bitmap> mouseBitmap)
 }
 
 
+/**
+ *
+ */
+void Mouse::hide()
+{
+   ALLEGRO_DISPLAY *display = GraphicsHandler::instance().getDisplay();
+
+   al_hide_mouse_cursor(display);
+}
+
+
+/**
+ *
+ */
+void Mouse::show()
+{
+   ALLEGRO_DISPLAY *display = GraphicsHandler::instance().getDisplay();
+
+   al_set_mouse_cursor(display, NULL);
+
+   al_show_mouse_cursor(display);
+}
+
+
 // end of namespace
 // ----------------
 };
