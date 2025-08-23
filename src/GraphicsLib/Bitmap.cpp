@@ -222,6 +222,22 @@ void Bitmap::blit(const Vector2d &position, float opacity)
 /**
  *
  */
+void Bitmap::blitIgnoreResize(const Vector2d &position, float opacity)
+{
+   if (m_AllegroBitmap) {
+      // al_draw_bitmap(m_AllegroBitmap, (float)position.x, (float)position.y, 0);
+
+      std::shared_ptr<Bitmap> target = GraphicsHandler::instance().getTargetBitmap();
+
+      al_draw_scaled_bitmap(m_AllegroBitmap, 0, 0, m_Size.x, m_Size.y, position.x, position.y,
+            m_Size.x, m_Size.y, 0/*al_flags*/);
+   }
+}
+
+
+/**
+ *
+ */
 void Bitmap::blitFlipped(const Vector2d &position, FlipDirection inFlags, float opacity)
 {
    if (m_AllegroBitmap) {

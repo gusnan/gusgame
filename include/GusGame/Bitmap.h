@@ -83,6 +83,8 @@ public:
 
    void drawPattern(const Rect &rect, float opacity = 1.0f);
 
+   void blitIgnoreResize(const Vector2d &position, float opacity = 1.0f);
+
    void convertMaskToAlpha(const Vector2d &pos);
 
 protected:
