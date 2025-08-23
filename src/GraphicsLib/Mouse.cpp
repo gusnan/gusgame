@@ -87,9 +87,11 @@ void Mouse::setMouseBitmap(std::shared_ptr<Bitmap> mouseBitmap)
       systemMouseCursor = al_create_mouse_cursor(mouseBitmap->getAllegroBitmap(), 0, 0);
    }
 
+   ALLEGRO_DISPLAY *display = GraphicsHandler::instance().getDisplay();
+
    if (systemMouseCursor) {
-      if (GraphicsHandler::instance().getDisplay()) {
-         al_set_mouse_cursor(GraphicsHandler::instance().getDisplay(), systemMouseCursor);
+      if (display) {
+         al_set_mouse_cursor(display, systemMouseCursor);
       }
    }
 }
