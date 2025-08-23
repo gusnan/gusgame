@@ -75,8 +75,7 @@ endif (NOT ALLEGRO_FOUND)
 
 
 add_custom_target(cppcheck
-      cppcheck -I/usr/include -I/usr/local/include
-   --inline-suppr --enable=all --std=c++20 ../src/
+      cppcheck -I/usr/include --inline-suppr --suppress=missingInclude --std=c++20 ../src/
 
    #cppcheck --suppress=missingIncludeSystem --inline-suppr --enable=all ../src/
    # cppcheck --suppress=missingIncludeSystem --suppress=unmatchedSuppression:src/script.c -i src/icons/icons_resources.c --inline-suppr --enable=all ./src/
