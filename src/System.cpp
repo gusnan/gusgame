@@ -76,6 +76,10 @@ void System::initSystem()
    FileHelper::addDataFolder("../data/");
    FileHelper::addDataFolder("../../data/");
 
+   FileHelper::addDataFolder("script/");
+   FileHelper::addDataFolder("../script/");
+   FileHelper::addDataFolder("../../script/");
+
 
    ALLEGRO_PATH *path_including_filename = al_get_standard_path(ALLEGRO_EXENAME_PATH);
 

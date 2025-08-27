@@ -59,7 +59,7 @@ using namespace EventLib;
 /**
  *
  */
-UserEvent::UserEvent() : m_UserEventNumber(0), userEvent(), m_EventData()
+UserEvent::UserEvent() : m_UserEventNumber(0), userEvent() /*, /*m_EventString(""), m_CStyleString(NULL) */
 {
    static int value = 1;
 
@@ -70,32 +70,57 @@ UserEvent::UserEvent() : m_UserEventNumber(0), userEvent(), m_EventData()
 /**
  *
  */
-UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventNumber(), userEvent(), m_EventData()
+UserEvent::UserEvent(ALLEGRO_EVENT ev) : m_UserEventNumber(), userEvent() /*m_EventString(""), m_CStyleString(NULL) */
 {
    m_UserEventNumber = ev.user.data1;
-   m_EventData = reinterpret_cast<EventData*>(ev.user.data2);
-   //userEvent=ev;
+
+   userEvent.user = ev.user;
+
+   userEvent.user.data1 = ev.user.data1;
+   userEvent.user.data2 = ev.user.data2;
+
 }
 
 
 /**
  *
  */
-UserEvent::UserEvent(int inNumber) : m_UserEventNumber(inNumber), userEvent(), m_EventData()
-{
-}
-
-
-/**
- *
- */
-UserEvent::UserEvent(const UserEvent &source) : m_UserEventNumber(), userEvent(), m_EventData()
+UserEvent::UserEvent(const UserEvent &source) : m_UserEventNumber(), userEvent() /*m_EventData(),*/ /*m_EventString(source.m_EventString), m_CStyleString(NULL) */ 
 {
    userEvent = source.userEvent;
+   userEvent.user.data1 = source.userEvent.user.data1;
+   userEvent.user.data2 = source.userEvent.user.data2;
+
    m_UserEventNumber = source.m_UserEventNumber;
-   m_EventData = source.m_EventData;
 }
 
+
+
+UserEvent::UserEvent(UserEvent *source) : m_UserEventNumber(), userEvent()
+{
+   userEvent = source->userEvent;
+   userEvent.user.data1 = source->userEvent.user.data1;
+   userEvent.user.data2 = source->userEvent.user.data2;
+
+   m_UserEventNumber = source->m_UserEventNumber;
+
+   m_UserEventNumber = source->m_UserEventNumber;
+}
+
+
+/**
+ *
+ */
+UserEvent::UserEvent(const UserEvent *source) : m_UserEventNumber(), userEvent()
+{
+   userEvent = source->userEvent;
+   userEvent.user.data1 = source->userEvent.user.data1;
+   userEvent.user.data2 = source->userEvent.user.data2;
+
+   m_UserEventNumber = source->m_UserEventNumber;
+
+   m_UserEventNumber = source->m_UserEventNumber;
+}
 
 /**
  *
@@ -104,14 +129,15 @@ UserEvent &UserEvent::operator=(const UserEvent &source)
 {
    if (this != &source) {
 
-      userEvent = source.userEvent;
       m_UserEventNumber = source.m_UserEventNumber;
-      m_EventData = source.m_EventData;
+
+      userEvent.user = source.userEvent.user;
+      userEvent.user.data1 = source.userEvent.user.data1;
+      userEvent.user.data2 = source.userEvent.user.data2;
    }
 
    return *this;
 }
-
 
 /**
  *
@@ -139,6 +165,8 @@ bool UserEvent::operator!=(const UserEvent &other) const {
  */
 UserEvent::~UserEvent()
 {
+   // delete the memory for the string
+   // free(m_CStyleString);
 }
 
 
@@ -163,18 +191,56 @@ int UserEvent::getUserEventNumber()
 /**
  *
  */
-void UserEvent::setEventData(EventData *eventData)
+void UserEvent::setUserEventNumber(int inNumber)
 {
-   m_EventData = eventData;
+   m_UserEventNumber = inNumber;
+}
+
+
+
+/**
+ *
+ */
+std::string UserEvent::getEventString()
+{
+   std::string result = "";
+
+   char *temp = (char*)(userEvent.user.data2);
+
+   std::stringstream st;
+
+   if (temp != NULL) {
+      st << "" << temp;
+   }
+   return st.str(); //result;
 }
 
 
 /**
  *
  */
-EventData *UserEvent::getEventData()
+
+void UserEvent::setEventString(const std::string &inString)
 {
-   return m_EventData;
+   char *temp = (char*)inString.c_str();
+   sprintf(m_CStyleString, "%s", (char*)temp);
+
+   userEvent.user.data2 = (intptr_t)(m_CStyleString);
+}
+
+
+/**
+ *
+ */
+void UserEvent::print()
+{
+   std::stringstream st;
+
+   std::string eventString = getEventString();
+   st << "-- Userevent string :";
+   st << eventString;
+
+   STLOG(st);
 }
 
 // end of namespace

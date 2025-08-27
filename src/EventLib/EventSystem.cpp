@@ -251,6 +251,7 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
    case SIMPLE_USER_EVENT_TYPE:
       {
          UserEvent userEvent(ev);
+
          result = eventHandler.get()->handleUserEvent(userEvent);
       }
       break;
@@ -377,11 +378,15 @@ void EventSystem::handleEvents()
 
       ALLEGRO_EVENT userEvent;
 
+      char *temp = (char*)calloc(100, sizeof(char));
+
+      sprintf(temp, "%s", ((current_event->getEventString()).c_str()));
+
       userEvent.user.type = SIMPLE_USER_EVENT_TYPE;
       userEvent.user.data1 = current_event->getUserEventNumber();
-      userEvent.user.data2 = (intptr_t)current_event->getEventData();
+      userEvent.user.data2 = (intptr_t)(temp);
 
-      if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, nullptr)) {
+      if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, NULL)) {
          std::cout << "al_emit_user_event FAILED!" << std::endl;
       }
    }

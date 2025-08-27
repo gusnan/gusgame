@@ -44,7 +44,9 @@ class UserEvent
 public:
    UserEvent();
    explicit UserEvent(ALLEGRO_EVENT ev);
-   explicit UserEvent(int number);
+
+   UserEvent(UserEvent *userEvent);
+   UserEvent(const UserEvent *userEvent);
 
    UserEvent(const UserEvent &source);
    UserEvent &operator=(const UserEvent &source);
@@ -57,16 +59,19 @@ public:
    void pushEvent();
 
    int getUserEventNumber();
+   void setUserEventNumber(int inNumber);
 
-   void setEventData(EventData *inEventData);
-   EventData *getEventData();
+   std::string getEventString();
+   void setEventString(const std::string &inString);
+
+   void print();
 
 protected:
    int m_UserEventNumber;
 
    ALLEGRO_EVENT userEvent;
 
-   EventData *m_EventData;
+   char m_CStyleString[100];
 };
 
 // end of namespace
