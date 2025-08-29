@@ -49,7 +49,7 @@ Color colorYellow = Color(1.0f, 1.0f, 0.0f, 1.0f);
 Color colorLightGray = Color(0.8f, 0.8, 0.8f, 1.0f);
 Color colorDarkGray = Color(0.3125f, 0.3125f, 0.3125f, 1.0f);
 Color colorMediumGray = Color(0.4375f, 0.4375f, 0.4375f, 1.0f);
-
+Color colorCyan = Color(0.0f, 0.859f, 0.859f, 1.0f);
 
 
 /**
