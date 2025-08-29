@@ -48,6 +48,8 @@ namespace EventSystem
 
    void printEventHandlers();
 
+   void pushEvent(std::shared_ptr<UserEvent> event);
+
    extern ALLEGRO_EVENT_QUEUE *eventQueue;
 
    //extern EventHandler *eventHandler;
@@ -58,7 +60,7 @@ namespace EventSystem
 
    extern ALLEGRO_EVENT_SOURCE userEventSource;
 
-   extern std::list<UserEvent*> *listDelayedEvents;
+   extern std::list<std::shared_ptr<UserEvent> > *listDelayedEvents;
 
 
    extern std::list<EventHandlerPtr> *handlersToRemove;

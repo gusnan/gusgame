@@ -173,15 +173,6 @@ UserEvent::~UserEvent()
 /**
  *
  */
-void UserEvent::pushEvent()
-{
-   EventSystem::listDelayedEvents->push_back(this);
-}
-
-
-/**
- *
- */
 int UserEvent::getUserEventNumber()
 {
    return m_UserEventNumber;

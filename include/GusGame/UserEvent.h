@@ -56,8 +56,6 @@ public:
 
    virtual ~UserEvent();
 
-   void pushEvent();
-
    int getUserEventNumber();
    void setUserEventNumber(int inNumber);
 

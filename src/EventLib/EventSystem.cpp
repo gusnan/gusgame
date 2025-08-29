@@ -74,7 +74,7 @@ ALLEGRO_EVENT_SOURCE EventSystem::userEventSource;
 
 std::list<EventHandlerPtr> *EventSystem::listOfEventHandlers = nullptr;
 
-std::list<UserEvent*> *EventSystem::listDelayedEvents = nullptr;
+std::list<std::shared_ptr<UserEvent> > *EventSystem::listDelayedEvents = nullptr;
 
 
 std::list<EventHandlerPtr> *EventSystem::handlersToRemove = nullptr;
@@ -98,7 +98,6 @@ void EventSystem::initEventSystem()
    al_init_user_event_source(&userEventSource);
 
    listOfEventHandlers = new std::list<EventHandlerPtr>;
-
    listOfEventHandlers->clear();
 
    al_register_event_source(eventQueue, &userEventSource);
@@ -117,7 +116,7 @@ void EventSystem::initEventSystem()
 
    al_init_timeout(&timeout, 0.1);
 
-   listDelayedEvents = new std::list<UserEvent*>();
+   listDelayedEvents = new std::list<std::shared_ptr<UserEvent> >();
    listDelayedEvents->clear();
 
    handlersToRemove = new std::list<EventHandlerPtr>();
@@ -146,17 +145,19 @@ void EventSystem::doneEventSystem()
 
       // Don't delete the eventhandlers in the list here, you'll have to do
       // it by hand
-
+      listOfEventHandlers->clear();
       delete listOfEventHandlers;
       listOfEventHandlers = 0;
    }
 
    if (listDelayedEvents) {
+      listDelayedEvents->clear();
       delete listDelayedEvents;
       listDelayedEvents = 0;
    }
 
    if (handlersToRemove) {
+      handlersToRemove->clear();
       delete handlersToRemove;
       handlersToRemove = 0;
    }
@@ -311,6 +312,14 @@ bool EventSystem::doHandleEvents(ALLEGRO_EVENT ev, EventHandlerPtr eventHandler)
 /**
  *
  */
+static void event_destructor(ALLEGRO_USER_EVENT *event)
+{
+   free((void *)event->data2);
+}
+
+/**
+ *
+ */
 void EventSystem::handleEvents()
 {
    ALLEGRO_EVENT ev;
@@ -370,13 +379,12 @@ void EventSystem::handleEvents()
 
    // Push the delayed events
 
-   std::list<UserEvent*>::iterator iter;
+   std::list<std::shared_ptr<UserEvent> >::iterator iter;
+   ALLEGRO_EVENT userEvent;
 
-   for (iter = listDelayedEvents->begin(); iter != listDelayedEvents->end(); ++iter) {
+   for (iter = listDelayedEvents->begin(); iter != listDelayedEvents->end(); /* ++iter*/) {
 
-      UserEvent *current_event = (*iter);
-
-      ALLEGRO_EVENT userEvent;
+      std::shared_ptr<UserEvent> current_event = (*iter);
 
       char *temp = (char*)calloc(100, sizeof(char));
 
@@ -386,9 +394,13 @@ void EventSystem::handleEvents()
       userEvent.user.data1 = current_event->getUserEventNumber();
       userEvent.user.data2 = (intptr_t)(temp);
 
-      if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, NULL)) {
+      if (!al_emit_user_event(&EventSystem::userEventSource, &userEvent, event_destructor)) {
          std::cout << "al_emit_user_event FAILED!" << std::endl;
       }
+
+      // current_event.reset();
+      iter = listDelayedEvents->erase(iter);
+
    }
 
    listDelayedEvents->clear();
@@ -425,6 +437,15 @@ void EventSystem::printEventHandlers()
 
 
    LOG("--------");
+}
+
+
+/**
+ *
+ */
+void EventSystem::pushEvent(std::shared_ptr<UserEvent> event)
+{
+   listDelayedEvents->push_back(event);
 }
 
 

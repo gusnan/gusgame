@@ -64,8 +64,8 @@ public:
          }
          else {
             std::cout << "Any key pressed" << std::endl;
-            testEvent2->pushEvent();
-            testEvent->pushEvent();
+            EventSystem::pushEvent(testEvent2);
+            EventSystem::pushEvent(testEvent);
             // event is handled - return true
             return true;
          }
@@ -78,7 +78,7 @@ public:
     */
    virtual void handleQuitEvent()
    {
-      testEvent->pushEvent();
+      EventSystem::pushEvent(testEvent);
    }
 
    /**
@@ -89,7 +89,7 @@ public:
     */
    virtual void handleSystemQuitEvent()
    {
-      testEvent->pushEvent();
+      EventSystem::pushEvent(testEvent);
    }
 
    /**
