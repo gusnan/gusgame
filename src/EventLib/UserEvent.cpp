@@ -63,7 +63,12 @@ UserEvent::UserEvent() : m_UserEventNumber(0), userEvent() /*, /*m_EventString("
 {
    static int value = 1;
 
+
    m_UserEventNumber = ++value;
+
+   userEvent.user.data1 = (intptr_t)NULL;
+   userEvent.user.data2 = (intptr_t)NULL;
+
 }
 
 
